@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.1.0",
+  "catalogVersion": "1.2.0",
   "updatedAt": "2026-08-20",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -97,14 +97,6 @@
       "install": "github:shaobeichen/dsh-pocket"
     },
     {
-      "id": "dsh-client-auto-continue",
-      "name": "dsh-client-auto-continue",
-      "version": "0.7.1",
-      "description": "网络错误或非人为中断后自动发送“继续”。",
-      "source": "https://github.com/HsiangNianian/dsh-auto-continue",
-      "install": "github:HsiangNianian/dsh-auto-continue"
-    },
-    {
       "id": "dsh-usage-stats",
       "name": "dsh-usage-stats",
       "version": "1.0.0",
@@ -127,14 +119,6 @@
       "description": "撤回消息，并将项目文件和对话历史回退到指定消息之前。",
       "source": "https://github.com/limbo947/dsh-recall-plugin",
       "install": "github:limbo947/dsh-recall-plugin"
-    },
-    {
-      "id": "dsh-share",
-      "name": "dsh-share",
-      "version": "0.3.1",
-      "description": "将问答或选定对话组导出为 PNG 或 Markdown。",
-      "source": "https://github.com/hellodigua/dsh-share",
-      "install": "github:hellodigua/dsh-share"
     },
     {
       "id": "dsh-custom-provider-settings",

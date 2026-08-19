@@ -74,11 +74,9 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 | `merge-tool-calls` | `@huanlin/dsh-plugin-merge-tool-calls` | 0.2.0 | 合并工具调用，减少多个工具调用造成的交互噪声。 | [HuanLinOTO/dsh-plugin-merge-tool-calls](https://github.com/HuanLinOTO/dsh-plugin-merge-tool-calls) |
 | `dsh-pet` | `dsh-pet` | 0.1.4 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
 | `dsh-pocket` | `dsh-pocket` | 1.8.3 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。 | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) |
-| `dsh-client-auto-continue` | `dsh-client-auto-continue` | 0.7.1 | 网络错误或非人为中断后自动发送“继续”。 | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
 | `dsh-usage-stats` | `dsh-usage-stats` | 1.0.0 | 提供 Token、缓存命中、账户余额和工作区别名统计看板。 | [Make0209/dsh-usage-stats](https://github.com/Make0209/dsh-usage-stats) |
 | `dsh-drag-and-drop` | `@omdsh-dev/dsh-drag-and-drop` | 0.1.5 | 将本地文件拖入 DSH Web UI，并插入原始文件路径。 | [omdsh-dev/dsh-drag-and-drop](https://github.com/omdsh-dev/dsh-drag-and-drop) |
 | `dsh-recall-plugin` | `dsh-recall-plugin` | 1.4.0 | 撤回消息，并将项目文件和对话历史回退到指定消息之前。 | [limbo947/dsh-recall-plugin](https://github.com/limbo947/dsh-recall-plugin) |
-| `dsh-share` | `dsh-share` | 0.3.1 | 将问答或选定对话组导出为 PNG 或 Markdown。 | [hellodigua/dsh-share](https://github.com/hellodigua/dsh-share) |
 | `dsh-custom-provider-settings` | `dsh-custom-provider-settings` | 0.4.0 | 为自定义 Provider 增加请求头、图片输入和推理设置。 | [supersealwqas/dsh-custom-provider-settings](https://github.com/supersealwqas/dsh-custom-provider-settings) |
 | `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.5 | 在悬浮 Web 面板中实时监控 OpenCode Go 的 5 小时滚动 / 周 / 月配额并展示用量。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
 
