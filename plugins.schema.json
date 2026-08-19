@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["catalogVersion", "updatedAt", "install", "plugins"],
+  "properties": {
+    "catalogVersion": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "install": {
+      "type": "object",
+      "required": ["command", "profile", "sourcePolicy"],
+      "properties": {
+        "command": { "type": "string" },
+        "profile": { "type": "string" },
+        "sourcePolicy": { "const": "github" }
+      }
+    },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "version", "description", "source", "install"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" },
+          "source": { "type": "string" },
+          "install": { "type": "string", "pattern": "^github:" }
+        }
+      }
+    }
+  }
+}
