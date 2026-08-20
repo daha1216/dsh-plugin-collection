@@ -84,31 +84,35 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 
 ## 更新插件
 
-下面每个插件的更新命令直接取自它的 GitHub 来源（`dsh plugin --profile web update github:<owner>/<repo>`，等价于在该 Web profile 内按上游默认分支重新拉取最新版本）。命令前统一带 `npx --yes -p @deepseek-ai/dsh`，与上方安装命令保持一致。
+下面的更新命令**逐条取自各插件上游仓库 README 的原生写法**（不是本目录自造的统一命令）。有些仓库写的是专门的 `update` 动词，多数是「重跑安装命令即更新」；`dsh` 命令要求 DSH CLI 已在 PATH，未全局安装时在前面加 `npx --yes -p @deepseek-ai/dsh` 即可。
 
-| ID | 更新命令 |
+| ID | 更新命令（来自各插件 README） |
 |---|---|
-| `dsh-better-sidebar` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:omdsh-dev/DSH-better-sidebar` |
-| `modlens` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:liustack/modlens` |
-| `dshmarket` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:dsh-market/dsh-market` |
-| `dsh-super-injector` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:yjh051108/dsh-super-injector` |
-| `dsh-notification` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:omdsh-dev/dsh-notification` |
-| `dsh-context` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:bowenliang123/dsh-context` |
-| `dsh-at-file` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:omdsh-dev/dsh-at-file` |
-| `dsh-skills` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:CocoSgt/dsh-skills` |
-| `merge-tool-calls` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:HuanLinOTO/dsh-plugin-merge-tool-calls` |
-| `dsh-pet` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:PC2005-cloud/dsh-pet#path:dsh-pet` |
-| `dsh-pocket` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:shaobeichen/dsh-pocket` |
-| `dsh-usage-stats` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:Make0209/dsh-usage-stats` |
-| `dsh-drag-and-drop` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:omdsh-dev/dsh-drag-and-drop` |
-| `dsh-recall-plugin` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:limbo947/dsh-recall-plugin` |
-| `dsh-custom-provider-settings` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:supersealwqas/dsh-custom-provider-settings` |
-| `dsh-opencode-go-usage` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web update github:xueayi/dsh-opencode-go-usage` |
+| `dsh-better-sidebar` | `dsh plugin --profile web add dsh-better-sidebar@latest` |
+| `modlens` | `npx -y @deepseek-ai/dsh plugin --profile web add @liustack/modlens@3.22.0` |
+| `dshmarket` | `dsh plugin --profile web add dshmarket` |
+| `dsh-super-injector` | `dsh plugin --profile web add github:yjh051108/dsh-super-injector` |
+| `dsh-notification` | `dsh plugin --profile web add https://github.com/omdsh-dev/dsh-notification/archive/refs/tags/v0.1.3.tar.gz` |
+| `dsh-context` | `dsh plugin --profile web update dsh-context@latest` |
+| `dsh-at-file` | `dsh plugin --profile web add https://github.com/omdsh-dev/dsh-at-file/archive/refs/tags/v0.6.5.tar.gz` |
+| `dsh-skills` | `dsh plugin --profile web add dsh-skills` |
+| `merge-tool-calls` | `dsh plugin --profile web add "github:huanlinoto/dsh-plugin-merge-tool-calls"` |
+| `dsh-pet` | `dsh plugin --profile web add dsh-pet` |
+| `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
+| `dsh-usage-stats` | `dsh plugin --profile web add dsh-usage-stats` |
+| `dsh-drag-and-drop` | `dsh plugin --profile web update github:omdsh-dev/dsh-drag-and-drop` |
+| `dsh-recall-plugin` | `dsh plugin --profile web add dsh-recall-plugin` |
+| `dsh-custom-provider-settings` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:supersealwqas/dsh-custom-provider-settings` |
+| `dsh-opencode-go-usage` | `dsh plugin --profile web update @xueayi/dsh-opencode-go-usage` |
 
-> **说明**
-> - `dsh-context` 与 `dsh-usage-stats` 在本目录里固定（pin）到发布 tag（见 `plugins.json` 的 `install`）。上面的更新命令跟随上游默认分支拉取最新；若想继续固定到某个发行版，按新 tag 手动改回对应 `install` 即可。
-> - `dsh-pet` 是 monorepo，更新命令保留 `#path:dsh-pet` 指向子包路径，不能省略。
-> - 部分上游仓库在 README 里给出的是 npm registry 形式的命令（例如 `dsh plugin --profile web update dsh-context@latest`、`dsh plugin --profile web add dsh-better-sidebar@latest`、`npx -y @deepseek-ai/dsh plugin --profile web add @liustack/modlens@<版本>`、`dsh plugin --profile web add dsh-pocket -w`，以及 `dsh-notification` / `dsh-at-file` 的 release tar 包地址）。本目录统一采用 `github:` 形式，和 `install` 同源、不漂移。
+> **说明（按各仓库 README 的原文口径）**
+> - 多数插件（如 `dsh-better-sidebar`、`merge-tool-calls`、`dsh-market`、`dsh-skills` 等）README 没有单独列 update，更新就是重跑 README 里的 `add` 命令。
+> - `modlens` README 特意用**具体版本号**而不是 `@latest`（pnpm 11 会 hold back 发布不足 24 小时的版本）：升级到新版本时把命令里的 `3.22.0` 换成新版本号即可。
+> - `dsh-notification` / `dsh-at-file` 走 release tar 包：升级时把链接里的 tag `v0.1.3` / `v0.6.5` 换成上游最新 tag。
+> - `dsh-pocket` 需要 `-w`（pnpm workspace 根限制）且跨大版本时 `--latest` 必须（`^0.x` 不会自动升到 1.x）。
+> - `dshmarket` 本身是插件市场，README 说它**在设置页里自己就能一键更新**（含它自己）。
+> - `dsh-usage-stats` 本目录固定（pin）到 tag `v1.0.1`；`dsh-context` 同时在上游和本目录都固定了发布 tag，升级新发行版时按需手动更新对应 tag。
+> - 这些是上游 README 的原生命令，与上方 `install`（统一 `github:` 源码安装）可能走不同通道；已安装成源码/指定规范时，按你自己的安装方式重跑 `install` 也能达到同样效果。
 
 ## 安全与责任边界
 
