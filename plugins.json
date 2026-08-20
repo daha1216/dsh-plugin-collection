@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
   "catalogVersion": "1.6.0",
-  "updatedAt": "2026-08-20",
+  "updatedAt": "2026-08-21",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
