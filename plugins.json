@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.5.0",
+  "catalogVersion": "1.6.0",
   "updatedAt": "2026-08-20",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -20,16 +20,16 @@
     {
       "id": "modlens",
       "name": "@liustack/modlens",
-      "version": "3.22.0",
+      "version": "3.22.1",
       "description": "为纯文本模型提供图片读取和视觉分析能力。",
       "source": "https://github.com/liustack/modlens",
       "install": "github:liustack/modlens",
-      "update": "npx -y @deepseek-ai/dsh plugin --profile web add @liustack/modlens@3.22.0"
+      "update": "npx -y @deepseek-ai/dsh plugin --profile web add @liustack/modlens@3.22.1"
     },
     {
       "id": "dshmarket",
       "name": "dshmarket",
-      "version": "1.15.0",
+      "version": "1.16.2",
       "description": "DSH 社区插件市场，支持浏览、搜索和一键安装插件。",
       "source": "https://github.com/dsh-market/dsh-market",
       "install": "github:dsh-market/dsh-market",
@@ -56,7 +56,7 @@
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.17.0",
+      "version": "0.19.2",
       "description": "查看上下文的组成、用量和演变情况。",
       "source": "https://github.com/bowenliang123/dsh-context",
       "install": "github:bowenliang123/dsh-context",
@@ -65,11 +65,11 @@
     {
       "id": "dsh-at-file",
       "name": "dsh-at-file",
-      "version": "0.6.5",
+      "version": "0.6.7",
       "description": "支持 Codex 风格的 @path 工作区路径引用。",
       "source": "https://github.com/omdsh-dev/dsh-at-file",
       "install": "github:omdsh-dev/dsh-at-file",
-      "update": "dsh plugin --profile web add https://github.com/omdsh-dev/dsh-at-file/archive/refs/tags/v0.6.5.tar.gz"
+      "update": "dsh plugin --profile web add https://github.com/omdsh-dev/dsh-at-file/archive/refs/tags/v0.6.7.tar.gz"
     },
     {
       "id": "dsh-skills",
@@ -101,7 +101,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "1.8.3",
+      "version": "1.9.2",
       "description": "通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。",
       "source": "https://github.com/shaobeichen/dsh-pocket",
       "install": "github:shaobeichen/dsh-pocket",
@@ -128,7 +128,7 @@
     {
       "id": "dsh-recall-plugin",
       "name": "dsh-recall-plugin",
-      "version": "1.4.0",
+      "version": "1.5.1",
       "description": "撤回消息，并将项目文件和对话历史回退到指定消息之前。",
       "source": "https://github.com/limbo947/dsh-recall-plugin",
       "install": "github:limbo947/dsh-recall-plugin",
