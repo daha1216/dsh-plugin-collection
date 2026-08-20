@@ -25,7 +25,8 @@
           "version": { "type": "string" },
           "description": { "type": "string" },
           "source": { "type": "string" },
-          "install": { "type": "string", "pattern": "^github:" }
+          "install": { "type": "string", "pattern": "^github:" },
+          "update": { "type": "string" }
         }
       }
     }
