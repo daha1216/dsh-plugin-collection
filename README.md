@@ -4,6 +4,8 @@ DeepSeek Harness（DSH）第三方插件目录。这里**只维护插件索引�
 
 ## 一键安装全部插件
 
+一键安装会安装目录里**每一个插件的当前最新版**：安装入口跟随各插件 GitHub 默认分支拉取，版本见下方「插件目录」表（版本号是快照，安装始终取上游最新默认分支）。
+
 Windows PowerShell：
 
 ```powershell
@@ -30,13 +32,13 @@ bash install.sh --all
 
 ## 单独安装
 
-先列出插件：
+先列出插件（`plugins.json` 的 ID 列表）：
 
 ```powershell
 .\install.ps1 -List
 ```
 
-然后按目录 ID 安装：
+然后按目录 ID 安装该插件的当前最新版：
 
 ```powershell
 .\install.ps1 -Plugin dsh-recall-plugin
@@ -49,7 +51,7 @@ bash install.sh --list
 bash install.sh --plugin dsh-recall-plugin
 ```
 
-也可以直接使用 DSH 官方安装命令。下面的安装源都是上游 GitHub 仓库，不是本集合仓库的副本：
+也可以直接使用 DSH 官方安装命令（跟随该插件 GitHub 默认分支，即最新版本）。下面的安装源都是上游 GitHub 仓库，不是本集合仓库的副本：
 
 ```powershell
 npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-recall-plugin
@@ -59,7 +61,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 
 ## 插件目录
 
-版本号是本目录最近一次核对时上游插件的版本快照；安装脚本默认跟随对应 GitHub 仓库当前默认分支。需要固定到某个发布版本时，请在插件原仓库查看对应 tag 或 release，并在安装前自行确认兼容性。
+版本号是本目录最近一次核对时上游插件的版本快照；一键安装 / 单独安装都默认跟随对应 GitHub 仓库当前默认分支（即安装最新版）。需要固定到某个发布版本时，请在插件原仓库查看对应 tag 或 release，并在安装前自行确认兼容性。
 
 | ID | 名称 | 版本 | 用途 | 来源 |
 |---|---|---:|---|---|
@@ -111,7 +113,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 > - `dsh-notification` / `dsh-at-file` 走 release tar 包：升级时把链接里的 tag `v0.1.3` / `v0.6.5` 换成上游最新 tag。
 > - `dsh-pocket` 需要 `-w`（pnpm workspace 根限制）且跨大版本时 `--latest` 必须（`^0.x` 不会自动升到 1.x）。
 > - `dshmarket` 本身是插件市场，README 说它**在设置页里自己就能一键更新**（含它自己）。
-> - `dsh-usage-stats` 本目录固定（pin）到 tag `v1.0.1`；`dsh-context` 同时在上游和本目录都固定了发布 tag，升级新发行版时按需手动更新对应 tag。
+> - 一键安装 / 单独安装默认都取各插件 GitHub 默认分支（**最新版**）；想固定到某发行版时，可在 `plugins.json` 的 `install` 里加 `#<tag>`，或改用命令里的 release tar / tag 地址。
 > - 这些是上游 README 的原生命令，与上方 `install`（统一 `github:` 源码安装）可能走不同通道；已安装成源码/指定规范时，按你自己的安装方式重跑 `install` 也能达到同样效果。
 
 ## 安全与责任边界

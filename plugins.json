@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.4.0",
+  "catalogVersion": "1.5.0",
   "updatedAt": "2026-08-20",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -59,7 +59,7 @@
       "version": "0.17.0",
       "description": "查看上下文的组成、用量和演变情况。",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "github:bowenliang123/dsh-context#v0.17.0",
+      "install": "github:bowenliang123/dsh-context",
       "update": "dsh plugin --profile web update dsh-context@latest"
     },
     {
@@ -113,7 +113,7 @@
       "version": "1.0.0",
       "description": "提供 Token、缓存命中、账户余额和工作区别名统计看板。",
       "source": "https://github.com/Make0209/dsh-usage-stats",
-      "install": "github:Make0209/dsh-usage-stats#v1.0.1",
+      "install": "github:Make0209/dsh-usage-stats",
       "update": "dsh plugin --profile web add dsh-usage-stats"
     },
     {
