@@ -67,12 +67,11 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 
 | ID | 名称 | 版本 | 用途 | 来源 |
 |---|---|---:|---|---|
-| `dsh-better-sidebar` | `dsh-better-sidebar` | 0.14.2 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
-| `modlens` | `@liustack/modlens` | 3.22.1 | 为纯文本模型提供图片读取和视觉分析能力。 | [liustack/modlens](https://github.com/liustack/modlens) |
+| `dsh-better-sidebar` | `dsh-better-sidebar` | 0.15.0 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
 | `dshmarket` | `dshmarket` | 1.17.1 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-super-injector` | `@dsh-external/dsh-super-injector` | 0.3.3 | 运行时注入、热重载、卸载本地 DSH 插件，并提供插件管理界面。 | [yjh051108/dsh-super-injector](https://github.com/yjh051108/dsh-super-injector) |
 | `dsh-notification` | `dsh-notification` | 0.1.3 | 请求完成后的浏览器桌面通知，支持结果和关键词过滤。 | [omdsh-dev/dsh-notification](https://github.com/omdsh-dev/dsh-notification) |
-| `dsh-context` | `dsh-context` | 0.21.0 | 查看上下文的组成、用量和演变情况。 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
+| `dsh-context` | `dsh-context` | 0.22.2 | 查看上下文的组成、用量和演变情况。 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
 | `dsh-at-file` | `dsh-at-file` | 0.6.7 | 支持 Codex 风格的 `@path` 工作区路径引用。 | [omdsh-dev/dsh-at-file](https://github.com/omdsh-dev/dsh-at-file) |
 | `dsh-skills` | `dsh-skills` | 0.1.1 | 聚合和管理全局、项目及 `.skill-package` 技能。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
 | `merge-tool-calls` | `@huanlin/dsh-plugin-merge-tool-calls` | 0.2.0 | 合并工具调用，减少多个工具调用造成的交互噪声。 | [HuanLinOTO/dsh-plugin-merge-tool-calls](https://github.com/HuanLinOTO/dsh-plugin-merge-tool-calls) |
@@ -83,6 +82,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 | `dsh-recall-plugin` | `dsh-recall-plugin` | 1.5.1 | 撤回消息，并将项目文件和对话历史回退到指定消息之前。 | [limbo947/dsh-recall-plugin](https://github.com/limbo947/dsh-recall-plugin) |
 | `dsh-custom-provider-settings` | `dsh-custom-provider-settings` | 0.4.0 | 为自定义 Provider 增加请求头、图片输入和推理设置。 | [supersealwqas/dsh-custom-provider-settings](https://github.com/supersealwqas/dsh-custom-provider-settings) |
 | `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.5 | 在悬浮 Web 面板中实时监控 OpenCode Go 的 5 小时滚动 / 周 / 月配额并展示用量。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
+| `dsh-agent-teams` | `@nanmicoder/dsh-agent-teams` | 0.1.11 | 多智能体团队协作：队长、成员、带依赖的任务与消息传递，Web 界面提供树状监控。 | [NanmiCoder/dsh-agent-teams](https://github.com/NanmiCoder/dsh-agent-teams) |
 
 机器可读目录见 [`plugins.json`](plugins.json)。安装脚本会从该文件读取插件来源，避免 README 表格和安装命令发生漂移。
 
@@ -93,7 +93,6 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 | ID | 更新命令（来自各插件 README） |
 |---|---|
 | `dsh-better-sidebar` | `dsh plugin --profile web add dsh-better-sidebar@latest` |
-| `modlens` | `npx -y @deepseek-ai/dsh plugin --profile web add @liustack/modlens@3.22.1` |
 | `dshmarket` | `dsh plugin --profile web add dshmarket` |
 | `dsh-super-injector` | `dsh plugin --profile web add github:yjh051108/dsh-super-injector` |
 | `dsh-notification` | `dsh plugin --profile web add https://github.com/omdsh-dev/dsh-notification/archive/refs/tags/v0.1.3.tar.gz` |
@@ -108,14 +107,14 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:limbo947/dsh-r
 | `dsh-recall-plugin` | `dsh plugin --profile web add dsh-recall-plugin` |
 | `dsh-custom-provider-settings` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:supersealwqas/dsh-custom-provider-settings` |
 | `dsh-opencode-go-usage` | `dsh plugin --profile web update @xueayi/dsh-opencode-go-usage` |
+| `dsh-agent-teams` | `dsh plugin --profile web add @nanmicoder/dsh-agent-teams` |
 
 > **说明（按各仓库 README 的原文口径）**
 > - 多数插件（如 `dsh-better-sidebar`、`merge-tool-calls`、`dsh-market`、`dsh-skills` 等）README 没有单独列 update，更新就是重跑 README 里的 `add` 命令。
-> - `modlens` README 特意用**具体版本号**而不是 `@latest`（pnpm 11 会 hold back 发布不足 24 小时的版本）：升级到新版本时把命令里的 `3.22.1` 换成新版本号即可。
 > - `dsh-notification` / `dsh-at-file` 走 release tar 包：升级时把链接里的 tag `v0.1.3` / `v0.6.7` 换成上游最新 tag。
 > - `dsh-pocket` 需要 `-w`（pnpm workspace 根限制）且跨大版本时 `--latest` 必须（`^0.x` 不会自动升到 1.x）。
 > - `dshmarket` 本身是插件市场，README 说它**在设置页里自己就能一键更新**（含它自己）。
-> - **registry 滞后提醒**：本机以 `github:` 源安装的插件，若重跑形如 `add <名字>@latest` 的原生命令，会被解析到 npm registry 源并可能拿到落后于 GitHub HEAD 的版本（实测 `dsh-better-sidebar@latest` 在 registry 上只有 0.14.0，GitHub 已是 0.14.2）。对这类插件，更新时直接用显式 `github:<owner>/<repo>` spec 重跑 install 更可靠。
+> - **registry 滞后提醒**：本机以 `github:` 源安装的插件，若重跑形如 `add <名字>@latest` 的原生命令，会被解析到 npm registry 源并可能拿到落后于 GitHub HEAD 的版本（实测 `dsh-notification` 在 registry 上只有 0.1.1，GitHub 已是 0.1.3；`@omdsh-dev/dsh-drag-and-drop` 甚至未发布到 registry）。对这类插件，更新时直接用显式 `github:<owner>/<repo>` spec 重跑 install 更可靠。
 > - 一键安装 / 单独安装默认都取各插件 GitHub 默认分支（**最新版**）；想固定到某发行版时，可在 `plugins.json` 的 `install` 里加 `#<tag>`，或改用命令里的 release tar / tag 地址。
 > - 这些是上游 README 的原生命令，与上方 `install`（统一 `github:` 源码安装）可能走不同通道；已安装成源码/指定规范时，按你自己的安装方式重跑 `install` 也能达到同样效果。
 
