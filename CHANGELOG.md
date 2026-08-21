@@ -1,5 +1,42 @@
 # Changelog
 
+## 2026-08-21 插件更新（第二轮：检查并更新 + 新装 dsh-context）
+
+本次检查全部 16 个目录条目：3 个插件有更新、1 个按需新装、1 处版本快照修正；其余 11 个已与上游 HEAD 一致。**本轮应用户要求未重启 `dsh web`，新版本在下次重启后加载（之后硬刷新浏览器）。**
+
+### dsh-better-sidebar
+- 版本：0.14.0 → 0.14.2
+- 来源：[omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar)
+- 变更：侧边卡片设置页 UI/UX 现代化——卡片底部设置条替代隐形齿轮 (#300)；子代理页实时预览改为批量接口，避免 O(N²) history 请求风暴 (#298)；侧边对话——每对话一 Tab（Codex 对齐）+ 完整上下文继承 (#286)；文件树支持上传文件进工作区 (#239)。
+- 注意：README 原生命令 `add dsh-better-sidebar@latest` 会解析到 npm registry 源（当前仅 0.14.0）并把 spec 从 `github:` 改写为 `^0.14.0`；本次实际用 `add github:omdsh-dev/DSH-better-sidebar` 完成升级并恢复源。
+- 生效：重启 `dsh web` 后硬刷新。
+
+### dshmarket
+- 版本：1.16.2 → 1.17.1
+- 来源：[dsh-market/dsh-market](https://github.com/dsh-market/dsh-market)
+- 变更：安装失败时显示 pnpm 自己的报错并分类 store 不匹配 (#252)；卡片网格改瀑布流布局不再留空洞 (#251)；捕获停止解析的 client bundle 并提示还原路径中的机器相关路径 (#248)。
+- 生效：重启后硬刷新。
+
+### dsh-pet
+- 版本：0.1.4 → 0.1.6
+- 来源：[PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet)
+- 变更：宠物多开——支持配置多个独立大小位置的桌宠；新增「桌宠配置」设置页；91 个动作素材全量改用 PR 手工抠像素材并重新生成缩略图/预览；修复单元素动画池排除自身导致选中 undefined。
+- 过程：tarball 约 98MB，默认 60s 拉取超时反复中断；已在 profile 的 pnpm-workspace.yaml 设 `fetchTimeout: 900000` / `fetchRetries: 5` 后一次拉成。裸名 `add dsh-pet` 对 `github:` 源依赖是 no-op，实际用 `add github:PC2005-cloud/dsh-pet#path:dsh-pet`。
+- 生效：必须重启 `dsh web`。提醒：iOS Safari 无法解码其 VP9 WebM，手机端如不显示可按 pet-mobile 流程禁用移动端挂载。
+
+### dsh-context（新安装）
+- 版本：0.19.2（原目录快照）→ 0.21.0
+- 来源：[bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context)
+- 说明：该条目此前一直在目录中但本机未装，本轮应用户选择装入 web profile（`add github:bowenliang123/dsh-context`），纳入日常更新范围。
+
+### 目录快照修正
+- `dsh-drag-and-drop`：0.1.5 → 0.1.6（仅快照刷新；本机与上游 HEAD 均已是 0.1.6，无实际更新）。
+
+### 过程记录
+- modlens@3.22.1 发布未满 24h 触发 pnpm 锁文件供应链校验失败（minimumReleaseAge）；等待至发布满 24h 自然出窗，未放宽任何安全策略。
+- allowBuilds 新增精确键：dshmarket(f2172056)、dsh-pet(52b313c)、dsh-context(0a028ac)、dsh-better-sidebar(f268d35)；并将 CLI 留下的两处占位值 `set this to true or false` 修正为 `true`。
+- 其余 11 个插件核对结果：modlens 3.22.1、super-injector 0.3.3（本地 link）、notification v0.1.3 / at-file v0.6.7（均为最新 tag）、skills 0.1.1、merge-tool-calls 0.2.0、pocket 1.9.2、usage-stats 1.0.0、recall-plugin 1.5.1、custom-provider-settings 0.4.0、opencode-go-usage 0.1.5 —— 全部与上游一致。
+
 ## 2026-08-21 插件更新
 
 本次更新 4 个已安装插件（web profile）：
