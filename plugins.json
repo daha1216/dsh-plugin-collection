@@ -1,17 +1,17 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.8.0",
+  "catalogVersion": "1.9.0",
   "updatedAt": "2026-08-22",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
-    "sourcePolicy": "github"
+    "sourcePolicy": "github-or-npm"
   },
   "plugins": [
     {
       "id": "dsh-better-sidebar",
       "name": "dsh-better-sidebar",
-      "version": "0.15.0",
+      "version": "0.15.1",
       "description": "VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。",
       "source": "https://github.com/omdsh-dev/DSH-better-sidebar",
       "install": "github:omdsh-dev/DSH-better-sidebar",
@@ -20,7 +20,7 @@
     {
       "id": "dshmarket",
       "name": "dshmarket",
-      "version": "1.17.1",
+      "version": "1.18.0",
       "description": "DSH 社区插件市场，支持浏览、搜索和一键安装插件。",
       "source": "https://github.com/dsh-market/dsh-market",
       "install": "github:dsh-market/dsh-market",
@@ -47,11 +47,11 @@
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.22.2",
+      "version": "0.24.1",
       "description": "查看上下文的组成、用量和演变情况。",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "github:bowenliang123/dsh-context",
-      "update": "dsh plugin --profile web update dsh-context@latest"
+      "install": "dsh-context@0.24.1",
+      "update": "dsh plugin --profile web add dsh-context@latest"
     },
     {
       "id": "dsh-at-file",
@@ -83,7 +83,7 @@
     {
       "id": "dsh-pet",
       "name": "dsh-pet",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "description": "在 DSH 网页界面显示可活动的桌面宠物。",
       "source": "https://github.com/PC2005-cloud/dsh-pet",
       "install": "github:PC2005-cloud/dsh-pet#path:dsh-pet",
@@ -92,7 +92,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "1.9.2",
+      "version": "1.12.3",
       "description": "通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。",
       "source": "https://github.com/shaobeichen/dsh-pocket",
       "install": "github:shaobeichen/dsh-pocket",
@@ -119,7 +119,7 @@
     {
       "id": "dsh-recall-plugin",
       "name": "dsh-recall-plugin",
-      "version": "1.5.1",
+      "version": "1.6.0",
       "description": "撤回消息，并将项目文件和对话历史回退到指定消息之前。",
       "source": "https://github.com/limbo947/dsh-recall-plugin",
       "install": "github:limbo947/dsh-recall-plugin",

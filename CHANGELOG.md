@@ -1,5 +1,36 @@
 # Changelog
 
+## 2026-08-22 插件更新（第三轮：web profile 全量核对）
+
+本轮按已安装的 `web` profile 逐项执行上游 README 原生命令，完成 15 个远程插件的更新核对；本地 link 插件 `@dsh-external/dsh-super-injector` 保持不变。
+
+### 版本变化
+
+| 插件 | 版本 |
+|---|---|
+| `dsh-better-sidebar` | 0.15.0 → 0.15.1 |
+| `dshmarket` | 1.17.1 → 1.18.0 |
+| `dsh-context` | 0.22.2 → 0.24.1 |
+| `dsh-pet` | 0.1.6 → 0.1.7 |
+| `dsh-pocket` | 1.9.2 → 1.12.3 |
+| `dsh-recall-plugin` | 1.5.1 → 1.6.0 |
+
+其余已核对插件的版本快照保持不变：`dsh-notification` 0.1.3、`dsh-at-file` 0.6.7、`dsh-skills` 0.1.1、`@huanlin/dsh-plugin-merge-tool-calls` 0.2.0、`dsh-usage-stats` 1.0.0、`@omdsh-dev/dsh-drag-and-drop` 0.1.6、`dsh-custom-provider-settings` 0.4.0、`@xueayi/dsh-opencode-go-usage` 0.1.5、`@nanmicoder/dsh-agent-teams` 0.1.11。
+
+### dsh-context 安装源修正
+
+- `dsh-context@0.24.1` 改用 npm 发布包安装。
+- 原因：GitHub 源快照只有 `package.json`、补丁和文档，没有发布后的 `lib/client.js`；DSH 启动清单虽会登记插件，但浏览器请求会返回 404。
+- npm `0.24.1` 包含完整 `lib/client.js` 与 `lib/index.js`，重启后已验证客户端资源返回 HTTP 200。
+
+### 验证
+
+- `pnpm install` 成功，锁文件通过供应链策略检查。
+- 正式启动脚本重启成功，`http://127.0.0.1:3080/` 返回 HTTP 200。
+- 当前页面共登记 58 个客户端 bundle，逐个 GET 检查全部返回 HTTP 200。
+- `@nanmicoder/dsh-agent-teams` 客户端资源返回 HTTP 200。
+- 保留的历史 `cordis.patch.yml` 警告：`context-vista`、`dsh-usage-plugin`、`smooth-stream`；它们不是本轮更新引入的问题，未修改。
+
 ## 2026-08-21 插件更新（第二轮：检查并更新 + 新装 dsh-context）
 
 本次检查全部 16 个目录条目：3 个插件有更新、1 个按需新装、1 处版本快照修正；其余 11 个已与上游 HEAD 一致。**本轮应用户要求未重启 `dsh web`，新版本在下次重启后加载（之后硬刷新浏览器）。**
