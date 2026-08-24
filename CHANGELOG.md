@@ -101,3 +101,26 @@
 - `@dsh-external/dsh-super-injector` 保持本地 link 安装，本次未动。
 - `dshmarket` 因本机是 `github:dsh-market/dsh-market` 安装，重跑目录里 README 原生命令 `add dshmarket` 不会改 GitHub 源依赖，本次实际用安装源 `add github:dsh-market/dsh-market` 完成升级。
 - pnpm 更新期间已按提示把新 tarball 加入 `allowBuilds`，并把 `@liustack/modlens@3.22.1` 加入 `minimumReleaseAgeExclude`。
+## 2026-08-24 插件更新（第四轮：web profile 安全更新）
+
+本轮按上游 README 原生命令更新 8 个已安装插件，并使用 GitHub 源复核了 npm 镜像可能滞后的插件。profile 已备份到 `~/.dsh/profiles/web/backups/plugin-update-20260824-184222/`。
+
+| 插件 | 版本 |
+|---|---:|
+| `dsh-better-sidebar` | 0.15.1 → 0.16.0 |
+| `dshmarket` | 1.18.0 → 1.22.0 |
+| `dsh-context` | 0.24.1 → 0.30.3 |
+| `dsh-at-file` | 0.6.7 → 0.6.8 |
+| `@huanlin/dsh-plugin-merge-tool-calls` | 0.2.0 → 0.2.2 |
+| `dsh-pet` | 0.1.7 → 0.1.8 |
+| `dsh-pocket` | 1.12.3 → 1.13.4 |
+| `@nanmicoder/dsh-agent-teams` | 0.1.12 → 0.1.13 |
+
+- `dshmarket`：上游 1.22.0 的构建与 preflight 检查通过。
+- `dsh-context`：更新到 0.30.3；README 说明无需构建步骤或重启。
+- `dsh-at-file`：更新到 v0.6.8；README 提醒新安装可优先使用 DSH 官方内置 `@file`/`@session`。
+- `merge-tool-calls`：更新到 0.2.2；保留连续工具调用合并、工具族和分组配置能力。
+- `dsh-pet`：更新到 0.1.8；上游 typecheck、lint、格式检查、bundle 和 prepack 检查全部通过。
+- `dsh-pocket`：更新到 1.13.4；继续使用上游 GitHub 构建源。
+- `dsh-better-sidebar` 与 `dsh-agent-teams`：分别更新到 0.16.0 和 0.1.13。
+- pnpm 仅批准了本轮实际解析出的精确 Git/tarball 构建项；未放开任意依赖脚本。更新后建议重启 `dsh web`，再硬刷新浏览器。

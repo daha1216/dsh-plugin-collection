@@ -68,10 +68,10 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 | ID | 名称 | 版本 | 用途 | 来源 |
 |---|---|---:|---|---|
 | `dsh-better-sidebar` | `dsh-better-sidebar` | 0.16.0 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
-| `dshmarket` | `dshmarket` | 1.21.2 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
+| `dshmarket` | `dshmarket` | 1.22.0 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-super-injector` | `@dsh-external/dsh-super-injector` | 0.3.3 | 运行时注入、热重载、卸载本地 DSH 插件，并提供插件管理界面。 | [yjh051108/dsh-super-injector](https://github.com/yjh051108/dsh-super-injector) |
 | `dsh-notification` | `dsh-notification` | 0.1.3 | 请求完成后的浏览器桌面通知，支持结果和关键词过滤。 | [omdsh-dev/dsh-notification](https://github.com/omdsh-dev/dsh-notification) |
-| `dsh-context` | `dsh-context` | 0.29.1 | 查看上下文的组成、用量和演变情况。 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
+| `dsh-context` | `dsh-context` | 0.30.3 | 查看上下文的组成、用量和演变情况。 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
 | `dsh-at-file` | `dsh-at-file` | 0.6.8 | 支持 Codex 风格的 `@path` 工作区路径引用。 | [omdsh-dev/dsh-at-file](https://github.com/omdsh-dev/dsh-at-file) |
 | `dsh-skills` | `dsh-skills` | 0.1.1 | 聚合和管理全局、项目及 `.skill-package` 技能。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
 | `merge-tool-calls` | `@huanlin/dsh-plugin-merge-tool-calls` | 0.2.2 | 合并工具调用，减少多个工具调用造成的交互噪声。 | [HuanLinOTO/dsh-plugin-merge-tool-calls](https://github.com/HuanLinOTO/dsh-plugin-merge-tool-calls) |

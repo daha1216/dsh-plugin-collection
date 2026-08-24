@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.10.0",
+  "catalogVersion": "1.11.0",
   "updatedAt": "2026-08-24",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -20,7 +20,7 @@
     {
       "id": "dshmarket",
       "name": "dshmarket",
-      "version": "1.21.2",
+      "version": "1.22.0",
       "description": "DSH 社区插件市场，支持浏览、搜索和一键安装插件。",
       "source": "https://github.com/dsh-market/dsh-market",
       "install": "github:dsh-market/dsh-market",
@@ -47,10 +47,10 @@
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.29.1",
+      "version": "0.30.3",
       "description": "查看上下文的组成、用量和演变情况。",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "dsh-context@0.24.1",
+      "install": "github:bowenliang123/dsh-context",
       "update": "dsh plugin --profile web add dsh-context@latest"
     },
     {
@@ -74,10 +74,10 @@
     {
       "id": "merge-tool-calls",
       "name": "@huanlin/dsh-plugin-merge-tool-calls",
-      "version": "0.2.0",
+      "version": "0.2.2",
       "description": "合并工具调用，减少多个工具调用造成的交互噪声。",
       "source": "https://github.com/HuanLinOTO/dsh-plugin-merge-tool-calls",
-      "install": "github:HuanLinOTO/dsh-plugin-merge-tool-calls",
+      "install": "github:huanlinoto/dsh-plugin-merge-tool-calls",
       "update": "dsh plugin --profile web add \"github:huanlinoto/dsh-plugin-merge-tool-calls\""
     },
     {
