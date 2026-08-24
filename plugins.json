@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.9.0",
-  "updatedAt": "2026-08-22",
+  "catalogVersion": "1.10.0",
+  "updatedAt": "2026-08-24",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -11,7 +11,7 @@
     {
       "id": "dsh-better-sidebar",
       "name": "dsh-better-sidebar",
-      "version": "0.15.1",
+      "version": "0.16.0",
       "description": "VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。",
       "source": "https://github.com/omdsh-dev/DSH-better-sidebar",
       "install": "github:omdsh-dev/DSH-better-sidebar",
@@ -20,7 +20,7 @@
     {
       "id": "dshmarket",
       "name": "dshmarket",
-      "version": "1.18.0",
+      "version": "1.21.2",
       "description": "DSH 社区插件市场，支持浏览、搜索和一键安装插件。",
       "source": "https://github.com/dsh-market/dsh-market",
       "install": "github:dsh-market/dsh-market",
@@ -47,7 +47,7 @@
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.24.1",
+      "version": "0.29.1",
       "description": "查看上下文的组成、用量和演变情况。",
       "source": "https://github.com/bowenliang123/dsh-context",
       "install": "dsh-context@0.24.1",
@@ -56,11 +56,11 @@
     {
       "id": "dsh-at-file",
       "name": "dsh-at-file",
-      "version": "0.6.7",
+      "version": "0.6.8",
       "description": "支持 Codex 风格的 @path 工作区路径引用。",
       "source": "https://github.com/omdsh-dev/dsh-at-file",
       "install": "github:omdsh-dev/dsh-at-file",
-      "update": "dsh plugin --profile web add https://github.com/omdsh-dev/dsh-at-file/archive/refs/tags/v0.6.7.tar.gz"
+      "update": "dsh plugin --profile web add https://github.com/omdsh-dev/dsh-at-file/archive/refs/tags/v0.6.8.tar.gz"
     },
     {
       "id": "dsh-skills",
@@ -83,7 +83,7 @@
     {
       "id": "dsh-pet",
       "name": "dsh-pet",
-      "version": "0.1.7",
+      "version": "0.1.8",
       "description": "在 DSH 网页界面显示可活动的桌面宠物。",
       "source": "https://github.com/PC2005-cloud/dsh-pet",
       "install": "github:PC2005-cloud/dsh-pet#path:dsh-pet",
@@ -92,7 +92,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "1.12.3",
+      "version": "1.13.4",
       "description": "通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。",
       "source": "https://github.com/shaobeichen/dsh-pocket",
       "install": "github:shaobeichen/dsh-pocket",
@@ -117,15 +117,6 @@
       "update": "dsh plugin --profile web update github:omdsh-dev/dsh-drag-and-drop"
     },
     {
-      "id": "dsh-recall-plugin",
-      "name": "dsh-recall-plugin",
-      "version": "1.6.0",
-      "description": "撤回消息，并将项目文件和对话历史回退到指定消息之前。",
-      "source": "https://github.com/limbo947/dsh-recall-plugin",
-      "install": "github:limbo947/dsh-recall-plugin",
-      "update": "dsh plugin --profile web add dsh-recall-plugin"
-    },
-    {
       "id": "dsh-custom-provider-settings",
       "name": "dsh-custom-provider-settings",
       "version": "0.4.0",
@@ -146,11 +137,38 @@
     {
       "id": "dsh-agent-teams",
       "name": "@nanmicoder/dsh-agent-teams",
-      "version": "0.1.11",
+      "version": "0.1.13",
       "description": "多智能体团队协作：队长、成员、带依赖的任务与消息传递，Web 界面提供树状监控。",
       "source": "https://github.com/NanmiCoder/dsh-agent-teams",
       "install": "github:NanmiCoder/dsh-agent-teams",
       "update": "dsh plugin --profile web add @nanmicoder/dsh-agent-teams"
+    },
+    {
+      "id": "dsh-easyrewrite",
+      "name": "dsh-easyrewrite",
+      "version": "2.1.0",
+      "description": "在 Web 里内联编辑与撤回自己的消息：气泡原位编辑、无痕替换、版本翻页器。",
+      "source": "https://github.com/Renzic-Stone/DSH-EasyRewrite",
+      "install": "github:Renzic-Stone/DSH-EasyRewrite",
+      "update": "dsh plugin --profile web add github:Renzic-Stone/DSH-EasyRewrite"
+    },
+    {
+      "id": "dsh-font",
+      "name": "dsh-font",
+      "version": "1.1.0",
+      "description": "为 Web 界面换字体：99 个界面字体 + 31 个代码字体，中西文自动搭配，即选即生效。",
+      "source": "https://github.com/tianyhjg-lab/dsh-font",
+      "install": "github:tianyhjg-lab/dsh-font",
+      "update": "dsh plugin --profile web add github:tianyhjg-lab/dsh-font"
+    },
+    {
+      "id": "dsh-docs-panel",
+      "name": "dsh-docs-panel",
+      "version": "0.1.0",
+      "description": "侧边栏里的「全局文档」：全局 Markdown 笔记，任何工作区随时可读（依赖 dsh-better-sidebar）。",
+      "source": "https://github.com/mlosun/dsh-docs-panel",
+      "install": "github:mlosun/dsh-docs-panel",
+      "update": "dsh plugin --profile web add dsh-docs-panel"
     }
   ]
 }
