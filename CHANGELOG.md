@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-08-26 插件更新（第五轮：web profile 安全更新）
+
+本轮先备份 `web` profile 的 `package.json` 和 `pnpm-lock.yaml`，再按各插件原生命令串行更新。7 个有上游更新的插件均已安装成功；pnpm 只放行了本轮实际解析出的插件构建脚本，未放开任意依赖脚本。
+
+| 插件 | 版本变化 |
+|---|---:|
+| `@xueayi/dsh-opencode-go-usage` | 0.1.5 → 0.1.6 |
+| `billion-context-dsh` | 0.2.12 → 0.2.13 |
+| `dsh-context` | 0.29.0 → 0.31.0 |
+| `dsh-better-sidebar` | 0.16.0 → 0.16.1 |
+| `dsh-custom-provider-settings` | 0.4.0 → 0.5.0 |
+| `dsh-pocket` | 1.13.4 → 1.14.5 |
+| `dshmarket` | 1.22.0 → 1.29.2 |
+
+- `@xueayi/dsh-opencode-go-usage`：新增可拖动用量浮窗、视口边界自适应和只显示 5 小时额度环的极简模式。
+- `billion-context-dsh`：补充 `coreOverrides.nudge` 配置优先级和合并顺序说明；`0.3.0` 仍不是 npm `latest`，未安装。
+- `dsh-context`：工具结果状态/行数/Raw-Markdown 切换、失败状态点、Delta 签名、单步缓存命中率和 Step brief；本机 `latest` 实际解析为 `0.31.0`。
+- `dsh-better-sidebar`：提高 Git 探测超时，限制仓库发现和状态返回数量，加入缓存、截断提示与 sidebar reset 逃生入口。
+- `dsh-custom-provider-settings`：新增全局请求头、User-Agent 预设及 `supportsDeveloperRole` 兼容设置。
+- `dsh-pocket`：修复 Windows 启动、WebSocket 半开连接、WSL/LAN 设置问题，增加局域网访问开关并改善 tunnel 错误信息。
+- `dshmarket`：新增命名插件预设、profile 快照/回滚、缺失依赖诊断、卸载保护、多分类及构建脚本处理改进。
+
+profile 备份：`backups/plugin-update-20260826-023625/`。更新后建议重启 `dsh web` 并硬刷新浏览器。
+
 ## 2026-08-22 插件更新（第三轮：web profile 全量核对）
 
 本轮按已安装的 `web` profile 逐项执行上游 README 原生命令，完成 15 个远程插件的更新核对；本地 link 插件 `@dsh-external/dsh-super-injector` 保持不变。
