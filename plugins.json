@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.12.0",
+  "catalogVersion": "1.13.0",
   "updatedAt": "2026-08-26",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -146,7 +146,7 @@
     {
       "id": "dsh-easyrewrite",
       "name": "dsh-easyrewrite",
-      "version": "2.1.0",
+      "version": "2.3.0",
       "description": "在 Web 里内联编辑与撤回自己的消息：气泡原位编辑、无痕替换、版本翻页器。",
       "source": "https://github.com/Renzic-Stone/DSH-EasyRewrite",
       "install": "github:Renzic-Stone/DSH-EasyRewrite",

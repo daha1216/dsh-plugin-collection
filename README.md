@@ -82,7 +82,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 | `dsh-custom-provider-settings` | `dsh-custom-provider-settings` | 0.5.0 | 为自定义 Provider 增加请求头、图片输入和推理设置。 | [supersealwqas/dsh-custom-provider-settings](https://github.com/supersealwqas/dsh-custom-provider-settings) |
 | `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 在悬浮 Web 面板中实时监控 OpenCode Go 的 5 小时滚动 / 周 / 月配额并展示用量。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
 | `dsh-agent-teams` | `@nanmicoder/dsh-agent-teams` | 0.1.13 | 多智能体团队协作：队长、成员、带依赖的任务与消息传递，Web 界面提供树状监控。 | [NanmiCoder/dsh-agent-teams](https://github.com/NanmiCoder/dsh-agent-teams) |
-| `dsh-easyrewrite` | `dsh-easyrewrite` | 2.1.0 | 在 Web 里内联编辑与撤回自己的消息：气泡原位编辑、无痕替换、版本翻页器。 | [Renzic-Stone/DSH-EasyRewrite](https://github.com/Renzic-Stone/DSH-EasyRewrite) |
+| `dsh-easyrewrite` | `dsh-easyrewrite` | 2.3.0 | 在 Web 里内联编辑与撤回自己的消息：气泡原位编辑、无痕替换、版本翻页器。 | [Renzic-Stone/DSH-EasyRewrite](https://github.com/Renzic-Stone/DSH-EasyRewrite) |
 | `dsh-font` | `dsh-font` | 1.1.0 | 为 Web 界面换字体：99 个界面字体 + 31 个代码字体，中西文自动搭配，即选即生效。 | [tianyhjg-lab/dsh-font](https://github.com/tianyhjg-lab/dsh-font) |
 | `dsh-docs-panel` | `dsh-docs-panel` | 0.1.0 | 侧边栏里的「全局文档」：全局 Markdown 笔记，任何工作区随时可读（依赖 dsh-better-sidebar）。 | [mlosun/dsh-docs-panel](https://github.com/mlosun/dsh-docs-panel) |
 | `billion-context-dsh` | `billion-context-dsh` | 0.2.13 | 通过模型驱动的上下文裁剪管理 DSH 上下文，作为 CompactionEngine 后端工作。 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
