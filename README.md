@@ -67,7 +67,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 
 | ID | 名称 | 版本 | 用途 | 来源 |
 |---|---|---:|---|---|
-| `dsh-better-sidebar` | `dsh-better-sidebar` | 0.17.0 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
+| `dsh-better-sidebar` | `dsh-better-sidebar` | 0.17.1 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
 | `dshmarket` | `dshmarket` | 1.34.0 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-notification` | `dsh-notification` | 0.1.3 | 请求完成后的浏览器桌面通知，支持结果和关键词过滤。 | [omdsh-dev/dsh-notification](https://github.com/omdsh-dev/dsh-notification) |
 | `dsh-context` | `dsh-context` | 0.34.1 | 查看上下文的组成、用量和演变情况。 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
@@ -76,7 +76,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 | `merge-tool-calls` | `@huanlin/dsh-plugin-merge-tool-calls` | 0.2.2 | 合并工具调用，减少多个工具调用造成的交互噪声。 | [HuanLinOTO/dsh-plugin-merge-tool-calls](https://github.com/HuanLinOTO/dsh-plugin-merge-tool-calls) |
 | `dsh-pet` | `dsh-pet` | 0.2.0 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
 | `dsh-pocket` | `dsh-pocket` | 1.14.5 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。 | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) |
-| `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.16 | 管理已归档的 DSH 会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
+| `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.18 | 管理已归档的 DSH 会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
 | `dsh-drag-and-drop` | `@omdsh-dev/dsh-drag-and-drop` | 0.1.6 | 将本地文件拖入 DSH Web UI，并插入原始文件路径。 | [omdsh-dev/dsh-drag-and-drop](https://github.com/omdsh-dev/dsh-drag-and-drop) |
 | `dsh-custom-provider-settings` | `dsh-custom-provider-settings` | 0.5.0 | 为自定义 Provider 增加请求头、图片输入和推理设置。 | [supersealwqas/dsh-custom-provider-settings](https://github.com/supersealwqas/dsh-custom-provider-settings) |
 | `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 在悬浮 Web 面板中实时监控 OpenCode Go 的 5 小时滚动 / 周 / 月配额并展示用量。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |

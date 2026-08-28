@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.14.0",
+  "catalogVersion": "1.15.0",
   "updatedAt": "2026-08-28",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -11,7 +11,7 @@
     {
       "id": "dsh-better-sidebar",
       "name": "dsh-better-sidebar",
-      "version": "0.17.0",
+      "version": "0.17.1",
       "description": "VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。",
       "source": "https://github.com/omdsh-dev/DSH-better-sidebar",
       "install": "github:omdsh-dev/DSH-better-sidebar",
@@ -92,7 +92,7 @@
     {
       "id": "dsh-archive-manager",
       "name": "@michengai/dsh-archive-manager",
-      "version": "0.1.16",
+      "version": "0.1.18",
       "description": "管理已归档的 DSH 会话。",
       "source": "https://github.com/MichengAI/dsh-archive-manager",
       "install": "@michengai/dsh-archive-manager@latest",

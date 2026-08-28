@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-28 dsh-better-sidebar 与 DSH Archive Manager 安全更新
+
+- `dsh-better-sidebar`：`0.16.1` → `0.17.1`。上游近期变更包含子代理页批量实时预览、拖拽状态稳定性改进、DSH rc.1/rc.2 适配，以及上传链路和 workspace 路径边界安全加固。
+- `@michengai/dsh-archive-manager`：`0.1.16` → `0.1.18`。按上游 npm 官方发布包更新；该插件继续提供归档会话搜索、恢复和确认后永久删除能力。
+- 更新前已备份 web profile：`backups/plugin-update-20260829-003704/`。两项更新均通过官方 npm registry 完成；侧边栏需要硬刷新，Archive Manager 建议重启 DSH Web 后再硬刷新。
+
 ## 2026-08-26 dsh-easyrewrite 安全更新
 
 - 版本：`2.1.0` → `2.3.0`
