@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-29 活动插件更新与停用插件清理
+
+- 更新 `dshmarket`：`1.29.2` → `1.36.0`，锁定 GitHub 提交 `61ccc2dce42d7785bbc02c3a662b1e3008dca335`。
+- 更新 `dsh-pet`：`0.1.8` → `0.2.2`，锁定 GitHub 提交 `1684514b0f17dde5f2559cfd3298b291ae015a3b`。
+- 更新 `dsh-pocket`：`1.14.5` → `2.8.0`，锁定 GitHub 提交 `e108b817dfde9d815af9fee45dc594afa8cc0674`。
+- 卸载已停用的 `dsh-at-file`、`dsh-context`、`dsh-docs-panel`、`@omdsh-dev/dsh-drag-and-drop` 和 `@huanlin/dsh-plugin-merge-tool-calls`，并同步从目录中移除。
+- 更新前已备份 web profile 配置、锁文件和插件目录；仅为本轮实际构建提交加入 `allowBuilds` 白名单。`cordis.patch.yml` 等用户自定义配置保持不变。
+
 ## 2026-08-28 dsh-better-sidebar 与 DSH Archive Manager 安全更新
 
 - `dsh-better-sidebar`：`0.16.1` → `0.17.1`。上游近期变更包含子代理页批量实时预览、拖拽状态稳定性改进、DSH rc.1/rc.2 适配，以及上传链路和 workspace 路径边界安全加固。
