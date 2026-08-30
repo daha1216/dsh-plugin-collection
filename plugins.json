@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.17.0",
+  "catalogVersion": "1.18.0",
   "updatedAt": "2026-08-30",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -97,6 +97,15 @@
       "source": "https://github.com/Renzic-Stone/DSH-EasyRewrite",
       "install": "github:Renzic-Stone/DSH-EasyRewrite",
       "update": "dsh plugin --profile web add github:Renzic-Stone/DSH-EasyRewrite"
+    },
+    {
+      "id": "dsh-all-usage",
+      "name": "dsh-all-usage",
+      "version": "1.1.2",
+      "description": "按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额，并支持热力图和 CSV 导出。",
+      "source": "https://github.com/ParticleLight/dsh-all-usage",
+      "install": "github:ParticleLight/dsh-all-usage",
+      "update": "dsh plugin --profile web add github:ParticleLight/dsh-all-usage"
     },
     {
       "id": "dsh-font",

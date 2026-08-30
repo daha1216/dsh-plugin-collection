@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-30 dsh-all-usage 安装
+
+- 安装 `dsh-all-usage`：`1.1.2`，来源为 `ParticleLight/dsh-all-usage`，锁定提交 `ff20ec5cd5a321e1e1465d731b315b618328e450`。
+- 插件提供按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额的用量看板，并支持热力图和 CSV 导出。
+- 安装前已备份 web profile、用户数据、锁文件和自定义补丁；供应链锁文件校验通过，重启 DSH 后服务正常监听 `3080`。
+
 ## 2026-08-30 EasyRewrite 安装与 DSH Archive Manager 更新
 
 - 安装 `dsh-easyrewrite`：未安装 → `2.3.1`，来源为 `Renzic-Stone/DSH-EasyRewrite`，锁定 GitHub 提交 `47ebb656216c634001a4f73f0de71bc63e017951`。
