@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-30 EasyRewrite 安装与 DSH Archive Manager 更新
+
+- 安装 `dsh-easyrewrite`：未安装 → `2.3.1`，来源为 `Renzic-Stone/DSH-EasyRewrite`，锁定 GitHub 提交 `47ebb656216c634001a4f73f0de71bc63e017951`。
+- 更新 `@michengai/dsh-archive-manager`：`0.1.18` → `0.1.19`，按用户指定的官方发布版本安装。
+- Archive Manager `0.1.19` 修复工作区行 `+` 操作，运行时解析 `uiWorkspace`，移除对已废弃 `startSession` API 的依赖。
+- EasyRewrite 当前提供消息撤回、气泡内联编辑、重发、版本翻页和草稿备份；GitHub 包的 `prepare` 构建仅对白名单中的精确提交放行。
+- 更新前已备份 web profile、用户数据、锁文件和自定义补丁；重启 DSH 后两个插件均已加载，网页返回 HTTP 200。
+
 ## 2026-08-29 活动插件更新与停用插件清理
 
 - 更新 `dshmarket`：`1.29.2` → `1.36.0`，锁定 GitHub 提交 `61ccc2dce42d7785bbc02c3a662b1e3008dca335`。

@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.16.0",
-  "updatedAt": "2026-08-29",
+  "catalogVersion": "1.17.0",
+  "updatedAt": "2026-08-30",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -65,7 +65,7 @@
     {
       "id": "dsh-archive-manager",
       "name": "@michengai/dsh-archive-manager",
-      "version": "0.1.18",
+      "version": "0.1.19",
       "description": "管理已归档的 DSH 会话。",
       "source": "https://github.com/MichengAI/dsh-archive-manager",
       "install": "@michengai/dsh-archive-manager@latest",
@@ -92,7 +92,7 @@
     {
       "id": "dsh-easyrewrite",
       "name": "dsh-easyrewrite",
-      "version": "2.3.0",
+      "version": "2.3.1",
       "description": "在 Web 里内联编辑与撤回自己的消息：气泡原位编辑、无痕替换、版本翻页器。",
       "source": "https://github.com/Renzic-Stone/DSH-EasyRewrite",
       "install": "github:Renzic-Stone/DSH-EasyRewrite",
