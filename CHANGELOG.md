@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-31 插件目录与实装同步（第二轮）
+
+- 按当前 `web` profile 的实际安装清单，将目录收敛为 13 个插件；移除已卸载的 `dsh-custom-provider-settings`、`dsh-provider-model-configurator` 和 `dsh-recall-plugin`。
+- 新增本机已安装但目录未收录的 `dsh-better-reasoning-effort` `0.3.3`，来源为 `HaoyueQin/dsh-better-reasoning-effort`。
+- 刷新上游版本快照：`@michengai/dsh-archive-manager` `0.1.19` → `0.1.21`，`billion-context-dsh` `0.2.13` → `0.2.15`。
+- 按上游 README 原文校正 `dsh-pet` 更新命令，并补齐 `dsh-better-reasoning-effort` 的 GitHub 更新命令。
+- 本轮只维护目录仓库，没有安装、升级或卸载本机插件；用户对本机插件的自定义配置未被触碰。
+
 ## 2026-08-31 dsh-pet v0.2.3 安全更新
 
 - 更新 `dsh-pet`：`0.2.2` → `0.2.3`，按上游发布说明执行 `dsh plugin --profile web add dsh-pet@0.2.3`。
