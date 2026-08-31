@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-31 dsh-pet v0.2.3 安全更新
+
+- 更新 `dsh-pet`：`0.2.2` → `0.2.3`，按上游发布说明执行 `dsh plugin --profile web add dsh-pet@0.2.3`。
+- 新增点击宠物进行 AI 多轮对话、持久化记忆、`/chat` 与 `/pet` 命令，并为宠物配置新增 `name`。
+- 修复 DSH Desktop 2.0.3+ 高级模式下因 403 导致桌宠不显示的问题，以及 macOS Electron 下载问题；同时补充 Linux 支持。
+- 旧版配置可直接兼容；本机旧配置中的宠物 `main` 暂无 `name`，运行时已自动按 `id` 处理。
+- 更新前已完整备份 web profile 配置、数据、补丁和旧插件目录；重启后服务正常监听 `0.0.0.0:3080`，未发现插件加载错误。
+
 ## 2026-08-31 插件目录与实装同步
 
 - 新增本机已安装但目录尚未收录的 `@anysearch/anysearch-dsh` `0.1.4`、`@tt-a1i/archify-dsh` `0.1.0`、`dsh-provider-model-configurator` `0.3.9` 和 `dsh-recall-plugin` `2.3.0`。

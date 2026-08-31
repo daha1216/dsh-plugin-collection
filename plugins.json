@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.19.0",
+  "catalogVersion": "1.20.0",
   "updatedAt": "2026-08-31",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -38,11 +38,11 @@
     {
       "id": "dsh-pet",
       "name": "dsh-pet",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "description": "在 DSH 网页界面显示可活动的桌面宠物。",
       "source": "https://github.com/PC2005-cloud/dsh-pet",
-      "install": "github:PC2005-cloud/dsh-pet#path:dsh-pet",
-      "update": "dsh plugin --profile web add dsh-pet"
+      "install": "dsh-pet@0.2.3",
+      "update": "dsh plugin --profile web add dsh-pet@0.2.3"
     },
     {
       "id": "dsh-pocket",

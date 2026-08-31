@@ -70,7 +70,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 | `dsh-better-sidebar` | `dsh-better-sidebar` | 0.18.0-alpha.0 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
 | `dshmarket` | `dshmarket` | 1.38.1 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-skills` | `dsh-skills` | 0.1.1 | 聚合和管理全局、项目及 `.skill-package` 技能。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
-| `dsh-pet` | `dsh-pet` | 0.2.2 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
+| `dsh-pet` | `dsh-pet` | 0.2.3 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
 | `dsh-pocket` | `dsh-pocket` | 2.10.0 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。 | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) |
 | `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.19 | 管理已归档的 DSH 会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
 | `dsh-custom-provider-settings` | `dsh-custom-provider-settings` | 0.5.0 | 为自定义 Provider 增加请求头、图片输入和推理设置。 | [supersealwqas/dsh-custom-provider-settings](https://github.com/supersealwqas/dsh-custom-provider-settings) |
@@ -94,7 +94,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 | `dsh-better-sidebar` | `dsh plugin --profile web add dsh-better-sidebar@latest` |
 | `dshmarket` | `dsh plugin --profile web add dshmarket` |
 | `dsh-skills` | `dsh plugin --profile web add dsh-skills` |
-| `dsh-pet` | `dsh plugin --profile web add dsh-pet` |
+| `dsh-pet` | `dsh plugin --profile web add dsh-pet@0.2.3` |
 | `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
 | `dsh-archive-manager` | `dsh plugin --profile web add @michengai/dsh-archive-manager@latest --registry=https://registry.npmjs.org/` |
 | `dsh-custom-provider-settings` | `npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:supersealwqas/dsh-custom-provider-settings` |
