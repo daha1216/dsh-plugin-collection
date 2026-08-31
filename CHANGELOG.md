@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-31 插件目录与实装同步
+
+- 新增本机已安装但目录尚未收录的 `@anysearch/anysearch-dsh` `0.1.4`、`@tt-a1i/archify-dsh` `0.1.0`、`dsh-provider-model-configurator` `0.3.9` 和 `dsh-recall-plugin` `2.3.0`。
+- 移除本机已卸载的 `dsh-notification` 与 `dsh-font` 目录条目。
+- 刷新上游版本快照：`dsh-better-sidebar` `0.17.1` → `0.18.0-alpha.0`、`dshmarket` `1.36.0` → `1.38.1`、`dsh-pocket` `2.8.0` → `2.10.0`。
+- 补齐新增插件 README 原生更新命令；本次只维护目录，没有升级、安装或卸载本机插件。
+
 ## 2026-08-30 dsh-all-usage 安装
 
 - 安装 `dsh-all-usage`：`1.1.2`，来源为 `ParticleLight/dsh-all-usage`，锁定提交 `ff20ec5cd5a321e1e1465d731b315b618328e450`。
