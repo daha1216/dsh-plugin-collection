@@ -67,19 +67,20 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 
 | ID | 名称 | 版本 | 用途 | 来源 |
 |---|---|---:|---|---|
-| `dsh-better-sidebar` | `dsh-better-sidebar` | 0.18.0-alpha.0 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
-| `dsh-better-reasoning-effort` | `dsh-better-reasoning-effort` | 0.3.3 | 为第三方模型提供推理强度与输入模态配置，并在模型页面内提供自动适配。 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `dshmarket` | `dshmarket` | 1.38.1 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
+| `dsh-better-sidebar` | `dsh-better-sidebar` | 0.18.0 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
+| `dsh-better-reasoning-effort` | `dsh-better-reasoning-effort` | 0.3.5 | 为第三方模型提供推理强度与输入模态配置，并在模型页面内提供自动适配。 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
+| `dshmarket` | `dshmarket` | 1.42.0 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-skills` | `dsh-skills` | 0.1.1 | 聚合和管理全局、项目及 `.skill-package` 技能。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
-| `dsh-pet` | `dsh-pet` | 0.2.3 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
-| `dsh-pocket` | `dsh-pocket` | 2.10.0 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。 | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) |
-| `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.21 | 管理已归档的 DSH 会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
+| `dsh-pet` | `dsh-pet` | 0.2.5 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
+| `dsh-pocket` | `dsh-pocket` | 2.10.3 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。 | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) |
+| `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.30 | 管理已归档的 DSH 会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
 | `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 在悬浮 Web 面板中实时监控 OpenCode Go 的 5 小时滚动 / 周 / 月配额并展示用量。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
 | `dsh-easyrewrite` | `dsh-easyrewrite` | 2.3.1 | 在 Web 里内联编辑与撤回自己的消息：气泡原位编辑、无痕替换、版本翻页器。 | [Renzic-Stone/DSH-EasyRewrite](https://github.com/Renzic-Stone/DSH-EasyRewrite) |
-| `dsh-all-usage` | `dsh-all-usage` | 1.1.2 | 按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额，并支持热力图和 CSV 导出。 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
+| `dsh-all-usage` | `dsh-all-usage` | 1.1.4 | 按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额，并支持热力图和 CSV 导出。 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
 | `anysearch-dsh` | `@anysearch/anysearch-dsh` | 0.1.4 | 为 DSH 提供网页搜索、网页抓取及高级搜索工具。 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 | `archify-dsh` | `@tt-a1i/archify-dsh` | 0.1.0 | 为 DSH 提供 Archify 架构图 Skill 的纯 Skill Bundle。 | [tt-a1i/archify](https://github.com/tt-a1i/archify) |
-| `billion-context-dsh` | `billion-context-dsh` | 0.2.15 | 通过模型驱动的上下文裁剪管理 DSH 上下文，作为 CompactionEngine 后端工作。 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
+| `billion-context-dsh` | `billion-context-dsh` | 0.2.19 | 通过模型驱动的上下文裁剪管理 DSH 上下文，作为 CompactionEngine 后端工作。 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
+| `dsh-plugin-oauth-subs` | `dsh-plugin-oauth-subs` | 0.0.70 | 为 DSH 接入 ChatGPT Codex、xAI Grok、智谱 GLM、AWS Kiro、Google Antigravity 与 Cursor 的订阅账号 OAuth 登录（PKCE / 设备码 / Google 登录），内置本地 Responses 代理与 llm-pi-ai 同步。 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
 
 机器可读目录见 [`plugins.json`](plugins.json)。安装脚本会从该文件读取插件来源，避免 README 表格和安装命令发生漂移。
 
@@ -102,12 +103,14 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:Renzic-Stone/D
 | `anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `archify-dsh` | `dsh plugin --profile web add @tt-a1i/archify-dsh@0.1.0` |
 | `billion-context-dsh` | `dsh plugin --profile web add billion-context-dsh` |
+| `dsh-plugin-oauth-subs` | `dsh plugin --profile web update dsh-plugin-oauth-subs` |
 
 > **说明（按各仓库 README 的原文口径）**
 > - 多数插件（如 `dsh-better-sidebar`、`dshmarket`、`dsh-skills` 等）README 没有单独列 update，更新就是重跑 README 里的 `add` 命令。
 > - `dsh-pocket` 需要 `-w`（pnpm workspace 根限制）且跨大版本时 `--latest` 必须（`^0.x` 不会自动升到 1.x）。
 > - `dshmarket` 本身是插件市场，README 说它**在设置页里自己就能一键更新**（含它自己）。
 > - `anysearch-dsh` README 提供专门的 `update` 命令；`archify-dsh` 要求使用预构建 npm 包并固定精确版本，不应从 Git 源安装。
+> - `dsh-plugin-oauth-subs` README 提供专门的 `update` 命令；其设置页 About 会对比 GitHub latest 并可一键触发更新，更新后需重启 `dsh web`。
 > - **registry 滞后提醒**：本机以 `github:` 源安装的插件，若重跑形如 `add <名字>@latest` 的原生命令，会被解析到 npm registry 源并可能拿到落后于 GitHub HEAD 的版本。对这类插件，更新时直接用显式 `github:<owner>/<repo>` spec 重跑 install 更可靠。
 > - 一键安装 / 单独安装默认都取各插件上游的最新版；GitHub 插件跟随默认分支，npm 插件使用目录中记录的发布版本。想固定到某发行版时，可在 `plugins.json` 的 `install` 里固定版本或改用命令里的 release tar / tag 地址。
 > - `dsh-easyrewrite` README 原生给的是 `add` 命令，重跑即更新。

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-04 插件目录与实装同步（第三轮）
+
+- 新增本机已安装但目录未收录的 `dsh-plugin-oauth-subs` `0.0.70`，来源为 `xxww0098/dsh-plugin-oauth-subs`（ChatGPT Codex / xAI Grok / 智谱 GLM / AWS Kiro / Google Antigravity / Cursor 订阅 OAuth 接入）；更新命令取自其 README 原生 `update` 动词 `dsh plugin --profile web update dsh-plugin-oauth-subs`。
+- 刷新上游版本快照（8 项）：`dsh-better-sidebar` `0.18.0-alpha.0` → `0.18.0`（npm `latest` 已由正式版接管）、`dsh-better-reasoning-effort` `0.3.3` → `0.3.5`、`dshmarket` `1.38.1` → `1.42.0`、`dsh-pet` `0.2.3` → `0.2.5`、`dsh-pocket` `2.10.0` → `2.10.3`、`@michengai/dsh-archive-manager` `0.1.21` → `0.1.30`、`dsh-all-usage` `1.1.2` → `1.1.4`、`billion-context-dsh` `0.2.15` → `0.2.19`。
+- 随快照同步 `install` 里的固定版本 spec：`dsh-pet@0.2.5`、`billion-context-dsh@0.2.19`。
+- 复核了本轮全部有版本变化插件的上游 README，各条 `update` 命令与原生写法一致，无需改动；schema 本就允许 `update` 可选字段。
+- 目录版本 `1.21.0` → `1.22.0`，核对日期 `2026-09-04`。本轮只维护目录，没有安装、升级或卸载本机插件。
+
 ## 2026-08-31 插件目录与实装同步（第二轮）
 
 - 按当前 `web` profile 的实际安装清单，将目录收敛为 13 个插件；移除已卸载的 `dsh-custom-provider-settings`、`dsh-provider-model-configurator` 和 `dsh-recall-plugin`。

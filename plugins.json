@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.21.0",
-  "updatedAt": "2026-08-31",
+  "catalogVersion": "1.22.0",
+  "updatedAt": "2026-09-04",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -11,7 +11,7 @@
     {
       "id": "dsh-better-sidebar",
       "name": "dsh-better-sidebar",
-      "version": "0.18.0-alpha.0",
+      "version": "0.18.0",
       "description": "VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。",
       "source": "https://github.com/omdsh-dev/DSH-better-sidebar",
       "install": "github:omdsh-dev/DSH-better-sidebar",
@@ -20,7 +20,7 @@
     {
       "id": "dsh-better-reasoning-effort",
       "name": "dsh-better-reasoning-effort",
-      "version": "0.3.3",
+      "version": "0.3.5",
       "description": "为第三方模型提供推理强度与输入模态配置，并在模型页面内提供自动适配。",
       "source": "https://github.com/HaoyueQin/dsh-better-reasoning-effort",
       "install": "github:HaoyueQin/dsh-better-reasoning-effort",
@@ -29,7 +29,7 @@
     {
       "id": "dshmarket",
       "name": "dshmarket",
-      "version": "1.38.1",
+      "version": "1.42.0",
       "description": "DSH 社区插件市场，支持浏览、搜索和一键安装插件。",
       "source": "https://github.com/dsh-market/dsh-market",
       "install": "github:dsh-market/dsh-market",
@@ -47,16 +47,16 @@
     {
       "id": "dsh-pet",
       "name": "dsh-pet",
-      "version": "0.2.3",
+      "version": "0.2.5",
       "description": "在 DSH 网页界面显示可活动的桌面宠物。",
       "source": "https://github.com/PC2005-cloud/dsh-pet",
-      "install": "dsh-pet@0.2.3",
+      "install": "dsh-pet@0.2.5",
       "update": "dsh plugin --profile web add dsh-pet"
     },
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "2.10.0",
+      "version": "2.10.3",
       "description": "通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。",
       "source": "https://github.com/shaobeichen/dsh-pocket",
       "install": "github:shaobeichen/dsh-pocket",
@@ -65,7 +65,7 @@
     {
       "id": "dsh-archive-manager",
       "name": "@michengai/dsh-archive-manager",
-      "version": "0.1.21",
+      "version": "0.1.30",
       "description": "管理已归档的 DSH 会话。",
       "source": "https://github.com/MichengAI/dsh-archive-manager",
       "install": "@michengai/dsh-archive-manager@latest",
@@ -92,7 +92,7 @@
     {
       "id": "dsh-all-usage",
       "name": "dsh-all-usage",
-      "version": "1.1.2",
+      "version": "1.1.4",
       "description": "按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额，并支持热力图和 CSV 导出。",
       "source": "https://github.com/ParticleLight/dsh-all-usage",
       "install": "github:ParticleLight/dsh-all-usage",
@@ -119,11 +119,20 @@
     {
       "id": "billion-context-dsh",
       "name": "billion-context-dsh",
-      "version": "0.2.15",
+      "version": "0.2.19",
       "description": "通过模型驱动的上下文裁剪管理 DSH 上下文，作为 CompactionEngine 后端工作。",
       "source": "https://github.com/Tyan66666/billion-context-dsh",
-      "install": "billion-context-dsh@0.2.15",
+      "install": "billion-context-dsh@0.2.19",
       "update": "dsh plugin --profile web add billion-context-dsh"
+    },
+    {
+      "id": "dsh-plugin-oauth-subs",
+      "name": "dsh-plugin-oauth-subs",
+      "version": "0.0.70",
+      "description": "为 DSH 接入 ChatGPT Codex、xAI Grok、智谱 GLM、AWS Kiro、Google Antigravity 与 Cursor 的订阅账号 OAuth 登录（PKCE / 设备码 / Google 登录），内置本地 Responses 代理与 llm-pi-ai 同步。",
+      "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
+      "install": "github:xxww0098/dsh-plugin-oauth-subs",
+      "update": "dsh plugin --profile web update dsh-plugin-oauth-subs"
     }
   ]
 }
