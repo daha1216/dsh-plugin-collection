@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-10 插件目录与实装同步
+
+- 按当前 `web` profile 实装：新增本机已装的 `dsh-retrace` `0.4.21`（来源 `daha1216/dsh-retrace`，DSH 0.1.5 兼容 fork；README 原生更新命令为 `dsh plugin --profile web add dsh-retrace`）；移除已卸载的 `archify-dsh` 与 `dsh-recall-plugin`。
+- 刷新上游版本快照（8 项）：`dsh-better-sidebar` `0.18.0` → `0.19.0`、`dsh-better-reasoning-effort` `0.3.6` → `0.3.8`、`dshmarket` `1.44.0` → `1.45.1`、`dsh-pet` `0.2.6` → `0.2.7`、`dsh-pocket` `2.10.3` → `2.10.4`、`@michengai/dsh-archive-manager` `0.1.30` → `0.1.34`、`dsh-all-usage` `1.1.4` → `1.1.5`、`dsh-plugin-oauth-subs` `0.0.79` → `0.0.85`。
+- 随快照同步 `install` 里的固定版本 spec：`dsh-pet@0.2.7`。
+- 按上游 README 原文校正 `dsh-plugin-oauth-subs` 更新命令：README 已改为重跑 `add https://github.com/xxww0098/dsh-plugin-oauth-subs`，不再使用独立 `update` 动词；并按 README 补上 Ollama Cloud / Kimi / GitHub Copilot 接入说明。
+- 目录版本 `1.23.0` → `1.24.0`，核对日期 `2026-09-10`。本轮只维护目录，没有安装、升级或卸载本机插件。
+
 ## 2026-09-04 插件目录与实装同步（第三轮）
 
 - 新增本机已安装但目录未收录的 `dsh-plugin-oauth-subs` `0.0.70`，来源为 `xxww0098/dsh-plugin-oauth-subs`（ChatGPT Codex / xAI Grok / 智谱 GLM / AWS Kiro / Google Antigravity / Cursor 订阅 OAuth 接入）；更新命令取自其 README 原生 `update` 动词 `dsh plugin --profile web update dsh-plugin-oauth-subs`。
