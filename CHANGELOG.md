@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-10 从目录移除 dsh-better-sidebar 与 dsh-plugin-oauth-subs
+
+- 按用户指定，从目录移除 `dsh-better-sidebar` 与 `dsh-plugin-oauth-subs`；README 两表与说明同步删掉对应条目。
+- 目录版本 `1.24.0` → `1.25.0`，核对日期 `2026-09-10`。本轮只改目录索引，没有卸载本机已装插件。
+
 ## 2026-09-10 插件目录与实装同步
 
 - 按当前 `web` profile 实装：新增本机已装的 `dsh-retrace` `0.4.21`（来源 `daha1216/dsh-retrace`，DSH 0.1.5 兼容 fork；README 原生更新命令为 `dsh plugin --profile web add dsh-retrace`）；移除已卸载的 `archify-dsh` 与 `dsh-recall-plugin`。

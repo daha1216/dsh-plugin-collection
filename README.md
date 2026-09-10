@@ -67,7 +67,6 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:shaobeichen/ds
 
 | ID | 名称 | 版本 | 用途 | 来源 |
 |---|---|---:|---|---|
-| `dsh-better-sidebar` | `dsh-better-sidebar` | 0.19.0 | VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。 | [omdsh-dev/DSH-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) |
 | `dsh-better-reasoning-effort` | `dsh-better-reasoning-effort` | 0.3.8 | 为第三方模型提供推理强度与输入模态配置，并在模型页面内提供自动适配。 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `dshmarket` | `dshmarket` | 1.45.1 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-skills` | `dsh-skills` | 0.1.1 | 聚合和管理全局、项目及 `.skill-package` 技能。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
@@ -78,7 +77,6 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:shaobeichen/ds
 | `dsh-all-usage` | `dsh-all-usage` | 1.1.5 | 按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额，并支持热力图和 CSV 导出。 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
 | `anysearch-dsh` | `@anysearch/anysearch-dsh` | 0.1.4 | 为 DSH 提供网页搜索、网页抓取及高级搜索工具。 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 | `billion-context-dsh` | `billion-context-dsh` | 0.2.21 | 通过模型驱动的上下文裁剪管理 DSH 上下文，作为 CompactionEngine 后端工作。 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
-| `dsh-plugin-oauth-subs` | `dsh-plugin-oauth-subs` | 0.0.85 | 为 DSH 接入 ChatGPT Codex、xAI Grok、智谱 GLM、AWS Kiro、Google Antigravity、Cursor、Ollama Cloud、Kimi 与 GitHub Copilot 的订阅账号 OAuth 登录（PKCE / 设备码 / Google 登录），内置本地代理与 llm-pi-ai 同步。 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
 | `dsh-retrace` | `dsh-retrace` | 0.4.21 | 在会话中撤回、编辑重发与重新生成，并把对话与产物一起版本化，提供时间线、回滚与分叉图。 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `dsh-font-customizer` | `dsh-font-customizer` | 0.1.0 | 自定义 DSH Web 界面字体：界面字体、代码字体与内容字号，设置持久化在宿主机，支持本地字体检测与全量扫描。 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
 
@@ -90,7 +88,6 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:shaobeichen/ds
 
 | ID | 更新命令（来自各插件 README） |
 |---|---|
-| `dsh-better-sidebar` | `dsh plugin --profile web add dsh-better-sidebar@latest` |
 | `dsh-better-reasoning-effort` | `dsh plugin --profile web add github:HaoyueQin/dsh-better-reasoning-effort` |
 | `dshmarket` | `dsh plugin --profile web add dshmarket` |
 | `dsh-skills` | `dsh plugin --profile web add dsh-skills` |
@@ -101,16 +98,14 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:shaobeichen/ds
 | `dsh-all-usage` | `dsh plugin --profile web add github:ParticleLight/dsh-all-usage` |
 | `anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context-dsh` | `dsh plugin --profile web add billion-context-dsh` |
-| `dsh-plugin-oauth-subs` | `dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
 
 > **说明（按各仓库 README 的原文口径）**
-> - 多数插件（如 `dsh-better-sidebar`、`dshmarket`、`dsh-skills` 等）README 没有单独列 update，更新就是重跑 README 里的 `add` 命令。
+> - 多数插件（如 `dshmarket`、`dsh-skills` 等）README 没有单独列 update，更新就是重跑 README 里的 `add` 命令。
 > - `dsh-pocket` 需要 `-w`（pnpm workspace 根限制）且跨大版本时 `--latest` 必须（`^0.x` 不会自动升到 1.x）。
 > - `dshmarket` 本身是插件市场，README 说它**在设置页里自己就能一键更新**（含它自己）。
 > - `anysearch-dsh` README 提供专门的 `update` 命令。
-> - `dsh-plugin-oauth-subs` README 没有独立 `update` 动词，更新即重跑 `add https://github.com/xxww0098/dsh-plugin-oauth-subs`；设置页 About 仍会对比 GitHub latest，更新后需重启 `dsh web`。
 > - **registry 滞后提醒**：本机以 `github:` 源安装的插件，若重跑形如 `add <名字>@latest` 的原生命令，会被解析到 npm registry 源并可能拿到落后于 GitHub HEAD 的版本。对这类插件，更新时直接用显式 `github:<owner>/<repo>` spec 重跑 install 更可靠。
 > - 一键安装 / 单独安装默认都取各插件上游的最新版；GitHub 插件跟随默认分支，npm 插件使用目录中记录的发布版本。想固定到某发行版时，可在 `plugins.json` 的 `install` 里固定版本或改用命令里的 release tar / tag 地址。
 > - `dsh-retrace` README 原生命令是 npm 通道 `dsh plugin --profile web add dsh-retrace`（公开上游为 `yamingmou/dsh-retrace`）；本机安装的是 `github:daha1216/dsh-retrace` 兼容 fork，目录 `install` 跟随该 fork。

@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.24.0",
+  "catalogVersion": "1.25.0",
   "updatedAt": "2026-09-10",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -8,15 +8,6 @@
     "sourcePolicy": "github-or-npm"
   },
   "plugins": [
-    {
-      "id": "dsh-better-sidebar",
-      "name": "dsh-better-sidebar",
-      "version": "0.19.0",
-      "description": "VS Code 风格右侧边栏，提供文件浏览、编辑器、终端、Git 和浏览器面板。",
-      "source": "https://github.com/omdsh-dev/DSH-better-sidebar",
-      "install": "github:omdsh-dev/DSH-better-sidebar",
-      "update": "dsh plugin --profile web add dsh-better-sidebar@latest"
-    },
     {
       "id": "dsh-better-reasoning-effort",
       "name": "dsh-better-reasoning-effort",
@@ -106,15 +97,6 @@
       "source": "https://github.com/Tyan66666/billion-context-dsh",
       "install": "billion-context-dsh@0.2.21",
       "update": "dsh plugin --profile web add billion-context-dsh"
-    },
-    {
-      "id": "dsh-plugin-oauth-subs",
-      "name": "dsh-plugin-oauth-subs",
-      "version": "0.0.85",
-      "description": "为 DSH 接入 ChatGPT Codex、xAI Grok、智谱 GLM、AWS Kiro、Google Antigravity、Cursor、Ollama Cloud、Kimi 与 GitHub Copilot 的订阅账号 OAuth 登录（PKCE / 设备码 / Google 登录），内置本地代理与 llm-pi-ai 同步。",
-      "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
-      "install": "github:xxww0098/dsh-plugin-oauth-subs",
-      "update": "dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs"
     },
     {
       "id": "dsh-retrace",
