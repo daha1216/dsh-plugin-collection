@@ -56,10 +56,12 @@ bash install.sh --plugin dsh-pocket
 也可以直接使用 DSH 官方安装命令。下面的安装源都是插件作者的上游 GitHub 仓库或 npm 发布包，不是本集合仓库的副本：
 
 ```powershell
-npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:shaobeichen/dsh-pocket
+npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:PC2005-cloud/dsh-pet
 ```
 
 安装或更新完成后，重启 DSH Web UI。插件会在用户自己的 `~/.dsh/profiles/<profile>` 中安装。
+
+> 例外：`dsh-pocket` 现在指向本机维护的 fork `daha1216/dsh-pocket`（见下），不再是上游 `shaobeichen/dsh-pocket`。
 
 ## 插件目录
 
@@ -71,7 +73,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:shaobeichen/ds
 | `dshmarket` | `dshmarket` | 1.45.1 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-skills` | `dsh-skills` | 0.1.1 | 聚合和管理全局、项目及 `.skill-package` 技能。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
 | `dsh-pet` | `dsh-pet` | 0.2.8 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
-| `dsh-pocket` | `dsh-pocket` | 2.10.6 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。 | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) |
+| `dsh-pocket` | `dsh-pocket` | 2.10.3-daha.1 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。本条目指向自建 fork（含两处安全加固），非上游原仓库。 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 | `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.39 | 管理已归档的 DSH 会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
 | `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 在悬浮 Web 面板中实时监控 OpenCode Go 的 5 小时滚动 / 周 / 月配额并展示用量。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
 | `dsh-all-usage` | `dsh-all-usage` | 1.1.8 | 按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额，并支持热力图和 CSV 导出。 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
@@ -107,7 +109,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:shaobeichen/ds
 
 > **说明（按各仓库 README 的原文口径）**
 > - 多数插件（如 `dshmarket`、`dsh-skills` 等）README 没有单独列 update，更新就是重跑 README 里的 `add` 命令。
-> - `dsh-pocket` 需要 `-w`（pnpm workspace 根限制）且跨大版本时 `--latest` 必须（`^0.x` 不会自动升到 1.x）。
+> - `dsh-pocket` 需要 `-w`（pnpm workspace 根限制）且跨大版本时 `--latest` 必须（`^0.x` 不会自动升到 1.x）。注意它现在装的是 fork `github:daha1216/dsh-pocket`：重跑形如 `add dsh-pocket -w` 的 npm 名命令会解析到 npm registry 上的**上游**版本，等于装回上游；要更新 fork 请用上表命令或 `add github:daha1216/dsh-pocket -w`。
 > - `dshmarket` 本身是插件市场，README 说它**在设置页里自己就能一键更新**（含它自己）。
 > - `anysearch-dsh` README 提供专门的 `update` 命令。
 > - **registry 滞后提醒**：本机以 `github:` 源安装的插件，若重跑形如 `add <名字>@latest` 的原生命令，会被解析到 npm registry 源并可能拿到落后于 GitHub HEAD 的版本。对这类插件，更新时直接用显式 `github:<owner>/<repo>` spec 重跑 install 更可靠。

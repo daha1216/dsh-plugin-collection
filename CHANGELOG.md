@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-12 dsh-pocket 条目改指自建 fork（daha1216/dsh-pocket）
+
+只改目录索引的一条来源，本机插件未安装、未升级、未卸载，`web` profile 的 `package.json` 未改（本机仍指向 `github:shaobeichen/dsh-pocket`）。
+
+- `dsh-pocket` 的 `source` / `install` 从 `shaobeichen/dsh-pocket` 改为 `daha1216/dsh-pocket`（本机自维护 fork，由本机已安装的 2.10.3 产物发布，含两处安全加固：限速身份键不再无条件信任 `cf-connecting-ip`、`POST /pocket-login` 改常量时间比较）。fork 仓库地址 https://github.com/daha1216/dsh-pocket ，改动说明见其 `SECURITY-NOTES.md`，回归脚本 `node verify-security.mjs`（8/8 通过）。
+- `version` 快照 `2.10.6`（上游）→ `2.10.3-daha.1`（fork 当前发布版本，取自 fork `package.json`）。**注意这是相对本机实装 2.10.3 的同版下进；fork 不跟随上游 2.10.4~2.10.6 的功能修复**，若哪天用 `--latest` 更新，会把本机从 2.10.6 降到 2.10.3-daha.1。
+- `update` 命令保持 `dsh plugin --profile web update dsh-pocket --latest -w` 不变；README 补了一条提醒：重跑 `add dsh-pocket -w`（npm 名）会解析到 npm registry 上的上游版本，等于装回上游。
+- 目录版本 `1.26.0` → `1.26.1`，核对日期 `2026-09-12`。
+
 ## 2026-09-12 插件目录与实装同步（补回 dsh-plugin-oauth-subs、新增 dsh-watcher）
 
 本次按当前 `web` profile 的实装清单重新对账，只维护目录索引，本机插件未安装、未升级、未卸载，也未改动任何插件配置。

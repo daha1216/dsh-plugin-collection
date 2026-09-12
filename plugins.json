@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.26.0",
+  "catalogVersion": "1.26.1",
   "updatedAt": "2026-09-12",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -47,10 +47,10 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "2.10.6",
+      "version": "2.10.3-daha.1",
       "description": "通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。",
-      "source": "https://github.com/shaobeichen/dsh-pocket",
-      "install": "github:shaobeichen/dsh-pocket",
+      "source": "https://github.com/daha1216/dsh-pocket",
+      "install": "github:daha1216/dsh-pocket",
       "update": "dsh plugin --profile web update dsh-pocket --latest -w"
     },
     {
