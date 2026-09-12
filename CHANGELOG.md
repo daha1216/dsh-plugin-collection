@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-12 插件目录与实装同步（补回 dsh-plugin-oauth-subs、新增 dsh-watcher）
+
+本次按当前 `web` profile 的实装清单重新对账，只维护目录索引，本机插件未安装、未升级、未卸载，也未改动任何插件配置。
+
+- 新增本机已装但目录未收录的两条：`dsh-watcher` `0.4.0-insights.1`（来源 `aa2246740/dsh-watcher`，只读会话洞察 + 本地模型用量 HUD；上游暂无 tag / release，版本号取默认分支 `package.json`，README 只给 `add github:aa2246740/dsh-watcher`）；`dsh-plugin-oauth-subs` `0.0.89`（来源 `xxww0098/dsh-plugin-oauth-subs`）。后者与 2026-09-10 的移除记录冲突，以本次实装为准重新收录——本机装的是它的 `github:` 改动源，需要维护更新入口。
+- 刷新上游版本快照（`updatedAt` 当天重新抓取，6 项）：`dsh-better-reasoning-effort` `0.3.8` → `0.3.9`、`dshmarket` `1.45.1`（不变）、`dsh-pet` `0.2.7` → `0.2.8`、`dsh-pocket` `2.10.4` → `2.10.6`、`@michengai/dsh-archive-manager` `0.1.34` → `0.1.39`、`dsh-all-usage` `1.1.5` → `1.1.8`。
+- 随快照同步 `install` 里的固定版本 spec：`dsh-pet@0.2.8`。其余 npm 固定版本 spec（`billion-context-dsh@0.2.21`、`@anysearch/anysearch-dsh`、`@michengai/dsh-archive-manager@latest`）分别与 npm `latest`、上游 HEAD 一致，未改。
+- 按上游 README 原文复核全部 14 条 `update` 命令，均与 README 原生写法一致；新增条目说明两处口径：`dsh-watcher` 无独立 `update` 动词、`dsh-plugin-oauth-subs` README 写的是完整仓库地址而非 `github:` 简写。
+- 新增 `scripts/fetch-upstream.ps1`（抓各插件上游默认分支 `package.json` 版本 + README）、`scripts/fetch-releases.ps1`（抓 GitHub releases 变更点）、`scripts/verify.ps1`（校验 JSON 结构、README 两表行数与命令一致、与 profile 实装差集为空）。`.upstream/` 为脚本临时产物，已加入 `.gitignore`。
+- 目录版本 `1.25.0` → `1.26.0`，核对日期 `2026-09-12`。
+
 ## 2026-09-10 从目录移除 dsh-better-sidebar 与 dsh-plugin-oauth-subs
 
 - 按用户指定，从目录移除 `dsh-better-sidebar` 与 `dsh-plugin-oauth-subs`；README 两表与说明同步删掉对应条目。
