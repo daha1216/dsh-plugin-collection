@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-14 本机插件更新（dsh-plugin-oauth-subs 0.0.76 → 0.0.89）
+
+本轮实际更新 1 个本机插件；其余 14 个经 commit 级核对（lockfile codeload commit vs 上游 HEAD、npm dist-tag）均已在最新，未动。目录索引无变化（快照昨天一轮已是 0.0.89），catalogVersion 不变。
+
+- `dsh-plugin-oauth-subs` `0.0.76` → `0.0.89`（79 个提交，来源 `xxww0098/dsh-plugin-oauth-subs`）。按其 README 原生命令 `dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs` 更新；package.json 里的旧 commit pin `#69bdf60` 随重装解除，lockfile 解析到 HEAD `25892f6`。主要变更：Cursor 不再提供已退役模型并透出上游错误；「关于」页新增插件 / DSH 自动更新卡片（DSH 版本选择器、回滚、自动重启），并修复 dsh web 重启循环；账户生命周期与 provider 流边界加固、上游静默断流 read-idle 看门狗、Completions `cache_read` 映射 DSH `cached_tokens`；新增 OpenCode Go API key 通道（多账户、deepseek-flash 补充路由、用量/配额/账单解析）与 Cursor Run tools、Grok prefix park、Ollama Cloud `deepseek-v4.1-flash`。
+- 更新前备份：`~/.dsh/profiles/web/backups/plugin-update-20260914-055701/`（package.json + pnpm-lock.yaml）。
+- 可用性验证：补丁完好（dsh-pocket 手机端层 `sidebar-swipe`/`gesture-guard` 在 client.js、dsh-pet `isMobile` 守卫在 lib/client.js，lockfile patch_hash 不变）；重启 dsh web 后启动日志无报错，`dsh plugin --profile web list` 15 个插件版本全部核对一致，页面带 token 正常响应。
+
 ## 2026-09-14 插件目录与实装同步（新增 dsh-better-display）
 
 本次按当前 `web` profile 的实装清单重新对账，只维护目录索引，本机插件未安装、未升级、未卸载。
