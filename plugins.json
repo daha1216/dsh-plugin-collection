@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
   "catalogVersion": "1.26.1",
-  "updatedAt": "2026-09-12",
+  "updatedAt": "2026-09-13",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -133,6 +133,393 @@
       "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
       "install": "github:xxww0098/dsh-plugin-oauth-subs",
       "update": "dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs"
+    },
+    {
+      "id": "dsh-auto-review",
+      "name": "dsh-auto-review",
+      "version": "0.12.4",
+      "description": "审批链上的第二模型自动审查：只读 reviewer 子代理给出 allow/deny 结构化判定，默认 fail-closed，全程会话日志可审计。",
+      "source": "https://github.com/PerryLink/dsh-auto-review",
+      "install": "dsh-auto-review",
+      "update": "dsh plugin --profile web add dsh-auto-review"
+    },
+    {
+      "id": "dsh-permission-rules",
+      "name": "dsh-permission-rules",
+      "version": "0.7.2",
+      "description": "声明式有序 allow/deny/ask 权限规则：匹配工具名、参数（glob/正则）、工作区路径与网络目标（域名/IP/端口/协议），外加 Codex 风格进程级网络策略。",
+      "source": "https://github.com/PerryLink/dsh-permission-rules",
+      "install": "dsh-permission-rules",
+      "update": "dsh plugin --profile web add dsh-permission-rules"
+    },
+    {
+      "id": "dsh-doublecheck",
+      "name": "dsh-doublecheck",
+      "version": "0.9.11",
+      "description": "交付质量门：动笔前审讯需求、红绿测试证据、交付后对抗评审，最终给出 deliverable/rework 放行判定。",
+      "source": "https://github.com/PerryLink/dsh-doublecheck",
+      "install": "dsh-doublecheck",
+      "update": "dsh plugin --profile web add dsh-doublecheck"
+    },
+    {
+      "id": "dsh-memento",
+      "name": "dsh-memento",
+      "version": "0.5.12",
+      "description": "有界、分层、带审批门、可审计的跨会话记忆：ctx.memory 能力缝 + 本地 SQLite 提供者 + memory 工具 + 冻结快照注入。",
+      "source": "https://github.com/PerryLink/dsh-memento",
+      "install": "dsh-memento",
+      "update": "dsh plugin --profile web add dsh-memento"
+    },
+    {
+      "id": "dsh-checkpoint-rewind",
+      "name": "dsh-checkpoint-rewind",
+      "version": "0.6.11",
+      "description": "统一 DSH 检查点：会话/工作区/配置三态快照 + /checkpoint、/rewind 一键回退 + 设置页时间线 diff + 种子回放恢复。",
+      "source": "https://github.com/PerryLink/dsh-checkpoint-rewind",
+      "install": "dsh-checkpoint-rewind",
+      "update": "dsh plugin --profile web add dsh-checkpoint-rewind"
+    },
+    {
+      "id": "dsh-mcp-panel",
+      "name": "dsh-mcp-panel",
+      "version": "0.6.14",
+      "description": "MCP 服务器管理面板：查看状态、启停、日志、配置与工具试调，带自动备份。",
+      "source": "https://github.com/PerryLink/dsh-mcp-panel",
+      "install": "dsh-mcp-panel",
+      "update": "dsh plugin --profile web add dsh-mcp-panel"
+    },
+    {
+      "id": "dsh-composer-history",
+      "name": "dsh-composer-history",
+      "version": "0.8.2",
+      "description": "Web 输入框的终端式输入历史：方向键精确恢复草稿与光标、浏览器本地持久化、Ctrl+R 反查、工作区召回、压缩感知。",
+      "source": "https://github.com/PerryLink/dsh-composer-history",
+      "install": "dsh-composer-history",
+      "update": "dsh plugin --profile web add dsh-composer-history"
+    },
+    {
+      "id": "dsh-session-pin",
+      "name": "dsh-session-pin",
+      "version": "0.7.11",
+      "description": "置顶重要会话：保持可见、排序靠前、避免被清理。",
+      "source": "https://github.com/PerryLink/dsh-session-pin",
+      "install": "dsh-session-pin",
+      "update": "dsh plugin --profile web add dsh-session-pin"
+    },
+    {
+      "id": "dsh-session-sync",
+      "name": "dsh-session-sync",
+      "version": "0.2.14",
+      "description": "会话日志推送/拉取到远程存储，支持可配置的自动同步。",
+      "source": "https://github.com/PerryLink/dsh-session-sync",
+      "install": "dsh-session-sync",
+      "update": "dsh plugin --profile web add dsh-session-sync"
+    },
+    {
+      "id": "dsh-output-styles",
+      "name": "dsh-output-styles",
+      "version": "0.6.16",
+      "description": "运行时切换模型输出样式：内置六款样式库、/style 命令、会话级持久化、系统提示词注入与渲染器注册表。",
+      "source": "https://github.com/PerryLink/dsh-output-styles",
+      "install": "dsh-output-styles",
+      "update": "dsh plugin --profile web add dsh-output-styles"
+    },
+    {
+      "id": "dsh-lsp-actions",
+      "name": "dsh-lsp-actions",
+      "version": "0.5.1",
+      "description": "语言服务器能力暴露给 agent：诊断、定义、引用、补全、code actions 与整仓重命名。",
+      "source": "https://github.com/PerryLink/dsh-lsp-actions",
+      "install": "dsh-lsp-actions",
+      "update": "dsh plugin --profile web add dsh-lsp-actions"
+    },
+    {
+      "id": "dsh-background-agents",
+      "name": "dsh-background-agents",
+      "version": "0.9.7",
+      "description": "后台持久子代理：结构化任务板、进度监控、随时消息与中断控制。",
+      "source": "https://github.com/PerryLink/dsh-background-agents",
+      "install": "dsh-background-agents",
+      "update": "dsh plugin --profile web add dsh-background-agents"
+    },
+    {
+      "id": "dsh-claude-move",
+      "name": "dsh-claude-move",
+      "version": "0.4.7",
+      "description": "Claude Code/Codex/OpenCode/Hermes → DSH 迁移：导入 CLAUDE.md/AGENTS.md、斜杠命令与会话历史，审批门 + 幂等。",
+      "source": "https://github.com/PerryLink/dsh-claude-move",
+      "install": "dsh-claude-move",
+      "update": "dsh plugin --profile web add dsh-claude-move"
+    },
+    {
+      "id": "dsh-translate",
+      "name": "dsh-translate",
+      "version": "0.2.10",
+      "description": "会话内翻译文本与文件并做质量校验；顺带修复模型产出的坏 JSON。",
+      "source": "https://github.com/PerryLink/dsh-translate",
+      "install": "dsh-translate",
+      "update": "dsh plugin --profile web add dsh-translate"
+    },
+    {
+      "id": "dsh-local-ai",
+      "name": "dsh-local-ai",
+      "version": "0.2.10",
+      "description": "把 Ollama / LM Studio / 本地端点变成 DSH 的直接模型路由。",
+      "source": "https://github.com/PerryLink/dsh-local-ai",
+      "install": "dsh-local-ai",
+      "update": "dsh plugin --profile web add dsh-local-ai"
+    },
+    {
+      "id": "dsh-mask",
+      "name": "dsh-mask",
+      "version": "0.2.10",
+      "description": "敏感值遮蔽：密钥遮蔽规则 + 内存白名单 + 受控揭示流程。",
+      "source": "https://github.com/PerryLink/dsh-mask",
+      "install": "dsh-mask",
+      "update": "dsh plugin --profile web add dsh-mask"
+    },
+    {
+      "id": "dsh-data-quality",
+      "name": "dsh-data-quality",
+      "version": "0.3.10",
+      "description": "确定性数据画像、清洗与核验：DAMA 记分卡、内容哈希去重、指标期望与漂移检查。",
+      "source": "https://github.com/PerryLink/dsh-data-quality",
+      "install": "dsh-data-quality",
+      "update": "dsh plugin --profile web add dsh-data-quality"
+    },
+    {
+      "id": "dsh-score",
+      "name": "dsh-score",
+      "version": "0.2.11",
+      "description": "插件质量评分：按检查项评估插件并产出证据化合规报告。",
+      "source": "https://github.com/PerryLink/dsh-score",
+      "install": "dsh-score",
+      "update": "dsh plugin --profile web add dsh-score"
+    },
+    {
+      "id": "dsh-test-drive",
+      "name": "dsh-test-drive",
+      "version": "0.3.12",
+      "description": "在一次性沙箱环境（临时 DSH_HOME）试跑插件并输出 JSON/Markdown 评分。",
+      "source": "https://github.com/PerryLink/dsh-test-drive",
+      "install": "dsh-test-drive",
+      "update": "dsh plugin --profile web add dsh-test-drive"
+    },
+    {
+      "id": "dsh-defend",
+      "name": "dsh-defend",
+      "version": "0.3.10",
+      "description": "提示注入、越狱与密钥泄露防御：Aho-Corasick 检测 + allow/ask/block 拦截 + 递归删除执行前门。",
+      "source": "https://github.com/PerryLink/dsh-defend",
+      "install": "dsh-defend",
+      "update": "dsh plugin --profile web add dsh-defend"
+    },
+    {
+      "id": "dsh-budget",
+      "name": "dsh-budget",
+      "version": "0.4.9",
+      "description": "成本治理：按模型/会话/天聚合 token 与费用、预算上限与阈值告警、碳足迹估算、/budget 命令。",
+      "source": "https://github.com/PerryLink/dsh-budget",
+      "install": "dsh-budget",
+      "update": "dsh plugin --profile web add dsh-budget"
+    },
+    {
+      "id": "dsh-fast",
+      "name": "dsh-fast",
+      "version": "0.2.12",
+      "description": "只读性能诊断：会话加载/恢复耗时、溢写命中、压缩次数、上下文注入量、LLM 缓存命中率（/fast）。",
+      "source": "https://github.com/PerryLink/dsh-fast",
+      "install": "dsh-fast",
+      "update": "dsh plugin --profile web add dsh-fast"
+    },
+    {
+      "id": "dsh-observe",
+      "name": "dsh-observe",
+      "version": "0.2.12",
+      "description": "可观测性：请求追踪、遥测、日志缓冲与重试可见性。",
+      "source": "https://github.com/PerryLink/dsh-observe",
+      "install": "dsh-observe",
+      "update": "dsh plugin --profile web add dsh-observe"
+    },
+    {
+      "id": "dsh-click",
+      "name": "dsh-click",
+      "version": "0.3.10",
+      "description": "跨平台原生桌面控制（Windows 优先）：截图、读屏、点击/键入/滚动/按键、应用列表与启动——审批门 + 不抢焦点。",
+      "source": "https://github.com/PerryLink/dsh-click",
+      "install": "dsh-click",
+      "update": "dsh plugin --profile web add dsh-click"
+    },
+    {
+      "id": "dsh-talk",
+      "name": "dsh-talk",
+      "version": "0.3.10",
+      "description": "语音能力：文本转语音与语音转文本，带静音与说即聊控制。",
+      "source": "https://github.com/PerryLink/dsh-talk",
+      "install": "dsh-talk",
+      "update": "dsh plugin --profile web add dsh-talk"
+    },
+    {
+      "id": "dsh-draw",
+      "name": "dsh-draw",
+      "version": "0.2.14",
+      "description": "统一 image_generate 工具：OpenAI Images / Zhipu CogView 路由、健康感知回退、会话配额记账。",
+      "source": "https://github.com/PerryLink/dsh-draw",
+      "install": "dsh-draw",
+      "update": "dsh plugin --profile web add dsh-draw"
+    },
+    {
+      "id": "dsh-industry-research",
+      "name": "dsh-industry-research",
+      "version": "0.3.9",
+      "description": "结构化公司/行业深研：来源捕获 + 可审计研究轨迹。",
+      "source": "https://github.com/PerryLink/dsh-industry-research",
+      "install": "dsh-industry-research",
+      "update": "dsh plugin --profile web add dsh-industry-research"
+    },
+    {
+      "id": "dsh-research-report",
+      "name": "dsh-research-report",
+      "version": "0.3.10",
+      "description": "证据链研究报告：内容哈希封印来源目录，报告与来源不可分。",
+      "source": "https://github.com/PerryLink/dsh-research-report",
+      "install": "dsh-research-report",
+      "update": "dsh plugin --profile web add dsh-research-report"
+    },
+    {
+      "id": "dsh-fund-research",
+      "name": "dsh-fund-research",
+      "version": "0.4.11",
+      "description": "基金分析：收益、持仓与绩效归因。",
+      "source": "https://github.com/PerryLink/dsh-fund-research",
+      "install": "dsh-fund-research",
+      "update": "dsh plugin --profile web add dsh-fund-research"
+    },
+    {
+      "id": "dsh-library",
+      "name": "dsh-library",
+      "version": "0.2.11",
+      "description": "本地文档知识库：语义+关键词混合检索、引用感知注入、SQLite 索引、本地嵌入零模型下载。",
+      "source": "https://github.com/PerryLink/dsh-library",
+      "install": "dsh-library",
+      "update": "dsh plugin --profile web add dsh-library"
+    },
+    {
+      "id": "dsh-plugin-guide",
+      "name": "dsh-plugin-guide",
+      "version": "0.3.10",
+      "description": "可安装的 DSH 插件开发指南技能：打包、契约、检查与构建校验器。",
+      "source": "https://github.com/PerryLink/dsh-plugin-guide",
+      "install": "dsh-plugin-guide",
+      "update": "dsh plugin --profile web add dsh-plugin-guide"
+    },
+    {
+      "id": "dsh-dsh-github",
+      "name": "@perrylink/dsh-github",
+      "version": "0.7.10",
+      "description": "GitHub 集成：PR/issue/仓库/文件工具、评审与 CI 检查——写操作全审批门、token 不落日志。",
+      "source": "https://github.com/PerryLink/dsh-github",
+      "install": "@perrylink/dsh-github",
+      "update": "dsh plugin --profile web add @perrylink/dsh-github"
+    },
+    {
+      "id": "dsh-dsh-skill-pack-security-provider",
+      "name": "@perrylink/dsh-skill-pack-security-provider",
+      "version": "2.2.16",
+      "description": "预打包安全评审技能 + 风险卡：host 与 client 双端交付。",
+      "source": "https://github.com/PerryLink/dsh-skill-pack-security",
+      "install": "@perrylink/dsh-skill-pack-security-provider",
+      "update": "dsh plugin --profile web add @perrylink/dsh-skill-pack-security-provider"
+    },
+    {
+      "id": "dsh-personal-directive",
+      "name": "dsh-personal-directive",
+      "version": "0.2.3",
+      "description": "顶部栏一键开关的个人指令插件（框架版：中性占位指令，可替换为自己的内容）。",
+      "source": "https://github.com/PerryLink/dsh-personal-directive",
+      "install": "dsh-personal-directive",
+      "update": "dsh plugin --profile web add dsh-personal-directive"
+    },
+    {
+      "id": "dsh-dsh-ticktick",
+      "name": "@perrylink/dsh-ticktick",
+      "version": "0.1.7",
+      "description": "TickTick（滴答清单）任务桥：会话头任务面板 + 11 个精选 ticktick_* 工具 + 官方 MCP 端点上的设置卡片。",
+      "source": "https://github.com/PerryLink/dsh-ticktick",
+      "install": "@perrylink/dsh-ticktick",
+      "update": "dsh plugin --profile web add @perrylink/dsh-ticktick"
+    },
+    {
+      "id": "dsh-dsh-cert-mcp",
+      "name": "@perrylink/dsh-cert-mcp",
+      "version": "0.1.6",
+      "description": "只读 MCP 服务器：暴露插件认证等级、快照与五维证据。（bundle 已发版）",
+      "source": "https://github.com/PerryLink/dsh-cert-mcp",
+      "install": "@perrylink/dsh-cert-mcp",
+      "update": "dsh plugin --profile web add @perrylink/dsh-cert-mcp"
+    },
+    {
+      "id": "dsh-reach",
+      "name": "dsh-reach",
+      "version": "0.1.8",
+      "description": "多通道决策与遥控桥：审批/提问卡片镜像到 IM（微信 iLink、Telegram、飞书），#token 稳定 id，聊天内直接应答。",
+      "source": "https://github.com/PerryLink/dsh-reach",
+      "install": "dsh-reach",
+      "update": "dsh plugin --profile web add dsh-reach"
+    },
+    {
+      "id": "dsh-autotier",
+      "name": "dsh-autotier",
+      "version": "0.2.3",
+      "description": "强/便宜模型分档路由：意图门控落档、计划模式交接（强档规划便宜档执行）、工具/执行前高危守卫、TTL 回退。",
+      "source": "https://github.com/PerryLink/dsh-autotier",
+      "install": "dsh-autotier",
+      "update": "dsh plugin --profile web add dsh-autotier"
+    },
+    {
+      "id": "dsh-team-rooms",
+      "name": "dsh-team-rooms",
+      "version": "1.0.1",
+      "description": "连接独立会话与提供者 AI 成员的 DSH 团队房间。",
+      "source": "https://github.com/PerryLink/dsh-team-rooms",
+      "install": "dsh-team-rooms",
+      "update": "dsh plugin --profile web add dsh-team-rooms"
+    },
+    {
+      "id": "dsh-plugin-upgrade-015",
+      "name": "dsh-plugin-upgrade-015",
+      "version": "0.1.1",
+      "description": "0.1.5-alpha.1 → 0.1.5-rc.1 走廊的版本锁定升级技能：版本卡片 + 11 缝零依赖扫描器（npx CLI）。",
+      "source": "https://github.com/PerryLink/dsh-plugin-upgrade-015",
+      "install": "dsh-plugin-upgrade-015",
+      "update": "dsh plugin --profile web add dsh-plugin-upgrade-015"
+    },
+    {
+      "id": "dsh-dsh-plugin-kit",
+      "name": "@perrylink/dsh-plugin-kit",
+      "version": "0.1.9",
+      "description": "插件工程工具箱：脚手架、生态名册、peer-range 同步与校验。",
+      "source": "https://github.com/PerryLink/dsh-plugin-kit",
+      "install": "@perrylink/dsh-plugin-kit",
+      "update": "dsh plugin --profile web add @perrylink/dsh-plugin-kit"
+    },
+    {
+      "id": "dsh-dsh-plugin-doctor",
+      "name": "@perrylink/dsh-plugin-doctor",
+      "version": "0.2.3",
+      "description": "插件体检 CLI：安装/修复/审计。（bundle 已发版）",
+      "source": "https://github.com/PerryLink/dsh-plugin-doctor",
+      "install": "@perrylink/dsh-plugin-doctor",
+      "update": "dsh plugin --profile web add @perrylink/dsh-plugin-doctor"
+    },
+    {
+      "id": "dsh-plugin-upgrade-rc1",
+      "name": "dsh-plugin-upgrade-rc1",
+      "version": "0.1.0",
+      "description": "0.1.5-alpha.1 → 0.1.5-rc.1 走廊的版本卡片 + 11 缝扫描器（015 已覆盖同走廊，本条为历史包）",
+      "source": "https://github.com/PerryLink/dsh-plugin-upgrade-rc1",
+      "install": "dsh-plugin-upgrade-rc1",
+      "update": "dsh plugin --profile web add dsh-plugin-upgrade-rc1"
     }
   ]
 }
