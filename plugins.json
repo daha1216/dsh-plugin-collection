@@ -432,15 +432,6 @@
       "update": "dsh plugin --profile web add @perrylink/dsh-skill-pack-security-provider"
     },
     {
-      "id": "dsh-personal-directive",
-      "name": "dsh-personal-directive",
-      "version": "0.2.3",
-      "description": "顶部栏一键开关的个人指令插件（框架版：中性占位指令，可替换为自己的内容）。",
-      "source": "https://github.com/PerryLink/dsh-personal-directive",
-      "install": "dsh-personal-directive",
-      "update": "dsh plugin --profile web add dsh-personal-directive"
-    },
-    {
       "id": "dsh-dsh-ticktick",
       "name": "@perrylink/dsh-ticktick",
       "version": "0.1.7",

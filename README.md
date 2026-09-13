@@ -116,7 +116,6 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:PC2005-cloud/d
 | `dsh-plugin-guide` | `dsh-plugin-guide` | 0.3.10 | 可安装的 DSH 插件开发指南技能：打包、契约、检查与构建校验器。 | [PerryLink/dsh-plugin-guide](https://github.com/PerryLink/dsh-plugin-guide) |
 | `dsh-dsh-github` | `@perrylink/dsh-github` | 0.7.10 | GitHub 集成：PR/issue/仓库/文件工具、评审与 CI 检查——写操作全审批门、token 不落日志。 | [PerryLink/dsh-github](https://github.com/PerryLink/dsh-github) |
 | `dsh-dsh-skill-pack-security-provider` | `@perrylink/dsh-skill-pack-security-provider` | 2.2.16 | 预打包安全评审技能 + 风险卡：host 与 client 双端交付。 | [PerryLink/dsh-skill-pack-security](https://github.com/PerryLink/dsh-skill-pack-security) |
-| `dsh-personal-directive` | `dsh-personal-directive` | 0.2.3 | 顶部栏一键开关的个人指令插件（框架版：中性占位指令，可替换为自己的内容）。 | [PerryLink/dsh-personal-directive](https://github.com/PerryLink/dsh-personal-directive) |
 | `dsh-dsh-ticktick` | `@perrylink/dsh-ticktick` | 0.1.7 | TickTick（滴答清单）任务桥：会话头任务面板 + 11 个精选 ticktick_* 工具 + 官方 MCP 端点上的设置卡片。 | [PerryLink/dsh-ticktick](https://github.com/PerryLink/dsh-ticktick) |
 | `dsh-dsh-cert-mcp` | `@perrylink/dsh-cert-mcp` | 0.1.6 | 只读 MCP 服务器：暴露插件认证等级、快照与五维证据。（bundle 已发版） | [PerryLink/dsh-cert-mcp](https://github.com/PerryLink/dsh-cert-mcp) |
 | `dsh-reach` | `dsh-reach` | 0.1.8 | 多通道决策与遥控桥：审批/提问卡片镜像到 IM（微信 iLink、Telegram、飞书），#token 稳定 id，聊天内直接应答。 | [PerryLink/dsh-reach](https://github.com/PerryLink/dsh-reach) |
@@ -182,7 +181,6 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:PC2005-cloud/d
 | `dsh-plugin-guide` | `dsh plugin --profile web add dsh-plugin-guide` |
 | `dsh-dsh-github` | `dsh plugin --profile web add @perrylink/dsh-github` |
 | `dsh-dsh-skill-pack-security-provider` | `dsh plugin --profile web add @perrylink/dsh-skill-pack-security-provider` |
-| `dsh-personal-directive` | `dsh plugin --profile web add dsh-personal-directive` |
 | `dsh-dsh-ticktick` | `dsh plugin --profile web add @perrylink/dsh-ticktick` |
 | `dsh-dsh-cert-mcp` | `dsh plugin --profile web add @perrylink/dsh-cert-mcp` |
 | `dsh-reach` | `dsh plugin --profile web add dsh-reach` |
