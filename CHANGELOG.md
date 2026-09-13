@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-14 插件目录与实装同步（新增 dsh-better-display）
+
+本次按当前 `web` profile 的实装清单重新对账，只维护目录索引，本机插件未安装、未升级、未卸载。
+
+- 新增本机已装但目录未收录的 `dsh-better-display` `0.1.0`（来源 `aa2246740/dsh-better-display`，「阅读」页签：执行时展示步骤、思考与进度，整轮结束后收起过程只留最终回答，mcp-app 代码块挂成沙箱 iframe 交互卡片）。其 README 只给 `add github:aa2246740/dsh-better-display`，无独立 update 动词，更新即重跑该命令。
+- 刷新上游版本快照（5 项）：`dsh-better-reasoning-effort` `0.3.9` → `0.3.10`、`dshmarket` `1.45.1` → `1.46.1`、`@michengai/dsh-archive-manager` `0.1.39` → `0.1.40`、`dsh-all-usage` `1.1.8` → `1.1.9`、`billion-context-dsh` `0.2.21` → `0.2.22`。
+- 随快照同步 `install` 里的固定版本 spec：`billion-context-dsh@0.2.22`。
+- 其余 9 条快照与上游 HEAD 一致未动；`dsh-pet` 上游为 monorepo，版本取 `dsh-pet/` 子包 `package.json`（npm `latest` 同为 `0.2.8`）。
+- 目录版本 `1.26.1` → `1.27.0`，核对日期 `2026-09-14`。
+
 ## 2026-09-12 dsh-pocket 条目改指自建 fork（daha1216/dsh-pocket）
 
 只改目录索引的一条来源，本机插件未安装、未升级、未卸载，`web` profile 的 `package.json` 未改（本机仍指向 `github:shaobeichen/dsh-pocket`）。
