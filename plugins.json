@@ -12,7 +12,7 @@
       "id": "dsh-better-reasoning-effort",
       "name": "dsh-better-reasoning-effort",
       "version": "0.3.10",
-      "description": "第三方模型推理增强，在模型界面快捷配置推理强度（Effort）与多模态输入参数。",
+      "description": "配置第三方模型的推理强度（Effort）与输入模态",
       "source": "https://github.com/HaoyueQin/dsh-better-reasoning-effort",
       "install": "github:HaoyueQin/dsh-better-reasoning-effort",
       "update": "dsh plugin --profile web add github:HaoyueQin/dsh-better-reasoning-effort"
@@ -21,7 +21,7 @@
       "id": "dshmarket",
       "name": "dshmarket",
       "version": "1.46.1",
-      "description": "官方社区插件市场，提供 Web 界面浏览、搜索、一键安装与插件自更新。",
+      "description": "官方社区插件市场，支持浏览、搜索与一键安装",
       "source": "https://github.com/dsh-market/dsh-market",
       "install": "github:dsh-market/dsh-market",
       "update": "dsh plugin --profile web add dshmarket"
@@ -30,7 +30,7 @@
       "id": "dsh-skills",
       "name": "dsh-skills",
       "version": "0.1.1",
-      "description": "技能包管理器，统一管理全局与项目级 Agent 技能，支持 .skill-package 动态加载。",
+      "description": "统一管理全局与项目级 Agent 技能包",
       "source": "https://github.com/CocoSgt/dsh-skills",
       "install": "github:CocoSgt/dsh-skills",
       "update": "dsh plugin --profile web add dsh-skills"
@@ -39,7 +39,7 @@
       "id": "dsh-pet",
       "name": "dsh-pet",
       "version": "0.2.8",
-      "description": "Web 桌面宠物组件，在 DSH 网页右下角添加可互动、可拖拽的桌面宠物。",
+      "description": "在页面右下角显示可互动的桌面宠物",
       "source": "https://github.com/PC2005-cloud/dsh-pet",
       "install": "dsh-pet@0.2.8",
       "update": "dsh plugin --profile web add dsh-pet"
@@ -48,7 +48,7 @@
       "id": "dsh-pocket",
       "name": "dsh-pocket",
       "version": "2.10.3-daha.1",
-      "description": "手机移动端扫码同步，电脑端扫码即连，支持局域网/公网远程操控与多端同步。",
+      "description": "手机扫码同步电脑端 DSH，支持移动端操作",
       "source": "https://github.com/daha1216/dsh-pocket",
       "install": "github:daha1216/dsh-pocket",
       "update": "dsh plugin --profile web update dsh-pocket --latest -w"
@@ -57,7 +57,7 @@
       "id": "dsh-archive-manager",
       "name": "@michengai/dsh-archive-manager",
       "version": "0.1.40",
-      "description": "归档会话管理器，在 Web 端浏览、检索、恢复与清理历史归档会话。",
+      "description": "浏览、检索与恢复已归档的历史会话",
       "source": "https://github.com/MichengAI/dsh-archive-manager",
       "install": "@michengai/dsh-archive-manager@latest",
       "update": "dsh plugin --profile web add @michengai/dsh-archive-manager@latest --registry=https://registry.npmjs.org/"
@@ -66,7 +66,7 @@
       "id": "dsh-opencode-go-usage",
       "name": "@xueayi/dsh-opencode-go-usage",
       "version": "0.1.6",
-      "description": "OpenCode Go 额度悬浮窗，实时监控 5 小时滚动配额、周/月使用率及剩余额度。",
+      "description": "悬浮监控 OpenCode Go 滚动配额与剩余用量",
       "source": "https://github.com/xueayi/dsh-opencode-go-usage",
       "install": "github:xueayi/dsh-opencode-go-usage",
       "update": "dsh plugin --profile web update @xueayi/dsh-opencode-go-usage"
@@ -75,7 +75,7 @@
       "id": "dsh-all-usage",
       "name": "dsh-all-usage",
       "version": "1.1.9",
-      "description": "全维度用量分析看板，多维度统计 Token/缓存/费用消耗，支持用量热力图与 CSV 导出。",
+      "description": "多维度统计 Token 用量、费用消耗与热力图",
       "source": "https://github.com/ParticleLight/dsh-all-usage",
       "install": "github:ParticleLight/dsh-all-usage",
       "update": "dsh plugin --profile web add github:ParticleLight/dsh-all-usage"
@@ -84,7 +84,7 @@
       "id": "anysearch-dsh",
       "name": "@anysearch/anysearch-dsh",
       "version": "0.1.4",
-      "description": "联网搜索与网页抓取套件，为 Agent 补充多引擎实时检索与高质量正文提取工具。",
+      "description": "为 Agent 提供网页实时搜索与正文抓取能力",
       "source": "https://github.com/anysearch-team/anysearch-dsh",
       "install": "@anysearch/anysearch-dsh",
       "update": "npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh"
@@ -93,7 +93,7 @@
       "id": "billion-context-dsh",
       "name": "billion-context-dsh",
       "version": "0.2.22",
-      "description": "智能上下文压缩引擎，基于模型驱动裁剪与动态压缩历史消息，防止长会话爆窗口。",
+      "description": "动态压缩长会话上下文，防止超出模型窗口",
       "source": "https://github.com/Tyan66666/billion-context-dsh",
       "install": "billion-context-dsh@0.2.22",
       "update": "dsh plugin --profile web add billion-context-dsh"
@@ -102,7 +102,7 @@
       "id": "dsh-retrace",
       "name": "dsh-retrace",
       "version": "0.4.21",
-      "description": "会话版本控制与时光机，支持消息撤回重发、分支分叉，并将对话与生成产物关联版本化。",
+      "description": "会话消息撤回重发、分支回溯与产物版本化",
       "source": "https://github.com/daha1216/dsh-retrace",
       "install": "github:daha1216/dsh-retrace",
       "update": "dsh plugin --profile web add dsh-retrace"
@@ -111,7 +111,7 @@
       "id": "dsh-font-customizer",
       "name": "dsh-font-customizer",
       "version": "0.1.0",
-      "description": "界面与代码字体定制，支持扫描本地字体、自定义界面/代码字体及字号，持久化保存。",
+      "description": "自定义 Web 界面字体、代码字体与字号",
       "source": "https://github.com/daha1216/dsh-font-customizer",
       "install": "github:daha1216/dsh-font-customizer",
       "update": "dsh plugin --profile web add github:daha1216/dsh-font-customizer"
@@ -120,7 +120,7 @@
       "id": "dsh-watcher",
       "name": "dsh-watcher",
       "version": "0.4.0-insights.1",
-      "description": "会话状态 HUD 悬浮球，只读展示上下文消耗、执行状态与本地模型实时用量。",
+      "description": "HUD 悬浮球展示会话运行状态与模型实时用量",
       "source": "https://github.com/aa2246740/dsh-watcher",
       "install": "github:aa2246740/dsh-watcher",
       "update": "dsh plugin --profile web add github:aa2246740/dsh-watcher"
@@ -129,7 +129,7 @@
       "id": "dsh-plugin-oauth-subs",
       "name": "dsh-plugin-oauth-subs",
       "version": "0.0.89",
-      "description": "多平台订阅 OAuth 接入，直连 ChatGPT、Grok、Copilot、Cursor 等官方订阅代理。",
+      "description": "接入 ChatGPT、Grok、Copilot 等官方订阅账号",
       "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
       "install": "github:xxww0098/dsh-plugin-oauth-subs",
       "update": "dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs"
@@ -138,7 +138,7 @@
       "id": "dsh-better-display",
       "name": "dsh-better-display",
       "version": "0.1.0",
-      "description": "沉浸式阅读与交互视图，新增「阅读」页签（自动折叠执行步骤），支持 MCP 沙箱交互卡片。",
+      "description": "自动折叠执行步骤，提供纯净阅读视图与交互卡片",
       "source": "https://github.com/aa2246740/dsh-better-display",
       "install": "github:aa2246740/dsh-better-display",
       "update": "dsh plugin --profile web add github:aa2246740/dsh-better-display"

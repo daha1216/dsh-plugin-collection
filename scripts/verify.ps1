@@ -36,12 +36,16 @@ if ($dirRows.Count -ne $catalog.plugins.Count) { $errors += "README 目录表 $(
 if ($updRows.Count -ne $catalog.plugins.Count) { $errors += "README 更新插件表 $($updRows.Count) 行 != plugins.json $($catalog.plugins.Count) 条" }
 
 foreach ($p in $catalog.plugins) {
-  if ($readme -notmatch "(?m)^\| ``$([regex]::Escape($p.id))`` \| ``$([regex]::Escape($p.name))`` \| $([regex]::Escape($p.version)) \|") {
-    $errors += "README 目录表缺/版本不符: $($p.id) $($p.version)"
+  $idNamePattern = "^\| ``$([regex]::Escape($p.id))`` \| ``$([regex]::Escape($p.name))`` \| $([regex]::Escape($p.version)) \|"
+  $namePattern   = "^\| ``$([regex]::Escape($p.name))`` \| $([regex]::Escape($p.version)) \|"
+  if ($readme -notmatch "(?m)($idNamePattern|$namePattern)") {
+    $errors += "README 目录表缺/版本不符: $($p.name) $($p.version)"
   }
   $esc = [regex]::Escape($p.update)
-  if ($readme -notmatch "(?m)^\| ``$([regex]::Escape($p.id))`` \| ``$esc`` \|$") {
-    $errors += "README 更新插件表缺/命令不符: $($p.id)"
+  $updIdPattern   = "^\| ``$([regex]::Escape($p.id))`` \| ``$esc`` \|$"
+  $updNamePattern = "^\| ``$([regex]::Escape($p.name))`` \| ``$esc`` \|$"
+  if ($readme -notmatch "(?m)($updIdPattern|$updNamePattern)") {
+    $errors += "README 更新插件表缺/命令不符: $($p.name)"
   }
 }
 
