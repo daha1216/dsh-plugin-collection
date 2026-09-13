@@ -17,21 +17,21 @@
 
 | ID | 名称 | 版本 | 用途 | 来源 |
 |---|---|---:|---|---|
-| `dsh-better-reasoning-effort` | `dsh-better-reasoning-effort` | 0.3.10 | 为第三方模型提供推理强度与输入模态配置，并在模型页面内提供自动适配。 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `dshmarket` | `dshmarket` | 1.46.1 | DSH 社区插件市场，支持浏览、搜索和一键安装插件。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
-| `dsh-skills` | `dsh-skills` | 0.1.1 | 聚合和管理全局、项目及 .skill-package 技能。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
-| `dsh-pet` | `dsh-pet` | 0.2.8 | 在 DSH 网页界面显示可活动的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
-| `dsh-pocket` | `dsh-pocket` | 2.10.3-daha.1 | 通过手机扫码访问并同步电脑上的 DSH，支持局域网和公网。本条目指向自建 fork（含两处安全加固），非上游原仓库。 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
-| `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.40 | 管理已归档的 DSH 会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
-| `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 在悬浮 Web 面板中实时监控 OpenCode Go 的 5 小时滚动 / 周 / 月配额并展示用量。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
-| `dsh-all-usage` | `dsh-all-usage` | 1.1.9 | 按模型、供应商、工作区和时间范围分析 Token、缓存与账户余额，并支持热力图和 CSV 导出。 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
-| `anysearch-dsh` | `@anysearch/anysearch-dsh` | 0.1.4 | 为 DSH 提供网页搜索、网页抓取及高级搜索工具。 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
-| `billion-context-dsh` | `billion-context-dsh` | 0.2.22 | 通过模型驱动的上下文裁剪管理 DSH 上下文，作为 CompactionEngine 后端工作。 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
-| `dsh-retrace` | `dsh-retrace` | 0.4.21 | 在会话中撤回、编辑重发与重新生成，并把对话与产物一起版本化，提供时间线、回滚与分叉图。 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
-| `dsh-font-customizer` | `dsh-font-customizer` | 0.1.0 | 自定义 DSH Web 界面字体：界面字体、代码字体与内容字号，设置持久化在宿主机，支持本地字体检测与全量扫描。 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
-| `dsh-watcher` | `dsh-watcher` | 0.4.0-insights.1 | 只读的会话洞察与本地模型用量统计，给 DSH Web 会话加状态与用量 HUD。 | [aa2246740/dsh-watcher](https://github.com/aa2246740/dsh-watcher) |
-| `dsh-plugin-oauth-subs` | `dsh-plugin-oauth-subs` | 0.0.89 | 把 ChatGPT Codex、Grok、GLM、Kiro、Antigravity、Cursor、Ollama Cloud、Kimi、GitHub Copilot 的订阅 OAuth 接入 DSH（PKCE / 设备码 / Google 登录，本地 Responses 代理）。 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
-| `dsh-better-display` | `dsh-better-display` | 0.1.0 | 给 DSH Web 加「阅读」页签：执行时展示步骤、思考与进度，整轮结束后收起过程只留最终回答，并把 mcp-app 代码块挂成沙箱 iframe 交互卡片。 | [aa2246740/dsh-better-display](https://github.com/aa2246740/dsh-better-display) |
+| `dsh-better-reasoning-effort` | `dsh-better-reasoning-effort` | 0.3.10 | 第三方模型推理增强，在模型界面快捷配置推理强度（Effort）与多模态输入参数。 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
+| `dshmarket` | `dshmarket` | 1.46.1 | 官方社区插件市场，提供 Web 界面浏览、搜索、一键安装与插件自更新。 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
+| `dsh-skills` | `dsh-skills` | 0.1.1 | 技能包管理器，统一管理全局与项目级 Agent 技能，支持 .skill-package 动态加载。 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
+| `dsh-pet` | `dsh-pet` | 0.2.8 | Web 桌面宠物组件，在 DSH 网页右下角添加可互动、可拖拽的桌面宠物。 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
+| `dsh-pocket` | `dsh-pocket` | 2.10.3-daha.1 | 手机移动端扫码同步，电脑端扫码即连，支持局域网/公网远程操控与多端同步。 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
+| `dsh-archive-manager` | `@michengai/dsh-archive-manager` | 0.1.40 | 归档会话管理器，在 Web 端浏览、检索、恢复与清理历史归档会话。 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
+| `dsh-opencode-go-usage` | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | OpenCode Go 额度悬浮窗，实时监控 5 小时滚动配额、周/月使用率及剩余额度。 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
+| `dsh-all-usage` | `dsh-all-usage` | 1.1.9 | 全维度用量分析看板，多维度统计 Token/缓存/费用消耗，支持用量热力图与 CSV 导出。 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
+| `anysearch-dsh` | `@anysearch/anysearch-dsh` | 0.1.4 | 联网搜索与网页抓取套件，为 Agent 补充多引擎实时检索与高质量正文提取工具。 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
+| `billion-context-dsh` | `billion-context-dsh` | 0.2.22 | 智能上下文压缩引擎，基于模型驱动裁剪与动态压缩历史消息，防止长会话爆窗口。 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
+| `dsh-retrace` | `dsh-retrace` | 0.4.21 | 会话版本控制与时光机，支持消息撤回重发、分支分叉，并将对话与生成产物关联版本化。 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
+| `dsh-font-customizer` | `dsh-font-customizer` | 0.1.0 | 界面与代码字体定制，支持扫描本地字体、自定义界面/代码字体及字号，持久化保存。 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
+| `dsh-watcher` | `dsh-watcher` | 0.4.0-insights.1 | 会话状态 HUD 悬浮球，只读展示上下文消耗、执行状态与本地模型实时用量。 | [aa2246740/dsh-watcher](https://github.com/aa2246740/dsh-watcher) |
+| `dsh-plugin-oauth-subs` | `dsh-plugin-oauth-subs` | 0.0.89 | 多平台订阅 OAuth 接入，直连 ChatGPT、Grok、Copilot、Cursor 等官方订阅代理。 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
+| `dsh-better-display` | `dsh-better-display` | 0.1.0 | 沉浸式阅读与交互视图，新增「阅读」页签（自动折叠执行步骤），支持 MCP 沙箱交互卡片。 | [aa2246740/dsh-better-display](https://github.com/aa2246740/dsh-better-display) |
 
 ---
 
