@@ -137,11 +137,11 @@
     {
       "id": "dsh-better-display",
       "name": "dsh-better-display",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "自动折叠执行步骤，提供纯净阅读视图与交互卡片",
-      "source": "https://github.com/aa2246740/dsh-better-display",
-      "install": "github:aa2246740/dsh-better-display",
-      "update": "dsh plugin --profile web add github:aa2246740/dsh-better-display"
+      "source": "https://github.com/daha1216/dsh-better-display",
+      "install": "github:daha1216/dsh-better-display",
+      "update": "dsh plugin --profile web add github:daha1216/dsh-better-display"
     }
   ]
 }

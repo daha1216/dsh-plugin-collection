@@ -43,7 +43,7 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-better-display` | 0.1.0 | 自动折叠执行步骤，提供纯净阅读视图与交互卡片 | [aa2246740/dsh-better-display](https://github.com/aa2246740/dsh-better-display) |
+| `dsh-better-display` | 0.1.1 | 自动折叠执行步骤，提供纯净阅读视图与交互卡片 | [daha1216/dsh-better-display](https://github.com/daha1216/dsh-better-display) |
 | `dsh-pocket` | 2.10.3-daha.1 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 | `dsh-font-customizer` | 0.1.0 | 自定义 Web 界面字体、代码字体与字号 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
 | `dsh-pet` | 0.2.8 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
@@ -129,7 +129,7 @@ bash install.sh --all
 | `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
 | `dsh-watcher` | `dsh plugin --profile web add github:aa2246740/dsh-watcher` |
 | `dsh-plugin-oauth-subs` | `dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs` |
-| `dsh-better-display` | `dsh plugin --profile web add github:aa2246740/dsh-better-display` |
+| `dsh-better-display` | `dsh plugin --profile web add github:daha1216/dsh-better-display` |
 
 ---
 
