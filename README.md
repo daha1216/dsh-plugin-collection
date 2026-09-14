@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.27.0-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.28.0-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-15%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -35,7 +35,7 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-retrace` | 0.4.21 | 会话消息撤回重发、分支回溯与产物版本化 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
+| `dsh-retrace` | 0.4.23 | 会话消息撤回重发、分支回溯与产物版本化；撤回操作 UI 归属本插件（对话页 ghost chips + 两步确认、阅读页 DOM 注入） | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@michengai/dsh-archive-manager` | 0.1.40 | 浏览、检索与恢复已归档的历史会话 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
 | `@anysearch/anysearch-dsh` | 0.1.4 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 
@@ -43,7 +43,7 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-better-display` | 0.1.1 | 自动折叠执行步骤，提供纯净阅读视图与交互卡片 | [daha1216/dsh-better-display](https://github.com/daha1216/dsh-better-display) |
+| `dsh-better-display` | 0.1.5 | 纯展示层：隐藏 shadow、标记撤回消息并渲染原文引用块（锚点契约），不含编辑/撤回操作 UI | [daha1216/dsh-better-display](https://github.com/daha1216/dsh-better-display) |
 | `dsh-pocket` | 2.10.3-daha.1 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 | `dsh-font-customizer` | 0.1.0 | 自定义 Web 界面字体、代码字体与字号 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
 | `dsh-pet` | 0.2.8 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |

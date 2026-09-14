@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-14 dsh-retrace / dsh-better-display 版本快照刷新
+
+本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件。
+
+- `dsh-retrace` `0.4.21` → `0.4.23`（来源 `daha1216/dsh-retrace`，上游 HEAD `7cdd3c8`，本机 profile 实装 pin 同 commit）。上游变更：0.4.22 把撤回操作 UI 全面迁入本插件（对话页 ghost chips + 两步确认、阅读页 DOM 注入器），0.4.23 修注入器 store 路径（改用官方 conversation chat target + activate）。描述补注「撤回操作 UI 归属本插件（对话页 + 阅读页注入）」；`update` 命令 `dsh plugin --profile web add dsh-retrace` 未变。
+- `dsh-better-display` `0.1.1`（README 记录）→ `0.1.5`（来源 `daha1216/dsh-better-display`，上游 HEAD `a365173`）。上游变更：0.1.3 曾并入 retrace chips（已废弃），0.1.4 移除全部操作 UI 转纯展示（shadow 隐藏、撤回标记、原文引用块，锚点契约），0.1.5 修引用块文本来源（取 edit marker `data.text`）。描述由「自动折叠执行步骤…」改为「纯展示层…不含编辑/撤回操作 UI」；`update` 命令未变。
+- 目录版本 `1.27.0` → `1.28.0`，核对日期 `2026-09-14`。
+- 流程偏差：手册提到的 `scripts/sync-catalog.ps1`、`scripts/extract-update-cmds.ps1` 本仓库实际不存在，遂按仓库现状手工改 `plugins.json` + README 两表（版本 + 描述），改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-14 本机插件更新（dsh-plugin-oauth-subs 0.0.76 → 0.0.89）
 
 本轮实际更新 1 个本机插件；其余 14 个经 commit 级核对（lockfile codeload commit vs 上游 HEAD、npm dist-tag）均已在最新，未动。目录索引无变化（快照昨天一轮已是 0.0.89），catalogVersion 不变。
