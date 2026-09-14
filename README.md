@@ -38,7 +38,7 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-retrace` | 0.4.40 | 会话消息撤回重发、分支回溯与产物版本化；撤回操作 UI 归属本插件（对话页软填充胶囊 chips 内联进时间·复制行、列右缘对齐、两步确认），内联编辑器为流内兄弟卡片（编辑/撤回 chips 常驻不消失，编辑卡在「时间·复制」行下方流内展开，自动聚焦/自动高度/快捷键），液态毛玻璃 + 暖橙扁平按钮与出入场动效 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
+| `dsh-retrace` | 0.4.40 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@michengai/dsh-archive-manager` | 0.1.40 | 浏览、检索与恢复已归档的历史会话 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
 | `@anysearch/anysearch-dsh` | 0.1.4 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 
