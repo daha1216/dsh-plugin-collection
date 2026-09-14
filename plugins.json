@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.28.0",
+  "catalogVersion": "1.29.0",
   "updatedAt": "2026-09-14",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -137,8 +137,8 @@
     {
       "id": "dsh-better-display",
       "name": "dsh-better-display",
-      "version": "0.1.5",
-      "description": "纯展示层：隐藏 shadow、标记撤回消息并渲染原文引用块（锚点契约），不含编辑/撤回操作 UI",
+      "version": "0.2.0",
+      "description": "纯展示层：隐藏 shadow、撤回标记可展开列出被撤记录、原文引用块可折叠，附阅读偏好设置（字号/行宽/密度/动效），不含编辑/撤回操作 UI",
       "source": "https://github.com/daha1216/dsh-better-display",
       "install": "github:daha1216/dsh-better-display",
       "update": "dsh plugin --profile web add github:daha1216/dsh-better-display"

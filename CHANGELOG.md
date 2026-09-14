@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-14 dsh-better-display 0.2.0 版本快照刷新
+
+本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件。
+
+- `dsh-better-display` `0.1.5` → `0.2.0`（来源 `daha1216/dsh-better-display`，上游 HEAD `c197898`，本机 profile 实装 pin 同 commit）。上游变更：长会话性能（`content-visibility` + IntersectionObserver scroll spy）、撤回标记可展开列出被撤记录（seq + 时间 + 文本）、原文引用块可折叠、阅读设置 popover（字号 / 行宽 / 密度 / 撤回展示 / 动效）、移动端时间轴精简模式、状态色局部 token 化；测试 75 → 92。描述补注「阅读偏好设置（字号/行宽/密度/动效）」，保留「纯展示层…不含操作 UI」定位；`update` 命令未变。
+- 目录版本 `1.28.0` → `1.29.0`，核对日期 `2026-09-14`。
+- 流程偏差：手册提到的 `scripts/sync-catalog.ps1`、`scripts/extract-update-cmds.ps1` 本仓库实际不存在，遂按仓库现状手工改 `plugins.json` + README（版本徽章 + 目录表行），改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-14 dsh-retrace / dsh-better-display 版本快照刷新
 
 本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件。
