@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-14 dsh-retrace 0.4.34 版本快照刷新 / 移除 dsh-better-display
+
+本轮维护目录索引与版本快照，并同步移除本机已卸载的条目；未安装、升级或卸载任何本机插件。
+
+- `dsh-retrace` `0.4.23` → `0.4.34`（来源 `daha1216/dsh-retrace`，上游 HEAD `2e0d31d`，本机 profile 实装 pin 同 commit）。上游变更：0.4.24~0.4.33 视觉重设计（chips 改软填充胶囊、内联编辑器现代化为浮动卡片 + 自动聚焦 / 自动高度 / 快捷键、Apple 液态毛玻璃、暖橙扁平按钮、入场 / 退场动画与 armed 脉冲）；0.4.34 对话页 chips 与复制按钮同行（收零高 + 贴附 meta 行，hover 显隐跟随原生规则）。描述补注新视觉形态（胶囊 chips 与复制按钮同行、浮动卡片编辑器、毛玻璃 + 暖橙扁平按钮与动效），保留「会话消息撤回重发、分支回溯与产物版本化」核心表述；`update` 命令 `dsh plugin --profile web add dsh-retrace` 未变。
+- 移除 `dsh-better-display` `0.2.0` 条目（README 两表 + `plugins.json`）：该插件已从本机 web profile 卸载，`verify.ps1` 差集核对报「目录有但本机未装」，遂按实装状态撤条目；README 插件计数徽章 `15` → `14`。
+- 目录版本 `1.29.0` → `1.30.0`，核对日期 `2026-09-14`。
+- 流程偏差：手册提到的 `scripts/sync-catalog.ps1`、`scripts/extract-update-cmds.ps1` 本仓库实际不存在，遂按仓库现状手工改 `plugins.json` + README（版本徽章 + 目录表行 + 计数徽章），改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-14 dsh-better-display 0.2.0 版本快照刷新
 
 本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件。
