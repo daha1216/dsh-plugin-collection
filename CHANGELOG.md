@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-14 dsh-retrace 0.4.40 版本快照刷新
+
+本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件。
+
+- `dsh-retrace` `0.4.36` → `0.4.40`（来源 `daha1216/dsh-retrace`，上游 HEAD `2a9bd0e`，本机 profile 实装 pin 同 commit）。上游变更：0.4.37 修编辑卡遮挡「时间·复制」行；0.4.38 删除阅读页 DOM 注入器（better-display 卸载后锚点不存在）等死代码、observer 收敛、内建 E2E 布局校验（`scripts/e2e-layout.cjs`，24 断言）；0.4.39 编辑/撤回 chips 常驻（编辑框弹出时按钮不再被换走，编辑卡改流内兄弟节点，注册入口加 null-props 防御）；0.4.40 修「撤回一次后所有消息的编辑/撤回按钮永久消失」（根因：组件在 hook 序列中间提前 return 触发 React #300、槽位永久弃权；改为全部 hook 跑完再早退）。描述删去「阅读页 DOM 注入器」，把「内联编辑器为浮动卡片」改为「流内兄弟卡片（编辑/撤回 chips 常驻不消失，编辑卡在时间·复制行下方流内展开）」；`update` 命令 `dsh plugin --profile web add dsh-retrace` 未变。
+- 目录版本 `1.31.0` → `1.32.0`，核对日期 `2026-09-14`；改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-14 dsh-retrace 0.4.36 版本快照刷新 / 新增 iPolloWork 三插件
 
 本轮维护目录索引与版本快照，并收录本机新装的 iPolloWork 三件套；未安装、升级或卸载任何本机插件。
