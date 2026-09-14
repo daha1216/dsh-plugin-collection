@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-14 dsh-retrace 0.4.36 版本快照刷新 / 新增 iPolloWork 三插件
+
+本轮维护目录索引与版本快照，并收录本机新装的 iPolloWork 三件套；未安装、升级或卸载任何本机插件。
+
+- `dsh-retrace` `0.4.34` → `0.4.36`（来源 `daha1216/dsh-retrace`，上游 HEAD `1e6b21f`，本机 profile 实装 pin 同 commit）。上游变更：0.4.35 修思考折叠后 chips 凭空消失（harness 把锚在用户消息 seq 上的 seat 计入 turn-process 组，折叠时 `hidden="until-found"` 触发 content-visibility:hidden 停止绘制，改 CSS 强制 visible + observer 补 attributes/characterData 监听）；0.4.36 对话页 chips 从列外页边空档改为列内整行内联——官方「时间 · 复制」行整体左移让位，chips 紧跟复制按钮、行末右缘对齐消息列右缘，编辑器换入/seat 隐藏时复制按钮回位。描述改为「chips 内联进时间·复制行、列右缘对齐」；`update` 命令 `dsh plugin --profile web add dsh-retrace` 未变。
+- 新增 `deepseek-idesign` `0.2.2`、`deepseek-ippt` `0.1.2`、`deepseek-ivideo` `0.1.0`（均来源 `Devin-AXIS/iPolloWork` monorepo 的 `external-plugins/deepseek-harness/*` 子包，npm 通道发布，今日目录上一轮核对后新装于 web profile；README 插件计数徽章 `14` → `17`）。三者分别为设计 / PPT / 视频生成工作室（对话生成设计稿、幻灯片与可编辑视频）；原生 README 命令均为 `dsh plugin --profile web add <npm 包名>`，无独立 update 动词，更新即重跑 add；npm dist-tag 与实装版本一致。
+- 目录版本 `1.30.0` → `1.31.0`，核对日期 `2026-09-14`。
+- 流程偏差：手册提到的 `scripts/sync-catalog.ps1` 本仓库实际不存在，按仓库现状手工改 `plugins.json` + README（版本徽章 + 目录表行），改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-14 dsh-retrace 0.4.34 版本快照刷新 / 移除 dsh-better-display
 
 本轮维护目录索引与版本快照，并同步移除本机已卸载的条目；未安装、升级或卸载任何本机插件。

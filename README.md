@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.30.0-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-14%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.31.0-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-17%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -22,6 +22,9 @@
 | `dsh-better-reasoning-effort` | 0.3.10 | 配置第三方模型的推理强度（Effort）与输入模态 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `dsh-plugin-oauth-subs` | 0.0.89 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
 | `billion-context-dsh` | 0.2.22 | 动态压缩长会话上下文，防止超出模型窗口 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
+| `deepseek-idesign` | 0.2.2 | iPolloWork 设计工作室：对话生成设计稿并套用精选设计模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
+| `deepseek-ippt` | 0.1.2 | iPolloWork PPT 工作室：对话生成幻灯片并套用精选模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
+| `deepseek-ivideo` | 0.1.0 | iPolloWork 视频工作室：对话生成可编辑视频（HyperFrames 模板） | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
 
 ### 📊 计量与状态监控
 
@@ -35,7 +38,7 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-retrace` | 0.4.34 | 会话消息撤回重发、分支回溯与产物版本化；撤回操作 UI 归属本插件（对话页软填充胶囊 chips 与复制按钮同行、两步确认，阅读页 DOM 注入器），内联编辑器为浮动卡片（自动聚焦/自动高度/快捷键），液态毛玻璃 + 暖橙扁平按钮与出入场动效 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
+| `dsh-retrace` | 0.4.36 | 会话消息撤回重发、分支回溯与产物版本化；撤回操作 UI 归属本插件（对话页软填充胶囊 chips 内联进时间·复制行、列右缘对齐、两步确认，阅读页 DOM 注入器），内联编辑器为浮动卡片（自动聚焦/自动高度/快捷键），液态毛玻璃 + 暖橙扁平按钮与出入场动效 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@michengai/dsh-archive-manager` | 0.1.40 | 浏览、检索与恢复已归档的历史会话 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
 | `@anysearch/anysearch-dsh` | 0.1.4 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 
@@ -124,6 +127,9 @@ bash install.sh --all
 | `dsh-all-usage` | `dsh plugin --profile web add github:ParticleLight/dsh-all-usage` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context-dsh` | `dsh plugin --profile web add billion-context-dsh` |
+| `deepseek-idesign` | `dsh plugin --profile web add deepseek-idesign` |
+| `deepseek-ippt` | `dsh plugin --profile web add deepseek-ippt` |
+| `deepseek-ivideo` | `dsh plugin --profile web add deepseek-ivideo` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
 | `dsh-watcher` | `dsh plugin --profile web add github:aa2246740/dsh-watcher` |
