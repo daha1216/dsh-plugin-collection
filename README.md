@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.32.0-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.33.0-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-17%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -65,15 +65,15 @@
 
 ### 1. 单插件安装（官方推荐命令）
 
-在目录中挑选好插件后，直接使用官方 CLI 命令从作者上游安装（以桌面宠物为例）：
+在目录中挑选好插件后，直接使用官方 CLI 命令从作者上游安装（以 dsh-retrace 为例）：
 
 ```bash
-npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:PC2005-cloud/dsh-pet
+npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:daha1216/dsh-retrace
 ```
 
 ### 2. 交互式选择安装
 
-通过本仓库自带脚本按需选择：
+先 clone 本仓库（脚本会读取同目录的 `plugins.json`），再通过自带脚本按需选择：
 
 ```powershell
 # 列出可选插件
@@ -93,13 +93,12 @@ bash install.sh --plugin dsh-pocket
 
 一键安装本目录收录的全部插件当前最新版：
 
-**Windows PowerShell**：
+**Windows**（单行，cmd / PowerShell 通用）：
 ```powershell
-$tmp = Join-Path $env:TEMP 'dsh-plugin-collection'
-if (Test-Path $tmp) { Remove-Item -Recurse -Force $tmp }
-git clone https://github.com/daha1216/dsh-plugin-collection.git $tmp
-& (Join-Path $tmp 'install.ps1') -All
+$tmp = "$env:TEMP\dsh-plugin-collection"; git clone -q --depth 1 https://github.com/daha1216/dsh-plugin-collection.git $tmp; powershell -NoProfile -ExecutionPolicy Bypass -File "$tmp\install.ps1" -All
 ```
+
+*也可直接双击仓库中的 `install.cmd`（未 clone 时自动 clone 到临时目录后执行）。*
 
 **macOS / Linux**：
 ```bash

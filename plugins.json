@@ -1,11 +1,12 @@
-{
+﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.32.0",
+  "catalogVersion": "1.33.0",
   "updatedAt": "2026-09-14",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
-    "sourcePolicy": "github-or-npm"
+    "sourcePolicy": "github-or-npm",
+    "windowsEntry": "install.cmd (double-click; auto-clones when not in repo)"
   },
   "plugins": [
     {

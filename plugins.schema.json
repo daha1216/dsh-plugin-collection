@@ -11,7 +11,8 @@
       "properties": {
         "command": { "type": "string" },
         "profile": { "type": "string" },
-      "sourcePolicy": { "const": "github-or-npm" }
+        "sourcePolicy": { "const": "github-or-npm" },
+        "windowsEntry": { "type": "string" }
       }
     },
     "plugins": {

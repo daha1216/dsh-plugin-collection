@@ -1,0 +1,15 @@
+# Normalize line endings: keep working copies LF so scripts behave the same here as on CI/Unix.
+# verify.ps1 matches README table rows with `$`-anchored regex, which breaks on CRLF working copies.
+* text=auto eol=lf
+
+# Windows batch entry point must stay CRLF for cmd.exe.
+*.cmd text eol=crlf
+
+# PowerShell scripts carry a UTF-8 BOM (Windows PowerShell 5.1 reads BOM-less UTF-8
+# as the ANSI codepage and mangles the Chinese output into a parse error). `text`
+# normalization preserves the BOM bytes at the start of the file.
+*.ps1 text eol=lf
+
+*.json text eol=lf
+*.md text eol=lf
+*.sh text eol=lf

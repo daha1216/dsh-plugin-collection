@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-17 Windows 安装入口修复（编码 + 单行命令 + install.cmd）
+
+本轮只修安装路径与文档，未安装、升级或卸载任何本机插件。
+
+- 根因：`install.ps1` 与 `plugins.json` 是**无 BOM 的 UTF-8**。Windows PowerShell 5.1 会按 ANSI 代码页读脚本，中文串变乱码并把引号闭合破坏，报 `Unexpected token '瀹夎'`；`plugins.json` 同因此 `ConvertFrom-Json` 报 `Invalid object passed in, ':' or '}' expected. (540)`。PowerShell 7 默认按 UTF-8 读，所以作者侧一直没暴露。最小复现：同一句 `Write-Host '安装完成。'` 放进无 BOM 的 ps1，5.1 直接语法报错。
+- 修复：`install.ps1`、`plugins.json` 改为带 UTF-8 BOM；`plugins.schema.json` 的 `install` 段新增可选 `windowsEntry` 字段，并在 `plugins.json` 中登记 `install.cmd`。
+- 新增 `install.cmd`（可双击）：与脚本同目录时直接转发给 `install.ps1`；不同目录时自动 `git clone --depth 1` 到 `%TEMP%\dsh-plugin-collection` 再执行；找不到 git 时给明确提示。shell 选型 `pwsh` 优先、回退 `powershell`，并带 `-ExecutionPolicy Bypass`（不改本机策略，可双击运行）。
+- README「安装指南」：第 3 节 Windows 由多行 PowerShell 块改为单行命令 `$tmp = "$env:TEMP\dsh-plugin-collection"; git clone -q --depth 1 <repo> $tmp; powershell -NoProfile -ExecutionPolicy Bypass -File "$tmp\install.ps1" -All`，并补充双击 `install.cmd` 说明；第 2 节补「先 clone（脚本读同目录 `plugins.json`）」；第 1 节示例由 `github:PC2005-cloud/dsh-pet` 改为本机验证可装的 `github:daha1216/dsh-retrace`（`dsh-pet` 需走 npm 通道 `dsh plugin --profile web add dsh-pet`，`install.cmd -Plugin dsh-pet` 走 `plugins.json` 的 npm spec 正常）。
+- 新增 `.gitattributes`（`* text=auto eol=lf`、`*.cmd` 为 `eol=crlf`）。此前仓库无该文件而本机 `core.autocrlf=true`，clone 出的 README 是 CRLF，`scripts/verify.ps1` 的 `^| §id§ | ... |$` 行锚正则匹配不到 CRLF 行，Windows 上恒报「README 更新插件表缺/命令不符」17 项；脚本本身在 CRLF 检出下不可用（需先前置于 LF 检出，本仓库已 `core.autocrlf=false`）。
+- 验证：`powershell -File install.ps1 -List`（5.1.26100.9352）与 `pwsh -File install.ps1 -List`（7.6.6）均正常输出 17 条且中文无乱码；`-Plugin nope` 在 5.1 下给出正确中文报错；`install.cmd` 的 run-in-place 与自动 clone 两条分支实测跑通；`pwsh scripts/verify.ps1` 除本机未装 `@michengai/dsh-archive-manager` 这一环境差集外全绿。
+- 排除项：曾试「单行 `irm <install.ps1> | iex` 免克隆」，实测 `$PSScriptRoot` 为空、`Join-Path` 抛 `Cannot bind argument to parameter 'Path' because it is an empty string.`，无法就地定位 `plugins.json`，故不采用。
+- 目录版本 `1.32.0` → `1.33.0`，核对日期 `2026-09-17`。
 ## 2026-09-14 dsh-retrace 0.4.40 版本快照刷新
 
 本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件。
