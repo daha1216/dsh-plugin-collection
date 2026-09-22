@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.33.0-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-17%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.34.0-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-16%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -19,42 +19,41 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-better-reasoning-effort` | 0.3.10 | 配置第三方模型的推理强度（Effort）与输入模态 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `dsh-plugin-oauth-subs` | 0.0.89 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
-| `billion-context-dsh` | 0.2.22 | 动态压缩长会话上下文，防止超出模型窗口 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
+| `dsh-better-reasoning-effort` | 0.4.1 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
+| `dsh-plugin-oauth-subs` | 0.0.99 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
+| `billion-context-dsh` | 0.2.25 | 动态压缩长会话上下文，防止超出模型窗口 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
 | `deepseek-idesign` | 0.2.2 | iPolloWork 设计工作室：对话生成设计稿并套用精选设计模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
 | `deepseek-ippt` | 0.1.2 | iPolloWork PPT 工作室：对话生成幻灯片并套用精选模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
-| `deepseek-ivideo` | 0.1.0 | iPolloWork 视频工作室：对话生成可编辑视频（HyperFrames 模板） | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
+| `deepseek-ivideo` | 0.5.0 | iPolloWork 视频工作室：对话生成可编辑视频（HyperFrames 模板） | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
 
 ### 📊 计量与状态监控
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-all-usage` | 1.1.9 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
+| `dsh-all-usage` | 1.1.10 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
 | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 悬浮监控 OpenCode Go 滚动配额与剩余用量 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
-| `dsh-watcher` | 0.4.0-insights.1 | HUD 悬浮球展示会话运行状态与模型实时用量 | [aa2246740/dsh-watcher](https://github.com/aa2246740/dsh-watcher) |
+| `dsh-watcher` | 0.5.0 | HUD 悬浮球展示会话运行状态与模型实时用量 | [aa2246740/dsh-watcher](https://github.com/aa2246740/dsh-watcher) |
 
 ### 🛠️ 会话管理与效率工具
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-retrace` | 0.4.40 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
-| `@michengai/dsh-archive-manager` | 0.1.40 | 浏览、检索与恢复已归档的历史会话 | [MichengAI/dsh-archive-manager](https://github.com/MichengAI/dsh-archive-manager) |
-| `@anysearch/anysearch-dsh` | 0.1.4 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
+| `dsh-retrace` | 0.4.43 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
+| `@anysearch/anysearch-dsh` | 0.1.6 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 
 ### 🎨 界面体验与多端协同
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-pocket` | 2.10.3-daha.1 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
+| `dsh-pocket` | 2.10.6 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 | `dsh-font-customizer` | 0.1.0 | 自定义 Web 界面字体、代码字体与字号 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
-| `dsh-pet` | 0.2.8 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
+| `dsh-pet` | 0.2.11 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
 
 ### 🧩 市场与技能生态
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dshmarket` | 1.46.1 | 官方社区插件市场，支持浏览、搜索与一键安装 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
+| `dshmarket` | 1.55.0 | 官方社区插件市场，支持浏览、搜索与一键安装 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-skills` | 0.1.1 | 统一管理全局与项目级 Agent 技能包 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
 
 ---
@@ -73,7 +72,7 @@ npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add github:daha1216/dsh-r
 
 ### 2. 交互式选择安装
 
-先 clone 本仓库（脚本会读取同目录的 `plugins.json`），再通过自带脚本按需选择：
+先 clone 本仓库（脚本会读取同目录 `plugins.json`），再通过自带脚本按需选择：
 
 ```powershell
 # 列出可选插件
@@ -121,7 +120,6 @@ bash install.sh --all
 | `dsh-skills` | `dsh plugin --profile web add dsh-skills` |
 | `dsh-pet` | `dsh plugin --profile web add dsh-pet` |
 | `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
-| `@michengai/dsh-archive-manager` | `dsh plugin --profile web add @michengai/dsh-archive-manager@latest --registry=https://registry.npmjs.org/` |
 | `@xueayi/dsh-opencode-go-usage` | `dsh plugin --profile web update @xueayi/dsh-opencode-go-usage` |
 | `dsh-all-usage` | `dsh plugin --profile web add github:ParticleLight/dsh-all-usage` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |

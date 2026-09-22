@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-09-22 插件目录快照批量刷新 / 移除 dsh-archive-manager
+
+本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件；版本取各条目 `source` 上游 HEAD（`scripts/fetch-upstream.ps1` + 三件套 / pocket fork 手工补抓）。
+
+- `dsh-retrace` `0.4.40` → `0.4.43`（来源 `daha1216/dsh-retrace`，上游 HEAD `fbcbebb`，本机 profile 实装 pin 同 commit）。上游变更：0.4.41 引用卡改暖橙统一视觉；0.4.42 渐变撤回分隔线与助手动作图标打磨；0.4.43 修 0.1.7 两个兼容洞——①0.1.7 新增 turn-process 分组会把插件伪节点卷进折叠组（祖先 `hidden="until-found"` 的 content-visibility 后代不可覆盖、兄弟显隐与锚点链同时失效），伪节点 location 钉 `unresolved` 改为独立根行渲染，悬停撤回按钮免展开直接可点；②0.1.7 新增 V4 admission 拒绝 `kind:'plugin'`，marker 写盘失败导致「召回后下一轮 turn 崩 format v4 message requires a producer-owned source kind」，marker source 改写官方迁移规范形状 `plugin:retrace`（读侧新旧双形状兼容，compact 检测 4 处双形状）。两洞修复后仓库自带 E2E 24/24 全绿。描述与 `update` 命令未变。
+- `dsh-better-reasoning-effort` `0.3.10` → `0.4.1`（来源 `HaoyueQin/dsh-better-reasoning-effort` master HEAD）。README 现状能力面：官方 Models 页**内嵌编辑器**（Reasoning effort / Input modalities 随卡片 Save 一起提交，编辑期零写入的 pending 语义）、端点兼容控件（thinking budget 字段名、vLLM priority、Responses 的 max_output_tokens 按需省略）、composer 模型搜索框、每模型默认 effort（issue #4）、Models 页底部开关移位；**0.4.1 对 `0.1.7-alpha.1` 全量门禁**——peer 范围补 `^0.1.7-alpha.1`，typecheck / 测试 / 构建均对其官方发布包执行。本机 profile 现装 0.4.0，仍靠 `cordis.patch.yml` 关 `autofill`/`defaultGuard` 止血 0.1.7 崩溃；升级 0.4.1 验证后可撤除两开关（属插件安装操作，本轮未执行）。描述改为「在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态与端点兼容项」。
+- `dshmarket` `1.46.1` → `1.55.0`（`dsh-market/dsh-market` HEAD；README 未列版本说明，仅快照刷新）。
+- `dsh-pet` `0.2.8` → `0.2.11`（`PC2005-cloud/dsh-pet` master，子包路径实为 `dsh-pet/package.json`——fetch 脚本原 `packages/dsh-pet` 路径有误，本轮一并修正）。
+- `dsh-pocket` `2.10.3-daha.1` → `2.10.6`（来源 fork `daha1216/dsh-pocket` main HEAD，与本机实装 2.10.6 一致）。
+- `dsh-all-usage` `1.1.9` → `1.1.10`（README「最近更新」原文：恢复账本 revision 快路径——兼容 DSH 0.1.5 的 `listSnapshots()`→`list()` 更名，未变化会话从账本复用；扫描期间的工作区变更不再被丢弃并有每 30 秒注册表轮询兜底；升级首启仍全量读一次）。
+- `@anysearch/anysearch-dsh` `0.1.4` → `0.1.6`（README 版本矩阵推进至 `0.1.6-alpha.2`）。
+- `billion-context-dsh` `0.2.22` → `0.2.25`（README 标注 v0.2.25，安装锚点同步 `#v0.2.25`）。
+- `deepseek-ivideo` `0.1.0` → `0.5.0`（来源 `Devin-AXIS/iPolloWork` 子包 `external-plugins/deepseek-harness/video-studio` HEAD；npm `latest` 仍仅 `0.1.0` 未发布——按「快照 = 上游 HEAD」口径记录，npm 通道实装以 npm 为准。同仓 `design-studio` 0.2.2、`ppt-studio` 0.1.2 与 npm 一致不动）。
+- `dsh-watcher` `0.4.0-insights.1` → `0.5.0`（README「本次更新（0.5.0）」原文：面板可拖大——右/下/右下把手，位置不动、最小缩回默认尺寸；HUD 可折叠成一行——`▾` 收起留顶栏统计、选择被记住；「定位现场」直达告警对应的失败步骤并打开检视器；连续失败同卡合并、标题带「第 N 轮」。另含 0.4.5 一批修复：检视器返回不再抢跟随、首次选范围不重复扫会话、投影状态不再存一份自身视图、计价面板文案改为「终端以外的工具」）。
+- `dsh-plugin-oauth-subs` `0.0.89` → `0.0.99`（`xxww0098/dsh-plugin-oauth-subs` HEAD；快照刷新）。
+- 移除 `@michengai/dsh-archive-manager` `0.1.40` 条目（`plugins.json` + README 两表同步，插件计数徽章 `17` → `16`）：已不在本机 web profile `dependencies`、`node_modules` 无残留，`verify.ps1` 差集红项，按「目录只反映实际安装」撤条目。
+- `scripts/fetch-upstream.ps1` 数据源修正：`dsh-pet` 子包路径 `packages/dsh-pet` → `dsh-pet`、`dsh-pocket` 改指条目实际来源 fork `daha1216/dsh-pocket`、删除 archive-manager、补 iPolloWork 三件套（`design-studio` / `ppt-studio` / `video-studio` 子包）。
+- 目录版本 `1.33.0` → `1.34.0`（09-17 的 Windows 安装入口修复已先行占用 1.33.0，本轮快照刷新在其之上再 bump），核对日期 `2026-09-22`；改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-17 Windows 安装入口修复（编码 + 单行命令 + install.cmd）
 
 本轮只修安装路径与文档，未安装、升级或卸载任何本机插件。
@@ -12,6 +31,7 @@
 - 验证：`powershell -File install.ps1 -List`（5.1.26100.9352）与 `pwsh -File install.ps1 -List`（7.6.6）均正常输出 17 条且中文无乱码；`-Plugin nope` 在 5.1 下给出正确中文报错；`install.cmd` 的 run-in-place 与自动 clone 两条分支实测跑通；`pwsh scripts/verify.ps1` 除本机未装 `@michengai/dsh-archive-manager` 这一环境差集外全绿。
 - 排除项：曾试「单行 `irm <install.ps1> | iex` 免克隆」，实测 `$PSScriptRoot` 为空、`Join-Path` 抛 `Cannot bind argument to parameter 'Path' because it is an empty string.`，无法就地定位 `plugins.json`，故不采用。
 - 目录版本 `1.32.0` → `1.33.0`，核对日期 `2026-09-17`。
+
 ## 2026-09-14 dsh-retrace 0.4.40 版本快照刷新
 
 本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件。

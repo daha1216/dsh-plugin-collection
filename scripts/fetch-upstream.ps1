@@ -10,9 +10,8 @@ $repos = [ordered]@{
   'dsh-better-reasoning-effort' = @{ repo = 'HaoyueQin/dsh-better-reasoning-effort'; path = '' }
   'dshmarket'                   = @{ repo = 'dsh-market/dsh-market';                   path = '' }
   'dsh-skills'                  = @{ repo = 'CocoSgt/dsh-skills';                      path = '' }
-  'dsh-pet'                     = @{ repo = 'PC2005-cloud/dsh-pet';                    path = 'packages/dsh-pet' }
-  'dsh-pocket'                  = @{ repo = 'shaobeichen/dsh-pocket';                  path = '' }
-  'dsh-archive-manager'         = @{ repo = 'MichengAI/dsh-archive-manager';           path = '' }
+  'dsh-pet'                     = @{ repo = 'PC2005-cloud/dsh-pet';                    path = 'dsh-pet' }
+  'dsh-pocket'                  = @{ repo = 'daha1216/dsh-pocket';                  path = '' }
   'dsh-opencode-go-usage'       = @{ repo = 'xueayi/dsh-opencode-go-usage';            path = '' }
   'dsh-all-usage'               = @{ repo = 'ParticleLight/dsh-all-usage';             path = '' }
   'anysearch-dsh'               = @{ repo = 'anysearch-team/anysearch-dsh';            path = '' }
@@ -21,6 +20,9 @@ $repos = [ordered]@{
   'dsh-font-customizer'         = @{ repo = 'daha1216/dsh-font-customizer';            path = '' }
   'dsh-watcher'                 = @{ repo = 'aa2246740/dsh-watcher';                   path = '' }
   'dsh-plugin-oauth-subs'       = @{ repo = 'xxww0098/dsh-plugin-oauth-subs';          path = '' }
+  'deepseek-idesign'            = @{ repo = 'Devin-AXIS/iPolloWork';                   path = 'external-plugins/deepseek-harness/design-studio' }
+  'deepseek-ippt'               = @{ repo = 'Devin-AXIS/iPolloWork';                   path = 'external-plugins/deepseek-harness/ppt-studio' }
+  'deepseek-ivideo'             = @{ repo = 'Devin-AXIS/iPolloWork';                   path = 'external-plugins/deepseek-harness/video-studio' }
 }
 
 $rows = @()
