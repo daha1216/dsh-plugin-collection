@@ -115,7 +115,7 @@ bash install.sh --all
 
 | 插件名称 | 更新命令（来自各插件 README） |
 |---|---|
-| `dsh-better-reasoning-effort` | `dsh plugin --profile web add github:HaoyueQin/dsh-better-reasoning-effort` |
+| `dsh-better-reasoning-effort` | `dsh plugin --profile web add dsh-better-reasoning-effort` |
 | `dshmarket` | `dsh plugin --profile web add dshmarket` |
 | `dsh-skills` | `dsh plugin --profile web add dsh-skills` |
 | `dsh-pet` | `dsh plugin --profile web add dsh-pet` |

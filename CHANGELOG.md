@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-23 bre 更新/安装命令回归上游 README 原生 npm 写法
+
+本轮只维护目录索引，未安装、升级或卸载本机插件（bre 0.4.1 本机升级与撤止血开关已于同日另行完成）。
+
+- `dsh-better-reasoning-effort`：`install` 由 `github:HaoyueQin/dsh-better-reasoning-effort` 改为 `dsh-better-reasoning-effort@0.4.1`（npm 首选通道，与本机实装 0.4.1 一致，与其余注册表条目 `dsh-pet@0.2.8` 等样式统一），`update` 与 README 更新命令表行逐字改为 `dsh plugin --profile web add dsh-better-reasoning-effort`（上游 README「From npm」原生写法；github 源码装法需 `allowBuilds` 跑 `prepare` 构建，是上游 README 标注的次选通道）。`source` 保持上游仓库 URL 不变。改后 `pwsh scripts/verify.ps1` 通过（条目=16，README 两表与实装一致）。
+
 ## 2026-09-22 插件目录快照批量刷新 / 移除 dsh-archive-manager
 
 本轮只维护目录索引与版本快照，未安装、升级或卸载本机插件；版本取各条目 `source` 上游 HEAD（`scripts/fetch-upstream.ps1` + 三件套 / pocket fork 手工补抓）。

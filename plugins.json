@@ -15,8 +15,8 @@
       "version": "0.4.1",
       "description": "在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态与端点兼容项",
       "source": "https://github.com/HaoyueQin/dsh-better-reasoning-effort",
-      "install": "github:HaoyueQin/dsh-better-reasoning-effort",
-      "update": "dsh plugin --profile web add github:HaoyueQin/dsh-better-reasoning-effort"
+      "install": "dsh-better-reasoning-effort@0.4.1",
+      "update": "dsh plugin --profile web add dsh-better-reasoning-effort"
     },
     {
       "id": "dshmarket",
