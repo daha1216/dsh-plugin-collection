@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.34.0-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.35.0-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-16%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -20,8 +20,8 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.4.1 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `dsh-plugin-oauth-subs` | 0.0.99 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
-| `billion-context-dsh` | 0.2.25 | 动态压缩长会话上下文，防止超出模型窗口 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
+| `dsh-plugin-oauth-subs` | 0.0.103 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
+| `billion-context-dsh` | 0.2.26 | 动态压缩长会话上下文，防止超出模型窗口 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
 | `deepseek-idesign` | 0.2.2 | iPolloWork 设计工作室：对话生成设计稿并套用精选设计模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
 | `deepseek-ippt` | 0.1.2 | iPolloWork PPT 工作室：对话生成幻灯片并套用精选模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
 | `deepseek-ivideo` | 0.5.0 | iPolloWork 视频工作室：对话生成可编辑视频（HyperFrames 模板） | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
@@ -30,9 +30,9 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-all-usage` | 1.1.10 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
+| `dsh-all-usage` | 1.1.12 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
 | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 悬浮监控 OpenCode Go 滚动配额与剩余用量 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
-| `dsh-watcher` | 0.5.0 | HUD 悬浮球展示会话运行状态与模型实时用量 | [aa2246740/dsh-watcher](https://github.com/aa2246740/dsh-watcher) |
+| `dsh-watcher` | 0.6.0 | HUD 悬浮球展示会话运行状态与模型实时用量 | [aa2246740/dsh-watcher](https://github.com/aa2246740/dsh-watcher) |
 
 ### 🛠️ 会话管理与效率工具
 
@@ -47,13 +47,13 @@
 |---|---:|---|---|
 | `dsh-pocket` | 2.10.6 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 | `dsh-font-customizer` | 0.1.0 | 自定义 Web 界面字体、代码字体与字号 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
-| `dsh-pet` | 0.2.11 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
+| `dsh-pet` | 0.2.12 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
 
 ### 🧩 市场与技能生态
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dshmarket` | 1.55.0 | 官方社区插件市场，支持浏览、搜索与一键安装 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
+| `dshmarket` | 1.65.1 | 官方社区插件市场，支持浏览、搜索与一键安装 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
 | `dsh-skills` | 0.1.1 | 统一管理全局与项目级 Agent 技能包 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
 
 ---
