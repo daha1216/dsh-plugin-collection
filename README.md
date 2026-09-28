@@ -32,7 +32,7 @@
 |---|---:|---|---|
 | `dsh-all-usage` | 1.1.12 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
 | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 悬浮监控 OpenCode Go 滚动配额与剩余用量 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
-| `dsh-watcher` | 0.6.0 | HUD 悬浮球展示会话运行状态与模型实时用量 | [aa2246740/dsh-watcher](https://github.com/aa2246740/dsh-watcher) |
+| `dsh-watcher` | 0.6.2 | 会话工作路径观测面板 · 跨会话模型耗时与费用统计 | [daha1216/dsh-watcher](https://github.com/daha1216/dsh-watcher) |
 
 ### 🛠️ 会话管理与效率工具
 
@@ -129,7 +129,7 @@ bash install.sh --all
 | `deepseek-ivideo` | `dsh plugin --profile web add deepseek-ivideo` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
-| `dsh-watcher` | `dsh plugin --profile web add github:aa2246740/dsh-watcher` |
+| `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |
 | `dsh-plugin-oauth-subs` | `dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs` |
 
 ---

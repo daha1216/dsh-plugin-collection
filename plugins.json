@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.35.0",
-  "updatedAt": "2026-09-25",
+  "catalogVersion": "1.36.0",
+  "updatedAt": "2026-09-28",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -138,11 +138,11 @@
     {
       "id": "dsh-watcher",
       "name": "dsh-watcher",
-      "version": "0.6.0",
-      "description": "HUD 悬浮球展示会话运行状态与模型实时用量",
-      "source": "https://github.com/aa2246740/dsh-watcher",
-      "install": "github:aa2246740/dsh-watcher",
-      "update": "dsh plugin --profile web add github:aa2246740/dsh-watcher"
+      "version": "0.6.2",
+      "description": "会话工作路径观测面板 · 跨会话模型耗时与费用统计",
+      "source": "https://github.com/daha1216/dsh-watcher",
+      "install": "github:daha1216/dsh-watcher",
+      "update": "dsh plugin --profile web add github:daha1216/dsh-watcher"
     },
     {
       "id": "dsh-plugin-oauth-subs",
