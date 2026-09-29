@@ -1,6 +1,6 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.39.1",
+  "catalogVersion": "1.40.0",
   "updatedAt": "2026-09-29",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -12,10 +12,10 @@
     {
       "id": "dsh-better-reasoning-effort",
       "name": "dsh-better-reasoning-effort",
-      "version": "0.4.1",
-      "description": "在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态与端点兼容项",
+      "version": "0.5.1",
+      "description": "在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项",
       "source": "https://github.com/HaoyueQin/dsh-better-reasoning-effort",
-      "install": "dsh-better-reasoning-effort@0.4.1",
+      "install": "dsh-better-reasoning-effort@0.5.1",
       "update": "dsh plugin --profile web add dsh-better-reasoning-effort"
     },
     {
@@ -24,7 +24,7 @@
       "version": "0.2.12",
       "description": "在页面右下角显示可互动的桌面宠物",
       "source": "https://github.com/PC2005-cloud/dsh-pet",
-      "install": "dsh-pet@0.2.8",
+      "install": "dsh-pet@0.2.12",
       "update": "dsh plugin --profile web add dsh-pet"
     },
     {
@@ -48,7 +48,7 @@
     {
       "id": "dsh-all-usage",
       "name": "dsh-all-usage",
-      "version": "1.1.12",
+      "version": "1.1.15",
       "description": "多维度统计 Token 用量、费用消耗与热力图",
       "source": "https://github.com/ParticleLight/dsh-all-usage",
       "install": "github:ParticleLight/dsh-all-usage",
@@ -66,16 +66,16 @@
     {
       "id": "billion-context",
       "name": "billion-context",
-      "version": "0.1.171",
+      "version": "0.1.172",
       "description": "动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍",
       "source": "https://github.com/ranxianglei/billion-context",
-      "install": "billion-context@0.1.171",
+      "install": "billion-context@0.1.172",
       "update": "dsh plugin --profile web add billion-context"
     },
     {
       "id": "dsh-retrace",
       "name": "dsh-retrace",
-      "version": "0.4.43",
+      "version": "0.4.49",
       "description": "消息撤回、编辑重发与重新生成，同步回退修改过的文件",
       "source": "https://github.com/daha1216/dsh-retrace",
       "install": "github:daha1216/dsh-retrace",
@@ -102,7 +102,7 @@
     {
       "id": "dsh-plugin-oauth-subs",
       "name": "dsh-plugin-oauth-subs",
-      "version": "0.0.103",
+      "version": "0.0.110",
       "description": "接入 ChatGPT、Grok、Copilot 等官方订阅账号",
       "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
       "install": "github:xxww0098/dsh-plugin-oauth-subs",
