@@ -1,6 +1,6 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.39.0",
+  "catalogVersion": "1.39.1",
   "updatedAt": "2026-09-29",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -93,7 +93,7 @@
     {
       "id": "dsh-watcher",
       "name": "dsh-watcher",
-      "version": "0.6.2",
+      "version": "0.6.3",
       "description": "会话工作路径观测面板 · 跨会话模型耗时与费用统计",
       "source": "https://github.com/daha1216/dsh-watcher",
       "install": "github:daha1216/dsh-watcher",

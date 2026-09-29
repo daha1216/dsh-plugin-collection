@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.39.0-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.39.1-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-11%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -29,7 +29,7 @@
 |---|---:|---|---|
 | `dsh-all-usage` | 1.1.12 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
 | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 悬浮监控 OpenCode Go 滚动配额与剩余用量 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
-| `dsh-watcher` | 0.6.2 | 会话工作路径观测面板 · 跨会话模型耗时与费用统计 | [daha1216/dsh-watcher](https://github.com/daha1216/dsh-watcher) |
+| `dsh-watcher` | 0.6.3 | 会话工作路径观测面板 · 跨会话模型耗时与费用统计 | [daha1216/dsh-watcher](https://github.com/daha1216/dsh-watcher) |
 
 ### 🛠️ 会话管理与效率工具
 
