@@ -7,22 +7,19 @@ New-Item -ItemType Directory -Force -Path $out | Out-Null
 
 # id = repo path on GitHub (owner/repo), plus optional subpath inside the repo
 $repos = [ordered]@{
+  # 与 plugins.json 目录条目一一对应（2026-09-29 对齐 1.40.0 / 11 条）
+  # 注意：billion-context 权威发布渠道是 npm，仓库 HEAD 通常同步但可能滞后；dsh-pet 是 monorepo 取 dsh-pet/ 子包
   'dsh-better-reasoning-effort' = @{ repo = 'HaoyueQin/dsh-better-reasoning-effort'; path = '' }
-  'dshmarket'                   = @{ repo = 'dsh-market/dsh-market';                   path = '' }
-  'dsh-skills'                  = @{ repo = 'CocoSgt/dsh-skills';                      path = '' }
   'dsh-pet'                     = @{ repo = 'PC2005-cloud/dsh-pet';                    path = 'dsh-pet' }
-  'dsh-pocket'                  = @{ repo = 'daha1216/dsh-pocket';                  path = '' }
+  'dsh-pocket'                  = @{ repo = 'daha1216/dsh-pocket';                      path = '' }
   'dsh-opencode-go-usage'       = @{ repo = 'xueayi/dsh-opencode-go-usage';            path = '' }
   'dsh-all-usage'               = @{ repo = 'ParticleLight/dsh-all-usage';             path = '' }
   'anysearch-dsh'               = @{ repo = 'anysearch-team/anysearch-dsh';            path = '' }
-  'billion-context-dsh'         = @{ repo = 'Tyan66666/billion-context-dsh';           path = '' }
+  'billion-context'             = @{ repo = 'ranxianglei/billion-context';             path = '' }
   'dsh-retrace'                 = @{ repo = 'daha1216/dsh-retrace';                    path = '' }
   'dsh-font-customizer'         = @{ repo = 'daha1216/dsh-font-customizer';            path = '' }
-  'dsh-watcher'                 = @{ repo = 'aa2246740/dsh-watcher';                   path = '' }
+  'dsh-watcher'                 = @{ repo = 'daha1216/dsh-watcher';                    path = '' }
   'dsh-plugin-oauth-subs'       = @{ repo = 'xxww0098/dsh-plugin-oauth-subs';          path = '' }
-  'deepseek-idesign'            = @{ repo = 'Devin-AXIS/iPolloWork';                   path = 'external-plugins/deepseek-harness/design-studio' }
-  'deepseek-ippt'               = @{ repo = 'Devin-AXIS/iPolloWork';                   path = 'external-plugins/deepseek-harness/ppt-studio' }
-  'deepseek-ivideo'             = @{ repo = 'Devin-AXIS/iPolloWork';                   path = 'external-plugins/deepseek-harness/video-studio' }
 }
 
 $rows = @()

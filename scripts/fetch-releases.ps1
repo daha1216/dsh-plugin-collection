@@ -10,11 +10,16 @@ $h = @{ 'User-Agent' = 'dsh-plugin-collection'; 'Accept' = 'application/vnd.gith
 if (-not $Repo -or $Repo.Count -eq 0) {
   $Repo = @(
     'HaoyueQin/dsh-better-reasoning-effort',
-    'dsh-market/dsh-market',
     'PC2005-cloud/dsh-pet',
-    'shaobeichen/dsh-pocket',
-    'MichengAI/dsh-archive-manager',
-    'ParticleLight/dsh-all-usage'
+    'daha1216/dsh-pocket',
+    'xueayi/dsh-opencode-go-usage',
+    'ParticleLight/dsh-all-usage',
+    'anysearch-team/anysearch-dsh',
+    'ranxianglei/billion-context',
+    'daha1216/dsh-retrace',
+    'daha1216/dsh-font-customizer',
+    'daha1216/dsh-watcher',
+    'xxww0098/dsh-plugin-oauth-subs'
   )
 }
 
