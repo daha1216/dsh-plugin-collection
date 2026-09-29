@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-29 移除 dshmarket / dsh-skills 两条目录
+
+- 应用户要求下架：`dshmarket` `1.65.1`（来源 `dsh-market/dsh-market`）、`dsh-skills` `0.1.1`（来源 `CocoSgt/dsh-skills`）。plugins.json 与 README 两表同步删除；「市场与技能生态」分区仅含这两条，整个分区连同顶部快捷跳转链接一并移除；「重要说明」中涉及 dshmarket 的两处表述（更新机制示例、「市场内置更新」条目）同步清理。
+- 本机各 profile 均未实装这两个插件，无卸载动作。
+- 目录版本 `1.37.0` → `1.38.0`，条目 `13` → `11`，徽章同步；改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-29 移除 deepseek-idesign / deepseek-ippt / deepseek-ivideo 三条目录
 
 - 应用户要求下架 iPolloWork 三件套：`deepseek-idesign` `0.2.2`、`deepseek-ippt` `0.1.2`、`deepseek-ivideo` `0.5.0`（来源均为 `Devin-AXIS/iPolloWork`），plugins.json 与 README 两表同步删除。

@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.37.0-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-13%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.38.0-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-11%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -13,7 +13,7 @@
 
 ## 插件目录
 
-> 快捷跳转：[🧠 模型增强](#-模型与推理增强) · [📊 计量监控](#-计量与状态监控) · [🛠️ 会话效率](#️-会话管理与效率工具) · [🎨 界面与多端](#-界面体验与多端协同) · [🧩 市场生态](#-市场与技能生态)
+> 快捷跳转：[🧠 模型增强](#-模型与推理增强) · [📊 计量监控](#-计量与状态监控) · [🛠️ 会话效率](#️-会话管理与效率工具) · [🎨 界面与多端](#-界面体验与多端协同)
 
 ### 🧠 模型与推理增强
 
@@ -45,13 +45,6 @@
 | `dsh-pocket` | 2.10.6 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 | `dsh-font-customizer` | 0.1.0 | 自定义 Web 界面字体、代码字体与字号 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
 | `dsh-pet` | 0.2.12 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
-
-### 🧩 市场与技能生态
-
-| 插件名称 | 版本 | 用途 | 来源 |
-|---|---:|---|---|
-| `dshmarket` | 1.65.1 | 官方社区插件市场，支持浏览、搜索与一键安装 | [dsh-market/dsh-market](https://github.com/dsh-market/dsh-market) |
-| `dsh-skills` | 0.1.1 | 统一管理全局与项目级 Agent 技能包 | [CocoSgt/dsh-skills](https://github.com/CocoSgt/dsh-skills) |
 
 ---
 
@@ -113,8 +106,6 @@ bash install.sh --all
 | 插件名称 | 更新命令（来自各插件 README） |
 |---|---|
 | `dsh-better-reasoning-effort` | `dsh plugin --profile web add dsh-better-reasoning-effort` |
-| `dshmarket` | `dsh plugin --profile web add dshmarket` |
-| `dsh-skills` | `dsh plugin --profile web add dsh-skills` |
 | `dsh-pet` | `dsh plugin --profile web add dsh-pet` |
 | `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
 | `@xueayi/dsh-opencode-go-usage` | `dsh plugin --profile web update @xueayi/dsh-opencode-go-usage` |
@@ -131,9 +122,8 @@ bash install.sh --all
 ## ⚠️ 重要说明与避坑指南
 
 ### 1. 更新机制与命令规范
-- **重跑 `add` 即更新**：多数插件（如 `dshmarket`、`dsh-skills`、`dsh-pet` 等）上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取最新提交或发布版。
+- **重跑 `add` 即更新**：多数插件（如 `dsh-pet` 等）上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取最新提交或发布版。
 - **独立 `update` 动词**：部分插件（`anysearch-dsh`、`dsh-opencode-go-usage`、`dsh-pocket`）支持并推荐使用原生的 `update` 动词。
-- **市场内置更新**：`dshmarket` 自身作为插件市场，在 DSH Web 设置页面支持一键自更及更新其它插件。
 
 ### 2. Registry 缓存滞后警示
 - 本机若通过 `github:` 源安装插件，后续更新时**切勿改跑不带 spec 的 `add <pkg>@latest`**，否则会被 npm registry 解析，可能拉取到落后于 GitHub HEAD 的历史旧包。更新请始终沿用显式 `github:<owner>/<repo>` 或上表对应的原生指令。

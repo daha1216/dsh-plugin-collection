@@ -1,6 +1,6 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.37.0",
+  "catalogVersion": "1.38.0",
   "updatedAt": "2026-09-29",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -17,24 +17,6 @@
       "source": "https://github.com/HaoyueQin/dsh-better-reasoning-effort",
       "install": "dsh-better-reasoning-effort@0.4.1",
       "update": "dsh plugin --profile web add dsh-better-reasoning-effort"
-    },
-    {
-      "id": "dshmarket",
-      "name": "dshmarket",
-      "version": "1.65.1",
-      "description": "官方社区插件市场，支持浏览、搜索与一键安装",
-      "source": "https://github.com/dsh-market/dsh-market",
-      "install": "github:dsh-market/dsh-market",
-      "update": "dsh plugin --profile web add dshmarket"
-    },
-    {
-      "id": "dsh-skills",
-      "name": "dsh-skills",
-      "version": "0.1.1",
-      "description": "统一管理全局与项目级 Agent 技能包",
-      "source": "https://github.com/CocoSgt/dsh-skills",
-      "install": "github:CocoSgt/dsh-skills",
-      "update": "dsh plugin --profile web add dsh-skills"
     },
     {
       "id": "dsh-pet",
