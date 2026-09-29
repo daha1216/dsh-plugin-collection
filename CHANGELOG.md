@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-29 billion-context 切换至官方上游仓库
+
+- `billion-context-dsh`（Tyan 分支，`Tyan66666/billion-context-dsh`，`0.2.x` 线）整体替换为官方上游 `billion-context`（`ranxianglei/billion-context`）：id/name、`install`（`billion-context@0.1.171`，npm latest）、`update`（`dsh plugin --profile web add billion-context`，上游 README 原生 DSH 装法）与来源链接同步切换；描述更新为「动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍」（取自上游定位）。
+- 版本快照口径随之从 `0.2.26` 切到官方 npm 线 `0.1.171`；本机 desktop profile 实装同为 `billion-context@0.1.171`，目录与实装包名就此对齐。
+- 目录版本 `1.38.0` → `1.39.0`，条目数不变（11）；改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-29 移除 dshmarket / dsh-skills 两条目录
 
 - 应用户要求下架：`dshmarket` `1.65.1`（来源 `dsh-market/dsh-market`）、`dsh-skills` `0.1.1`（来源 `CocoSgt/dsh-skills`）。plugins.json 与 README 两表同步删除；「市场与技能生态」分区仅含这两条，整个分区连同顶部快捷跳转链接一并移除；「重要说明」中涉及 dshmarket 的两处表述（更新机制示例、「市场内置更新」条目）同步清理。

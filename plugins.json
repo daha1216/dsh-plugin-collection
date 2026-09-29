@@ -1,6 +1,6 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.38.0",
+  "catalogVersion": "1.39.0",
   "updatedAt": "2026-09-29",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -64,13 +64,13 @@
       "update": "npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh"
     },
     {
-      "id": "billion-context-dsh",
-      "name": "billion-context-dsh",
-      "version": "0.2.26",
-      "description": "动态压缩长会话上下文，防止超出模型窗口",
-      "source": "https://github.com/Tyan66666/billion-context-dsh",
-      "install": "billion-context-dsh@0.2.26",
-      "update": "dsh plugin --profile web add billion-context-dsh"
+      "id": "billion-context",
+      "name": "billion-context",
+      "version": "0.1.171",
+      "description": "动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍",
+      "source": "https://github.com/ranxianglei/billion-context",
+      "install": "billion-context@0.1.171",
+      "update": "dsh plugin --profile web add billion-context"
     },
     {
       "id": "dsh-retrace",

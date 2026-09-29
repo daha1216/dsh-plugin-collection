@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.38.0-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.39.0-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-11%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -21,7 +21,7 @@
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.4.1 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `dsh-plugin-oauth-subs` | 0.0.103 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
-| `billion-context-dsh` | 0.2.26 | 动态压缩长会话上下文，防止超出模型窗口 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
+| `billion-context` | 0.1.171 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 
 ### 📊 计量与状态监控
 
@@ -111,7 +111,7 @@ bash install.sh --all
 | `@xueayi/dsh-opencode-go-usage` | `dsh plugin --profile web update @xueayi/dsh-opencode-go-usage` |
 | `dsh-all-usage` | `dsh plugin --profile web add github:ParticleLight/dsh-all-usage` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
-| `billion-context-dsh` | `dsh plugin --profile web add billion-context-dsh` |
+| `billion-context` | `dsh plugin --profile web add billion-context` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
 | `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |
