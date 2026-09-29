@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-29 移除 deepseek-idesign / deepseek-ippt / deepseek-ivideo 三条目录
+
+- 应用户要求下架 iPolloWork 三件套：`deepseek-idesign` `0.2.2`、`deepseek-ippt` `0.1.2`、`deepseek-ivideo` `0.5.0`（来源均为 `Devin-AXIS/iPolloWork`），plugins.json 与 README 两表同步删除。
+- 本机各 profile（desktop）均未实装这三个插件，无卸载动作；web profile 已不存在，实装差集核对自动跳过。
+- 目录版本 `1.36.0` → `1.37.0`，条目 `16` → `13`，核对日期 `2026-09-29`；README 徽章随本次对齐（顺带修正 1.36.0 轮漏更的徽章版本号）；改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-28 dsh-watcher 来源切换为自有仓库（0.6.2）
 
 - `dsh-watcher` 来源 `aa2246740/dsh-watcher` → 自有仓库 `daha1216/dsh-watcher`（`v0.6.2`，单提交干净历史）。版本快照 `0.6.0` → `0.6.2`，描述更新为「会话工作路径观测面板 · 跨会话模型耗时与费用统计」，`install`/`update` 同步指向 `github:daha1216/dsh-watcher`。

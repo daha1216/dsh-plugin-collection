@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.35.0-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-16%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.37.0-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-13%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -22,9 +22,6 @@
 | `dsh-better-reasoning-effort` | 0.4.1 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `dsh-plugin-oauth-subs` | 0.0.103 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
 | `billion-context-dsh` | 0.2.26 | 动态压缩长会话上下文，防止超出模型窗口 | [Tyan66666/billion-context-dsh](https://github.com/Tyan66666/billion-context-dsh) |
-| `deepseek-idesign` | 0.2.2 | iPolloWork 设计工作室：对话生成设计稿并套用精选设计模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
-| `deepseek-ippt` | 0.1.2 | iPolloWork PPT 工作室：对话生成幻灯片并套用精选模板 | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
-| `deepseek-ivideo` | 0.5.0 | iPolloWork 视频工作室：对话生成可编辑视频（HyperFrames 模板） | [Devin-AXIS/iPolloWork](https://github.com/Devin-AXIS/iPolloWork) |
 
 ### 📊 计量与状态监控
 
@@ -124,9 +121,6 @@ bash install.sh --all
 | `dsh-all-usage` | `dsh plugin --profile web add github:ParticleLight/dsh-all-usage` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context-dsh` | `dsh plugin --profile web add billion-context-dsh` |
-| `deepseek-idesign` | `dsh plugin --profile web add deepseek-idesign` |
-| `deepseek-ippt` | `dsh plugin --profile web add deepseek-ippt` |
-| `deepseek-ivideo` | `dsh plugin --profile web add deepseek-ivideo` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
 | `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |

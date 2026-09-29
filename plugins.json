@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.36.0",
-  "updatedAt": "2026-09-28",
+  "catalogVersion": "1.37.0",
+  "updatedAt": "2026-09-29",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -89,33 +89,6 @@
       "source": "https://github.com/Tyan66666/billion-context-dsh",
       "install": "billion-context-dsh@0.2.26",
       "update": "dsh plugin --profile web add billion-context-dsh"
-    },
-    {
-      "id": "deepseek-idesign",
-      "name": "deepseek-idesign",
-      "version": "0.2.2",
-      "description": "iPolloWork 设计工作室：对话生成设计稿并套用精选设计模板",
-      "source": "https://github.com/Devin-AXIS/iPolloWork",
-      "install": "deepseek-idesign@0.2.2",
-      "update": "dsh plugin --profile web add deepseek-idesign"
-    },
-    {
-      "id": "deepseek-ippt",
-      "name": "deepseek-ippt",
-      "version": "0.1.2",
-      "description": "iPolloWork PPT 工作室：对话生成幻灯片并套用精选模板",
-      "source": "https://github.com/Devin-AXIS/iPolloWork",
-      "install": "deepseek-ippt@0.1.2",
-      "update": "dsh plugin --profile web add deepseek-ippt"
-    },
-    {
-      "id": "deepseek-ivideo",
-      "name": "deepseek-ivideo",
-      "version": "0.5.0",
-      "description": "iPolloWork 视频工作室：对话生成可编辑视频（HyperFrames 模板）",
-      "source": "https://github.com/Devin-AXIS/iPolloWork",
-      "install": "deepseek-ivideo@0.1.0",
-      "update": "dsh plugin --profile web add deepseek-ivideo"
     },
     {
       "id": "dsh-retrace",
