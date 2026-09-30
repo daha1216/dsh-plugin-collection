@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-30 补升 billion-context 0.1.175（发布当日追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.174` → `0.1.175`（npm 通道，备份 `backups/plugin-update-20260930-204748/`）。0.1.175 于 09-30 12:30 UTC 发布，安装时仍在 release-age 窗口内，显式钉 `@0.1.175` 并按提示并入 profile `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`（现为 `billion-context@0.1.167 || 0.1.168 || 0.1.171 || 0.1.172 || 0.1.174 || 0.1.175`）。
+- 上游 `v0.1.174...v0.1.175` 变更（27 commits）：日志隐私——凭据形状字符串从日志清除、非回环 IP 字面量打码、会话派生文本不再写入 bili.log（改长度指纹 + 按进程加盐消息 id，#1718）；主模型请求路径 fail-fast 传输失败的有界透明重试（#1688）；原生 fetch 链对并存重包装插件的有界防护（#1662）；未路由端点直发仅对 POST 报告（#1657）；opencode v2 标题生成按宿主声明意图分类（#1699）与子代理 session id 经结构化 sidecar 在折叠后保留（#1702）；CCR 解压空白 range 字段视为省略、不可武装时不再广播 range 参数（#1712）；tag-echo 过滤器保留成对渲染标签之间的正文（#1720）。更正：上一条把 #1731（剥离大小写漂移渲染标签与未封顶 open-side 属性）计入 0.1.174，按 tag 对比实际随 0.1.175 发布。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.174`→`0.1.175`（install 钉版 `@0.1.175`）；catalogVersion `1.40.1` → `1.40.2`，核对日期 `2026-09-30`。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-30 本机插件升级 bre 0.5.2 / billion-context 0.1.174 + 目录快照同步
 
 - 本机 desktop profile 升级两个插件（备份 `backups/plugin-update-20260930-203130/`，含 package.json + pnpm-lock.yaml）：
