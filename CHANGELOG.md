@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-30 本机插件升级 bre 0.5.2 / billion-context 0.1.174 + 目录快照同步
+
+- 本机 desktop profile 升级两个插件（备份 `backups/plugin-update-20260930-203130/`，含 package.json + pnpm-lock.yaml）：
+  - `dsh-better-reasoning-effort` `0.5.1` → `0.5.2`：profile 安装源由 `github:HaoyueQin/dsh-better-reasoning-effort#v0.5.1` 换 tag 到 `#v0.5.2`。上游 v0.5.1..v0.5.2 变更：适配 DSH 0.2.0-rc.2 模型列表面板 popover 定位（fix）；移除内置 composer 模型搜索（breaking）；输入类型控件改由 Auto-adapt 驱动；kernel 依赖升 0.2.0-rc.2；CI 把打包 tarball 附到 release；安装文档按通道排序并说明 release-age hold。
+  - `billion-context` `0.1.172` → `0.1.174`（npm 通道）：0.1.173/0.1.174 均为 24h 内发布，首次 `@latest` 解析被 pnpm `minimumReleaseAge` 供应链保护回落到 0.1.172；显式钉 `@0.1.174` 后按提示将 `billion-context@0.1.174` 写入 profile `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 装成。上游变更（0.1.172→0.1.174）：acp-kernel 升 0.0.99（v2 retrieval contract 上 npm）；CCR 检索原件改由 tool result 交付；shared-state-dir 多实例安全边界（声明 + affinity union 写入限 store 自身 caps、磁盘条目校验，#1724）；自重启前先刷盘（#1724）；tag-echo 过滤修复 case 漂移 render 标签与未封顶 open-side 属性（#1731）；端口重启竞态修复（#1726）。
+- 目录快照同步：plugins.json 与 README 目录表 `dsh-better-reasoning-effort` `0.5.1`→`0.5.2`（install 钉版 `@0.5.2`）、`billion-context` `0.1.172`→`0.1.174`（install 钉版 `@0.1.174`，与本机实装一致）；catalogVersion `1.40.0` → `1.40.1`，核对日期 `2026-09-30`。
+- 备注：npm 在本轮安装约 1 小时后又发布 billion-context `0.1.175`（09-30 12:30 UTC），仍在 release-age 窗口内，留待下轮同步；两个插件升级后需重启 DSH 桌面端生效。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-29 billion-context 切换至官方上游仓库
 
 - `billion-context-dsh`（Tyan 分支，`Tyan66666/billion-context-dsh`，`0.2.x` 线）整体替换为官方上游 `billion-context`（`ranxianglei/billion-context`）：id/name、`install`（`billion-context@0.1.171`，npm latest）、`update`（`dsh plugin --profile web add billion-context`，上游 README 原生 DSH 装法）与来源链接同步切换；描述更新为「动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍」（取自上游定位）。
