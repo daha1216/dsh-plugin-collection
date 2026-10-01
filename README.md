@@ -37,6 +37,7 @@
 |---|---:|---|---|
 | `dsh-retrace` | 0.4.49 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@anysearch/anysearch-dsh` | 0.1.6 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
+| `dsh-update-checker` | 0.2.3 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 
 ### 🎨 界面体验与多端协同
 
@@ -116,6 +117,7 @@ bash install.sh --all
 | `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
 | `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |
 | `dsh-plugin-oauth-subs` | `dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs` |
+| `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
 
 ---
 

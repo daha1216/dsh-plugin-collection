@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.40.4",
-  "updatedAt": "2026-10-01",
+  "catalogVersion": "1.40.5",
+  "updatedAt": "2026-10-02",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -107,6 +107,15 @@
       "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
       "install": "github:xxww0098/dsh-plugin-oauth-subs",
       "update": "dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs"
+    },
+    {
+      "id": "dsh-update-checker",
+      "name": "dsh-update-checker",
+      "version": "0.2.3",
+      "description": "一键检查已装插件的上游更新（只检查不更新），展示更新内容",
+      "source": "https://github.com/daha1216/dsh-update-checker",
+      "install": "github:daha1216/dsh-update-checker",
+      "update": "dsh plugin --profile web add github:daha1216/dsh-update-checker"
     }
   ]
 }

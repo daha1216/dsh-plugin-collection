@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-02 新收录 dsh-update-checker 0.2.3（自研插件首发开源）
+
+- 新建公开仓库 [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) 并开源 v0.2.3：DSH 插件更新检查器——在设置的「插件更新」页一键检查本机已装第三方插件的上游更新（**只检查不更新**），展示当前版本→最新版本之间的 Release 更新内容。按安装来源分类检查（npm dist-tag / GitHub Releases / file: 本地），GitHub API 限流自动降级 jsDelivr tag 列表；宿主端自有 webServer 路由复刻官方 RPC 信封；清理全部经 `ctx.effect` 接线（HMR 热换已验证）；测试：宿主端 harness 17 项 + 设置页 markdown 解析器 23 项。
+- 发布前公开化清理：`package.json` 移除 `private`、补 MIT License / repository / author；`test/harness.mjs` 机器路径参数化（`DSH_CORDIS_PATH`/`DSH_PROFILE_DIR` 环境变量，默认值可移植）。
+- GitHub 安装通道端到端验证：`dsh plugin --profile _repoprobe add github:daha1216/dsh-update-checker`（一次性探针 profile，验证后已删除）装包成功，tarball 内容与 `files` 声明一致（测试文件正确排除），无构建脚本问题。
+- 目录快照同步：plugins.json 新增条目（install `github:daha1216/dsh-update-checker`），README 目录表（🛠️ 会话管理与效率工具）与更新插件表各加一行；catalogVersion `1.40.4` → `1.40.5`，核对日期 `2026-10-02`。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-01 billion-context 升级 0.1.179（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.178` → `0.1.179`（npm 通道，备份 `backups/plugin-update-20261001-195506/`）。0.1.179 于 10-01 11:20 UTC 发布，安装时仍在 release-age 窗口内，显式钉 `@0.1.179` 并按提示并入 `minimumReleaseAgeExclude`（现为 `billion-context@0.1.167 || 0.1.168 || 0.1.171 || 0.1.172 || 0.1.174 || 0.1.175 || 0.1.178 || 0.1.179`）。
