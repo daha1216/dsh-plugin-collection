@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-01 billion-context 升级 0.1.179（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.178` → `0.1.179`（npm 通道，备份 `backups/plugin-update-20261001-195506/`）。0.1.179 于 10-01 11:20 UTC 发布，安装时仍在 release-age 窗口内，显式钉 `@0.1.179` 并按提示并入 `minimumReleaseAgeExclude`（现为 `billion-context@0.1.167 || 0.1.168 || 0.1.171 || 0.1.172 || 0.1.174 || 0.1.175 || 0.1.178 || 0.1.179`）。
+- 上游 `v0.1.178...v0.1.179` 变更（62 commits）：Web 配置页快捷控制卡片——快速配置控件、protectedTools 行防「话痨工具」警告、exclude-from-recent 行、多语言链接 CONFIGURATION 文档（#1748）；图片单独超窗时折叠可压缩文本的仲裁压缩（#1800）；DSH 集成——设置入口等 proxy origin 已知后自愈（#1809）、代理门拒绝 dsh 原生压缩调用（#1729）、模型窗口解析失败重试——启动竞态不再永久丢失 `x-bili-plugin-context-window`（#1836，`BILI_MODEL_INFO_RETRY_MS` 入档）；输出预算恢复按已知模型输出上限托底并一次性告警（#1840）；CA——OS 信任库并入 combined-ca.pem、按源降级而非全有全无（#1807）；codex overlay 用生成的 .env 钉路由并防真实 home 污染（#1802）；resume 分支默认继承父压缩块、前缀亲和快照 500ms 静默/5s 上限（#1834）；Responses 侧请求压缩交接规范化；冲突横幅点名冲突插件而非裸计数；CI 发布金丝雀自更新验证（#1811）；pi/omp 原生泳道把 preset `BILLION_CONTEXT_PROXY` 路由到 attach（#1795）。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.178`→`0.1.179`（install 钉版 `@0.1.179`）；catalogVersion `1.40.3` → `1.40.4`，核对日期 `2026-10-01`。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-01 billion-context 升级 0.1.178（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.175` → `0.1.178`（npm 通道，备份 `backups/plugin-update-20261001-142716/`）。0.1.178 于 10-01 02:40 UTC 发布，安装时仍在 release-age 窗口内，显式钉 `@0.1.178` 并按提示并入 profile `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`（现为 `billion-context@0.1.167 || 0.1.168 || 0.1.171 || 0.1.172 || 0.1.174 || 0.1.175 || 0.1.178`）。
