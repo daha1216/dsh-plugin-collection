@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-01 billion-context 升级 0.1.178（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.175` → `0.1.178`（npm 通道，备份 `backups/plugin-update-20261001-142716/`）。0.1.178 于 10-01 02:40 UTC 发布，安装时仍在 release-age 窗口内，显式钉 `@0.1.178` 并按提示并入 profile `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`（现为 `billion-context@0.1.167 || 0.1.168 || 0.1.171 || 0.1.172 || 0.1.174 || 0.1.175 || 0.1.178`）。
+- 上游 `v0.1.175...v0.1.178` 变更（104 commits，三个版本，按 tag 界碑归段）：
+  - `0.1.176`：CJK 与摘录正确性——模型摘录全边界 surrogate 代理对钳制（#1615）、CJK 单行可见轮次修复（#1764）；DSH 集成——web profile 设置页新增 bili Web UI 入口（#1590）、web 预设保留原生自动压缩时启动警告（#1772）、只读 `context-*` 工具不再误判为疑似压缩器（#1736）；Windows——dsh 二进制解析脱离裸 PATH 名、GBK 子进程解码（#1732）；配置——命名 provider 泳道/别名绑定（#1469）、非 http(s) baseUrl provider 可选接入（#1392）；稳定性——preflight 瞬时空摘要重试（#1767）、OMP 长预检首事件看门狗协调（#1774）、launcher 端口梯队等待同泳道前任（#1723）与 pid 身份校验（#1753）、多实例 store 加固与前缀亲和链永久化（#1724）、端口重启竞态修复（#1726）、CCR 检索原件改由 tool result 交付并升 acp-kernel 0.0.99（#1738）。
+  - `0.1.177`：自愈寄存器不再被迟到的 verifyAttachAndRecover 落地覆盖（#1787）。
+  - `0.1.178`：bili 插件更新命令如实报告实际刷新数量、跳过感知（#1803/#1804）。
+  - 更正：0.1.174 轮说明把 acp-kernel 0.0.99 / CCR 检索原件 tool result 交付（#1738）/ #1724 多实例加固 / #1726 端口竞态计入 0.1.174——按 tag 对比实际随 0.1.176 发布。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.175`→`0.1.178`（install 钉版 `@0.1.178`）；catalogVersion `1.40.2` → `1.40.3`，核对日期 `2026-10-01`。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-09-30 补升 billion-context 0.1.175（发布当日追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.174` → `0.1.175`（npm 通道，备份 `backups/plugin-update-20260930-204748/`）。0.1.175 于 09-30 12:30 UTC 发布，安装时仍在 release-age 窗口内，显式钉 `@0.1.175` 并按提示并入 profile `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`（现为 `billion-context@0.1.167 || 0.1.168 || 0.1.171 || 0.1.172 || 0.1.174 || 0.1.175`）。

@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.40.2-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.40.3-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-11%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -21,7 +21,7 @@
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.2 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `dsh-plugin-oauth-subs` | 0.0.110 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
-| `billion-context` | 0.1.175 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `billion-context` | 0.1.178 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 
 ### 📊 计量与状态监控
 
