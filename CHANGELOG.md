@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-10-03 billion-context 升级 0.1.181（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.180` → `0.1.181`（npm 通道，备份 `backups/plugin-update-20261003-235301/`）。0.1.181 安装时仍在 release-age 窗口内，pnpm 自动把 `billion-context@0.1.181` 并入 profile `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`（现为含 `0.1.180`、`0.1.181` 等）。背景：本机 0.1.180 系目录外安装（目录快照停在 0.1.179），本轮一并追平。
+- 上游 `v0.1.180...v0.1.181` 变更（99 commits，摘自官方 release notes，按主题归段）：
+  - 压缩核心：fold-state 重整——客户端侧历史抖动后折叠状态仍可存活（#1921）；压缩收缩按 live view 度量并标记退化重置（#1911）；preflight 本地估算按 provider 实际用量校准、基线来源门控、fold 预算缩放（#1933）；估计级基线不再进入 `stats.lastInputTokens`（#1911）。
+  - Windows：launcher 把 node re-exec wrapper 解析到真实 Node 再启动代理（#1887）；Claude SessionStart hook 改为 shell 可移植 + PATHEXT 感知的 CLI 解析（#1902）。
+  - Anthropic 通道：压缩提示作为尾部 system block 追加，不再合并客户端 system 块（#1876）。
+  - DSH 集成：`llm.resolveModelInfo` 绑定 service receiver——此前每次窗口 resolve 抛错、剥离 `x-bili-plugin-context-window`（#1943，社区首贡献）；web 设置面板 protectedTools 行正确指向 `compress.protectedTools`（#1948）；persona fingerprint——session id 与 system hash 分离，适配共享 id 的宿主（#1916/#1307/#1314）。
+  - 计量：文/图双通道核算——图片默认按像素先验计费并按路由学习真实成本（#1843）。
+  - 缓存账本：invalidation 分桶与切换归因加固（#1847）；seam 检测器不再误报无基线首账单（#1891）。
+  - 稳定性：sqlite overlay 私有 set 改拷贝而非共享文件链接（#1917）、二次启动保留 overlay 建立的 SQLite 库（#1951）、重启后过期健康判定失效（#1957）、launcher 快速子进程死亡后延迟发布实例可重新附着（#1903）。
+  - 其他：SDK-HMAC-SHA256 出站重签名 arm（`resign` 配置块，#1884）；zcode 零可路由 provider 时给出解释而非裸 Connection closed（#1892）；pi 虚拟模型选择的压缩归属修复（#1961）；泄漏的 bili 工具侧请求降级为 passthrough（#1897）；ACP 渲染标签剥离加固（#1881）。
+- 升级后需重启 DSH 桌面端生效。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.179`→`0.1.181`（install 钉版 `@0.1.181`）；catalogVersion 顺延至 `1.40.6`（远端 10-02 已将 `1.40.5` 用于收录 dsh-update-checker），核对日期 `2026-10-03`。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-02 新收录 dsh-update-checker 0.2.3（自研插件首发开源）
 
 - 新建公开仓库 [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) 并开源 v0.2.3：DSH 插件更新检查器——在设置的「插件更新」页一键检查本机已装第三方插件的上游更新（**只检查不更新**），展示当前版本→最新版本之间的 Release 更新内容。按安装来源分类检查（npm dist-tag / GitHub Releases / file: 本地），GitHub API 限流自动降级 jsDelivr tag 列表；宿主端自有 webServer 路由复刻官方 RPC 信封；清理全部经 `ctx.effect` 接线（HMR 热换已验证）；测试：宿主端 harness 17 项 + 设置页 markdown 解析器 23 项。
