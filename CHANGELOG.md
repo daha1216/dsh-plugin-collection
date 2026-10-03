@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-04 billion-context 升级 0.1.182（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.181` → `0.1.182`（npm 通道，备份 `backups/plugin-update-20261004-050652/`）。0.1.182 于 10-03 17:14 UTC 发布，安装时仍在 release-age 窗口内，已并入 profile `pnpm-workspace.yaml` `minimumReleaseAgeExclude`（现为 `0.1.180 || 0.1.181 || 0.1.182`）。背景：动手前发现 node_modules 已被目录外更新到 0.1.182 而 manifest 仍钉 `0.1.181`（lockfile 处于混合状态），本轮 `pnpm add` 将 manifest/lockfile/node_modules 三者一并对齐；npmmirror 该 tarball 尚未同步（`UND_ERR_DESTROYED` 重试耗尽），改用 `--registry=https://registry.npmjs.org` 完成。
+- 上游 `v0.1.181...v0.1.182` 变更（小修复版）：fix(#2011) output-budget 封顶值向下取整——`max_tokens` 恒为整数（此前分数上限可能透传给 provider 报错）；ci(#2011) 新增专用 bugfix 发布通道（carve-out publisher）；docs(#1870) release notes 补录。
+- 升级后需重启 DSH 桌面端生效。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.181`→`0.1.182`（install 钉版 `@0.1.182`）；catalogVersion 顺延至 `1.40.7`，核对日期 `2026-10-04`。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-03 billion-context 升级 0.1.181（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.180` → `0.1.181`（npm 通道，备份 `backups/plugin-update-20261003-235301/`）。0.1.181 安装时仍在 release-age 窗口内，pnpm 自动把 `billion-context@0.1.181` 并入 profile `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`（现为含 `0.1.180`、`0.1.181` 等）。背景：本机 0.1.180 系目录外安装（目录快照停在 0.1.179），本轮一并追平。
