@@ -21,7 +21,7 @@
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.2 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `dsh-plugin-oauth-subs` | 0.0.110 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
-| `billion-context` | 0.1.182 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `billion-context` | 0.1.184 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 
 ### 📊 计量与状态监控
 

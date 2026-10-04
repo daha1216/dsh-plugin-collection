@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-05 billion-context 升级 0.1.184（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.182` → `0.1.184`（npm 通道，备份 `backups/plugin-update-20261005-035139/`）。动手前又是目录外自更新：node_modules 已到 0.1.184 而 manifest/lockfile 仍钉 `0.1.182`。本轮第一次 `pnpm add billion-context@0.1.184` 因 DSH 桌面端运行中锁文件而失败（`ERR_PNPM_PACKAGE_MANAGER_REMOVE_MODULES_DIR`，拒绝访问 os error 5），且失败前**已删除大部分插件包**（8 个依赖仅剩 2 个）；改用 `pnpm add --lockfile-only` 对齐 manifest/lockfile，随后 `pnpm install` 按 lockfile 完整重建并逐一核对：billion-context 0.1.184、@anysearch/anysearch-dsh 0.1.6、@local/skills-manager 0.1.0（link）、dsh-better-reasoning-effort 0.5.2、dsh-pocket 2.10.6、dsh-retrace 0.4.49、dsh-update-checker 0.2.7（link 本地开发版，目录快照 0.2.3 系上游 HEAD）、dsh-watcher 0.6.3，全部恢复。0.1.184 仍在 release-age 窗口内，pnpm 自动并入 `minimumReleaseAgeExclude`（现为 `0.1.180 || 0.1.181 || 0.1.182 || 0.1.184`）。教训：**DSH 桌面端运行期间不要在 profile 里跑会重建 modules 目录的 pnpm 命令**（`pnpm add` 会先清空再装，失败即半删状态）。
+- 上游 `v0.1.182...v0.1.184` 变更（摘自官方 release notes）：
+  - v0.1.184（官方标注 critical）：fix(#2082) **dsh 插件工具消失**——工具注册卡死自愈 + 桌面副本 boot smoke 门；fix(#2072) 宿主原生 ACP 工具调用标记为 native caller（修 Pi 子代理跨会话误路由）；feat 合入 master 的构建发布为 `billion-context@master` npm 通道；docs(#2073) pi 原生模式传输覆盖说明与 WS 绕行配置；官网移入 website/ + GitHub Pages 部署。
+  - v0.1.183（约 40 项，择要）：feat(#1844/#1467) ACP-aware OpenCode V2 Responses WebSocket 代理 + 通用 WS 桥；feat(#1909) 平铺 provider `protocol` 字段按路径声明 wire 协议；feat(#2030) 行为旋钮统一解析顺序 env > config file > default（src/knobs.ts）；fix(#1952) 共享 overlay 活跃时拒绝并发启动而非覆写；fix(#1965) codex overlay 干净退出后写回真实 home；fix(#1960) Anthropic 线保留 redacted_thinking 块；fix(#1930) fold-reconcile 质量缺口（护栏测试、锚点复用、8K 性能钉）；fix(#1994/#1987) preflight 传输韧性 + shrink-retry 硬 400/413；fix(#2017) 插件层暴露隔离 fork 与归因上下文观测；fix(#1603) 安装失败重试有界 + /acp 面板暴露过期安装。
+- 升级后需重启 DSH 桌面端生效；本轮 node_modules 经历过删除重建，**务必重启并确认插件全量注册**（0.1.184 的 #2082 修复正是"桌面端插件工具消失"自愈）。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.182`→`0.1.184`（install 钉版 `@0.1.184`）；catalogVersion 顺延至 `1.40.8`，核对日期 `2026-10-05`。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-04 billion-context 升级 0.1.182（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.181` → `0.1.182`（npm 通道，备份 `backups/plugin-update-20261004-050652/`）。0.1.182 于 10-03 17:14 UTC 发布，安装时仍在 release-age 窗口内，已并入 profile `pnpm-workspace.yaml` `minimumReleaseAgeExclude`（现为 `0.1.180 || 0.1.181 || 0.1.182`）。背景：动手前发现 node_modules 已被目录外更新到 0.1.182 而 manifest 仍钉 `0.1.181`（lockfile 处于混合状态），本轮 `pnpm add` 将 manifest/lockfile/node_modules 三者一并对齐；npmmirror 该 tarball 尚未同步（`UND_ERR_DESTROYED` 重试耗尽），改用 `--registry=https://registry.npmjs.org` 完成。
