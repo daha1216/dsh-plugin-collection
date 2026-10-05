@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-05 billion-context 升级 0.1.185（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.184` → `0.1.185`（npm 通道）。又是目录外自更新开场：今晨 1.40.8 轮重建后，18:41 插件自更新（#2095 起 win32 自重启替换可脱离父进程存活）已把 node_modules 推到 0.1.185，manifest/lockfile 仍钉 `0.1.184`。本轮对齐只动清单不动模块：手改 package.json 钉版 + 宿主 pnpm 11.7.0（`D:\deepseek harnessesourcesuntime\pnpm`）`pnpm install --lockfile-only` 重写锁文件（billion 三处条目 0.1.184→0.1.185、integrity 换新，diff 零越界），node_modules 未触碰——规避 1.40.8 轮 `pnpm add` 在桌面端运行中被锁删模块的坑。pnpm 自动并入 `minimumReleaseAgeExclude`（`billion-context@0.1.185`）。备份 `package.json.bak-bili-0105` / `pnpm-lock.yaml.bak-bili-0105`（profile 目录内）。
+- 上游 `v0.1.184...v0.1.185` 变更（摘自官方 release notes，约 30 项择要）：fix(#2095) win32 自重启替换脱离父进程存活；fix 宿主原生 agent 工具转发打 nativeCaller 标（#2072 后续）；feat(PR#2034) dsh 原生压缩开关 `allowDshCompaction`（web 可配）；feat(#2111) pi 原生模式 Codex Responses WebSocket 走 bili；fix Responses WS 背压暂停而非交换失败（PR#2093）；fix 插件 fork 快照 O(1) 稳态维护+惰性持久化（#2077）；cache-ledger 系列（出站 body 稳定性证明 #2131、key-switch 归因 PR#2150、Z3 机检稳定性定理 PR#2159）；fix 冲突台账 active/historical 分拆（#2102）；fix 更新临时路径唯一化终结 cacheDir 竞争（#2106）；fix 状态读取共享溯源感知基线（#2029）；fix 测量态统计被 buildSession 丢弃（#2129）。
+- 实装状态：node_modules/manifest/lockfile 三处齐平 0.1.185；5 个 billion 进程（4×mcp.js + 1×index.js 代理）在跑，早于 18:41 拉起的仍持 0.1.184 内存码，下次 DSH 桌面端重启后全量切到 0.1.185。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.184`→`0.1.185`（install 钉版 `@0.1.185`）；catalogVersion 顺延至 `1.40.9`；README 徽章 v1.40.7→v1.40.9（顺带修 1.40.8 轮漏更）。
+- 改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-05 billion-context 升级 0.1.184（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.182` → `0.1.184`（npm 通道，备份 `backups/plugin-update-20261005-035139/`）。动手前又是目录外自更新：node_modules 已到 0.1.184 而 manifest/lockfile 仍钉 `0.1.182`。本轮第一次 `pnpm add billion-context@0.1.184` 因 DSH 桌面端运行中锁文件而失败（`ERR_PNPM_PACKAGE_MANAGER_REMOVE_MODULES_DIR`，拒绝访问 os error 5），且失败前**已删除大部分插件包**（8 个依赖仅剩 2 个）；改用 `pnpm add --lockfile-only` 对齐 manifest/lockfile，随后 `pnpm install` 按 lockfile 完整重建并逐一核对：billion-context 0.1.184、@anysearch/anysearch-dsh 0.1.6、@local/skills-manager 0.1.0（link）、dsh-better-reasoning-effort 0.5.2、dsh-pocket 2.10.6、dsh-retrace 0.4.49、dsh-update-checker 0.2.7（link 本地开发版，目录快照 0.2.3 系上游 HEAD）、dsh-watcher 0.6.3，全部恢复。0.1.184 仍在 release-age 窗口内，pnpm 自动并入 `minimumReleaseAgeExclude`（现为 `0.1.180 || 0.1.181 || 0.1.182 || 0.1.184`）。教训：**DSH 桌面端运行期间不要在 profile 里跑会重建 modules 目录的 pnpm 命令**（`pnpm add` 会先清空再装，失败即半删状态）。
