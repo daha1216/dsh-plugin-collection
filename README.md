@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.40.9-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.41.0-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-12%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -37,7 +37,7 @@
 |---|---:|---|---|
 | `dsh-retrace` | 0.4.49 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@anysearch/anysearch-dsh` | 0.1.6 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
-| `dsh-update-checker` | 0.2.3 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
+| `dsh-update-checker` | 0.3.0 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 
 ### 🎨 界面体验与多端协同
 

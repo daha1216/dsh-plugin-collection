@@ -1,8 +1,16 @@
 # Changelog
 
+## 2026-10-05 dsh-update-checker 0.3.0 完整重构版发布
+
+- `dsh-update-checker` `0.2.3` → `0.3.0`（自研插件；本机 link 实装同步）。核心：新增统一出站层 `lib/http.js`（全局限流 6 并发 / URL 单飞 / 5min TTL+ETag 条件缓存——GitHub 304 不占匿名配额 / 403-429 主机熔断）；npm 检查改走 ~200B dist-tags 快路径（过期的才拉 MB 级 packument）；预发布判定标记+标签形态双保险；持久化原子写；客户端 useMemo 化。修复：jsDelivr 回退不过滤预发布、check.last 内存缓存跨 profile 泄漏、`AbortSignal.timeout` 不保活事件循环导致裸环境超时永不触发。
+- 测试从「2 套」扩到「4+1 套」：新增出站层单测 19 例 + runCheck 集成 16 例（脚本化网络零外联），离线全家桶 `npm test`（58 例级）+ 活网络 E2E `npm run test:e2e`（17 项）全绿；含 fiber dispose/HMR 重载、协议负例、跨站围栏回归。
+- 目录版本 `1.40.9` → `1.41.0`，条目 12 不变；改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-05 billion-context 升级 0.1.185（追平 npm latest）
 
-- 本机 desktop profile `billion-context` `0.1.184` → `0.1.185`（npm 通道）。又是目录外自更新开场：今晨 1.40.8 轮重建后，18:41 插件自更新（#2095 起 win32 自重启替换可脱离父进程存活）已把 node_modules 推到 0.1.185，manifest/lockfile 仍钉 `0.1.184`。本轮对齐只动清单不动模块：手改 package.json 钉版 + 宿主 pnpm 11.7.0（`D:\deepseek harnessesourcesuntime\pnpm`）`pnpm install --lockfile-only` 重写锁文件（billion 三处条目 0.1.184→0.1.185、integrity 换新，diff 零越界），node_modules 未触碰——规避 1.40.8 轮 `pnpm add` 在桌面端运行中被锁删模块的坑。pnpm 自动并入 `minimumReleaseAgeExclude`（`billion-context@0.1.185`）。备份 `package.json.bak-bili-0105` / `pnpm-lock.yaml.bak-bili-0105`（profile 目录内）。
+- 本机 desktop profile `billion-context` `0.1.184` → `0.1.185`（npm 通道）。又是目录外自更新开场：今晨 1.40.8 轮重建后，18:41 插件自更新（#2095 起 win32 自重启替换可脱离父进程存活）已把 node_modules 推到 0.1.185，manifest/lockfile 仍钉 `0.1.184`。本轮对齐只动清单不动模块：手改 package.json 钉版 + 宿主 pnpm 11.7.0（`D:\deepseek harness
+esources
+untime\pnpm`）`pnpm install --lockfile-only` 重写锁文件（billion 三处条目 0.1.184→0.1.185、integrity 换新，diff 零越界），node_modules 未触碰——规避 1.40.8 轮 `pnpm add` 在桌面端运行中被锁删模块的坑。pnpm 自动并入 `minimumReleaseAgeExclude`（`billion-context@0.1.185`）。备份 `package.json.bak-bili-0105` / `pnpm-lock.yaml.bak-bili-0105`（profile 目录内）。
 - 上游 `v0.1.184...v0.1.185` 变更（摘自官方 release notes，约 30 项择要）：fix(#2095) win32 自重启替换脱离父进程存活；fix 宿主原生 agent 工具转发打 nativeCaller 标（#2072 后续）；feat(PR#2034) dsh 原生压缩开关 `allowDshCompaction`（web 可配）；feat(#2111) pi 原生模式 Codex Responses WebSocket 走 bili；fix Responses WS 背压暂停而非交换失败（PR#2093）；fix 插件 fork 快照 O(1) 稳态维护+惰性持久化（#2077）；cache-ledger 系列（出站 body 稳定性证明 #2131、key-switch 归因 PR#2150、Z3 机检稳定性定理 PR#2159）；fix 冲突台账 active/historical 分拆（#2102）；fix 更新临时路径唯一化终结 cacheDir 竞争（#2106）；fix 状态读取共享溯源感知基线（#2029）；fix 测量态统计被 buildSession 丢弃（#2129）。
 - 实装状态：node_modules/manifest/lockfile 三处齐平 0.1.185；5 个 billion 进程（4×mcp.js + 1×index.js 代理）在跑，早于 18:41 拉起的仍持 0.1.184 内存码，下次 DSH 桌面端重启后全量切到 0.1.185。
 - 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.184`→`0.1.185`（install 钉版 `@0.1.185`）；catalogVersion 顺延至 `1.40.9`；README 徽章 v1.40.7→v1.40.9（顺带修 1.40.8 轮漏更）。
