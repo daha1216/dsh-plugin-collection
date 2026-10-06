@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 billion-context 升级 0.1.186（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.185` → `0.1.186`（npm 通道）。仍是自更新先行：插件已把 node_modules 推到 0.1.186（v0.1.186 发布于今日 11:17 UTC），manifest/lockfile 仍钉 `0.1.185`。本轮对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（零 modules 操作；桌面端未运行，另有一个 claude lane 的 bili MCP 活进程与锁文件操作无冲突），锁文件三处 `0.1.185`→`0.1.186`、integrity 换新；pnpm 自动并入 `minimumReleaseAgeExclude` 后手工整理为 `0.1.185 || 0.1.186` 合并行。依赖无变化（zod 4.1.8）。实装 node_modules/manifest/lockfile 三处齐平 0.1.186。
+- 上游 `v0.1.185...v0.1.186` 变更（官方 release 摘要）：fix(#2090) 签名请求二元契约（重签+压缩或拒绝，web UI 启动提醒）；fix(#2187) 慢启动 live-child 代理等待 + DSH spawn-mode 启动失败进程内自愈；fix(#2196) Windows 启动器用户 argv 不再进 cmd.exe；fix(#2171) 插件流零可见上游截断时重发一次；fix(#2162) search_context 能命中单词关键词（去掉失准相关性下限）；fix(#2180) web 全新安装空索引不再 500；feat(#2127) dsh 插件详情页挂 bili 面板（plugins.bundle.config）；feat(#2115) antigravity launcher lane；web admin 会话加载分页限界（PR#1939）；codex overlay SQLite 合并改溯源优先胜者（PR#2207）；ACP_PORT 钉端口精确生效（PR#2178）。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.185`→`0.1.186`（install 钉版 `@0.1.186`）；catalogVersion `1.41.0` → `1.41.1`，README 徽章同步；条目 12 不变。改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-05 dsh-update-checker 0.3.0 完整重构版发布
 
 - `dsh-update-checker` `0.2.3` → `0.3.0`（自研插件；本机 link 实装同步）。核心：新增统一出站层 `lib/http.js`（全局限流 6 并发 / URL 单飞 / 5min TTL+ETag 条件缓存——GitHub 304 不占匿名配额 / 403-429 主机熔断）；npm 检查改走 ~200B dist-tags 快路径（过期的才拉 MB 级 packument）；预发布判定标记+标签形态双保险；持久化原子写；客户端 useMemo 化。修复：jsDelivr 回退不过滤预发布、check.last 内存缓存跨 profile 泄漏、`AbortSignal.timeout` 不保活事件循环导致裸环境超时永不触发。
