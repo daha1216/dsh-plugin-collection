@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 billion-context 升级 0.1.187（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.186` → `0.1.187`（npm 通道）。自更新先行三连：v0.1.187 发布于当日 07:31 UTC，插件自更新已把 node_modules 推到 0.1.187 而 pin/lock 仍钉 0.1.186。对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（零 modules 操作；本轮桌面端运行中执行，实测与运行态无冲突），锁文件三处 `0.1.186`→`0.1.187`、integrity 换新；exclude 合并为 `0.1.185 || 0.1.186 || 0.1.187` 一行。依赖无变化（zod 4.1.8）。实装三处齐平 0.1.187。
+- 上游 `v0.1.186...v0.1.187` 变更（官方 release 摘要）：fix(#2241) dsh persona anchor 连续性感知——模型切换迁移锚点而非分叉主 lane；session 自愈（#2155）僵尸插件 lane 降级为代理工具+空闲 nudge 抑制；fix 冲突告警不再把一方兄弟误标为第三方压缩器；fix(#2260) 0.1.186 评审跟进（dsh spawn 泄漏、惰性 resign 键命名、codex arg/TOML、web pristine root）；fix(#2122) 输出钳制的输入估计按学习到的分路由 k̂ 校准；ACP tag-echo 四不变量统一治理（#2023/#2066/#2190/#2248，流式+整文双路剥离退化和残留）；fix(#2192) 属主管理的更新 lane 走 InstallBackoff；feat(#2265) 匿名 affinity 采用 simhash 链对齐；website 文档面板化+全参数参考。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.186`→`0.1.187`（install 钉版 `@0.1.187`）；catalogVersion `1.41.1` → `1.41.2`，README 徽章同步；条目 12 不变。改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-06 billion-context 升级 0.1.186（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.185` → `0.1.186`（npm 通道）。仍是自更新先行：插件已把 node_modules 推到 0.1.186（v0.1.186 发布于今日 11:17 UTC），manifest/lockfile 仍钉 `0.1.185`。本轮对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（零 modules 操作；桌面端未运行，另有一个 claude lane 的 bili MCP 活进程与锁文件操作无冲突），锁文件三处 `0.1.185`→`0.1.186`、integrity 换新；pnpm 自动并入 `minimumReleaseAgeExclude` 后手工整理为 `0.1.185 || 0.1.186` 合并行。依赖无变化（zod 4.1.8）。实装 node_modules/manifest/lockfile 三处齐平 0.1.186。
