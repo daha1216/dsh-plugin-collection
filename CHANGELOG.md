@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 billion-context 升级 0.1.188（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.187` → `0.1.188`（npm 通道）。日更漂移第四连：v0.1.188 发布于当日 05:05 UTC，插件自更新先把 node_modules 推到 0.1.188 而 pin/lock 仍钉 0.1.187。对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（桌面端运行中执行无冲突；本轮锁文件因并行会话新装 dsh-gateway-provider 而扩到 164 条解析，bili 三处条目 0.1.187→0.1.188、integrity 换新、零残留），exclude 合并为 `0.1.185 || … || 0.1.188` 一行。依赖无变化（zod 4.1.8）。实装三处齐平 0.1.188。
+- 上游 `v0.1.187...v0.1.188` 变更（官方 release 摘要）：feat(PR#2167) 统一外部摘要模型、顺序故障转移与多客户端压缩接线；fix(#2288) dsh 设置面板跟随活代理 origin 而非冻结启动快照；fix(#2203) dsh persona 指纹 Responses 线路对齐；fix(#2308/#2309) preflight Responses 摘要排除 reasoning 项/拒收不完整摘要；fix(#2303) 终末轮以压缩草稿闭合标签结尾时重试；fix(#2286) deriveTitle 跳过 dsh 注入通知；feat(#2325) `bili plugin list` 显示每 lane 实装版本；feat(#2312) Claude Code 插件市场条目；feat(#2268) pi 子代理能力感知 ACP 通道。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.187`→`0.1.188`（install 钉版 `@0.1.188`）；catalogVersion `1.41.2` → `1.41.3`，README 徽章同步；条目 12 不变。改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-07 billion-context 升级 0.1.187（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.186` → `0.1.187`（npm 通道）。自更新先行三连：v0.1.187 发布于当日 07:31 UTC，插件自更新已把 node_modules 推到 0.1.187 而 pin/lock 仍钉 0.1.186。对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（零 modules 操作；本轮桌面端运行中执行，实测与运行态无冲突），锁文件三处 `0.1.186`→`0.1.187`、integrity 换新；exclude 合并为 `0.1.185 || 0.1.186 || 0.1.187` 一行。依赖无变化（zod 4.1.8）。实装三处齐平 0.1.187。
