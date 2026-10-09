@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 卸载 dsh-gateway-provider（9→8，catalog 1.43.0）
+
+- 按用户指示卸载 `dsh-gateway-provider`：desktop profile 执行 `pnpm remove dsh-gateway-provider` 移除依赖与 node_modules，清理 `pnpm-workspace.yaml` 中的构建授权规则及 `compatibility.json` 中的版本豁免。
+- 清理配置残留：从 `cordis.patch.yml` 与 `cordis.yml` 中移除 `subagent-model-selection-settings` 的 `gateway:cpa-gemini` 候选，删除 patch 中的 `llm-newapi`（dsh-gateway-provider）插件配置块。
+- 目录同步：`plugins.json` 撤出 `dsh-gateway-provider`，`README.md` 目录表、更新命令表和特殊说明区同步清理；catalogVersion `1.42.1` → `1.43.0`，README 徽章同步；`pwsh scripts/verify.ps1 -Profile desktop` 校验通过（8 条）。
+
 ## 2026-10-09 补录两条实装插件：gateway-provider 首录 + skills-manager 首发开源（7→9，catalog 1.42.1）
 
 - 上轮按「目录=本机实装镜像」撤条后，用户指出还有装了没进的——实装差集补齐：desktop profile 9 项依赖 vs 目录 7 条，缺 `dsh-gateway-provider` 与 `@local/skills-manager`。

@@ -1,7 +1,7 @@
-﻿{
+{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.42.1",
-  "updatedAt": "2026-10-09",
+  "catalogVersion": "1.43.0",
+  "updatedAt": "2026-10-10",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -71,15 +71,6 @@
       "source": "https://github.com/daha1216/dsh-update-checker",
       "install": "github:daha1216/dsh-update-checker",
       "update": "dsh plugin --profile web add github:daha1216/dsh-update-checker"
-    },
-    {
-      "id": "dsh-gateway-provider",
-      "name": "dsh-gateway-provider",
-      "version": "1.1.1",
-      "description": "通用 LLM 网关接入：将 newapi / LiteLLM / Higress 等 OpenAI 兼容网关挂载为模型提供方，自动发现模型列表，按 OpenAI / Anthropic / Gemini 原生协议分发",
-      "source": "https://github.com/daha1216/dsh-gateway-provider",
-      "install": "github:daha1216/dsh-gateway-provider",
-      "update": "dsh plugin --profile web add github:daha1216/dsh-gateway-provider"
     },
     {
       "id": "skills-manager",
