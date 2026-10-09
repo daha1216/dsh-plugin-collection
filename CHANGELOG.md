@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 billion-context 升级 0.1.189（追平 npm latest）
+
+- 本机 desktop profile `billion-context` `0.1.188` → `0.1.189`（npm 通道）。日更漂移第五连：v0.1.189 发布于当日 05:13 UTC，插件自更新先把 node_modules 推到 0.1.189 而 pin/lock 仍钉 0.1.188。对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（桌面端运行中执行无冲突），锁文件三处条目 `0.1.188`→`0.1.189`、integrity 换新、零残留，exclude 合并为 `0.1.185 || … || 0.1.189` 一行。依赖无变化（zod 4.1.8）。实装三处齐平 0.1.189。
+- 上游 `v0.1.188...v0.1.189` 变更（官方 release 摘要）：feat(#2243) 模型决定压缩时机（compress.nudgeModelDecided）；feat(#2378) 分层压缩触发阈值 compress.tierNudgeTokens（T1/T2/T3 独立）；feat(#2384) pi-subagents 收编进仓；fix(#2381) dsh 插件 model/window 头改钉会话实际模型；fix(#2335) promptPack=lean 真正到达代理系统提示；fix(#2334) fold-anchor 上限构建期强制（不再算后丢弃 16K 覆盖 id）；fix(#2348) scale-gate 假完成检测+剥自闭合渲染标签；fix(#2346) 失控枚举内在终止闸；fix(#2366/#2407) acp_status 暴露计费输入+k̂ 校准计入思考质量；fix(#2324) 冲突告警排除纯展示插件、疑似与确诊分离。
+- 目录快照同步：plugins.json 与 README 目录表 `billion-context` `0.1.188`→`0.1.189`（install 钉版 `@0.1.189`）；catalogVersion `1.41.3` → `1.41.4`，README 徽章同步；条目 12 不变。改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-08 billion-context 升级 0.1.188（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.187` → `0.1.188`（npm 通道）。日更漂移第四连：v0.1.188 发布于当日 05:05 UTC，插件自更新先把 node_modules 推到 0.1.188 而 pin/lock 仍钉 0.1.187。对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（桌面端运行中执行无冲突；本轮锁文件因并行会话新装 dsh-gateway-provider 而扩到 164 条解析，bili 三处条目 0.1.187→0.1.188、integrity 换新、零残留），exclude 合并为 `0.1.185 || … || 0.1.188` 一行。依赖无变化（zod 4.1.8）。实装三处齐平 0.1.188。
