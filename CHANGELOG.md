@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 精简为本机实装集：撤 5 条未装插件（12→7，catalog 1.42.0）
+
+- 按用户指示「从目录中删除我本机没有的插件」，以 desktop profile 实装 dependencies 为唯一判据，撤下 5 条：`dsh-pet`（0.3.6）、`@xueayi/dsh-opencode-go-usage`（0.1.6）、`dsh-all-usage`（1.1.18）、`dsh-font-customizer`（0.1.0）、`dsh-plugin-oauth-subs`（0.0.117）。`~/.dsh` 顶层的 `dsh-pet/`（main-config.json）与 `dsh-font-customizer/`（config.json）仅为旧 web profile 的配置残留，不构成实装，一并计入撤除。目录自此收敛为本机 7 插件镜像：bre、pocket、anysearch、billion、retrace、watcher、update-checker。
+- 清理范围：plugins.json 五对象、README 目录表/更新命令表各 5 行、徽章计数 12→7、说明区引用三处（「重跑 add 即更新」示例改 `billion-context`、「独立 update 动词」列表摘 `dsh-opencode-go-usage`、删 `dsh-font-customizer` 开发态专条）；改后 grep 两文件对 5 名零残留。四个分区均仍有条目，无需并区。
+- 附注：`dsh-gateway-provider`（desktop 实装 github 钉 0fcfe57）本机有装但未入目录，系另一维护线工作流，本轮不动。`~/.dsh/profiles/web` 仍不存在，verify 差集核对照旧跳过（警告非失败）。catalogVersion `1.41.6` → `1.42.0`（条目数变化按惯例升 minor，先例 1.37.0/1.38.0），README 徽章两行同步。改后 `pwsh scripts/verify.ps1` 通过（7 条）。
+
 ## 2026-10-09 三插件版本同步：dsh-pet 0.3.6 / dsh-all-usage 1.1.18 / dsh-plugin-oauth-subs 0.0.117（catalog 1.41.6）
 
 - `dsh-pet` `0.2.12` → `0.3.6`（npm 通道，`install` 钉版同步 `dsh-pet@0.3.6`）。**⚠️ 0.3.0 起为破坏性升级：peerDependencies 由 `^0.1.1-rc.2` 提升到 `^0.2.0-rc.1`，dsh 0.1.x 不再适配**——仍在 0.1.x 运行时的用户请继续使用 0.2.12；`@deepseek-ai/dsh` npm `latest` 已是 `0.2.0-rc.2`，本目录安装命令 `npx -p @deepseek-ai/dsh` 拉到的运行时原生满足，故跟进。0.3.x 系列要点（官方 release 摘要）：适配 DSH 0.2.0-rc.1（移除 `@deepseek-ai/dsh-client-runtime` 注入与 peer 声明、消息 source 改 `{ kind: 'user' }`）；余额查询新增 Command Code（含 GOAT 套餐，显示 5 小时/周/月最紧张窗口）与 DeepSeek 账户两个服务商；通知防刷屏（子代理/委派会话完成不再弹通知）；修复安装插件或热重载后桌宠与配置页不出现、需刷新或重开 DSH 的问题；修「深度思考碎碎念」气泡错字。

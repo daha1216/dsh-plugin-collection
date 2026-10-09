@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.41.6-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-12%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.42.0-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-7%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -20,15 +20,12 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.2 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `dsh-plugin-oauth-subs` | 0.0.117 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
 | `billion-context` | 0.1.189 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 
 ### 📊 计量与状态监控
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-all-usage` | 1.1.18 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
-| `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 悬浮监控 OpenCode Go 滚动配额与剩余用量 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
 | `dsh-watcher` | 0.6.3 | 会话工作路径观测面板 · 跨会话模型耗时与费用统计 | [daha1216/dsh-watcher](https://github.com/daha1216/dsh-watcher) |
 
 ### 🛠️ 会话管理与效率工具
@@ -44,8 +41,6 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-pocket` | 2.10.6 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
-| `dsh-font-customizer` | 0.1.0 | 自定义 Web 界面字体、代码字体与字号 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
-| `dsh-pet` | 0.3.6 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
 
 ---
 
@@ -107,16 +102,11 @@ bash install.sh --all
 | 插件名称 | 更新命令（来自各插件 README） |
 |---|---|
 | `dsh-better-reasoning-effort` | `dsh plugin --profile web add dsh-better-reasoning-effort` |
-| `dsh-pet` | `dsh plugin --profile web add dsh-pet` |
 | `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
-| `@xueayi/dsh-opencode-go-usage` | `dsh plugin --profile web update @xueayi/dsh-opencode-go-usage` |
-| `dsh-all-usage` | `dsh plugin --profile web add github:ParticleLight/dsh-all-usage` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context` | `dsh plugin --profile web add billion-context` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
-| `dsh-font-customizer` | `dsh plugin --profile web add github:daha1216/dsh-font-customizer` |
 | `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |
-| `dsh-plugin-oauth-subs` | `dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
 
 ---
@@ -124,8 +114,8 @@ bash install.sh --all
 ## ⚠️ 重要说明与避坑指南
 
 ### 1. 更新机制与命令规范
-- **重跑 `add` 即更新**：多数插件（如 `dsh-pet` 等）上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取最新提交或发布版。
-- **独立 `update` 动词**：部分插件（`anysearch-dsh`、`dsh-opencode-go-usage`、`dsh-pocket`）支持并推荐使用原生的 `update` 动词。
+- **重跑 `add` 即更新**：多数插件（如 `billion-context` 等）上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取最新提交或发布版。
+- **独立 `update` 动词**：部分插件（`anysearch-dsh`、`dsh-pocket`）支持并推荐使用原生的 `update` 动词。
 
 ### 2. Registry 缓存滞后警示
 - 本机若通过 `github:` 源安装插件，后续更新时**切勿改跑不带 spec 的 `add <pkg>@latest`**，否则会被 npm registry 解析，可能拉取到落后于 GitHub HEAD 的历史旧包。更新请始终沿用显式 `github:<owner>/<repo>` 或上表对应的原生指令。
@@ -137,8 +127,6 @@ bash install.sh --all
 - **`dsh-retrace`**：
   - 上游原生命令为 npm 通道 `dsh plugin --profile web add dsh-retrace`。
   - 本机实装与本目录均跟随自建兼容 Fork `github:daha1216/dsh-retrace`。
-- **`dsh-font-customizer`**：
-  - 目录收录公开仓库 `github:daha1216/dsh-font-customizer`；本地若处于开发态（`link:`），以本地代码优先。
 
 ---
 

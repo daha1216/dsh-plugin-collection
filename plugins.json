@@ -1,6 +1,6 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.41.6",
+  "catalogVersion": "1.42.0",
   "updatedAt": "2026-10-09",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -19,15 +19,6 @@
       "update": "dsh plugin --profile web add dsh-better-reasoning-effort"
     },
     {
-      "id": "dsh-pet",
-      "name": "dsh-pet",
-      "version": "0.3.6",
-      "description": "在页面右下角显示可互动的桌面宠物",
-      "source": "https://github.com/PC2005-cloud/dsh-pet",
-      "install": "dsh-pet@0.3.6",
-      "update": "dsh plugin --profile web add dsh-pet"
-    },
-    {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
       "version": "2.10.6",
@@ -35,24 +26,6 @@
       "source": "https://github.com/daha1216/dsh-pocket",
       "install": "github:daha1216/dsh-pocket",
       "update": "dsh plugin --profile web update dsh-pocket --latest -w"
-    },
-    {
-      "id": "dsh-opencode-go-usage",
-      "name": "@xueayi/dsh-opencode-go-usage",
-      "version": "0.1.6",
-      "description": "悬浮监控 OpenCode Go 滚动配额与剩余用量",
-      "source": "https://github.com/xueayi/dsh-opencode-go-usage",
-      "install": "github:xueayi/dsh-opencode-go-usage",
-      "update": "dsh plugin --profile web update @xueayi/dsh-opencode-go-usage"
-    },
-    {
-      "id": "dsh-all-usage",
-      "name": "dsh-all-usage",
-      "version": "1.1.18",
-      "description": "多维度统计 Token 用量、费用消耗与热力图",
-      "source": "https://github.com/ParticleLight/dsh-all-usage",
-      "install": "github:ParticleLight/dsh-all-usage",
-      "update": "dsh plugin --profile web add github:ParticleLight/dsh-all-usage"
     },
     {
       "id": "anysearch-dsh",
@@ -82,15 +55,6 @@
       "update": "dsh plugin --profile web add dsh-retrace"
     },
     {
-      "id": "dsh-font-customizer",
-      "name": "dsh-font-customizer",
-      "version": "0.1.0",
-      "description": "自定义 Web 界面字体、代码字体与字号",
-      "source": "https://github.com/daha1216/dsh-font-customizer",
-      "install": "github:daha1216/dsh-font-customizer",
-      "update": "dsh plugin --profile web add github:daha1216/dsh-font-customizer"
-    },
-    {
       "id": "dsh-watcher",
       "name": "dsh-watcher",
       "version": "0.6.3",
@@ -98,15 +62,6 @@
       "source": "https://github.com/daha1216/dsh-watcher",
       "install": "github:daha1216/dsh-watcher",
       "update": "dsh plugin --profile web add github:daha1216/dsh-watcher"
-    },
-    {
-      "id": "dsh-plugin-oauth-subs",
-      "name": "dsh-plugin-oauth-subs",
-      "version": "0.0.117",
-      "description": "接入 ChatGPT、Grok、Copilot 等官方订阅账号",
-      "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
-      "install": "github:xxww0098/dsh-plugin-oauth-subs",
-      "update": "dsh plugin --profile web add https://github.com/xxww0098/dsh-plugin-oauth-subs"
     },
     {
       "id": "dsh-update-checker",
