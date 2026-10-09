@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.42.0-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-7%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.42.1-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-9%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -21,6 +21,7 @@
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.2 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `billion-context` | 0.1.189 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `dsh-gateway-provider` | 1.1.1 | 通用 LLM 网关接入：将 newapi / LiteLLM / Higress 等 OpenAI 兼容网关挂载为模型提供方，自动发现模型列表，按原生协议分发 | [daha1216/dsh-gateway-provider](https://github.com/daha1216/dsh-gateway-provider) |
 
 ### 📊 计量与状态监控
 
@@ -35,6 +36,7 @@
 | `dsh-retrace` | 0.4.49 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@anysearch/anysearch-dsh` | 0.1.7 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 | `dsh-update-checker` | 0.3.0 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
+| `@local/skills-manager` | 0.1.0 | 在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换调用策略 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
 
 ### 🎨 界面体验与多端协同
 
@@ -108,6 +110,8 @@ bash install.sh --all
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
+| `dsh-gateway-provider` | `dsh plugin --profile web add github:daha1216/dsh-gateway-provider` |
+| `@local/skills-manager` | `dsh plugin --profile web add github:daha1216/dsh-skills-manager` |
 
 ---
 
@@ -127,6 +131,10 @@ bash install.sh --all
 - **`dsh-retrace`**：
   - 上游原生命令为 npm 通道 `dsh plugin --profile web add dsh-retrace`。
   - 本机实装与本目录均跟随自建兼容 Fork `github:daha1216/dsh-retrace`。
+- **`dsh-gateway-provider`**：
+  - 上游为 `Luck9Star/dsh-gateway-provider`；本目录跟随自建 Fork（保留上游提交史，含 /v1beta 发现正则与推理档后缀修复）。
+- **`@local/skills-manager`**：
+  - 目录收录公开仓库 `github:daha1216/dsh-skills-manager`；本地若处于开发态（`link:`），以本地代码优先。
 
 ---
 

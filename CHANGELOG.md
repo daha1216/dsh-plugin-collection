@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 补录两条实装插件：gateway-provider 首录 + skills-manager 首发开源（7→9，catalog 1.42.1）
+
+- 上轮按「目录=本机实装镜像」撤条后，用户指出还有装了没进的——实装差集补齐：desktop profile 9 项依赖 vs 目录 7 条，缺 `dsh-gateway-provider` 与 `@local/skills-manager`。
+- `dsh-gateway-provider` `1.1.1` 首录：仓库本已存在（自建 Fork `daha1216/dsh-gateway-provider`，保留上游 `Luck9Star` 提交史，1.1.1 = 上游 1.1.0 + /v1beta 发现正则修复 + 推理档后缀修复），desktop 实装为 GitHub SHA 钉 `0fcfe57`。入 🧠 模型与推理增强分区，install/update 走无钉 `github:daha1216/dsh-gateway-provider`（与 retrace/watcher 同款）；特殊说明区补 Fork 出处条。
+- `@local/skills-manager` `0.1.0` **首发开源**：原为桌面端会话自研的本地插件（`link:D:/dsh work/skills-manager`，`private:true`、无 git 历史——「没上传」的字面主），本轮按发布流程建仓推送 `github:daha1216/dsh-skills-manager`（main 单分支，初始提交 2790bfd）：package.json 摘 `private`、补 repository/homepage/bugs；README 头部补安装节；新增 MIT LICENSE（2026 daha1216，同 update-checker 款）与 .gitignore；源码零改动（发布前敏感扫描仅命中标准 URL 解析 base）。入 🛠️ 会话管理与效率工具分区；特殊说明区补「本地 link 开发态以本地代码优先」条（同原 font-customizer 惯例）。
+- 命名说明：包名保留 scoped `@local/skills-manager` 未改——插件 id 三处硬编码（package.json / index.js `export const name` / cordis.patch.yml），改名需停机窗口联动（profile 依赖键 + pnpm 重链接 + 重启），留待后续；scoped github 安装有 `@xueayi/dsh-opencode-go-usage` 先例可装。catalogVersion `1.42.0` → `1.42.1`（收录类 patch +0.0.1，先例 1.40.5/1.41.0），README 徽章两行同步。改后 `pwsh scripts/verify.ps1` 通过（9 条）。
+
 ## 2026-10-09 精简为本机实装集：撤 5 条未装插件（12→7，catalog 1.42.0）
 
 - 按用户指示「从目录中删除我本机没有的插件」，以 desktop profile 实装 dependencies 为唯一判据，撤下 5 条：`dsh-pet`（0.3.6）、`@xueayi/dsh-opencode-go-usage`（0.1.6）、`dsh-all-usage`（1.1.18）、`dsh-font-customizer`（0.1.0）、`dsh-plugin-oauth-subs`（0.0.117）。`~/.dsh` 顶层的 `dsh-pet/`（main-config.json）与 `dsh-font-customizer/`（config.json）仅为旧 web profile 的配置残留，不构成实装，一并计入撤除。目录自此收敛为本机 7 插件镜像：bre、pocket、anysearch、billion、retrace、watcher、update-checker。
