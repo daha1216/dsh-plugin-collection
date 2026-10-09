@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 anysearch-dsh 升级 0.1.7（追平 npm latest）
+
+- 本机 desktop profile `@anysearch/anysearch-dsh` `0.1.6` → `0.1.7`（npm 通道，install 无钉版只动 manifest version 快照）。0.1.7 为纯兼容版：peer 扩到 28 个宿主版本（原生覆盖 `0.2.0-rc.2`，无需配置变更）；git 安装内置编译产物不再需要 pnpm 构建审批；dev 基线升至 0.2.1-alpha.1。**升级后 peer 原生过审，已删 profile compatibility.json 的 `@anysearch/anysearch-dsh@0.1.6` 豁免键**（gateway-provider 键保留不动）。
+- 安装走完整链（真装包非 lockfile-only）：经用户拍板中断在跑会话→关桌面端→Stop-Process 清孤儿 bili→改钉版+删豁免→宿主 pnpm install（首轮撞「锁文件校验层不认 exclude」复现 bre 0.5.1 轮坑，`--config.minimum-release-age=0` 单次放行过；`+2 -27` 为首轮部分态清理，九插件终检全员在位版本正确）→重启桌面端（5 进程+bili 代理 25256 新拉起）。
+- 目录快照同步：plugins.json version 与 README 目录表 `0.1.6`→`0.1.7`（install 本为裸名无钉版）；catalogVersion `1.41.4` → `1.41.5`，README 徽章同步；条目 12 不变（`dsh-opencode-go-usage` 恰也 0.1.6，属其自身版本未动）。改后跑 `pwsh scripts/verify.ps1` 通过。
+
 ## 2026-10-09 billion-context 升级 0.1.189（追平 npm latest）
 
 - 本机 desktop profile `billion-context` `0.1.188` → `0.1.189`（npm 通道）。日更漂移第五连：v0.1.189 发布于当日 05:13 UTC，插件自更新先把 node_modules 推到 0.1.189 而 pin/lock 仍钉 0.1.188。对齐沿用清洁法：手改 package.json 钉版 + 宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（桌面端运行中执行无冲突），锁文件三处条目 `0.1.188`→`0.1.189`、integrity 换新、零残留，exclude 合并为 `0.1.185 || … || 0.1.189` 一行。依赖无变化（zod 4.1.8）。实装三处齐平 0.1.189。
