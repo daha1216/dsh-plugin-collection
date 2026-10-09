@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 三插件版本同步：dsh-pet 0.3.6 / dsh-all-usage 1.1.18 / dsh-plugin-oauth-subs 0.0.117（catalog 1.41.6）
+
+- `dsh-pet` `0.2.12` → `0.3.6`（npm 通道，`install` 钉版同步 `dsh-pet@0.3.6`）。**⚠️ 0.3.0 起为破坏性升级：peerDependencies 由 `^0.1.1-rc.2` 提升到 `^0.2.0-rc.1`，dsh 0.1.x 不再适配**——仍在 0.1.x 运行时的用户请继续使用 0.2.12；`@deepseek-ai/dsh` npm `latest` 已是 `0.2.0-rc.2`，本目录安装命令 `npx -p @deepseek-ai/dsh` 拉到的运行时原生满足，故跟进。0.3.x 系列要点（官方 release 摘要）：适配 DSH 0.2.0-rc.1（移除 `@deepseek-ai/dsh-client-runtime` 注入与 peer 声明、消息 source 改 `{ kind: 'user' }`）；余额查询新增 Command Code（含 GOAT 套餐，显示 5 小时/周/月最紧张窗口）与 DeepSeek 账户两个服务商；通知防刷屏（子代理/委派会话完成不再弹通知）；修复安装插件或热重载后桌宠与配置页不出现、需刷新或重开 DSH 的问题；修「深度思考碎碎念」气泡错字。
+- `dsh-all-usage` `1.1.15` → `1.1.18`（GitHub 通道，无钉版只动 version 快照）。1.1.16 宣告支持 dsh `0.2.0-rc.2` 运行时（`dsh.compatibility.runtime` 扩到 `>=0.2.0-rc.2 <0.2.1-0`，CI 冒烟矩阵扩到六个运行时版本）；1.1.17 修桌面端无法保存（写路由原先要求 loopback `Origin`，而桌面壳 `dsh-app://` 方案经 Electron 转发会剥掉 `Origin`——改为按进程能力授权，`usageBacked` 缺失改三态不误判「无账本用量」，写能力轮换 403 自愈重试）；1.1.18 新增「最近 7 天」预设范围、热力图跨度可切换 30 天/90 天/12 个月（网格列数跟随、单元格保持 1:1）、仪表盘标题旁版本指示器（宿主侧 GET npm 最新版对比，6 小时缓存、不可达时优雅降级）。
+- `dsh-plugin-oauth-subs` `0.0.110` → `0.0.117`（GitHub 通道，无钉版只动 version 快照）。`v0.0.110...v0.0.117` 要点（compare 摘要）：**移除 Claude（Anthropic）家族**；家族注册表化重构（`families.ts` 接管代理体缓存分发、配额抓取、登录/导入/粘贴派发，新增家族不再改分支链）；模型页价格徽章+目录费率、ChatGPT 家族与按家族账户/配额拆分；GLM bigmodel 改走铸造 api key（旧 oauth bearer 快照时重铸）；Kiro 修复链（`login_option=awsidc` 转 IdC 设备流、5xx 对宿主可重试、credit 费率显示、文本增量保持完整）；修 zstd 撕裂帧未闭合尾行导致的解析残留（Node 22 zlib 不抛错的片段）；代理关闭前排空出站、配额读数持久化。
+- 目录快照同步：plugins.json 三条 version（pet 连 `install` 钉版）与 README 目录表对应行更新；catalogVersion `1.41.5` → `1.41.6`，README 徽章同步；条目 12 不变（其余 9 条对账 npm/GitHub 上游均无新版）。本轮为目录先行：三个插件原属 `web` profile，本机该 profile 已不存在（现仅 `desktop`，未装此三者），无本机升级动作；`pwsh scripts/verify.ps1` 通过（installed 差集核对因 `~/.dsh/profiles/web/package.json` 缺失自动跳过，警告非失败）。
+
 ## 2026-10-09 anysearch-dsh 升级 0.1.7（追平 npm latest）
 
 - 本机 desktop profile `@anysearch/anysearch-dsh` `0.1.6` → `0.1.7`（npm 通道，install 无钉版只动 manifest version 快照）。0.1.7 为纯兼容版：peer 扩到 28 个宿主版本（原生覆盖 `0.2.0-rc.2`，无需配置变更）；git 安装内置编译产物不再需要 pnpm 构建审批；dev 基线升至 0.2.1-alpha.1。**升级后 peer 原生过审，已删 profile compatibility.json 的 `@anysearch/anysearch-dsh@0.1.6` 豁免键**（gateway-provider 键保留不动）。

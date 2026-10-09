@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.41.5-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.41.6-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-12%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -20,14 +20,14 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.2 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `dsh-plugin-oauth-subs` | 0.0.110 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
+| `dsh-plugin-oauth-subs` | 0.0.117 | 接入 ChatGPT、Grok、Copilot 等官方订阅账号 | [xxww0098/dsh-plugin-oauth-subs](https://github.com/xxww0098/dsh-plugin-oauth-subs) |
 | `billion-context` | 0.1.189 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 
 ### 📊 计量与状态监控
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-all-usage` | 1.1.15 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
+| `dsh-all-usage` | 1.1.18 | 多维度统计 Token 用量、费用消耗与热力图 | [ParticleLight/dsh-all-usage](https://github.com/ParticleLight/dsh-all-usage) |
 | `@xueayi/dsh-opencode-go-usage` | 0.1.6 | 悬浮监控 OpenCode Go 滚动配额与剩余用量 | [xueayi/dsh-opencode-go-usage](https://github.com/xueayi/dsh-opencode-go-usage) |
 | `dsh-watcher` | 0.6.3 | 会话工作路径观测面板 · 跨会话模型耗时与费用统计 | [daha1216/dsh-watcher](https://github.com/daha1216/dsh-watcher) |
 
@@ -45,7 +45,7 @@
 |---|---:|---|---|
 | `dsh-pocket` | 2.10.6 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 | `dsh-font-customizer` | 0.1.0 | 自定义 Web 界面字体、代码字体与字号 | [daha1216/dsh-font-customizer](https://github.com/daha1216/dsh-font-customizer) |
-| `dsh-pet` | 0.2.12 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
+| `dsh-pet` | 0.3.6 | 在页面右下角显示可互动的桌面宠物 | [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) |
 
 ---
 

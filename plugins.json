@@ -1,6 +1,6 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.41.5",
+  "catalogVersion": "1.41.6",
   "updatedAt": "2026-10-09",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -21,10 +21,10 @@
     {
       "id": "dsh-pet",
       "name": "dsh-pet",
-      "version": "0.2.12",
+      "version": "0.3.6",
       "description": "在页面右下角显示可互动的桌面宠物",
       "source": "https://github.com/PC2005-cloud/dsh-pet",
-      "install": "dsh-pet@0.2.12",
+      "install": "dsh-pet@0.3.6",
       "update": "dsh plugin --profile web add dsh-pet"
     },
     {
@@ -48,7 +48,7 @@
     {
       "id": "dsh-all-usage",
       "name": "dsh-all-usage",
-      "version": "1.1.15",
+      "version": "1.1.18",
       "description": "多维度统计 Token 用量、费用消耗与热力图",
       "source": "https://github.com/ParticleLight/dsh-all-usage",
       "install": "github:ParticleLight/dsh-all-usage",
@@ -102,7 +102,7 @@
     {
       "id": "dsh-plugin-oauth-subs",
       "name": "dsh-plugin-oauth-subs",
-      "version": "0.0.110",
+      "version": "0.0.117",
       "description": "接入 ChatGPT、Grok、Copilot 等官方订阅账号",
       "source": "https://github.com/xxww0098/dsh-plugin-oauth-subs",
       "install": "github:xxww0098/dsh-plugin-oauth-subs",
