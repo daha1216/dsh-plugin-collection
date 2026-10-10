@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 billion-context 升级 0.1.190（追平 npm latest，catalog 1.43.1）
+
+- 本机 desktop profile `billion-context` `0.1.189` → `0.1.190`（npm 通道）。自更新先行六连：v0.1.190 发布于当日 06:08 UTC，插件后台自更新已先把 node_modules 推到 0.1.190，manifest/lockfile 仍钉 `0.1.189`。对齐沿用清洁法：备份至 `backups/plugin-update-20261010-151000/`，更新 `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 加入 `0.1.190`，手改 `package.json` 钉版，宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（桌面端运行中执行无冲突，node_modules 零触碰），锁文件两处条目 `0.1.189`→`0.1.190`、integrity 换新。实装 node_modules/manifest/lockfile 三处齐平 0.1.190。
+- 上游 `v0.1.189...v0.1.190` 变更（官方 release 摘要）：feat(PR#2571) external-summary autoFold 外部摘要自动折叠（零大模型介入增长折叠+可观测外部块）；feat(#2480/#2488/#2540) 位置折叠标识与存储结构规范化（Pass 0 位置+规范内容指纹，按 ID 复用快速路径）；feat(#2428/#2419/#2447/#2547) 消息级保护钩子与 DSH 持久状态守卫（保护技能目录、工作区指令与 mcp_catalog）；fix(#2437) 单次批量 compress 调用消除初见历史积压；fix/docs(dsh #1772/#2474/#2477/#2476) 修正 DSH 原生压缩开关结论（提供 Web profile 彻底禁用原生自动压缩的 patch 配方）；fix(#2475/#2564) Web 画布与嵌入面绑定色彩方案适配深色模式，跟随 DSH 宿主主题与增加边框呼吸间距；fix(#2505) 支持 Windows ProxyOverride 通配符（127.*, 192.168.*）；fix(#2516/#2515) 截断重拉剔除未签名思考块、Anthropic 代理模式第 2 轮保留 cache_control；fix(#2562/#2577) 输出预算排除图片 Token 重复计算，根据 DSH 原始台账规划预算并熔断失败探针；fix(#2495/#2508) Google wire 协议识别，Claude Code WebSearch 侧向透传；fix(#2457/#2498/#2497/#2486) x-bili-plugin-model 非 ASCII 防护、同源恢复原地重试、400 形状判定 stream、5xx 溢出标记识别加固。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.189`→`0.1.190`（install 钉版 `@0.1.190`）；catalogVersion `1.43.0` → `1.43.1`，README 徽章同步；条目 8 不变。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-10-10 卸载 dsh-gateway-provider（9→8，catalog 1.43.0）
 
 - 按用户指示卸载 `dsh-gateway-provider`：desktop profile 执行 `pnpm remove dsh-gateway-provider` 移除依赖与 node_modules，清理 `pnpm-workspace.yaml` 中的构建授权规则及 `compatibility.json` 中的版本豁免。
