@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 billion-context 升级 0.1.191（追平 npm latest，catalog 1.43.2）
+
+- 本机 desktop profile `billion-context` `0.1.190` → `0.1.191`（npm 通道）。v0.1.191 发布于当日 09:14 UTC，插件后台自更新已先行将 node_modules 推到 0.1.191，manifest/lockfile 滞后在 `0.1.190`。对齐沿用清洁法：备份至 `backups/plugin-update-20261010-191500/`，合并 `pnpm-workspace.yaml` 中的 `minimumReleaseAgeExclude` 联合体加入 `0.1.191`（修复多行同包名规则被 pnpm 策略评估短路覆盖的问题），更新 `package.json` 钉版，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only`（桌面端运行中执行无冲突，node_modules 零触碰），锁文件两处条目更新至 `0.1.191`。实装 node_modules/manifest/lockfile 三处齐平 0.1.191。
+- 上游 `v0.1.190...v0.1.191` 变更（官方 release 摘要）：fix(#2503) DSH 0.2.1-alpha.2 上标题生成（title-gen）请求改走 side lane 侧向通道；feat(#2412) debug dump 目录支持按大小/保留期自动滚动清理；fix(#2472) Pi fork adoption 有界快照诊断与前置网络拦截闸门；fix(#2544) 压缩收据指纹携带完整摘要，引导 decompress 前优先执行 search_context 检索；fix(#2565) 剔除所有出站请求体中未配对的孤立代理项编码（unpaired surrogate escapes）；feat(#2283) 为上下文窗口、计费与对齐决策增加离线审计行；fix(#2585) 逐项 agent-providers 上报摄入，单个拒绝条目不再丢弃整份报告；fix(#2594) 用 Codex 当前可用窗口替代过期的 272K 对齐回退；fix(#2605) 在 DSH 内置 DeepSeek 路由上自动重试 MALFORMED_RESPONSE；fix(#2621) 将 DSH 压缩帧检测器严格限制在用户文本消息；fix(#2631) 锁定 dsh.bundle.patch.yml 采用 LF 并在字节级包含前规范化 CRLF。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.190`→`0.1.191`（install 钉版 `@0.1.191`）；catalogVersion `1.43.1` → `1.43.2`，README 徽章同步；条目 8 不变。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-10-10 billion-context 升级 0.1.190（追平 npm latest，catalog 1.43.1）
 
 - 本机 desktop profile `billion-context` `0.1.189` → `0.1.190`（npm 通道）。自更新先行六连：v0.1.190 发布于当日 06:08 UTC，插件后台自更新已先把 node_modules 推到 0.1.190，manifest/lockfile 仍钉 `0.1.189`。对齐沿用清洁法：备份至 `backups/plugin-update-20261010-151000/`，更新 `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 加入 `0.1.190`，手改 `package.json` 钉版，宿主 pnpm 11.7.0 `pnpm install --lockfile-only`（桌面端运行中执行无冲突，node_modules 零触碰），锁文件两处条目 `0.1.189`→`0.1.190`、integrity 换新。实装 node_modules/manifest/lockfile 三处齐平 0.1.190。
