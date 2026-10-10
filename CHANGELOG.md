@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 billion-context 升级 0.1.192（追平 npm latest，catalog 1.43.3）
+
+- 本机 desktop profile `billion-context` `0.1.191` → `0.1.192`（npm 通道）。v0.1.192 发布于 2026-10-10 15:30 UTC（北京时间约 23:30），插件后台自更新已先行将 node_modules 推到 0.1.192，manifest/lockfile 滞后在 `0.1.191`。对齐沿用清洁法：备份至 `backups/plugin-update-20261011-010500/`，在 `pnpm-workspace.yaml` 中的 `minimumReleaseAgeExclude` 追加 `0.1.192`，更新 `package.json` 钉版，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only`（桌面端运行中执行无冲突，node_modules 零触碰），锁文件两处条目更新至 `0.1.192`。实装 node_modules/manifest/lockfile 三处齐平 0.1.192。
+- 上游 `v0.1.191...v0.1.192` 变更（官方 release 摘要）：fix(#2658 / PR #2664) DSH 原生压缩改写的双信号检测与 ACP 状态平滑重基（rebase）自愈机制移植至 Anthropic（Claude）与 Google（Gemini）通道。此前该自愈机制仅部署在 OpenAI 与 Responses 通道，遗漏了 Anthropic 与 Google 通道，导致长会话触发 DSH 原生压缩后陷入“无法锚定”状态死亡循环、Prompt Cache 持续击穿并永久失去压缩能力；本次修复在 `prepare-anthropic.ts` 与 `prepare-google.ts` 中补齐判定与自愈重基，平滑重建折叠引用与原生压缩边界。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.191`→`0.1.192`（install 钉版 `@0.1.192`）；catalogVersion `1.43.2` → `1.43.3`，README 徽章同步；条目 8 不变。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-10-10 billion-context 升级 0.1.191（追平 npm latest，catalog 1.43.2）
 
 - 本机 desktop profile `billion-context` `0.1.190` → `0.1.191`（npm 通道）。v0.1.191 发布于当日 09:14 UTC，插件后台自更新已先行将 node_modules 推到 0.1.191，manifest/lockfile 滞后在 `0.1.190`。对齐沿用清洁法：备份至 `backups/plugin-update-20261010-191500/`，合并 `pnpm-workspace.yaml` 中的 `minimumReleaseAgeExclude` 联合体加入 `0.1.191`（修复多行同包名规则被 pnpm 策略评估短路覆盖的问题），更新 `package.json` 钉版，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only`（桌面端运行中执行无冲突，node_modules 零触碰），锁文件两处条目更新至 `0.1.191`。实装 node_modules/manifest/lockfile 三处齐平 0.1.191。
