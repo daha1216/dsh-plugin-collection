@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-11 anysearch-dsh 升级 0.1.8（追平 npm latest，catalog 1.43.4）
+
+- 本机 desktop profile `@anysearch/anysearch-dsh` `0.1.7` → `0.1.8`（npm 通道）。v0.1.8 发布于 2026-10-10 08:54 UTC，更新重点为放宽宿主版本限制。实装更新流程：备份至 `backups/plugin-update-20261011-062734/`，在 `pnpm-workspace.yaml` 中的 `minimumReleaseAgeExclude` 追加 `@anysearch/anysearch-dsh@0.1.8`，更新 `package.json` 钉版为 `0.1.8`，宿主 pnpm 执行 `pnpm install --lockfile-only` 对齐锁文件，将 npm 官方 0.1.8 发布包解压同步至 `node_modules/@anysearch/anysearch-dsh`（桌面端运行中执行无文件锁定冲突）。实装 node_modules/manifest/lockfile 三处齐平 0.1.8；按用户指示暂不重启桌面端。
+- 上游 `v0.1.7...v0.1.8` 变更（官方 release 摘要）：
+  - 放宽 DSH 宿主版本限制：将 5 个核心组件（credentials/system-prompt/tool-web/tools/web）的 peerDependencies 声明由离散版本串改为 `*`，默认放行包括 alpha、rc 在内的新版 DSH 安装，避免 DSH `0.2.1-alpha.2` 等新版因声明截止在 `0.2.1-alpha.1` 而报错拦截。
+  - 分离测试矩阵与准入规则：已测试版本矩阵不再作为安装白名单；保留每周自动化测试持续追踪底层 API 变化。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `@anysearch/anysearch-dsh` `0.1.7`→`0.1.8`；catalogVersion `1.43.3` → `1.43.4`，README 徽章同步；条目 8 不变。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-10-11 billion-context 升级 0.1.192（追平 npm latest，catalog 1.43.3）
 
 - 本机 desktop profile `billion-context` `0.1.191` → `0.1.192`（npm 通道）。v0.1.192 发布于 2026-10-10 15:30 UTC（北京时间约 23:30），插件后台自更新已先行将 node_modules 推到 0.1.192，manifest/lockfile 滞后在 `0.1.191`。对齐沿用清洁法：备份至 `backups/plugin-update-20261011-010500/`，在 `pnpm-workspace.yaml` 中的 `minimumReleaseAgeExclude` 追加 `0.1.192`，更新 `package.json` 钉版，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only`（桌面端运行中执行无冲突，node_modules 零触碰），锁文件两处条目更新至 `0.1.192`。实装 node_modules/manifest/lockfile 三处齐平 0.1.192。

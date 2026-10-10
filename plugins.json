@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.43.3",
+  "catalogVersion": "1.43.4",
   "updatedAt": "2026-10-11",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -30,7 +30,7 @@
     {
       "id": "anysearch-dsh",
       "name": "@anysearch/anysearch-dsh",
-      "version": "0.1.7",
+      "version": "0.1.8",
       "description": "为 Agent 提供网页实时搜索与正文抓取能力",
       "source": "https://github.com/anysearch-team/anysearch-dsh",
       "install": "@anysearch/anysearch-dsh",
