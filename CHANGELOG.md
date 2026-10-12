@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-10-13 billion-context 升级 0.1.195 + 新收录 dsh-mnemon（catalog 1.44.0）
+
+- 本机 desktop profile `billion-context` `0.1.192` → `0.1.195`（npm 通道）。插件后台自更新已先行将 node_modules 与 8790 代理实例推到 0.1.195（DSH lane 实例 18788 亦自更新至 0.1.195，stale=False），manifest/lockfile/目录快照滞后在 `0.1.192`。对齐流程：备份至 `backups/plugin-update-20261013-004142/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.1.193 || 0.1.194 || 0.1.195`，`package.json` 钉版改 `0.1.195`，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only`（93 条目通过供应链策略校验），锁文件两处条目更新至 `0.1.195`。实装 node_modules/manifest/lockfile 三处齐平 0.1.195。
+- 上游 `v0.1.192...v0.1.193`（2026-10-11 发布，70+ PR 大版本）变更（官方 release 摘要）：
+  - 统一 SQLite 存储引擎取代分文件状态（#2690/#2768/#2781），损坏索引自动降级（#2772）与 Windows EBUSY 重试（#2788）。
+  - archive-then-fold 取代 compress.stripImages：可归档媒体默认折叠归档（#2640/#2688/#2702）；MCP 前缀工具硬保护（#2584）。
+  - 模型切换血缘与 fork 继承、协议中立身份域（#2719/#2727/#2807）；Threads continue 指纹会话亲和（#2718）。
+  - DSH 原生压缩守卫与僵尸折叠块回收（#2707）、未归属透传守卫（#2722/#2715）；外部摘要预算联动 compress 等待（#2654）；客户端断开后阻止 preflight 继续转发（#2541）；配置面守护 CI（#2651）。
+- 上游 `v0.1.193...v0.1.194` 变更：external-summary 整合包（#2806：新预算、并发批次、池旋钮、Go 会话头）；发布说明截断修复（#2818）；跨协议切换 e2e 覆盖（#2819）；移除 better-sqlite3 可选依赖（#2823/#2825）。
+- 上游 `v0.1.194...v0.1.195` 变更：DSH 原生压缩拒绝改报 422 而非 403（#2844）；preflight 将 normal-stop 零文本摘要归类为确定性（#2832）；跨协议会话亲和投影至中立身份域修复协议切换分裂（#2791/#2839）；探针子进程 stderr 不再泄漏宿主终端（#2834/#2836）；pi lane 探测真实 npm 目录（#2850）；bugfix-release 分支走 PR 发布流程（#2851）；CI version-guard 放行 carve-out 分支。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.192`→`0.1.195`（install 钉版 `@0.1.195`）；catalogVersion `1.43.4` → `1.44.0`，README 徽章同步。
+- 新收录 `dsh-mnemon` `0.5.28`（npm 通道，[omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon)）：profile 已装且列入 bundles 激活清单但目录缺条目（本次 verify 对账发现）。上游 HEAD 与本地实装同为 0.5.28。条目 8 → 9，归入「模型与推理增强」分组；更新命令取自其 README 原生写法 `dsh plugin --profile web add dsh-mnemon`。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-10-11 anysearch-dsh 升级 0.1.8（追平 npm latest，catalog 1.43.4）
 
 - 本机 desktop profile `@anysearch/anysearch-dsh` `0.1.7` → `0.1.8`（npm 通道）。v0.1.8 发布于 2026-10-10 08:54 UTC，更新重点为放宽宿主版本限制。实装更新流程：备份至 `backups/plugin-update-20261011-062734/`，在 `pnpm-workspace.yaml` 中的 `minimumReleaseAgeExclude` 追加 `@anysearch/anysearch-dsh@0.1.8`，更新 `package.json` 钉版为 `0.1.8`，宿主 pnpm 执行 `pnpm install --lockfile-only` 对齐锁文件，将 npm 官方 0.1.8 发布包解压同步至 `node_modules/@anysearch/anysearch-dsh`（桌面端运行中执行无文件锁定冲突）。实装 node_modules/manifest/lockfile 三处齐平 0.1.8；按用户指示暂不重启桌面端。

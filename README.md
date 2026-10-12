@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.43.4-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-8%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.44.0-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-9%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -20,7 +20,8 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.2 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `billion-context` | 0.1.192 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `billion-context` | 0.1.195 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `dsh-mnemon` | 0.5.28 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers） | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
 
 ### 📊 计量与状态监控
 
@@ -106,6 +107,7 @@ bash install.sh --all
 | `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context` | `dsh plugin --profile web add billion-context` |
+| `dsh-mnemon` | `dsh plugin --profile web add dsh-mnemon` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
