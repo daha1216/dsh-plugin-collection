@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-14 billion-context 升级 0.1.196（catalog 1.44.2）
+
+- 本机 desktop profile `billion-context` `0.1.195` → `0.1.196`（npm 通道，v0.1.196 发布于 2026-10-13 03:29）。插件后台自更新已先行将 node_modules 与 8790 代理守护实例推到 0.1.196，manifest 钉版/豁免/锁文件滞后在 `0.1.195`。对齐流程：备份至 `backups/plugin-update-20261014-060605/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.1.196`，`package.json` 钉版改 `0.1.196`，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only --registry=https://registry.npmjs.org`（93 条目通过供应链策略校验），锁文件两处条目更新至 `0.1.196`。实装 node_modules/manifest/lockfile/守护实例四处齐平 0.1.196，无需重启。
+- 上游 `v0.1.195...v0.1.196` 变更（官方 release 摘要，[compare](https://github.com/ranxianglei/billion-context/compare/v0.1.195...v0.1.196)）：
+  - Web UI：已知宿主计量插件（如 dsh-context）报告压缩前上下文时给出提示（#2865）；`acp_status` 实例级端点指针改按数据行读取（#2863/#2869）。
+  - 归因与诊断：代理模式/投影开关与宿主 prompt 改写在账本中区分归因（#2867/#2873）；pfa-* 匿名账本可归因——mint 时刻记录 producer 溯源 + 唯一标签（#2879/#2885）；default-direct 失败诊断点名被跳过的 env/system 代理（#2809/#2860）。
+  - 内核修复：压缩结果/blocksCreated 经宿主转发 lane 传播（#2752）；内部循环保留已接受的 overflow Prepared 视图（#2786）；封界 #2864 的三条观测噪声路径（#2871）。
+  - 其他：hermes MITM 域名发现在无 PyYAML 时回退 ruamel.yaml（#2838/#2842）；宿主插件 effective-context 文档面（#2855）；CI 16min→11m43s（#2816/#2848）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.195`→`0.1.196`（install 钉版 `@0.1.196`）；catalogVersion `1.44.1` → `1.44.2`，核对日期 `2026-10-14`，README 徽章同步。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
 ## 2026-10-14 dsh-better-reasoning-effort 升级 0.5.3（catalog 1.44.1）
 
 - 本机 desktop profile `dsh-better-reasoning-effort` `0.5.2` → `0.5.3`（npm 通道，v0.5.3 发布于 2026-10-13 18:04，npm 同步 18:10）。安装源经用户确认由 `github:HaoyueQin/dsh-better-reasoning-effort#v0.5.2` 换为 npm 钉版 `0.5.3`（与目录 install 字段、上游 README 首选通道一致）。流程沿用清洁法（桌面端运行中零 modules 重建）：备份至 `backups/plugin-update-20261014-031700/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.5.3`（发布约 9 小时），宿主 pnpm 11.7.0（`D:\deepseek harness\resources\runtime\pnpm`，经 node 24 直跑 pnpm.mjs）执行 `pnpm install --lockfile-only --registry=https://registry.npmjs.org`（93 条目通过供应链策略校验；锁文件条目由 github tarball 换为 npm `dsh-better-reasoning-effort@0.5.3` + integrity），npm 官方 tarball 经 sha512 与锁文件比对一致后解压替换 `node_modules\dsh-better-reasoning-effort`（预构建产物，无构建审批），旧 0.5.2 目录删除。实装 manifest/lockfile/node_modules 三处齐平 0.5.3；profile 顶层 `cordis.patch.yml` 无该插件相关条目，无需联动。升级后需重启 DSH 桌面端生效。
