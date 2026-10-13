@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-14 dsh-better-reasoning-effort 升级 0.5.3（catalog 1.44.1）
+
+- 本机 desktop profile `dsh-better-reasoning-effort` `0.5.2` → `0.5.3`（npm 通道，v0.5.3 发布于 2026-10-13 18:04，npm 同步 18:10）。安装源经用户确认由 `github:HaoyueQin/dsh-better-reasoning-effort#v0.5.2` 换为 npm 钉版 `0.5.3`（与目录 install 字段、上游 README 首选通道一致）。流程沿用清洁法（桌面端运行中零 modules 重建）：备份至 `backups/plugin-update-20261014-031700/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.5.3`（发布约 9 小时），宿主 pnpm 11.7.0（`D:\deepseek harness\resources\runtime\pnpm`，经 node 24 直跑 pnpm.mjs）执行 `pnpm install --lockfile-only --registry=https://registry.npmjs.org`（93 条目通过供应链策略校验；锁文件条目由 github tarball 换为 npm `dsh-better-reasoning-effort@0.5.3` + integrity），npm 官方 tarball 经 sha512 与锁文件比对一致后解压替换 `node_modules\dsh-better-reasoning-effort`（预构建产物，无构建审批），旧 0.5.2 目录删除。实装 manifest/lockfile/node_modules 三处齐平 0.5.3；profile 顶层 `cordis.patch.yml` 无该插件相关条目，无需联动。升级后需重启 DSH 桌面端生效。
+- 上游 `v0.5.2...v0.5.3`（20 commits，官方 release 摘要）：
+  - 目录模型路由改走官方 `modelOverrides` 存储读写：编辑落成一条模型覆盖项，而不再用 `models` 数组替换整个目录；目录中任一模型的首个覆盖项不再被当作 model-not-found 拒绝。
+  - 请求头区域会报告默认档兜底的活动：检查过多少无档位调用、改写了多少、最近一次改写的模型，同一报告由 `/dsh-better-reasoning-effort/headers-config` 提供；移除请求头编辑器与兜底的提案未被采纳，二者保留。
+  - 支持 `0.2.1-alpha` 内核线（与 `0.2.0-rc.2` 并行）；经 OpenRouter/Together/Baseten 聚合网关的模型改带网关自身推理方言；自动填充收窄为仅命中内置知识库条目的模型，未命中模型保持原样直至接受「自动适配」建议。
+  - 修复：composer 思考强度滑块不再为每档画定位点、预览与提交档位不一致（拖动预览小数位置而提交吸附整档）；卡片上刚修改的兼容字段可能提交旧值（处理器读到未被刚触发输入更新的 React state）；乱序选择响应覆盖更新选择、被拒恢复丢弃仍有效记忆的会话档位记忆损坏；停用或热重载插件时官方菜单被臆造值还原、抹掉宿主自设的 class/内联样式。
+  - 已知问题：首次导入设置文件的那次启动中，若 `llm-pi-ai` 命名空间注册晚于约 61 秒重试窗口，宿主侧自动填充被静默跳过（页面打开后由浏览器半部空闲填充补上，重启立即填充）。
+- 目录快照同步：plugins.json 与 README 目录表 `dsh-better-reasoning-effort` `0.5.2`→`0.5.3`（install 钉版 `@0.5.3`）；catalogVersion `1.44.0` → `1.44.1`，核对日期 `2026-10-14`，README 徽章同步。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-13 billion-context 升级 0.1.195 + 新收录 dsh-mnemon（catalog 1.44.0）
 
 - 本机 desktop profile `billion-context` `0.1.192` → `0.1.195`（npm 通道）。插件后台自更新已先行将 node_modules 与 8790 代理实例推到 0.1.195（DSH lane 实例 18788 亦自更新至 0.1.195，stale=False），manifest/lockfile/目录快照滞后在 `0.1.192`。对齐流程：备份至 `backups/plugin-update-20261013-004142/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.1.193 || 0.1.194 || 0.1.195`，`package.json` 钉版改 `0.1.195`，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only`（93 条目通过供应链策略校验），锁文件两处条目更新至 `0.1.195`。实装 node_modules/manifest/lockfile 三处齐平 0.1.195。
