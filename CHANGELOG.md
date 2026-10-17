@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-18 dsh-pocket 2.10.7 / billion-context 0.1.199 / dsh-mnemon 0.5.32（catalog 1.44.4）
+
+- **`dsh-pocket` 2.10.6 → 2.10.7**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：按审计报告落地 15 条修复，已 push 到 Fork `main`（`ad0034d..ed3e0b7`）。要点：`fileRead` 增加凭据/密钥路径拒绝与工作区白名单（此前持有 PIN 即可读整机敏感文件）；全局限速锁豁免成功登录过的来源，攻击者刷失败不再连带锁死合法设备；普通 HTTP 转发共享 keep-alive Agent（WebSocket upgrade 保留 `agent:false`）；`isLoopbackHost` 接受整个 `127.0.0.0/8`；`lanIPv4()` 加 30s 缓存、二维码缓存改 LRU、设置页轮询 3s→10s；重启后轮询等待宿主可用再刷新（30s 上限 + 手动刷新按钮）；403 溢出丢缓冲、`/pocket-login` 前缀匹配、IPv6 Host 解析等确定性 bug 一并修掉；新增 `test/audit-fixes.test.js` 四条回归测试。验证：`npm test` 192 个测试、189 通过、0 失败、3 跳过（Windows 跳过两个 POSIX-only 用例），`client/repro-activate.mjs` 冒烟通过。**宿主侧 `lib/` 改动需重启 DSH 桌面端生效**（本次未重启），客户端改动刷新页面即生效。
+- **`billion-context` 0.1.196 → 0.1.199**（npm 通道，v0.1.199 发布于 2026-10-17 17:18）。上游变更：0.1.197 引入会话身份 order-primary resolver v2 与身份管线 R2（namespace + origin 列）、SQLite 引擎自举（builtin → host → cached → self-download）、四条 wire 的统一入站标记剥离引擎；0.1.198 让 MCP compress 走 consumed-call 清理、最近区保护改为 pair-aware（防孤立 function_call）、启动器探活失败报真实原因（端口占用分类 + win32 整树 kill）、支持下载完整会话报告（Markdown + PNG）、修复 dsh 设置面板嵌入路由预检；0.1.199 让 dsh PTC `run_code` omnibus 被识别为 compress-reachable、takeover 归因失败可见、`giveUp` 后失效在途 attach 链以防晚到探测复活已清理的 base、并修复 WS 热重导入时拦截状态跟随。
+- **`dsh-mnemon` 0.5.28 → 0.5.32**（npm 通道，v0.5.32 发布于 2026-10-17 19:40）。上游变更：0.5.29 Git 同步不再使记忆空间成倍增加（按记忆比较合并）、支持 base64 >4.4 MB 的记忆包与表单编码的 GitHub 登录、设置保存后新建的 Provider 命名空间可进入记忆空间；0.5.30 记忆写入目标严格化（未指定空间则不写、不自行激活空间）、测试状态可列出并补齐向量、Git 同步多项修复；0.5.31 支持 DSH 0.2.1-rc.1、恢复记忆子 Agent 与「检查版本 → 更新」、任务 Agent 模型支持跟随全局/跟随会话/自定义；0.5.32 未生成向量的存入回执改为中性说明、记忆空间自带设置（可不随 dsh-mnemon 发布修改）、开发与 CI 迁移到 DSH 0.2.1-rc.2。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `2.10.6`→`2.10.7`、`billion-context` `0.1.196`→`0.1.199`（install 钉版同步）、`dsh-mnemon` `0.5.28`→`0.5.32`（install 钉版同步）；catalogVersion `1.44.3` → `1.44.4`，核对日期 `2026-10-18`，README 徽章同步。本机 desktop profile 中 `dsh-pocket` 为 `file:` 部署（已硬链同步），`billion-context` 实装 0.1.199，`dsh-mnemon` 实装 0.5.31（落后目录快照 0.5.32 一个补丁版，未在本次更新范围内）。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-18 dsh-update-checker 升级 0.3.1（catalog 1.44.3）
 
 - 上游 `daha1216/dsh-update-checker` 发布 v0.3.1（commit `f4b2a8a`，2026-10-18）；本机 desktop profile 为 `link:` 部署，源码即生效，无需重装。宿主端（`lib/`、`index.js`）改动需重启 DSH 桌面端，设置页（`client/client.js`）改动刷新一次 GUI 页面即可。

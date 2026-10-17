@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.44.3",
+  "catalogVersion": "1.44.4",
   "updatedAt": "2026-10-18",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -21,7 +21,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "2.10.6",
+      "version": "2.10.7",
       "description": "手机扫码同步电脑端 DSH，支持移动端操作",
       "source": "https://github.com/daha1216/dsh-pocket",
       "install": "github:daha1216/dsh-pocket",
@@ -39,19 +39,19 @@
     {
       "id": "billion-context",
       "name": "billion-context",
-      "version": "0.1.196",
+      "version": "0.1.199",
       "description": "动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍",
       "source": "https://github.com/ranxianglei/billion-context",
-      "install": "billion-context@0.1.196",
+      "install": "billion-context@0.1.199",
       "update": "dsh plugin --profile web add billion-context"
     },
     {
       "id": "dsh-mnemon",
       "name": "dsh-mnemon",
-      "version": "0.5.28",
+      "version": "0.5.32",
       "description": "可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers）",
       "source": "https://github.com/omdsh-dev/dsh-mnemon",
-      "install": "dsh-mnemon@0.5.28",
+      "install": "dsh-mnemon@0.5.32",
       "update": "dsh plugin --profile web add dsh-mnemon"
     },
     {
