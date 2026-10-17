@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 dsh-retrace 0.4.54（catalog 1.46.1）
+
+- **`dsh-retrace` 0.4.49 → 0.4.54**（自维护兼容 Fork `github:daha1216/dsh-retrace`，已 push `36aff0a..4571579`）：按审计报告修复数据安全与体验问题（0.4.50 审计发现项、0.4.51 遗留项、0.4.52 设置同步/错误响应/死代码清理），并修复 `git init` 相关缺陷——0.4.53 纠正 fs target 误用与 `.gitignore` 覆盖，0.4.54 为 `git init` 传入会话沙箱策略、修复 `.gitignore` 写入被拒。GitHub 仓库 About 描述更新为「适配 DSH 0.2.x 与插件服务机制」，标签 `dsh-0-1-5` 替换为 `dsh-0-2-0`。本机 desktop profile 实装内容已是 0.4.54（与仓库 main 一致）；宿主侧改动需重启 DSH 桌面端生效。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-retrace` `0.4.49`→`0.4.54`；catalogVersion `1.46.0` → `1.46.1`，核对日期 `2026-10-18`，README 徽章同步。其余条目沿用今日 1.46.0 快照的核对结果。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-18 @local/skills-manager 0.3.0（catalog 1.46.0）
 
 - **`@local/skills-manager` 0.2.0 → 0.3.0**（自维护仓库 `github:daha1216/dsh-skills-manager`，已 push `127083d..0f87cf3`，附注 tag `v0.3.0`，GitHub Release 已发布）：新增「一键打开技能安装目录」——设置页工具栏「打开目录」直达 `~/.dsh/skills`，每个技能卡片「打开目录」定位到该技能目录（单文件型技能落到根目录）；Windows 用 `explorer.exe` + file-URL 编码（非 ASCII 路径、逗号/等号安全转义，与 DSH 内置打开方式一致），macOS 用 `open`、Linux 用 `xdg-open`；新增端点 `POST /skills-manager/api/open`，仅接受 POST，沿用 Host/Origin 信任围栏与 `application/json` 校验，目标限定在技能根目录内、spawn 仅传 argv 不拼 shell，根目录不存在时自动创建；新增 3 项测试（共 21 项通过），README 补 `/open` API 与安全边界。**宿主与客户端改动需重启 DSH 桌面端生效**（重启后已实测线上 `/open` 路由与客户端 bundle 均加载新版）。
