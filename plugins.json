@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.45.0",
+  "catalogVersion": "1.46.0",
   "updatedAt": "2026-10-18",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -84,8 +84,8 @@
     {
       "id": "skills-manager",
       "name": "@local/skills-manager",
-      "version": "0.2.0",
-      "description": "在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换模型调用与用户调用策略",
+      "version": "0.3.0",
+      "description": "在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换模型调用与用户调用策略，一键打开技能目录",
       "source": "https://github.com/daha1216/dsh-skills-manager",
       "install": "github:daha1216/dsh-skills-manager",
       "update": "dsh plugin --profile web add github:daha1216/dsh-skills-manager"

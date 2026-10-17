@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 @local/skills-manager 0.3.0（catalog 1.46.0）
+
+- **`@local/skills-manager` 0.2.0 → 0.3.0**（自维护仓库 `github:daha1216/dsh-skills-manager`，已 push `127083d..0f87cf3`，附注 tag `v0.3.0`，GitHub Release 已发布）：新增「一键打开技能安装目录」——设置页工具栏「打开目录」直达 `~/.dsh/skills`，每个技能卡片「打开目录」定位到该技能目录（单文件型技能落到根目录）；Windows 用 `explorer.exe` + file-URL 编码（非 ASCII 路径、逗号/等号安全转义，与 DSH 内置打开方式一致），macOS 用 `open`、Linux 用 `xdg-open`；新增端点 `POST /skills-manager/api/open`，仅接受 POST，沿用 Host/Origin 信任围栏与 `application/json` 校验，目标限定在技能根目录内、spawn 仅传 argv 不拼 shell，根目录不存在时自动创建；新增 3 项测试（共 21 项通过），README 补 `/open` API 与安全边界。**宿主与客户端改动需重启 DSH 桌面端生效**（重启后已实测线上 `/open` 路由与客户端 bundle 均加载新版）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `@local/skills-manager` `0.2.0`→`0.3.0`（描述补「一键打开技能目录」）；catalogVersion `1.45.0` → `1.46.0`，核对日期 `2026-10-18`，README 徽章同步。其余 8 条上游版本经 GitHub API 核对无变化。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-18 @local/skills-manager 0.2.0（catalog 1.45.0）
 
 - **`@local/skills-manager` 0.1.0 → 0.2.0**（自维护仓库 `github:daha1216/dsh-skills-manager`，已 push `2790bfd..127083d`，附注 tag `v0.2.0`，GitHub Release 已发布）：按审查报告完成 P0→P2 修复。要点：frontmatter 改为分段解析/序列化，块标量、注释、未知键原样保留，修复切换调用策略时 `description: >` 被写空、导致官方 provider 静默忽略整个技能的数据丢失，并修掉 `---` 后空行每次保存递增；API 增加与 DSH `/api` 一致的信任围栏（Host / Origin / `sec-fetch-site` / `content-type` / 1MB 上限），原子写 + `.backups` 备份，删除改为移入 `.trash`，save/policy 支持 `expectedMtimeMs` 冲突检测；符号链接技能可发现，flat 技能保存不再产生重复条目，单文件读取失败降级为 problem；客户端补上保存后预览回填、未保存确认、busy/notice、a11y、`ctx.locale` 双语与窄屏响应式；新增 `node:test` 18 项。验证：`node --test "test/*.test.mjs"` 18 pass / 0 fail；真实技能目录只读扫描 13 个技能、0 异常，块标量描述完整。**宿主 `index.js` 改动需重启 DSH 桌面端生效**，设置页客户端刷新页面即可。
