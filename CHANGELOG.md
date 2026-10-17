@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 @local/skills-manager 0.2.0（catalog 1.45.0）
+
+- **`@local/skills-manager` 0.1.0 → 0.2.0**（自维护仓库 `github:daha1216/dsh-skills-manager`，已 push `2790bfd..127083d`，附注 tag `v0.2.0`，GitHub Release 已发布）：按审查报告完成 P0→P2 修复。要点：frontmatter 改为分段解析/序列化，块标量、注释、未知键原样保留，修复切换调用策略时 `description: >` 被写空、导致官方 provider 静默忽略整个技能的数据丢失，并修掉 `---` 后空行每次保存递增；API 增加与 DSH `/api` 一致的信任围栏（Host / Origin / `sec-fetch-site` / `content-type` / 1MB 上限），原子写 + `.backups` 备份，删除改为移入 `.trash`，save/policy 支持 `expectedMtimeMs` 冲突检测；符号链接技能可发现，flat 技能保存不再产生重复条目，单文件读取失败降级为 problem；客户端补上保存后预览回填、未保存确认、busy/notice、a11y、`ctx.locale` 双语与窄屏响应式；新增 `node:test` 18 项。验证：`node --test "test/*.test.mjs"` 18 pass / 0 fail；真实技能目录只读扫描 13 个技能、0 异常，块标量描述完整。**宿主 `index.js` 改动需重启 DSH 桌面端生效**，设置页客户端刷新页面即可。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `@local/skills-manager` `0.1.0`→`0.2.0`；catalogVersion `1.44.5` → `1.45.0`，核对日期 `2026-10-18`，README 徽章同步。其余 8 条上游版本核对无变化。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-18 dsh-pocket 2.10.8（catalog 1.44.5）
 
 - **`dsh-pocket` 2.10.7 → 2.10.8**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：第二轮深度审查修复，已 push 到 Fork `main`（`ed3e0b7..d12de5f`，附注 tag `v2.10.8`）。要点：隧道（cloudflared）意外退出后不再残留「运行中」假状态——退出回调清空隧道句柄与 pid，重新开启即可恢复（此前必须手动关再开）；访问 PIN 落盘失败时改用进程内值兜底，避免「密码怎么输都不对」；设置读取与 PIN 读取加 2 秒进程内缓存（按路径失效，测试隔离不受影响），消除每个代理请求 3~4 次同步读盘；`update` 端点的 `profile` 参数加白名单校验（此前在 Windows `shell:true` 下可拼命令）；CLI 二维码改用与插件一致的网卡评分，不再指向 Docker/WSL 虚拟网卡；`fileRead` 相对路径解析失败时回退到各工作区根，修复「复制文件内容」误报「仅允许工作区」；回收站目录名按 200 字符预算截断，修复深路径删会话必然 500；认证改为 fail-closed（受保护请求取不到 PIN 时回 503，而非跳过认证透传）；超长登录请求体改回 413 并给出文案（此前直接断连）；403 门禁缓冲改累计字节（去掉 O(n²)）；`maybeSeedAuthCookie` 兼容三参 `writeHead`；隧道复用下载时不再回跳状态；批量 detach 改 `Promise.allSettled`；`desktopAdvanced` 改为按配置块整块匹配。验证：`npm test` 196 个测试、193 通过、0 失败、3 跳过（Windows 跳过 POSIX-only 用例），部署树 85 个文件全量硬链校验 0 差异，`client/repro-activate.mjs` 冒烟通过。**宿主侧 `lib/` 改动需重启 DSH 桌面端生效**；客户端本轮无改动，无需重建 `client.js`。
