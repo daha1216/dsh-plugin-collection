@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 dsh-pocket 2.10.8（catalog 1.44.5）
+
+- **`dsh-pocket` 2.10.7 → 2.10.8**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：第二轮深度审查修复，已 push 到 Fork `main`（`ed3e0b7..d12de5f`，附注 tag `v2.10.8`）。要点：隧道（cloudflared）意外退出后不再残留「运行中」假状态——退出回调清空隧道句柄与 pid，重新开启即可恢复（此前必须手动关再开）；访问 PIN 落盘失败时改用进程内值兜底，避免「密码怎么输都不对」；设置读取与 PIN 读取加 2 秒进程内缓存（按路径失效，测试隔离不受影响），消除每个代理请求 3~4 次同步读盘；`update` 端点的 `profile` 参数加白名单校验（此前在 Windows `shell:true` 下可拼命令）；CLI 二维码改用与插件一致的网卡评分，不再指向 Docker/WSL 虚拟网卡；`fileRead` 相对路径解析失败时回退到各工作区根，修复「复制文件内容」误报「仅允许工作区」；回收站目录名按 200 字符预算截断，修复深路径删会话必然 500；认证改为 fail-closed（受保护请求取不到 PIN 时回 503，而非跳过认证透传）；超长登录请求体改回 413 并给出文案（此前直接断连）；403 门禁缓冲改累计字节（去掉 O(n²)）；`maybeSeedAuthCookie` 兼容三参 `writeHead`；隧道复用下载时不再回跳状态；批量 detach 改 `Promise.allSettled`；`desktopAdvanced` 改为按配置块整块匹配。验证：`npm test` 196 个测试、193 通过、0 失败、3 跳过（Windows 跳过 POSIX-only 用例），部署树 85 个文件全量硬链校验 0 差异，`client/repro-activate.mjs` 冒烟通过。**宿主侧 `lib/` 改动需重启 DSH 桌面端生效**；客户端本轮无改动，无需重建 `client.js`。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `2.10.7`→`2.10.8`；catalogVersion `1.44.4` → `1.44.5`，核对日期 `2026-10-18`，README 徽章同步。其余 8 条上游版本核对无变化。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-18 dsh-pocket 2.10.7 / billion-context 0.1.199 / dsh-mnemon 0.5.32（catalog 1.44.4）
 
 - **`dsh-pocket` 2.10.6 → 2.10.7**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：按审计报告落地 15 条修复，已 push 到 Fork `main`（`ad0034d..ed3e0b7`）。要点：`fileRead` 增加凭据/密钥路径拒绝与工作区白名单（此前持有 PIN 即可读整机敏感文件）；全局限速锁豁免成功登录过的来源，攻击者刷失败不再连带锁死合法设备；普通 HTTP 转发共享 keep-alive Agent（WebSocket upgrade 保留 `agent:false`）；`isLoopbackHost` 接受整个 `127.0.0.0/8`；`lanIPv4()` 加 30s 缓存、二维码缓存改 LRU、设置页轮询 3s→10s；重启后轮询等待宿主可用再刷新（30s 上限 + 手动刷新按钮）；403 溢出丢缓冲、`/pocket-login` 前缀匹配、IPv6 Host 解析等确定性 bug 一并修掉；新增 `test/audit-fixes.test.js` 四条回归测试。验证：`npm test` 192 个测试、189 通过、0 失败、3 跳过（Windows 跳过两个 POSIX-only 用例），`client/repro-activate.mjs` 冒烟通过。**宿主侧 `lib/` 改动需重启 DSH 桌面端生效**（本次未重启），客户端改动刷新页面即生效。
