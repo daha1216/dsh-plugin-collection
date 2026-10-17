@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-10-18 dsh-update-checker 升级 0.3.1（catalog 1.44.3）
+
+- 上游 `daha1216/dsh-update-checker` 发布 v0.3.1（commit `f4b2a8a`，2026-10-18）；本机 desktop profile 为 `link:` 部署，源码即生效，无需重装。宿主端（`lib/`、`index.js`）改动需重启 DSH 桌面端，设置页（`client/client.js`）改动刷新一次 GUI 页面即可。
+- 上游 v0.3.0 → v0.3.1 变更：
+  - 缓存按 profile 隔离：`check.last` 的文件回退校验文件内 `profileDir` 与当前 profile 一致，多 profile 宿主不再串台。
+  - 新增 `local-ahead` 状态：本地版本高于上游时显示「本地领先上游」，不再与「本地一致」混淆；本地安装行同样区分一致/落后/领先。
+  - 非 semver 引用（分支 / commit sha）判为「跟踪分支」，不再永久挂「无法比较」。
+  - `releasesAfterTag` 改用版本比较确定停止点，上游 tag 无 `v` 前缀时不再混入更旧版本的 release。
+  - 支持 `GITHUB_TOKEN` / `GH_TOKEN`（Bearer 头）提升 GitHub API 配额，未设置时保持匿名。
+  - 可访问性：折叠行改为真正的展开按钮（`aria-expanded`/`aria-controls`/`aria-label`，键盘可操作）；更新正文首次展开才解析渲染；无正文的 release 行不再显示空折叠区。
+  - 结果页底部显示本次扫描的请求数与缓存命中数（`stats` 页脚）。
+  - `prefers-reduced-motion` 规则收窄到插件页面，不再影响整个 DSH UI；宿主与客户端状态排序表统一。
+  - 测试：离线 101 断言 + 渲染冒烟；E2E 17 项（缓存读写改用临时 home，不污染真实安装）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-update-checker` `0.3.0`→`0.3.1`；catalogVersion `1.44.2` → `1.44.3`，核对日期 `2026-10-18`，README 徽章同步。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-14 billion-context 升级 0.1.196（catalog 1.44.2）
 
 - 本机 desktop profile `billion-context` `0.1.195` → `0.1.196`（npm 通道，v0.1.196 发布于 2026-10-13 03:29）。插件后台自更新已先行将 node_modules 与 8790 代理守护实例推到 0.1.196，manifest 钉版/豁免/锁文件滞后在 `0.1.195`。对齐流程：备份至 `backups/plugin-update-20261014-060605/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.1.196`，`package.json` 钉版改 `0.1.196`，宿主 pnpm 11.7.0 执行 `pnpm install --lockfile-only --registry=https://registry.npmjs.org`（93 条目通过供应链策略校验），锁文件两处条目更新至 `0.1.196`。实装 node_modules/manifest/lockfile/守护实例四处齐平 0.1.196，无需重启。
