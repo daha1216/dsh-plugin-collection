@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 dsh-pocket 2.10.9（catalog 1.46.2）
+
+- **`dsh-pocket` 2.10.8 → 2.10.9**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：第三轮「性能与运行问题」专项修复 + 新功能，已 push 到 Fork `main`（`d12de5f..ba2f53d`，附注 tag `v2.10.9`）。要点：新增「手机端字号」——手机端可独立把会话正文调到 12–22px，默认「跟随桌面」；实现为只在手机布局覆盖宿主的 `--dsh-content-font-size` 轴（delta / secondary / markdown 字号 token 联动），桌面布局不命中，桌面「字号大小」也不再影响手机，代码字号轴不动；哈希资产（`/assets/<名>-<哈希>.<ext>`）与带 `?rev=` 的插件包新增进程内 LRU 转码缓存（16 条 / 32MB），重复请求不再重算 brotli——实测 940KB 资产每次约 157ms 宿主 CPU、命中后约 0；上游中途断开时不再把错误文案拼进已发出的响应（此前会污染流式 HTML/JSON 尾部）；更新检查跳过隐藏标签页、周期 5→15 分钟、回到前台立即复检（手机后台不再每 5 分钟打一次外网）；fileGuard 对纯文本流式更新不再逐帧重扫父元素；回收站过期条目改为启动后清理（此前只在删除会话时顺带清理）。验证：`npm test` 205 个测试、202 通过、0 失败、3 跳过（Windows 跳过 POSIX-only 用例）；`client/client.js` 已重建；部署树 85 个文件全量硬链校验 0 差异；`client/repro-activate.mjs` 冒烟 43 个 effect 通过。**宿主 `lib/` 与客户端 bundle 均有改动，需重启 DSH 桌面端生效**。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `2.10.8`→`2.10.9`；catalogVersion `1.46.1` → `1.46.2`，核对日期 `2026-10-18`，README 徽章同步。其余 8 条上游版本经 npm / GitHub API 核对无变化。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
+
 ## 2026-10-18 dsh-retrace 0.4.54（catalog 1.46.1）
 
 - **`dsh-retrace` 0.4.49 → 0.4.54**（自维护兼容 Fork `github:daha1216/dsh-retrace`，已 push `36aff0a..4571579`）：按审计报告修复数据安全与体验问题（0.4.50 审计发现项、0.4.51 遗留项、0.4.52 设置同步/错误响应/死代码清理），并修复 `git init` 相关缺陷——0.4.53 纠正 fs target 误用与 `.gitignore` 覆盖，0.4.54 为 `git init` 传入会话沙箱策略、修复 `.gitignore` 写入被拒。GitHub 仓库 About 描述更新为「适配 DSH 0.2.x 与插件服务机制」，标签 `dsh-0-1-5` 替换为 `dsh-0-2-0`。本机 desktop profile 实装内容已是 0.4.54（与仓库 main 一致）；宿主侧改动需重启 DSH 桌面端生效。

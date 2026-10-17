@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.46.1",
+  "catalogVersion": "1.46.2",
   "updatedAt": "2026-10-18",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -21,7 +21,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "2.10.8",
+      "version": "2.10.9",
       "description": "手机扫码同步电脑端 DSH，支持移动端操作",
       "source": "https://github.com/daha1216/dsh-pocket",
       "install": "github:daha1216/dsh-pocket",
