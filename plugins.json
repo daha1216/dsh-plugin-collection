@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.46.2",
+  "catalogVersion": "1.47.0",
   "updatedAt": "2026-10-18",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -55,6 +55,15 @@
       "update": "dsh plugin --profile web add dsh-mnemon"
     },
     {
+      "id": "dsh-our-free-model",
+      "name": "dsh-our-free-model",
+      "version": "2.5.3",
+      "description": "免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，另有十三个账号渠道、数据看板与本地网关",
+      "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.3/dsh-our-free-model-2.5.3.tgz",
+      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.3/dsh-our-free-model-2.5.3.tgz"
+    },
+    {
       "id": "dsh-retrace",
       "name": "dsh-retrace",
       "version": "0.4.54",
@@ -89,6 +98,15 @@
       "source": "https://github.com/daha1216/dsh-skills-manager",
       "install": "github:daha1216/dsh-skills-manager",
       "update": "dsh plugin --profile web add github:daha1216/dsh-skills-manager"
+    },
+    {
+      "id": "dsh-ops",
+      "name": "dsh-ops",
+      "version": "0.3.0",
+      "description": "Rust 原生文件工具（grep / glob / replace / hex 查看）与随包 MSYS bash、PowerShell 7，替掉 Windows 下反复失败的原生 shell 调用，省 token 省时间",
+      "source": "https://github.com/T-Auto/dsh-ops",
+      "install": "dsh-ops@0.3.0",
+      "update": "npx --yes dsh-ops@latest install --profile web"
     }
   ]
 }
