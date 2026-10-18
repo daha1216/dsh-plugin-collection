@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.47.0-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.48.0-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-11%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -34,10 +34,10 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-retrace` | 0.4.54 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
+| `dsh-retrace` | 0.4.55 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@anysearch/anysearch-dsh` | 0.1.8 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
-| `dsh-update-checker` | 0.3.1 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
-| `@local/skills-manager` | 0.3.0 | 在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换调用策略，一键打开技能目录 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
+| `dsh-update-checker` | 0.3.2 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
+| `@local/skills-manager` | 0.3.1 | 在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换调用策略，一键打开技能目录 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
 | `dsh-ops` | 0.3.0 | Rust 原生文件工具（grep / glob / replace / hex 查看）与随包 MSYS bash、PowerShell 7，替掉 Windows 下反复失败的原生 shell 调用，省 token 省时间 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
 
 ### 🎨 界面体验与多端协同
@@ -125,10 +125,17 @@ bash install.sh --all
 - **重跑 `add` 即更新**：多数插件（如 `billion-context` 等）上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取最新提交或发布版。
 - **独立 `update` 动词**：部分插件（`anysearch-dsh`、`dsh-pocket`）支持并推荐使用原生的 `update` 动词。
 
-### 2. Registry 缓存滞后警示
+### 2. 插件样式与 DSH 主题令牌
+- 自绘 UI 的插件请只用宿主 `--dsw-alias-*` / `--ds-*` 令牌，不要写死色值，否则深色模式下必然出问题。三个高频陷阱：
+  - **`--dsw-alias-brand-primary` 不是品牌蓝**，它是**单色主按钮的底色**（深色主题下接近白色 `#f9fafb`）。写 `background: var(--dsw-alias-brand-primary); color: #fff` 会得到白底白字。做强调色用 `--dsw-alias-link`（浅色 `#4176e6` / 深色 `#7aaaff`）；做主按钮用配对 `--dsw-alias-button-primary-fill` + `--dsw-alias-label-primary-foreground`，hover 用 `--dsw-alias-button-primary-hover`。
+  - **`--dsh-code-font-family` 与 `--dsw-font-mono` 在 DSH 中不存在**（浏览器静默丢弃整条声明）。等宽字体令牌是 `--ds-font-family-code`；注意不是 `--dsh-font-family-code`，后者仅由 ThemePresenter 在用户配置了代码字体时以 body 内联样式写入。
+  - **自绘开关要连旋钮一起换令牌**：只改轨道不改旋钮，深色下会失去对比。照抄宿主 `._switch_1ik0f_5` / `._thumb_1ik0f_33` 的配对——未选中轨道 `--dsw-alias-border-l3` + 旋钮 `--dsw-alias-switch-thumb`，选中轨道 `--dsw-alias-button-primary-fill` + 旋钮 `--dsw-alias-label-primary-foreground`。
+  - 阴影用 `--dsw-shadow-lv1` / `--dsw-shadow-lv2`，不要写 `rgba(0,0,0,…)`。
+
+### 3. Registry 缓存滞后警示
 - 本机若通过 `github:` 源安装插件，后续更新时**切勿改跑不带 spec 的 `add <pkg>@latest`**，否则会被 npm registry 解析，可能拉取到落后于 GitHub HEAD 的历史旧包。更新请始终沿用显式 `github:<owner>/<repo>` 或上表对应的原生指令。
 
-### 3. 特殊插件与自维护 Fork
+### 4. 特殊插件与自维护 Fork
 - **`dsh-pocket`**：
   - 本条目指向安全加固版 Fork（`github:daha1216/dsh-pocket`），非上游原仓库。
   - 更新时必须保留 `-w` 参数（解决 pnpm workspace 根目录限制）；跨大版本升级时 `--latest` 必选。

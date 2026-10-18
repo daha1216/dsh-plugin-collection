@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.47.0",
+  "catalogVersion": "1.48.0",
   "updatedAt": "2026-10-18",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -66,7 +66,7 @@
     {
       "id": "dsh-retrace",
       "name": "dsh-retrace",
-      "version": "0.4.54",
+      "version": "0.4.55",
       "description": "消息撤回、编辑重发与重新生成，同步回退修改过的文件",
       "source": "https://github.com/daha1216/dsh-retrace",
       "install": "github:daha1216/dsh-retrace",
@@ -84,7 +84,7 @@
     {
       "id": "dsh-update-checker",
       "name": "dsh-update-checker",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "description": "一键检查已装插件的上游更新（只检查不更新），展示更新内容",
       "source": "https://github.com/daha1216/dsh-update-checker",
       "install": "github:daha1216/dsh-update-checker",
@@ -93,7 +93,7 @@
     {
       "id": "skills-manager",
       "name": "@local/skills-manager",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "description": "在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换模型调用与用户调用策略，一键打开技能目录",
       "source": "https://github.com/daha1216/dsh-skills-manager",
       "install": "github:daha1216/dsh-skills-manager",
