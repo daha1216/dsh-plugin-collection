@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-10-19 dsh-pocket 2.11.0（catalog 1.49.3）
+
+- **`dsh-pocket` 2.10.9 → 2.11.0**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：吸收上游 `shaobeichen/dsh-pocket` 2.12.0 的 6 项修复 + 移动端移植层整体升级到 `dsh-web-mobile` v3.2.0，已 push 到 Fork `main`（`ba2f53d..498b4d4`，附注 tag `v2.11.0`）。要点：
+  - **公网隧道不再被本机代理劫持**：启动 cloudflared 前剥离 `HTTP_PROXY`/`HTTPS_PROXY`/`ALL_PROXY`/`NO_PROXY` 及小写共 8 个变量，quick 与命名隧道都生效（此前 Clash 等代理环境下手机访问会 error 1033）。
+  - **Windows 移动热点/ICS 下二维码不再指向不可达地址**：局域网 IP 评分排除 `本地连接*`、承载网络、Wi-Fi Direct 虚拟适配器，同分时不选 `192.168.137.x` 热点网段。
+  - **深色主题下设置页开关可见**：开关圆钮不再硬编码白色，改用主题 token 并按上游改为 36×20 尺寸。
+  - **桌面宿主判定修正**：改用 Electron 运行时特征识别桌面端；`restart.js` 增加桌面宿主守卫，返回 `desktop-host-restart-not-supported` 而不是误杀宿主。
+  - **自定义密码可清空**：传空串会恢复随机 PIN 并落盘，用户能从固定密码退回随机。
+  - **手机登录体验**：登录页按凭据类型设置 `autocomplete`（持久密码可被密码管理器识别/自动填充，一次性口令关闭），新增密码可见性切换按钮，光标位置不丢。
+  - **移动端镜像 v3.1.0 → v3.2.0**（三方合并：v3.1.0 变换 + 14 条手工补丁 cherry-pick 到 v3.2.0，仅 `styles/base.css.ts` 一处冲突已解决）：Chrome Android 键盘弹起不再把整页顶上去（viewport `interactive-widget=resizes-content`）；iOS 边缘上下滑动不再滚不动（只拦横向轴锁定后的触摸）；抽屉「导出会话」改为品牌行 28×28 图标、会话列表多出 40px；宿主 0.2.1 统计行/后台任务 chip 适配（两档候选 + `locateRing`、形状锚替代失效 hash 类名）；壁纸插件下顶栏/抽屉补回底色；退休 `reasoning-defaults`（宿主已有内置按模型推理编辑器，避免语义打架）。
+  - 验证：`npm test` 208 个测试、205 通过、0 失败、3 跳过（Windows 跳过 POSIX-only 用例）；`client/client.js` 重建 511436 字节；部署树 87 个文件全量硬链校验 0 差异；`client/repro-activate.mjs` 冒烟通过（42 effects）。重启 DSH 后已实测新代码加载（登录页出现 `pin-field`/`pin-toggle`，超长请求体仍回 413）。**宿主 `lib/` 与客户端 bundle 均有改动，需重启 DSH 桌面端生效**。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `2.10.9`→`2.11.0`；catalogVersion `1.49.2` → `1.49.3`，核对日期 `2026-10-19`，README 徽章同步。其余条目沿用今日 1.49.2 快照的核对结果（`dsh-update-checker` 目录仍为 0.3.2、上游仓库已到 0.3.5，属另一会话维护范围，本次未动）。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 11）。
+
 ## 2026-10-19 @local/skills-manager 0.3.2（catalog 1.49.2）
 
 本机 desktop profile 以 `link:` 方式加载 `D:\dsh work\skills-manager`，目录快照 `0.3.1` → `0.3.2`。这次是打包修复，没有运行时代码变更。
