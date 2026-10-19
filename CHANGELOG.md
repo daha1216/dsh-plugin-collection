@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-19 dsh-better-reasoning-effort 0.5.4（catalog 1.49.1）
+
+本机 desktop profile `dsh-better-reasoning-effort` `0.5.3` → `0.5.4`（npm 通道，v0.5.4 发布于 2026-10-18 17:40 UTC / 北京时间 10-19 01:40，安装时发布约 7 小时，仍在 pnpm 默认 24 小时 release-age 窗口内）。本机内核 `0.2.1-rc.2` 正是该版本验证过的内核。
+
+- **上游 v0.5.4 变更（官方 release 摘要）**：
+  - 手写 pi-ai 路由上的思考等级编辑交给 `0.2.1` 线新增的官方「推理等级（Reasoning levels）」控件：出现官方块的行上插件收起自己的档位控件，保留默认档位选择、端点兼容与「自动适配」；此后所有写入携带 `efforts: 'keep'`，「自动适配」只以文本报告建议档位、不再写回，也不再覆盖官方声明。没有官方块的行（已安装目录路由、旧内核）保持插件自己的档位编辑不变。
+  - 修复 Issue #24：在没有 `[data-composer-card]` 的界面上，模型菜单查找不再退回全文档扫描，设置页头部的重启下拉保留原有三项，不再被思考强度滑块替换。
+  - 修复：在 `0.2.1-rc.2` 的模型页保存自定义模型后，未修改的行不再显示为已修改——只有编辑器实际渲染的 compat 字段参与判断，官方写入的空 `compat` 包裹对象被忽略。
+  - 已知问题（0.5.3 起）：首次导入设置文件的那次启动中，若 `llm-pi-ai` 命名空间注册晚于约 61 秒重试窗口，宿主侧自动填充会被静默跳过；页面打开后由浏览器半部的空闲填充补上，重启立即填充。
+- 更新流程沿用「桌面端运行中零 modules 重建」清洁法：备份至 `backups/plugin-update-20261019-084325/`（package.json / pnpm-lock.yaml / pnpm-workspace.yaml）；`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.5.4`；宿主 pnpm 现为 11.28.5（runtime 布局已改为 `resources/runtime/primary-runtime/dependencies/pnpm`，经同目录 node 24.21.0 直跑 `pnpm.mjs`）执行 `pnpm install --lockfile-only --registry=https://registry.npmjs.org`（144 条目通过供应链策略校验，2.7s）；npm 官方 tarball 经 sha512（`6eoLwXO+…81Pg==`）与 lockfile integrity、官方 registry dist 三方比对一致后解压替换 `node_modules/dsh-better-reasoning-effort`（53 个文件，预构建产物，无构建审批），旧 0.5.3 目录删除。
+- 顺带收敛锁文件滞后：`billion-context` 锁文件记录仍为 `0.1.200`（manifest 与 node_modules 已是 `0.1.201`），本次 `--lockfile-only` 对齐为 `0.1.201`，pnpm 同时把 `billion-context@0.1.201` 自动并入 `minimumReleaseAgeExclude`；插件 peer `@deepseek-ai/schemastery` 的解析由 `3.18.4` 落到 `3.18.5`（node_modules 本来就是 3.18.5）。实装 manifest / lockfile / node_modules 三处齐平 `0.5.4`；profile 顶层 `cordis.patch.yml` 无该插件相关条目，无需联动。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-better-reasoning-effort` `0.5.3` → `0.5.4`（`install` 钉版 `@0.5.4`）；`update` 字段不变——上游 README 当前原生命令仍是 `dsh plugin --profile web add dsh-better-reasoning-effort`；catalogVersion `1.49.0` → `1.49.1`，核对日期 `2026-10-19`，README 徽章同步。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 11）。
+- 升级后需重启 DSH 桌面端加载新代码。
+
 ## 2026-10-19 billion-context 0.1.201（catalog 1.49.0）
 
 `billion-context` 从目录快照的 0.1.199 升到 0.1.201（本机 desktop profile 实装 0.1.200 → 0.1.201）。跨过的两个上游版本里，用户能感知的变化主要是四类：

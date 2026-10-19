@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.49.0",
+  "catalogVersion": "1.49.1",
   "updatedAt": "2026-10-19",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -12,10 +12,10 @@
     {
       "id": "dsh-better-reasoning-effort",
       "name": "dsh-better-reasoning-effort",
-      "version": "0.5.3",
+      "version": "0.5.4",
       "description": "在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项",
       "source": "https://github.com/HaoyueQin/dsh-better-reasoning-effort",
-      "install": "dsh-better-reasoning-effort@0.5.3",
+      "install": "dsh-better-reasoning-effort@0.5.4",
       "update": "dsh plugin --profile web add dsh-better-reasoning-effort"
     },
     {
