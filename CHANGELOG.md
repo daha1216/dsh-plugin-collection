@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-19 billion-context 0.1.201（catalog 1.49.0）
+
+`billion-context` 从目录快照的 0.1.199 升到 0.1.201（本机 desktop profile 实装 0.1.200 → 0.1.201）。跨过的两个上游版本里，用户能感知的变化主要是四类：
+
+- **错峰升级 + 远程更新策略（#3619，0.1.200 引入）**：自动更新发现新版本后不再立即安装，而是按实例在一个 15 分钟–48 小时的窗口里随机抽一个时刻执行，抽中的时刻持久化、重启不重抽；公共策略文件（`auto-update-policy.json`）可 `hold` 全线冻结、`blocked` 跳过指定版本、`pinned` 设升级上限，fail-open。手动 `bili update` 绕过 hold 与错峰，但仍遵守 blocked/pinned；`ACP_AUTO_UPDATE=0` 可整体关闭。Web 面板对 hold/pinned 状态显示横幅。
+- **原生 lane 复用共享代理（#3436）**：同一客户端上的多个原生实例不再各自 spawn 一个代理进程，减少重复进程与端口占用；attach 兼容性改由子进程记录判定，避免 superseded recovery flight 回滚已注册的 origin（#3616）。
+- **压缩与会话稳定性**：fold 锚定改为「顺序优先于哈希」（#3641，修 #3588 / #3640，解决长会话折叠漂移）；协议层引入稳定的 canonical core 身份（#3642）；kernel 升到 acp-kernel 0.0.132，容忍 OpenAI 非数组 content、保留尾部不透明片段（#3658），冷加载诊断不再静默（#3573）。
+- **设置面板与图像**：设置页新增 `compress.absorb` 开关与出站图片降采样快速项，`read_original_image` 更名为 `acp_read_original_image`（#3546）；图片恢复转换失败改为按签名只 WARN 一次（#2824 类可见性）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.199` → `0.1.201`，`install` 同步为 `billion-context@0.1.201`；`update` 从「重跑 add」换为上游 README 的原生自更新命令 `bili update`，更新表引导语与避坑区第 1 节补记全局 CLI 依赖、错峰窗口、重启宿主生效、`bili doctor --fix` 收敛清单四条；catalogVersion `1.48.0` → `1.49.0`，核对日期 `2026-10-19`，README 徽章同步。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 11）。
+- 本机更新动作：desktop profile 的 `package.json` 依赖、`pnpm-lock.yaml` 记录与 `node_modules/billion-context` 三处已收敛到 0.1.201；旧代理进程的自动热重启用 `~/.cache/billion-context/.auto-restart` 抑制标记压住（避免宿主仍跑旧代码时代理先热重启，造成接管中断），**重启 DSH 桌面后加载新代码**。
+
 ## 2026-10-18 dsh-retrace 0.4.55 / dsh-update-checker 0.3.2 / @local/skills-manager 0.3.1（catalog 1.48.0）
 
 三个自维护插件同批发布**深色模式视觉修复**。三个插件的设置页在 DSH 深色主题下都有同一类问题，根因分三种：令牌语义用错、令牌在 DSH 中根本不存在、开关旋钮与轨道的令牌配对错误。

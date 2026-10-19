@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.48.0-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.49.0-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-11%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -20,7 +20,7 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.3 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `billion-context` | 0.1.199 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `billion-context` | 0.1.201 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 | `dsh-mnemon` | 0.5.32 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers） | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
 | `dsh-our-free-model` | 2.5.3 | 免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，另有十三个账号渠道、数据看板与本地网关 | [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) |
 
@@ -101,14 +101,14 @@ bash install.sh --all
 
 ## 更新插件
 
-下表命令**逐条直接引用自各插件上游 README 的原生写法**（尊重各作者的原生发布通道与生命周期）。若系统环境变量中未包含全局 `dsh` 命令，在前面追加 `npx --yes -p @deepseek-ai/dsh` 即可。
+下表命令**逐条直接引用自各插件上游 README 的原生写法**（尊重各作者的原生发布通道与生命周期）。若系统环境变量中未包含全局 `dsh` 命令，在前面追加 `npx --yes -p @deepseek-ai/dsh` 即可；`bili update` 行依赖全局 `bili` CLI（`npm install -g billion-context`），未安装时改用该插件的 `add` 命令重装到最新版。
 
 | 插件名称 | 更新命令（来自各插件 README） |
 |---|---|
 | `dsh-better-reasoning-effort` | `dsh plugin --profile web add dsh-better-reasoning-effort` |
 | `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
-| `billion-context` | `dsh plugin --profile web add billion-context` |
+| `billion-context` | `bili update` |
 | `dsh-mnemon` | `dsh plugin --profile web add dsh-mnemon` |
 | `dsh-our-free-model` | `dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.3/dsh-our-free-model-2.5.3.tgz` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
@@ -122,8 +122,13 @@ bash install.sh --all
 ## ⚠️ 重要说明与避坑指南
 
 ### 1. 更新机制与命令规范
-- **重跑 `add` 即更新**：多数插件（如 `billion-context` 等）上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取最新提交或发布版。
-- **独立 `update` 动词**：部分插件（`anysearch-dsh`、`dsh-pocket`）支持并推荐使用原生的 `update` 动词。
+- **重跑 `add` 即更新**：多数插件上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取该来源的最新版本。
+- **原生自更新命令**：`billion-context` 用 `bili update`（上游 README 的 Self-update 与命令行示例），`dsh-ops` 用 `npx --yes dsh-ops@latest install --profile web`，`anysearch-dsh`、`dsh-pocket` 用原生 `update` 动词。
+- **`billion-context` 更新须知**：
+  - `bili update` 是全局 CLI 命令（`npm install -g billion-context`），它同时驱动 dsh profile 副本这条 lane；本机没有全局 `bili` 时，用 `dsh plugin --profile web add billion-context` 重装到最新版即可，效果相同。
+  - 自动更新是**错峰**的（#3619）：发现新版本后要在 15 分钟–48 小时的随机窗口里抽一个时刻才安装（抽中的时刻会持久化，重启不重抽），所以「刚发布没马上升级」是正常现象；手动 `bili update` 绕过 hold 与错峰，但仍遵守 `blocked` / `pinned`，Web 面板会显示 hold/pinned 横幅。
+  - 更新只替换磁盘文件，**宿主进程里的注入代码要重启宿主（DSH）才生效**；运行版本落后于磁盘版本时 Web UI 会挂失效横幅，`--auto-restart-on-update` 可让它在安全点自重启。桌面端尤其要主动重启一次：旧代理在更新后可能自行热重启进新版本，而宿主还在跑旧代码。
+  - 清单与磁盘版本漂移（`bili doctor` 报 dep spec / lockfile / bundle 不一致）时，用 `bili doctor --fix` 把 dsh profile 清单收敛到磁盘版本。
 
 ### 2. 插件样式与 DSH 主题令牌
 - 自绘 UI 的插件请只用宿主 `--dsw-alias-*` / `--ds-*` 令牌，不要写死色值，否则深色模式下必然出问题。三个高频陷阱：
