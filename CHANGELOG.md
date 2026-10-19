@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-19 dsh-ops 0.3.2 / dsh-our-free-model 2.5.5（catalog 1.49.5）
+
+`dsh-ops` 0.3.0 → 0.3.2（0.3.1 只发 GitHub、未发布 npm），`dsh-our-free-model` 2.5.3 → 2.5.5；本机 desktop profile 已同步实装。
+
+- **dsh-ops 0.3.2**：完成 #151 拆分——11 个原生文件工具（#167）、安全与原子性层（#168）、可选 `hide-official`（#169）、PTC 分页、平台默认值（#170）以及可选的只读 panel/TUI 组件。原生 worker 改为随包分发（`runtime/<target>/`，含 provenance 回执），不再依赖 `@dsh-ops/fastctx-win32-x64` 这个 optional 包。
+- **dsh-ops 行为修复**：`ops_bash` 参数错误恢复为带字段名的 typed refusal（#235，此前被折叠成不符合输出 schema 的值）；相对 `workdir` 锚定到会话工作区（#237，此前按 helper 进程自己的 cwd 执行）；`ops_glob` 的 `modified` 改回真实 mtime（#236，此前返回字节数、`sort: "modified"` 实际是大小排序）；凭据围栏的文档、拒绝文案与真实作用范围对齐（#240）。`hide-official` 的 `strict` 不再因官方工具缺少 OPS 替代而阻塞会话就绪（#238）。
+- **dsh-our-free-model 2.5.5**：删除赞助说明中的交流群、群号与「复制群号」按钮；关闭 DSH 桌面插件启动时自动弹出的赞助开屏广告；保留赞助页入口与邀请码。独立本地服务与桌面壳不随本版更新。
+- 目录快照同步：`plugins.json` 与 `README.md` 的 `dsh-ops`（0.3.2）、`dsh-our-free-model`（2.5.5，`install`/`update` 指向 v2.5.5 tarball）刷新；catalogVersion `1.49.4` → `1.49.5`；`pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 11）。
+- 本机更新动作：DSH 桌面运行中，未执行会重建 modules 的 pnpm 命令；改为校验官方 tarball（dsh-ops 走 npm sha512、our-free-model 走 release asset sha256）后手动替换两个 `node_modules` 目录，再用 `pnpm install --lockfile-only` 对齐 lockfile，并移除不再需要的 `@dsh-ops/fastctx-win32-x64`；**重启 DSH 桌面后生效**。
+
 ## 2026-10-19 billion-context 0.1.202（catalog 1.49.4）
 
 `billion-context` 0.1.201 → 0.1.202（本机 desktop profile 实装同步到 0.1.202）。0.1.202 是 0.1.201 之后约 9 小时的修复/加固版，用户能感知的变化集中在传输、缓存与计费：
