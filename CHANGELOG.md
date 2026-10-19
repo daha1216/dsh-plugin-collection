@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-19 @local/skills-manager 0.3.2（catalog 1.49.2）
+
+本机 desktop profile 以 `link:` 方式加载 `D:\dsh work\skills-manager`，目录快照 `0.3.1` → `0.3.2`。这次是打包修复，没有运行时代码变更。
+
+- **问题**：`package.json` 的 `dsh.bundle.patch` 指向 `./cordis.patch.yml`，但 `files` 白名单遗漏了该文件。GitHub 方式安装（`dsh plugin --profile web add github:daha1216/dsh-skills-manager`）时 pnpm 按 `files` 打包，tarball 里没有 overlay；DSH 启动校验报 `dsh: failed to read overlay ...\cordis.patch.yml: ENOENT`，插件在插件页显示红色「异常」，`settings.section`（id=`skills`）注册不上，设置里没有「技能」页。本地 `link:` / `file:` 安装因为整棵树都在，不受影响。
+- **修复**：合并社区 PR #3（作者 @lanslot4n93r，commit `198a577`），把 `cordis.patch.yml` 加入 `files` 白名单；发布 commit `ea8d4b5`、tag `v0.3.2`、Release https://github.com/daha1216/dsh-skills-manager/releases/tag/v0.3.2 。`npm pack` 产物现为 12 个文件，包含 `cordis.patch.yml`；`node --test "test/*.test.mjs"` 21 项全通过。
+- **升级**：之前 GitHub 安装失败或显示异常的用户重跑一次安装 / 更新命令即可（可钉版 `github:daha1216/dsh-skills-manager#v0.3.2`）；本地 `link:` 开发环境无需处理。重装后需重启 DSH 让插件重新校验加载。
+- **目录快照同步**：`plugins.json` 与 `README.md` 目录表 `@local/skills-manager` `0.3.1` → `0.3.2`；`install` / `update` 字段不变（沿用目录的 GitHub 不钉版约定）；catalogVersion `1.49.1` → `1.49.2`，核对日期 `2026-10-19`，README 徽章同步。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 11）。
+
 ## 2026-10-19 dsh-better-reasoning-effort 0.5.4（catalog 1.49.1）
 
 本机 desktop profile `dsh-better-reasoning-effort` `0.5.3` → `0.5.4`（npm 通道，v0.5.4 发布于 2026-10-18 17:40 UTC / 北京时间 10-19 01:40，安装时发布约 7 小时，仍在 pnpm 默认 24 小时 release-age 窗口内）。本机内核 `0.2.1-rc.2` 正是该版本验证过的内核。
