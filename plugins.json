@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.49.7",
+  "catalogVersion": "1.49.8",
   "updatedAt": "2026-10-20",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -48,10 +48,10 @@
     {
       "id": "dsh-mnemon",
       "name": "dsh-mnemon",
-      "version": "0.5.32",
+      "version": "0.5.33",
       "description": "可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers）",
       "source": "https://github.com/omdsh-dev/dsh-mnemon",
-      "install": "dsh-mnemon@0.5.32",
+      "install": "dsh-mnemon@0.5.33",
       "update": "dsh plugin --profile web add dsh-mnemon"
     },
     {
