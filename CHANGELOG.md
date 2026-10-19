@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-10-19 billion-context 0.1.202（catalog 1.49.4）
+
+`billion-context` 0.1.201 → 0.1.202（本机 desktop profile 实装同步到 0.1.202）。0.1.202 是 0.1.201 之后约 9 小时的修复/加固版，用户能感知的变化集中在传输、缓存与计费：
+
+- **WS 超大请求不再直接 1009 断连**：WS lane 增加出站字节预算并对图片做降载（image shedding），超限请求走 HTTP/SSE 回退；超限拒绝的 422 提示改为「重启宿主」而不是「重试」（#3701 / #3589）。
+- **prompt_cache_key 改为探测-记忆（probe-and-remember）**：openai chat 线默认打标 + A/B 探测，遇到不可消费该字段的传输（pi lane 等）就不打标，提升上游前缀缓存命中率（#2218 / #2645 / #3556）。
+- **健康探针三态化**：忙代理不再被误判为死，overlay-busy 场景减少误重启（#3654）；busy-episode 日志每个 episode 只报一次。
+- **计费与图片**：不透明片段按比例字节计价（两种计费模式一致），响应控制项不再计价（#3398）；图片消息 id 改为按 payload 寻址的指纹（#3751）；snapshot render 接入 google lane 并改为 server-authoritative outbound prefix（#3756）。
+- **其他**：web 编辑器与启动审计接受 JSONC 配置（#3572 / #3488）；fork 前缀漂移改为 advisory 分类告警并收养漂移的 fork 子会话（#3741 / #3740）；claude / zcode 的 MCP 看门狗可在会话中途自愈代理（#1821）；pck 横幅对会话 id 做 HTML 转义（#2645）；自动诊断上报内容更丰富且继续脱敏（#3611）；dist 不再输出 sourcemap；kernel 升到 acp-kernel 0.0.136。
+
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.201` → `0.1.202`，`install` 同步；catalogVersion `1.49.3` → `1.49.4`，核对日期 `2026-10-19`，README 徽章同步。其余条目本次未动（其中 `dsh-ops` 上游 npm 已到 0.3.2、`dsh-our-free-model` 已到 2.5.5，待后续更新）。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 11）。
+- 本机更新动作：desktop profile 的 `package.json` 依赖、`pnpm-lock.yaml` 记录与 `node_modules/billion-context` 三处已收敛到 0.1.202；运行中的代理仍是 0.1.201（pid 10244），已写 `~/.cache/billion-context/.auto-restart` 抑制标记避免旧代理热重启打断会话，**重启 DSH 桌面后加载 0.1.202**。
+
 ## 2026-10-19 dsh-pocket 2.11.0（catalog 1.49.3）
 
 - **`dsh-pocket` 2.10.9 → 2.11.0**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：吸收上游 `shaobeichen/dsh-pocket` 2.12.0 的 6 项修复 + 移动端移植层整体升级到 `dsh-web-mobile` v3.2.0，已 push 到 Fork `main`（`ba2f53d..498b4d4`，附注 tag `v2.11.0`）。要点：
