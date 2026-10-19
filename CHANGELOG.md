@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-19 dsh-pocket 2.11.1 / dsh-update-checker 0.3.5（catalog 1.49.6）
+
+- **`dsh-pocket` 2.11.0 → 2.11.1**（自维护 Fork `github:daha1216/dsh-pocket`，非上游原仓库）：设置页 UI 重构，已 push 到 Fork `main`（`498b4d4..8c93aba`，附注 tag `v2.11.1`）。要点：设置页改为「页头 + 状态胶囊 + 四张卡片（局域网访问 / 公网访问 / 手机端偏好 / 维护）」结构，样式改为注入一张 `.dshp-*` 样式表（颜色全走宿主 `--dsw-alias-*` token，深色自动适配，含手机宽度响应式）；图标复用宿主 `@deepseek-ai/dsh-client-ui-primitives` 的两代命名（`IconXxxOutlineRegular` / `IconXxxOutline16`，运行时探测、缺失降级空组件），旧宿主不会因缺组件崩页。交互与健壮性修掉 10 项：补上三个此前缺失的样式类（公网模式表单/高级地址下拉/免责声明勾选框是无样式裸控件）；首帧 status 未到时显示「正在读取状态…」而非空白卡；新增单项操作锁（开关/刷新/保存/重启/更新防连点与请求乱序）；轮询回来的快照比本地修改旧时丢弃（开关不会自己弹回去）；错误提示挪到页头且可关闭；三个弹窗支持点遮罩/Esc 关闭、打开时焦点落在「取消」，Toast 加 `role=status`；更新失败显示标题并给「稍后」（只隐藏横幅，15 分钟后或回到前台会再提示）；隧道开启 60 秒未就绪给明确错误；隧道/更新进行中显示已等待秒数且仅在有活跃操作时才挂每秒 tick。验证：`npm test` 210 项 / 207 通过 / 0 失败 / 3 跳过（Windows 跳过 POSIX 用例）；用 fake-react 把设置页渲染成元素树跑 6 个场景（首帧空、局域网就绪、命名隧道、隧道异常+更新失败、离线+重启提示、桌面端）全部通过；`client/client.js` 重建；部署树 88 个文件全量硬链校验 0 差异；`client/repro-activate.mjs` 冒烟 42 effects。**客户端改动刷新页面或重启 DSH 生效**。
+- **`dsh-update-checker` 0.3.2 → 0.3.5**（自维护仓库 `github:daha1216/dsh-update-checker`，本机 desktop profile 实装已是 0.3.5）：0.3.3 修 cordis 4 下的宿主崩溃（ctx 私有状态、定时器清理顺序、失效上下文守卫）并新增生命周期回归测试；0.3.4 修待更新列表读回丢失、补提醒功能测试、设置页调整；0.3.5 运行逻辑收尾（单定时器不变量、状态写入串行化、RPC 回退降级、自定义间隔显示）；随后 README/关于页改版（真实截图、后台调度说明、AI 更新流程）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `2.11.0`→`2.11.1`、`dsh-update-checker` `0.3.2`→`0.3.5`；catalogVersion `1.49.5` → `1.49.6`，核对日期 `2026-10-19`，README 徽章同步。其余 9 条上游版本经 npm / GitHub API 核对无变化（`dsh-our-free-model` 最新插件包仍 v2.5.5）。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 11）。
+
 ## 2026-10-19 dsh-ops 0.3.2 / dsh-our-free-model 2.5.5（catalog 1.49.5）
 
 `dsh-ops` 0.3.0 → 0.3.2（0.3.1 只发 GitHub、未发布 npm），`dsh-our-free-model` 2.5.3 → 2.5.5；本机 desktop profile 已同步实装。
