@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.49.6-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.49.7-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-11%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -39,12 +39,13 @@
 | `dsh-update-checker` | 0.3.5 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 | `@local/skills-manager` | 0.3.2 | 在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换调用策略，一键打开技能目录 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
 | `dsh-ops` | 0.3.2 | Rust 原生文件工具（grep / glob / replace / hex 查看）与随包 MSYS bash、PowerShell 7，替掉 Windows 下反复失败的原生 shell 调用，省 token 省时间 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
+| `dsh-client-auto-continue` | 0.15.0 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示（Web UI 插件，中英双语） | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
 
 ### 🎨 界面体验与多端协同
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-pocket` | 2.11.1 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
+| `dsh-pocket` | 2.11.2 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 
 ---
 
@@ -116,6 +117,7 @@ bash install.sh --all
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
 | `@local/skills-manager` | `dsh plugin --profile web add github:daha1216/dsh-skills-manager` |
 | `dsh-ops` | `npx --yes dsh-ops@latest install --profile web` |
+| `dsh-client-auto-continue` | `dsh plugin --profile web add dsh-client-auto-continue@latest` |
 
 ---
 

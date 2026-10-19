@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.49.6",
-  "updatedAt": "2026-10-19",
+  "catalogVersion": "1.49.7",
+  "updatedAt": "2026-10-20",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -21,7 +21,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "2.11.1",
+      "version": "2.11.2",
       "description": "手机扫码同步电脑端 DSH，支持移动端操作",
       "source": "https://github.com/daha1216/dsh-pocket",
       "install": "github:daha1216/dsh-pocket",
@@ -107,6 +107,15 @@
       "source": "https://github.com/T-Auto/dsh-ops",
       "install": "dsh-ops@0.3.2",
       "update": "npx --yes dsh-ops@latest install --profile web"
+    },
+    {
+      "id": "dsh-client-auto-continue",
+      "name": "dsh-client-auto-continue",
+      "version": "0.15.0",
+      "description": "请求因网络等非人为原因中断时，自动发送本地化的「继续」提示（Web UI 插件，中英双语）",
+      "source": "https://github.com/HsiangNianian/dsh-auto-continue",
+      "install": "dsh-client-auto-continue@0.15.0",
+      "update": "dsh plugin --profile web add dsh-client-auto-continue@latest"
     }
   ]
 }
