@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-21 dsh-context 重新收录（catalog 1.51.0）
+
+- **新增条目 `dsh-context` 0.73.3**（npm 通道，[bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context)，[v0.73.3](https://github.com/bowenliang123/dsh-context/releases/tag/v0.73.3)）：本机 2026-10-21 重新装入 desktop profile（依赖 `dsh-context@^0.73.3`，实装 0.73.3）。该条目在 2026-08 下旬随插件卸载从目录移除，本次按「目录反映实装」重新收录；`update` 取上游 README 的原生写法 `dsh plugin --profile web update dsh-context@latest`，`install` 走 npm 钉版 `dsh-context@0.73.3`。功能：跨会话 **Context Insights** 页面（KPI 带、7 天 token/费用图、活跃热力图、会话卡片）、每个会话的 **Context tab** 与右侧 **Context 面板**（上下文组成、趋势、事件、文件活动）、**Fleet** 子 Agent 网络页、`/context` 斜杠命令与偏好卡片；README 明确「No build step, no restart」。
+- **`dsh-our-free-model` 2.5.5 → 2.5.7**（GitHub Release tarball 通道）：补记此前漏掉的 2.5.6（[2026-10-19 16:48 UTC](https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/tag/v2.5.6)）与本次 2.5.7（[2026-10-20 14:07 UTC](https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/tag/v2.5.7)，插件 tarball `dsh-our-free-model-2.5.7.tgz` 已 HEAD 校验 200）。上游要点：免费模型与 EAC 页统一为紧凑的北辰 API 赞助卡片、优惠文案改为「邀请可获百分之十返现」、移除广告导航/详情路由但保留卡片链接（2.5.6）；CodeArts 改用独立签名传输避免全局 fetch 被改写破坏签名、识别字符串与数字形式的 4004 后去掉 benefit 头重签重试一次、托管安装下禁用插件内升级/热重载并提示走原安装方式、手动测速须收到非空正文且正常结束（后台 300s / 前端 330s）并保存成败结果、移除低性能模式、修正多模态请求被上游夸大的用量统计（2.5.7）。`install` 与「更新插件」表的固定直链同步改为 `v2.5.7`。本机实装仍为 2.5.5，尚未在应用内升级；目录按上游最新插件制品记录。
+- 其余条目核对无变化：npm 通道 `dsh-better-reasoning-effort` 0.5.4、`billion-context` 0.1.202、`dsh-mnemon` 0.5.33、`@anysearch/anysearch-dsh` 0.1.8、`dsh-ops` 0.4.1、`dsh-client-auto-continue` 0.15.0 与 registry 一致；自维护/GitHub 通道 `dsh-pocket` HEAD 2.11.2（tag v2.11.2）、`dsh-retrace` HEAD 0.4.56（tag v0.4.56，本机实装 0.4.55）、`dsh-watcher` HEAD 0.7.0、`dsh-update-checker` HEAD 0.3.5、`dsh-skills-manager` 0.3.2 无变化。注意 npm 上存在与上述自维护插件同名的包（如 `dsh-retrace@0.4.134`、`dsh-update-checker@1.7.2`），与仓库通道不是同一制品，目录继续按各条目 `install` 指定的通道取版本。
+- 目录快照同步：`plugins.json` 增补 `dsh-context` 并刷新 `dsh-our-free-model`；README 目录表（监控分类）、更新命令表、原生自更新命令说明、徽章版本与插件数（12→13）同步；`scripts/fetch-upstream.ps1` 仓库清单对齐当前 13 条（移除 dsh-pet / dsh-opencode-go-usage / dsh-all-usage / dsh-font-customizer / dsh-plugin-oauth-subs，补入 dsh-client-auto-continue、dsh-context）。catalogVersion `1.50.1` → `1.51.0`，核对日期 `2026-10-21`。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 13）。
+
 ## 2026-10-20 dsh-retrace 0.4.56（会话短码回归纯展示 + 历史标题自动还原）
 
 - **`dsh-retrace` 0.4.55 → 0.4.56**（自维护仓库 `github:daha1216/dsh-retrace`，[v0.4.56](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.56)）：

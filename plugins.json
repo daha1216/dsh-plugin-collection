@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.50.1",
-  "updatedAt": "2026-10-20",
+  "catalogVersion": "1.51.0",
+  "updatedAt": "2026-10-21",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -57,11 +57,11 @@
     {
       "id": "dsh-our-free-model",
       "name": "dsh-our-free-model",
-      "version": "2.5.5",
+      "version": "2.5.7",
       "description": "免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，另有十三个账号渠道、数据看板与本地网关",
       "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
-      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.5/dsh-our-free-model-2.5.5.tgz",
-      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.5/dsh-our-free-model-2.5.5.tgz"
+      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.7/dsh-our-free-model-2.5.7.tgz",
+      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.7/dsh-our-free-model-2.5.7.tgz"
     },
     {
       "id": "dsh-retrace",
@@ -116,6 +116,15 @@
       "source": "https://github.com/HsiangNianian/dsh-auto-continue",
       "install": "dsh-client-auto-continue@0.15.0",
       "update": "dsh plugin --profile web add dsh-client-auto-continue@latest"
+    },
+    {
+      "id": "dsh-context",
+      "name": "dsh-context",
+      "version": "0.73.3",
+      "description": "上下文洞察与管理：跨会话 Context Insights 页面、Context tab / 右侧上下文面板、Fleet 子 Agent 网络页与 /context 命令，查看上下文组成、用量与演变",
+      "source": "https://github.com/bowenliang123/dsh-context",
+      "install": "dsh-context@0.73.3",
+      "update": "dsh plugin --profile web update dsh-context@latest"
     }
   ]
 }

@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.50.0-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-12%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.51.0-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-13%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -22,13 +22,14 @@
 | `dsh-better-reasoning-effort` | 0.5.4 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `billion-context` | 0.1.202 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 | `dsh-mnemon` | 0.5.33 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers） | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
-| `dsh-our-free-model` | 2.5.5 | 免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，另有十三个账号渠道、数据看板与本地网关 | [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) |
+| `dsh-our-free-model` | 2.5.7 | 免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，另有十三个账号渠道、数据看板与本地网关 | [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) |
 
 ### 📊 计量与状态监控
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-watcher` | 0.7.0 | 会话工作路径观测面板 · 跨会话模型耗时与费用统计 | [daha1216/dsh-watcher](https://github.com/daha1216/dsh-watcher) |
+| `dsh-context` | 0.73.3 | 上下文洞察与管理：跨会话 Context Insights 页面、Context tab / 右侧上下文面板、Fleet 子 Agent 网络页与 `/context` 命令，查看上下文组成、用量与演变 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
 
 ### 🛠️ 会话管理与效率工具
 
@@ -111,13 +112,14 @@ bash install.sh --all
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context` | `bili update` |
 | `dsh-mnemon` | `dsh plugin --profile web add dsh-mnemon` |
-| `dsh-our-free-model` | `dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.5/dsh-our-free-model-2.5.5.tgz` |
+| `dsh-our-free-model` | `dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.7/dsh-our-free-model-2.5.7.tgz` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-watcher` | `dsh plugin --profile web add github:daha1216/dsh-watcher` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
 | `@local/skills-manager` | `dsh plugin --profile web add github:daha1216/dsh-skills-manager` |
 | `dsh-ops` | `npx --yes dsh-ops@latest install --profile web` |
 | `dsh-client-auto-continue` | `dsh plugin --profile web add dsh-client-auto-continue@latest` |
+| `dsh-context` | `dsh plugin --profile web update dsh-context@latest` |
 
 ---
 
@@ -125,7 +127,7 @@ bash install.sh --all
 
 ### 1. 更新机制与命令规范
 - **重跑 `add` 即更新**：多数插件上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取该来源的最新版本。
-- **原生自更新命令**：`billion-context` 用 `bili update`（上游 README 的 Self-update 与命令行示例），`dsh-ops` 用 `npx --yes dsh-ops@latest install --profile web`，`anysearch-dsh`、`dsh-pocket` 用原生 `update` 动词。
+- **原生自更新命令**：`billion-context` 用 `bili update`（上游 README 的 Self-update 与命令行示例），`dsh-ops` 用 `npx --yes dsh-ops@latest install --profile web`，`anysearch-dsh`、`dsh-pocket`、`dsh-context` 用原生 `update` 动词（`dsh-context` 为 `dsh plugin --profile web update dsh-context@latest`）。
 - **`billion-context` 更新须知**：
   - `bili update` 是全局 CLI 命令（`npm install -g billion-context`），它同时驱动 dsh profile 副本这条 lane；本机没有全局 `bili` 时，用 `dsh plugin --profile web add billion-context` 重装到最新版即可，效果相同。
   - 自动更新是**错峰**的（#3619）：发现新版本后要在 15 分钟–48 小时的随机窗口里抽一个时刻才安装（抽中的时刻会持久化，重启不重抽），所以「刚发布没马上升级」是正常现象；手动 `bili update` 绕过 hold 与错峰，但仍遵守 `blocked` / `pinned`，Web 面板会显示 hold/pinned 横幅。

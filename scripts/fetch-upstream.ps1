@@ -7,25 +7,22 @@ New-Item -ItemType Directory -Force -Path $out | Out-Null
 
 # id = repo path on GitHub (owner/repo), plus optional subpath inside the repo
 $repos = [ordered]@{
-  # 与 plugins.json 目录条目一一对应（2026-09-29 对齐 1.40.0 / 11 条）
-  # 注意：billion-context 权威发布渠道是 npm，仓库 HEAD 通常同步但可能滞后；dsh-pet 是 monorepo 取 dsh-pet/ 子包
+  # 与 plugins.json 目录条目一一对应（2026-10-21 对齐 1.51.0 / 13 条）
+  # 注意：billion-context 权威发布渠道是 npm，仓库 HEAD 通常同步但可能滞后
   # dsh-ops 权威渠道是 npm（仓库 HEAD 可能已领先未发布版本）；dsh-our-free-model 权威渠道是 GitHub Release 的 tarball
   'dsh-better-reasoning-effort' = @{ repo = 'HaoyueQin/dsh-better-reasoning-effort'; path = '' }
-  'dsh-pet'                     = @{ repo = 'PC2005-cloud/dsh-pet';                    path = 'dsh-pet' }
   'dsh-pocket'                  = @{ repo = 'daha1216/dsh-pocket';                      path = '' }
-  'dsh-opencode-go-usage'       = @{ repo = 'xueayi/dsh-opencode-go-usage';            path = '' }
-  'dsh-all-usage'               = @{ repo = 'ParticleLight/dsh-all-usage';             path = '' }
   'anysearch-dsh'               = @{ repo = 'anysearch-team/anysearch-dsh';            path = '' }
   'billion-context'             = @{ repo = 'ranxianglei/billion-context';             path = '' }
-  'dsh-retrace'                 = @{ repo = 'daha1216/dsh-retrace';                    path = '' }
-  'dsh-font-customizer'         = @{ repo = 'daha1216/dsh-font-customizer';            path = '' }
-  'dsh-watcher'                 = @{ repo = 'daha1216/dsh-watcher';                    path = '' }
-  'dsh-plugin-oauth-subs'       = @{ repo = 'xxww0098/dsh-plugin-oauth-subs';          path = '' }
   'dsh-mnemon'                  = @{ repo = 'omdsh-dev/dsh-mnemon';                     path = '' }
-  'dsh-ops'                     = @{ repo = 'T-Auto/dsh-ops';                          path = '' }
+  'dsh-our-free-model'          = @{ repo = 'Ebony-Vinyl/dsh-our-free-model';           path = '' }
+  'dsh-retrace'                 = @{ repo = 'daha1216/dsh-retrace';                    path = '' }
+  'dsh-watcher'                 = @{ repo = 'daha1216/dsh-watcher';                    path = '' }
   'dsh-update-checker'          = @{ repo = 'daha1216/dsh-update-checker';              path = '' }
   'dsh-skills-manager'          = @{ repo = 'daha1216/dsh-skills-manager';              path = '' }
-  'dsh-our-free-model'          = @{ repo = 'Ebony-Vinyl/dsh-our-free-model';           path = '' }
+  'dsh-ops'                     = @{ repo = 'T-Auto/dsh-ops';                          path = '' }
+  'dsh-client-auto-continue'    = @{ repo = 'HsiangNianian/dsh-auto-continue';          path = '' }
+  'dsh-context'                 = @{ repo = 'bowenliang123/dsh-context';                path = '' }
 }
 
 $rows = @()
