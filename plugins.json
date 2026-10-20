@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.50.0",
+  "catalogVersion": "1.50.1",
   "updatedAt": "2026-10-20",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -66,7 +66,7 @@
     {
       "id": "dsh-retrace",
       "name": "dsh-retrace",
-      "version": "0.4.55",
+      "version": "0.4.56",
       "description": "消息撤回、编辑重发与重新生成，同步回退修改过的文件",
       "source": "https://github.com/daha1216/dsh-retrace",
       "install": "github:daha1216/dsh-retrace",

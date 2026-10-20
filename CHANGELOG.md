@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-20 dsh-retrace 0.4.56（会话短码回归纯展示 + 历史标题自动还原）
+
+- **`dsh-retrace` 0.4.55 → 0.4.56**（自维护仓库 `github:daha1216/dsh-retrace`，[v0.4.56](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.56)）：
+  - **会话短码回归纯展示**：此前打开 Retrace / 分叉视图或改名时会把 `[短码] ` 写进会话标题（写 user source title，永久停掉自动标题）。现在短码只用于显示，改名只写名称本身；host 侧所有标题写回路径（`setBadgeTitle` / `initBadgeTitles` / `bootPin` / `ensureBadgeTitle`，以及 `setUserTitle` 的短码拼接）全部删除。
+  - **历史标题自动还原**：升级后首次启动经官方 `sessionController.rename` 把旧版本写入的 `[短码] ` 前缀逐条剥掉，写回会话日志与投影缓存；正则只匹配 retrace 短码形态（不误伤 `[ClaudeProtect]` 这类合法方括号标题），失败只告警、下次启动重试，`DSH_RETRACE_NO_BADGE_CLEANUP=1` 可关。还原冷会话时会短暂 resume 一次。
+  - **本机部署**：桌面端运行期间以「仓库文件 → 临时文件 + rename 覆盖」更新 `profiles/desktop/node_modules/dsh-retrace` 的 5 个运行时文件，避开 pnpm 硬链接共享 inode；备份在 `D:\dsh work\.tmp-dsh-internals\backup-desktop-dsh-retrace-0.4.55\`；完整重启桌面端后生效。
+- 目录快照同步：plugins.json 与 README 目录表 `dsh-retrace` `0.4.55`→`0.4.56`；catalogVersion `1.50.0` → `1.50.1`，核对日期 `2026-10-20`。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
 ## 2026-10-20 dsh-watcher 0.7.0 / dsh-ops 0.4.1（catalog 1.50.0）
 
 - **`dsh-watcher` 0.6.3 → 0.7.0**（自维护仓库 `github:daha1216/dsh-watcher`，[v0.7.0](https://github.com/daha1216/dsh-watcher/releases/tag/v0.7.0) 于 2026-10-20 12:49 UTC 发布）：面板改成「状态条 + 用量读数主窗口 + 可折叠执行路径」——44px 状态条只做读数（圆点、状态、实时动作、搜索与视图菜单），不再整行可点；模型 / 上下文 / Token / 估算费用改为标签加数值的网格，耗时区从带边框卡片收成 8px 发丝分布条，告警改发丝行；执行路径回到读数下方独立一行，带已载入轮次 / 步数 / 执行次数，默认收起，收起后面板回到内容高度。时间线行压到 33 / 30 / 26px 单行，只有一条记录且无模型阶段的 Step 直接摊平成记录行。客户端拆成 `src/client/panel/` 模块（`panel-model.ts` 承载纯投影，外壳拆成 `PanelHeader` / `SearchRow` / `ViewMenu` / `PathTimeline` / `TurnSection` / `PhaseSection` / `OccurrenceRow` / `PathToggle`），样式统一走 `--ui-*` 别名层；契约测试新增「组件引用的每个 `css.<name>` 必须在它导入的样式表里有定义」的守卫。修复宽面板阶段行溢出、sticky 轮次头半透明透出内容、窄面板耗时头碰撞。
