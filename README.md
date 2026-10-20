@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.49.8-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.49.9-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-12%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -38,7 +38,7 @@
 | `@anysearch/anysearch-dsh` | 0.1.8 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 | `dsh-update-checker` | 0.3.5 | 一键检查已装插件的上游更新（只检查不更新），展示更新内容 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 | `@local/skills-manager` | 0.3.2 | 在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换调用策略，一键打开技能目录 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
-| `dsh-ops` | 0.3.2 | Rust 原生文件工具（grep / glob / replace / hex 查看）与随包 MSYS bash、PowerShell 7，替掉 Windows 下反复失败的原生 shell 调用，省 token 省时间 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
+| `dsh-ops` | 0.4.0 | Rust 原生文件工具集（读 / 搜索 / 修改 / 文档读取 / 工具发现）与随包 MSYS bash；默认常量暴露、其余按需发现，替掉 Windows 下反复失败的原生 shell 调用，省 token 省时间 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
 | `dsh-client-auto-continue` | 0.15.0 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示（Web UI 插件，中英双语） | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
 
 ### 🎨 界面体验与多端协同
@@ -156,8 +156,9 @@ bash install.sh --all
   - 本目录固定指向官方 Release 的 tarball 直链（文件名带版本号，升级时同步改 URL），这是 README 认可的安装制品。
   - 装完后把 `distribution` 设为 `managed`（bundle config 或插件 `settings.json`）：包管理器拥有字节时，应用内升级、公告 feed 与热重载会停用，模型功能保留。
 - **`dsh-ops`**：
-  - npm 通道，更新用自带的 `npx --yes dsh-ops@latest install --profile ...`，会同时对齐随包 bash / pwsh 二进制；官方 CLI 的 `add dsh-ops@latest` 是等价替代。
-  - 装/升时务必显式指定官方源 `--registry=https://registry.npmjs.org`：其 `@dsh-ops/*-win32-x64` optionalDependencies 在 npmmirror 上缺版本，pnpm 重解析会报 `ERR_PNPM_NO_MATCHING_VERSION`。
+  - npm 通道，原生更新命令 `npx --yes dsh-ops@latest install --profile <desktop|web|tui>`，按 profile 用官方 CLI 重装到最新版并同时对齐随包 bash 载荷（0.4.0 起 npm 只随包 bash，PowerShell 交给宿主管理）；官方 CLI 的 `add dsh-ops@latest` 是等价替代。
+  - 桌面端必须用桌面应用自带的 CLI：默认探测 `%LOCALAPPDATA%\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd`，装在其它位置时加 `--dsh-cli "<安装目录>\resources\runtime\cli\bin\dsh.cmd"`。本机 profile `desktop` 的实际命令：`npx --yes dsh-ops@latest install --profile desktop --dsh-cli "D:\deepseek harness\resources\runtime\cli\bin\dsh.cmd"`。
+  - 装/升时务必显式指定官方源 `--registry=https://registry.npmjs.org`：其 `@dsh-ops/bash-win32-x64` optionalDependency 在 npmmirror 上可能缺版本，pnpm 重解析会报 `ERR_PNPM_NO_MATCHING_VERSION`。
 
 ---
 

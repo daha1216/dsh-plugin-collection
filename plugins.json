@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.49.8",
+  "catalogVersion": "1.49.9",
   "updatedAt": "2026-10-20",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -102,10 +102,10 @@
     {
       "id": "dsh-ops",
       "name": "dsh-ops",
-      "version": "0.3.2",
-      "description": "Rust 原生文件工具（grep / glob / replace / hex 查看）与随包 MSYS bash、PowerShell 7，替掉 Windows 下反复失败的原生 shell 调用，省 token 省时间",
+      "version": "0.4.0",
+      "description": "Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包 MSYS bash；默认常量暴露、其余按需发现，替掉 Windows 下反复失败的原生 shell 调用，省 token 省时间",
       "source": "https://github.com/T-Auto/dsh-ops",
-      "install": "dsh-ops@0.3.2",
+      "install": "dsh-ops@0.4.0",
       "update": "npx --yes dsh-ops@latest install --profile web"
     },
     {
