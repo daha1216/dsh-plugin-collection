@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-22 billion-context 0.1.204（catalog 1.53.0）
+
+- **`billion-context` 0.1.203 → 0.1.204**（npm 通道，[ranxianglei/billion-context](https://github.com/ranxianglei/billion-context)，[v0.1.204](https://github.com/ranxianglei/billion-context/releases/tag/v0.1.204) 于 2026-10-21 18:37 UTC 发布）：
+  - **Prompt-cache Keepalive**：新增针对 Anthropic wire 的空闲 prompt-cache keepalive 特性，支持各模型层级保活配置及状态透出（acp_status 与 Web UI，#3376）；
+  - **中间 System/Developer 消息处理修复**：历史会话中的中间 system 消息在各通道保持逐字传输（verbatim），仅 bili 自带 carrier 重新发声（#4166、#4159、#4165）；drop-warn 检测器不再误报中间 system/developer 消息（#4171）；
+  - **预设与兼容性修复**：压缩覆盖层结构化覆盖自定义预设（#4147/#3962/#4002）；在禁用 bili-native 时保持 DSH 预设可启动（#3662）；
+  - **内核升级**：升级 acp-kernel 至 0.0.149。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.203`→`0.1.204`（`install` 钉版同步），catalogVersion `1.52.0` → `1.53.0`，核对日期 `2026-10-22`（README 徽章同步）；`update` 维持上游原生写法 `bili update`。
+- 本机更新动作：运行原生更新命令 `bili update`，全局 CLI 与 desktop profile 副本同步从 0.1.203 升级至 0.1.204；随后使用宿主 pnpm 运行 `--lockfile-only` 对齐 `pnpm-lock.yaml` 完整依赖解析（`billion-context@0.1.204`，integrity `sha512-LE53dy65Nmqi66Bonksiz9KhpPQTq2K4PeJ+Lg5BeJBVudCYy7AGL33srlhi8zKhQBqIBNBIl1tzpJuj+rfyJg==`）；保留嵌套依赖并加入 `minimumReleaseAgeExclude`；profile 改前文件已备份至 `backups/plugin-update-20261022-025500/`；冒烟测试通过。**重启 DSH 桌面端以加载新插件与代理**。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
+
 ## 2026-10-21 dsh-context 0.74.0 / billion-context 0.1.203（catalog 1.52.0）
 
 - **`dsh-context` 0.73.3 → 0.74.0**（npm 通道，[bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context)，[v0.74.0](https://github.com/bowenliang123/dsh-context/releases/tag/v0.74.0) 于 2026-10-21 06:37 UTC 发布）：长会话趋势图在 200+ 步自动切到 Overview 汇总带（新偏好 Trend Chart · Auto Overview：100/200/300 步或关闭，默认 200，每会话只触发一次；Overview 带支持悬停追踪类别、点击定位步骤并打开 Context browser）；Context Insights 改为**按请求发出当日记账**（跨午夜步骤记在开始日、每回合只记一次，KPI/构成/会话准入/热力图共用同一日账本，KPI 新增工具运行数与活跃时长，热力图新增 Tokens 指标并设为默认，升级后活动缓存冷折叠 `contextActivity` stateVersion 5，账本保留 400 天）；新增 **Default range** 偏好（Today/7 天/30 天/All，默认 30 天，页面选定预设回写为默认）；File Activity 布局收拢（文件数/行数差/类型 chips 上移标题行）；修复 DeepSeek 计价、余额胶囊与大型 agent 家族显示。
