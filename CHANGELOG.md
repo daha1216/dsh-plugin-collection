@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-21 dsh-mnemon 0.5.34（catalog 1.51.1）
+
+- **`dsh-mnemon` 0.5.33 → 0.5.34**（npm 通道，[v0.5.34](https://github.com/omdsh-dev/dsh-mnemon/releases/tag/v0.5.34) 于 2026-10-21 01:14 UTC 发布）：新增实验性组件**技能管理（Skills）**，可列出并管理 DSH 从项目与用户目录加载的每个 `SKILL.md`——可对模型或 `/` 菜单单独关闭、一键在对话中使用、直接编辑并回到任意历史版本；开启**自进化**后对话结束会在后台复盘纠正、“以后都这样做”的指示、工具失败与可复用流程，建议须标出依据步骤、草案先与当前版本在技能测试用例上回测，且只有用户点**采纳**才改动技能（默认关闭）；**评测**保存测试用例与回测，复盘对话留作证据可转成用例；**市场**支持边输入边搜索 skills.sh、从任意 GitHub 仓库或 Agent Skills 发现索引安装技能并展示安全审核；回合下方新增「本回合技能」行。插件自述同步改为「面向 DeepSeek Harness 的可组合视图上下文，开箱即用提供分层记忆与自进化技能」。Starter 升至 0.5.34 并固定新包 `dsh-mnemon-source-skills` 0.5.1，其余 17 个组件版本不变，已有记忆无需迁移；Skills 数据放在存储根目录新增的 `skills/` 文件夹，不进备份与 Git 同步。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-mnemon` `0.5.33`→`0.5.34`（`install` 钉版同步，描述补充技能管理），catalogVersion `1.51.0` → `1.51.1`，核对日期 `2026-10-21`（README 徽章同步）；`update` 字段维持上游 README 的原生写法 `dsh plugin --profile web add dsh-mnemon`。上游 README 同时给出桌面端在插件页卸载后以 `dsh-mnemon@0.5.34` 重装并完全退出重开、或经「记忆系统 → 状态 → 检查版本 → 更新」升级再重启；本目录继续按原生 `add` 命令记录。
+- 本机更新动作：桌面端运行中，未执行会重建 modules 的 pnpm 命令；按 npm 官方 tarball 校验（核心 `sha512-g70C2MdVJATtukOfcVdN8uLJfB7hCa70Qz24wDUGZu2y8rTvH30E48W4J9LukXgHb03mNcP3VjaZxJQoK2qOVA==`、新增 `dsh-mnemon-source-skills@0.5.1` 的 `sha512-urMMV/Ec1ZV/gUrkdYQD/t9OdPPaxES7FWbWKPmIUEcEO6KY6t17YYB7FORVTRySu2/zknVj/60atb7QG/9tIg==`）后手动替换 `node_modules/dsh-mnemon`（66 个非嵌套文件与解包树 sha256 全等，保留嵌套 `node_modules/zod` 4.6.5）并新增 `node_modules/dsh-mnemon-source-skills`（28 个文件全等）；`package.json` 依赖改为 `0.5.34`，用宿主的 `pnpm install --lockfile-only` 对齐 lockfile（仅 mnemon 相关条目变化，pnpm 自动把两者加入 `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`）。profile 已备份到 `~/.dsh/profiles/desktop/backups/plugin-update-dsh-mnemon-20261021-101514/`（含 0.5.33 旧树）并已 `--frozen-lockfile` 复核一致。**重启 DSH 桌面后加载 0.5.34 与技能管理页**。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
+
 ## 2026-10-21 dsh-context 重新收录（catalog 1.51.0）
 
 - **新增条目 `dsh-context` 0.73.3**（npm 通道，[bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context)，[v0.73.3](https://github.com/bowenliang123/dsh-context/releases/tag/v0.73.3)）：本机 2026-10-21 重新装入 desktop profile（依赖 `dsh-context@^0.73.3`，实装 0.73.3）。该条目在 2026-08 下旬随插件卸载从目录移除，本次按「目录反映实装」重新收录；`update` 取上游 README 的原生写法 `dsh plugin --profile web update dsh-context@latest`，`install` 走 npm 钉版 `dsh-context@0.73.3`。功能：跨会话 **Context Insights** 页面（KPI 带、7 天 token/费用图、活跃热力图、会话卡片）、每个会话的 **Context tab** 与右侧 **Context 面板**（上下文组成、趋势、事件、文件活动）、**Fleet** 子 Agent 网络页、`/context` 斜杠命令与偏好卡片；README 明确「No build step, no restart」。
