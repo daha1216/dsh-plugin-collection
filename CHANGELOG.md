@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-10-23 dsh-client-auto-continue 0.17.0（catalog 1.55.0）
+
+- **`dsh-client-auto-continue` 0.16.0 → 0.17.0**（npm 通道，[HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue)，[v0.17.0](https://github.com/HsiangNianian/dsh-auto-continue/releases/tag/v0.17.0) 于 2026-10-23 09:17 UTC 发布）：
+  - **紧凑开关 + 原生模式菜单**（#67/#68）：0.16 的宽选择器换成紧凑开关并搭配宿主 Menu 原语——开关负责当前会话的开/关（重新打开回到 Follow default），旁边菜单列出 Follow default / Off / Recovery only / Autonomous loop 并勾选当前项；无 Menu 原语的旧宿主退回原生 `<select>`；键盘可达、即时保存与跨标签同步保留；
+  - **手机端适配**：标签折叠为图标、菜单折叠为箭头，跟随 composer 行的同一 container query，窄屏不换行；
+  - **Toast 反馈**：会话模式保存失败改显宿主 toast（无 Toast 原语的宿主退回内联文本），保存中/断连时控件禁用并以 tooltip 说明；
+  - **设置页原生化**：字段、开关与默认模式选择器改用 DSH 的 SettingsForm / SettingsValueField / Switch / SegmentedControl 原语，与插件管理器整体一致；插件名与描述经 locale 本地化（中文显示「自动继续」）；移除深色头横幅；修复 composer 隐形 select 拉伸 Default session mode、导致整页误弹选择器的样式泄漏；
+  - **兼容性**：在 DSH 0.1.7-rc.2 / 0.2.0-rc.1 / 0.2.1-alpha.1 / 0.2.1-rc.2 上回归。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-client-auto-continue` `0.16.0`→`0.17.0`（`install` 钉版同步），catalogVersion `1.54.0` → `1.55.0`，核对日期 `2026-10-23`（README 徽章同步）；`update` 维持上游原生写法 `dsh plugin --profile web add dsh-client-auto-continue@latest`。
+- 本机更新动作：desktop profile 内用 DSH 自带 pnpm 11.28.5 执行等价命令 `add -E dsh-client-auto-continue@0.17.0 --registry=https://registry.npmjs.org`，`node_modules` 实装与 `package.json` 钉版均到 0.17.0（lockfile 供应链校验通过，pnpm 已将该包纳入 `minimumReleaseAgeExclude`）；改前 `package.json` + `pnpm-lock.yaml` 备份在 `backups/plugin-update-20261023-180259/`。按上游建议更新后完全重启 DSH 桌面端并刷新页面；已有配置、会话模式与暂停状态保留。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
+
 ## 2026-10-23 dsh-client-auto-continue 0.16.0（catalog 1.54.0）
 
 - **`dsh-client-auto-continue` 0.15.0 → 0.16.0**（npm 通道，[HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue)，[v0.16.0](https://github.com/HsiangNianian/dsh-auto-continue/releases/tag/v0.16.0) 于 2026-10-23 04:28 UTC 发布）：

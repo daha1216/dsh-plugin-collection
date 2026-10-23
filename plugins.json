@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.54.0",
+  "catalogVersion": "1.55.0",
   "updatedAt": "2026-10-23",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -111,10 +111,10 @@
     {
       "id": "dsh-client-auto-continue",
       "name": "dsh-client-auto-continue",
-      "version": "0.16.0",
+      "version": "0.17.0",
       "description": "请求因网络等非人为原因中断时，自动发送本地化的「继续」提示（Web UI 插件，中英双语）",
       "source": "https://github.com/HsiangNianian/dsh-auto-continue",
-      "install": "dsh-client-auto-continue@0.16.0",
+      "install": "dsh-client-auto-continue@0.17.0",
       "update": "dsh plugin --profile web add dsh-client-auto-continue@latest"
     },
     {
