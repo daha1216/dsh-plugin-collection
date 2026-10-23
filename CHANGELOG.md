@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-24 dsh-pocket 3.0.0 / dsh-context 0.75.0 / billion-context 0.1.205 / dsh-our-free-model 2.5.9（catalog 1.56.0）
+
+- **`dsh-pocket` 2.11.2 → 3.0.0**（自维护 Fork `github:daha1216/dsh-pocket`，**破坏性变更**，已 push 到 Fork `main`（`fdf4820..feea1f1`，附注 tag `v3.0.0`））：移除随机域名（Quick Tunnel）公网入口，公网访问只保留用户自行配置的 Cloudflare 固定域名 + Tunnel Token。要点：`startQuickTunnel` 与随机 URL 解析整体删除，未配置公网时不再下载/启动 cloudflared；设置页公网卡改为「公网配置」表单——未配置只显示自配入口，保存配置不自动开启，开启仍需勾选免责声明；公网 PIN 不再随隧道启停轮换（登录凭据统一标记为可保存的长期密码）；自动恢复收紧为「配置完整才恢复」，旧无 mode 标记与显式 quick 标记一律清除、不回退随机隧道；恢复出厂清空公网配置；CLI `--public` 需先在同一 DSH_HOME 配好固定域名与 Token，未配置拒绝启动。验证：`npm test` 250 个测试、248 通过、0 失败、2 跳过（Windows 跳过 POSIX-only 用例）；新增 `test/public-settings.test.js`（真实设置页组件的 VM 渲染交互测试：未配置不显示二维码/PIN、保存不启动、免责声明门禁、Token 留空不覆盖、恢复出厂回到未配置）；部署树 88 个发行文件与源仓库哈希+硬链双核对 0 差异。`client/client.js` 已重建，冒烟 42 个 effect 通过。**宿主 `lib/` 与客户端 bundle 均有改动，需重启 DSH 桌面端生效**。
+- **`dsh-context` 0.74.0 → 0.75.0**（npm 通道，[bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context)，v0.75.0 发布于 2026-10-24 01:09 UTC）。上游变更：Answer 类型只统计带折叠戳的回复；Fleet 家族树排除 fork 出的会话；压缩/修剪事件行可跳转到其落点步骤；概览页 hover 与置顶规则提升到色带之上；折叠上下文浏览器时页面保持可滚动；面板导航可跳转到插件的 Plugins 页；CI 每日自动关闭超 15 天的 issue/PR。
+- **`billion-context` 0.1.204 → 0.1.205**（npm 通道，[v0.1.205](https://github.com/ranxianglei/billion-context/releases/tag/v0.1.205) 发布于 2026-10-23）。上游变更（50 个 PR 摘要）：存储可靠性三件套——打开时 quick_check、在线 VACUUM INTO 备份、第二进程锁文件；损坏/孤儿冻结索引冷加载恢复、结构摘要漂移升级为告警+信封冻结并加载更完整一侧；失败的压缩调用与被拒绝的压缩调用改为可折叠普通消息、不再永久占用上下文；zcode 通道此前宣传了模型看不到的压缩工具（#4372）现已修复并对无头僵尸轮次保持自愈探活（#4423）；大会话「压缩结构」树图旋转为竖向全尺寸；dsh 设置面板更新为五标签布局、顶栏 Context tab 可改名/隐藏；多车道共用存储的死进程自动清除与脑裂横幅一键关闭；Windows CI 大量稳定性修复（verif 路径盘符翻倍、EBUSY 清理、分片按时长均衡最差腿 ~22min→~7min）。
+- **`dsh-our-free-model` 2.5.7 → 2.5.9**（GitHub Release tarball 通道，[v2.5.9](https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/tag/v2.5.9) 提供 Windows x64 安装器与插件 tgz；latest 指针指向的 `v2.5.9-macos-unofficial` 仅含 macOS dmg，不作为目录安装制品）。上游未附详细变更正文，目录随正式版 tarball 同步钉版链接。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `2.11.2`→`3.0.0`、`dsh-context` `0.74.0`→`0.75.0`、`billion-context` `0.1.204`→`0.1.205`、`dsh-our-free-model` `2.5.7`→`2.5.9`（install tgz 直链与更新命令同步换 v2.5.9）；catalogVersion `1.55.1` → `1.56.0`（含破坏性变更升 minor），核对日期 `2026-10-24`，README 徽章同步 `1.55.0`→`1.56.0`（顺带修正上轮 1.55.1 未同步徽章的遗漏）。其余 9 条上游版本经 npm / GitHub API 核对无变化。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 13）。
+
 ## 2026-10-23 隐私脱敏（catalog 1.55.1）
 
 - 公开文件去本机环境信息：`README.md` 的 `dsh-ops` 说明删去含本机安装路径的示例命令（保留默认探测位置与 `--dsh-cli "<安装目录>"` 占位用法）；`CHANGELOG.md` 历史条目里的本机盘符路径（本地工作区、DSH 安装目录两类）统一改写为 `<本地工作区>` / `<DSH 安装目录>` 占位符。目录本身不含任何局域网/公网地址与凭据，本次仅去除目录布局类环境信息。catalogVersion `1.55.0` → `1.55.1`。
