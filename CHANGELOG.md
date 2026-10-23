@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-24 dsh-update-checker 0.3.5 → 0.4.0（catalog 1.56.1）
+
+- **`dsh-update-checker` 0.3.5 → 0.4.0**（自维护，[github:daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker)，已 push 到 `main`（`daa077b..539468a`，附注 tag `v0.4.0`，本仓库首个 tag））。两处变更：
+  - **角标提醒覆盖本地落后安装**：`local-behind`（`file:` / `link:` 本地安装、上游已有新版）此前只进设置页列表「有更新」分组、不进侧边栏角标——两类口径不一致；v0.4.0 起与 `update` 一同进入待更新角标与忽略流程（`ACTIONABLE_STATUSES`）。
+  - **链接协议白名单（安全加固）**：Release 正文与仓库链接是上游可控的不可信输入，渲染层新增 `safeHref` 仅放行 `^https?:` 链接，`javascript:` / `data:` 等伪协议降级为纯文本，堵住经由 Release 正文注入可点击危险链接的路径。
+- 测试：`npm test` 全绿（checker 38 / http 19 / integration 21 / md 23 / render 5 / lifecycle 5 / reminder 57（+1）/ scheduler 33）；新增 `safeHref` 单元断言与渲染树级白名单回归。本机 `link:` 安装，需重启 DSH 桌面端生效。
+
 ## 2026-10-24 本机更新 dsh-context 0.75.0 / billion-context 0.1.205（catalog 1.56.0 不变）
 
 - desktop profile 实装跟进同日早间的目录快照（catalog 1.56.0）：当时只同步了目录版本号，本机仍为 0.74.0 / 0.1.204，本次将两者实装到位并核验。
