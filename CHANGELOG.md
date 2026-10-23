@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-24 本机更新 dsh-context 0.75.0 / billion-context 0.1.205（catalog 1.56.0 不变）
+
+- desktop profile 实装跟进同日早间的目录快照（catalog 1.56.0）：当时只同步了目录版本号，本机仍为 0.74.0 / 0.1.204，本次将两者实装到位并核验。
+- **`billion-context` 0.1.204 → 0.1.205**：按上游原生 `bili update` 一步完成——全局 npm 包自动升级，并同步收敛 desktop profile 账本（package.json 依赖、pnpm-lock.yaml specifier/version）与 node_modules 副本原地刷新；上游提示（#2082）新旧进程交接期间 bili 工具可能失败一次，重启 DSH 后恢复。
+- **`dsh-context` 0.74.0 → 0.75.0**：本机无全局 `dsh` 命令，在 profile 目录用 DSH 自带 pnpm 11.28.5 执行等价命令 `add -E dsh-context@0.75.0`；两包发布不足 24h，pnpm 已按提示写入 `minimumReleaseAgeExclude`。**v0.75.0 起仅支持宿主 dsh 0.2.0-rc.2+ / 0.2.1-rc.2+（放弃 0.1.x）**，本机运行时 0.2.1-rc.2 满足。上游要点（补充同日目录条目未覆盖的主线）：新增 Command Executions 面板（Context tab 记录会话每次 shell / code-mode 执行，含 All/Failed/Slow/Background 过滤、KPI 摘要栏与 Programs 排名）；Context 面板入口偏好改为 All / Tab / Sidebar / **Hide** 且 Fleet tab 独立显隐（#194）；修复子代理历史读取被 `session/agent-busy` 拒绝（#193）与折叠浏览器下页面滚动（#187）。
+- 改前 profile `package.json` + `pnpm-lock.yaml` 备份在 `backups/plugin-update-20261024-023124/`；更新后目录快照与实装一致，catalogVersion 维持 1.56.0 不变。两个插件均需**完全重启 DSH 桌面端**后生效（web 侧硬刷新）。
+
 ## 2026-10-24 dsh-pocket 3.0.0 / dsh-context 0.75.0 / billion-context 0.1.205 / dsh-our-free-model 2.5.9（catalog 1.56.0）
 
 - **`dsh-pocket` 2.11.2 → 3.0.0**（自维护 Fork `github:daha1216/dsh-pocket`，**破坏性变更**，已 push 到 Fork `main`（`fdf4820..feea1f1`，附注 tag `v3.0.0`））：移除随机域名（Quick Tunnel）公网入口，公网访问只保留用户自行配置的 Cloudflare 固定域名 + Tunnel Token。要点：`startQuickTunnel` 与随机 URL 解析整体删除，未配置公网时不再下载/启动 cloudflared；设置页公网卡改为「公网配置」表单——未配置只显示自配入口，保存配置不自动开启，开启仍需勾选免责声明；公网 PIN 不再随隧道启停轮换（登录凭据统一标记为可保存的长期密码）；自动恢复收紧为「配置完整才恢复」，旧无 mode 标记与显式 quick 标记一律清除、不回退随机隧道；恢复出厂清空公网配置；CLI `--public` 需先在同一 DSH_HOME 配好固定域名与 Token，未配置拒绝启动。验证：`npm test` 250 个测试、248 通过、0 失败、2 跳过（Windows 跳过 POSIX-only 用例）；新增 `test/public-settings.test.js`（真实设置页组件的 VM 渲染交互测试：未配置不显示二维码/PIN、保存不启动、免责声明门禁、Token 留空不覆盖、恢复出厂回到未配置）；部署树 88 个发行文件与源仓库哈希+硬链双核对 0 差异。`client/client.js` 已重建，冒烟 42 个 effect 通过。**宿主 `lib/` 与客户端 bundle 均有改动，需重启 DSH 桌面端生效**。
