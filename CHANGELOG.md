@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-23 隐私脱敏（catalog 1.55.1）
+
+- 公开文件去本机环境信息：`README.md` 的 `dsh-ops` 说明删去含本机安装路径的示例命令（保留默认探测位置与 `--dsh-cli "<安装目录>"` 占位用法）；`CHANGELOG.md` 历史条目里的本机盘符路径（本地工作区、DSH 安装目录两类）统一改写为 `<本地工作区>` / `<DSH 安装目录>` 占位符。目录本身不含任何局域网/公网地址与凭据，本次仅去除目录布局类环境信息。catalogVersion `1.55.0` → `1.55.1`。
+
 ## 2026-10-23 dsh-client-auto-continue 0.17.0（catalog 1.55.0）
 
 - **`dsh-client-auto-continue` 0.16.0 → 0.17.0**（npm 通道，[HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue)，[v0.17.0](https://github.com/HsiangNianian/dsh-auto-continue/releases/tag/v0.17.0) 于 2026-10-23 09:17 UTC 发布）：
@@ -62,7 +66,7 @@
 - **`dsh-retrace` 0.4.55 → 0.4.56**（自维护仓库 `github:daha1216/dsh-retrace`，[v0.4.56](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.56)）：
   - **会话短码回归纯展示**：此前打开 Retrace / 分叉视图或改名时会把 `[短码] ` 写进会话标题（写 user source title，永久停掉自动标题）。现在短码只用于显示，改名只写名称本身；host 侧所有标题写回路径（`setBadgeTitle` / `initBadgeTitles` / `bootPin` / `ensureBadgeTitle`，以及 `setUserTitle` 的短码拼接）全部删除。
   - **历史标题自动还原**：升级后首次启动经官方 `sessionController.rename` 把旧版本写入的 `[短码] ` 前缀逐条剥掉，写回会话日志与投影缓存；正则只匹配 retrace 短码形态（不误伤 `[ClaudeProtect]` 这类合法方括号标题），失败只告警、下次启动重试，`DSH_RETRACE_NO_BADGE_CLEANUP=1` 可关。还原冷会话时会短暂 resume 一次。
-  - **本机部署**：桌面端运行期间以「仓库文件 → 临时文件 + rename 覆盖」更新 `profiles/desktop/node_modules/dsh-retrace` 的 5 个运行时文件，避开 pnpm 硬链接共享 inode；备份在 `D:\dsh work\.tmp-dsh-internals\backup-desktop-dsh-retrace-0.4.55\`；完整重启桌面端后生效。
+  - **本机部署**：桌面端运行期间以「仓库文件 → 临时文件 + rename 覆盖」更新 `profiles/desktop/node_modules/dsh-retrace` 的 5 个运行时文件，避开 pnpm 硬链接共享 inode；备份在 <本地工作区>\.tmp-dsh-internals\backup-desktop-dsh-retrace-0.4.55\；完整重启桌面端后生效。
 - 目录快照同步：plugins.json 与 README 目录表 `dsh-retrace` `0.4.55`→`0.4.56`；catalogVersion `1.50.0` → `1.50.1`，核对日期 `2026-10-20`。
 - 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
 ## 2026-10-20 dsh-watcher 0.7.0 / dsh-ops 0.4.1（catalog 1.50.0）
@@ -70,7 +74,7 @@
 - **`dsh-watcher` 0.6.3 → 0.7.0**（自维护仓库 `github:daha1216/dsh-watcher`，[v0.7.0](https://github.com/daha1216/dsh-watcher/releases/tag/v0.7.0) 于 2026-10-20 12:49 UTC 发布）：面板改成「状态条 + 用量读数主窗口 + 可折叠执行路径」——44px 状态条只做读数（圆点、状态、实时动作、搜索与视图菜单），不再整行可点；模型 / 上下文 / Token / 估算费用改为标签加数值的网格，耗时区从带边框卡片收成 8px 发丝分布条，告警改发丝行；执行路径回到读数下方独立一行，带已载入轮次 / 步数 / 执行次数，默认收起，收起后面板回到内容高度。时间线行压到 33 / 30 / 26px 单行，只有一条记录且无模型阶段的 Step 直接摊平成记录行。客户端拆成 `src/client/panel/` 模块（`panel-model.ts` 承载纯投影，外壳拆成 `PanelHeader` / `SearchRow` / `ViewMenu` / `PathTimeline` / `TurnSection` / `PhaseSection` / `OccurrenceRow` / `PathToggle`），样式统一走 `--ui-*` 别名层；契约测试新增「组件引用的每个 `css.<name>` 必须在它导入的样式表里有定义」的守卫。修复宽面板阶段行溢出、sticky 轮次头半透明透出内容、窄面板耗时头碰撞。
 - **`dsh-ops` 0.4.0 → 0.4.1**（npm 通道，[v0.4.1](https://github.com/T-Auto/dsh-ops/releases/tag/v0.4.1) 于 2026-10-20 09:15 UTC 发布、npm 12:40 UTC 上架）：`ops_*` 写入时放在目标旁的 `.dsh-ops-update-<sha256>.lock` 不再永久残留——持锁者发布前重新绑定 `(device, inode)`，释放时仍持锁且名字仍指向自己 inode 才 unlink；成功写入、锁后被拒、整目录 `replace` 都不留文件，只有被 SIGKILL 的写者会留一个，并会被下一次同名写入复用后清掉。同时收回三个没进 main 的 0.4.0 提交：`ops_bash` 后台任务因 Cordis 服务每次读取返回新代理、身份比较必然失败而报 `EXECUTOR_UNAVAILABLE` 的修复，凭据拒绝用例的 fixture，以及 release publish job 缺 `checkout` 导致 Release 资产传不上去的修复。
 - 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-watcher` `0.6.3`→`0.7.0`、`dsh-ops` `0.4.0`→`0.4.1`（`install` 钉版同步），catalogVersion `1.49.9` → `1.50.0`，核对日期 `2026-10-20`，README 徽章同步。其余条目经 npm registry / GitHub API 核对无变化（`dsh-better-reasoning-effort` 0.5.4、`billion-context` 0.1.202、`dsh-mnemon` 0.5.33、`@anysearch/anysearch-dsh` 0.1.8、`dsh-client-auto-continue` 0.15.0；`dsh-pocket` HEAD 2.11.2、`dsh-retrace` HEAD 0.4.55、`dsh-update-checker` HEAD 0.3.5、`dsh-skills-manager` v0.3.2；`dsh-our-free-model` 插件 tgz 仍 v2.5.5，`v2.5.6-macos-unofficial` 是 macOS 专用包不计入）。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 12）。
-- 本机状态：`dsh-watcher` 走本地开发路径 `file:D:/dsh work/dsh-watcher`，桌面端 profile 已部署 0.7.0 构建产物；`dsh-ops` 经用户确认已从 0.4.0 升到 0.4.1——按 npm 官方 tarball 的 sha512（`TBG6jsMCrMowoHTBCgOcAZ2p/4GLeJi0Pbpq6irqbCBQNumPmYq1WIACDlEheg9XMQcDOkcnNs7XZgVmU2dkYA==`）校验后手动替换 `node_modules/dsh-ops`（315 个文件，与解包树 `diff -r` 全等），`package.json` 依赖改为 `0.4.1`，用宿主的 `pnpm install --lockfile-only` 对齐 lockfile（integrity 已同步，pnpm 自动把 `dsh-ops@0.4.1` 加入 `minimumReleaseAgeExclude`）；桌面运行中未执行会重建 modules 的安装命令。profile 已备份到 `~/.dsh/profiles/desktop/backups/plugin-update-20261020-213325/`（含 0.4.0 旧树）。**重启 DSH 桌面后加载 0.4.1**；本次修的是更新锁残留，重启前宿主仍是 0.4.0 行为。
+- 本机状态：`dsh-watcher` 走本地开发路径 `file:<本地工作区>/dsh-watcher`，桌面端 profile 已部署 0.7.0 构建产物；`dsh-ops` 经用户确认已从 0.4.0 升到 0.4.1——按 npm 官方 tarball 的 sha512（`TBG6jsMCrMowoHTBCgOcAZ2p/4GLeJi0Pbpq6irqbCBQNumPmYq1WIACDlEheg9XMQcDOkcnNs7XZgVmU2dkYA==`）校验后手动替换 `node_modules/dsh-ops`（315 个文件，与解包树 `diff -r` 全等），`package.json` 依赖改为 `0.4.1`，用宿主的 `pnpm install --lockfile-only` 对齐 lockfile（integrity 已同步，pnpm 自动把 `dsh-ops@0.4.1` 加入 `minimumReleaseAgeExclude`）；桌面运行中未执行会重建 modules 的安装命令。profile 已备份到 `~/.dsh/profiles/desktop/backups/plugin-update-20261020-213325/`（含 0.4.0 旧树）。**重启 DSH 桌面后加载 0.4.1**；本次修的是更新锁残留，重启前宿主仍是 0.4.0 行为。
 
 ## 2026-10-20 dsh-ops 0.4.0（catalog 1.49.9）
 
@@ -133,7 +137,7 @@
 
 ## 2026-10-19 @local/skills-manager 0.3.2（catalog 1.49.2）
 
-本机 desktop profile 以 `link:` 方式加载 `D:\dsh work\skills-manager`，目录快照 `0.3.1` → `0.3.2`。这次是打包修复，没有运行时代码变更。
+本机 desktop profile 以 `link:` 方式加载 `<本地工作区>\skills-manager`，目录快照 `0.3.1` → `0.3.2`。这次是打包修复，没有运行时代码变更。
 
 - **问题**：`package.json` 的 `dsh.bundle.patch` 指向 `./cordis.patch.yml`，但 `files` 白名单遗漏了该文件。GitHub 方式安装（`dsh plugin --profile web add github:daha1216/dsh-skills-manager`）时 pnpm 按 `files` 打包，tarball 里没有 overlay；DSH 启动校验报 `dsh: failed to read overlay ...\cordis.patch.yml: ENOENT`，插件在插件页显示红色「异常」，`settings.section`（id=`skills`）注册不上，设置里没有「技能」页。本地 `link:` / `file:` 安装因为整棵树都在，不受影响。
 - **修复**：合并社区 PR #3（作者 @lanslot4n93r，commit `198a577`），把 `cordis.patch.yml` 加入 `files` 白名单；发布 commit `ea8d4b5`、tag `v0.3.2`、Release https://github.com/daha1216/dsh-skills-manager/releases/tag/v0.3.2 。`npm pack` 产物现为 12 个文件，包含 `cordis.patch.yml`；`node --test "test/*.test.mjs"` 21 项全通过。
@@ -240,7 +244,7 @@
 - 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.195`→`0.1.196`（install 钉版 `@0.1.196`）；catalogVersion `1.44.1` → `1.44.2`，核对日期 `2026-10-14`，README 徽章同步。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 9）。
 ## 2026-10-14 dsh-better-reasoning-effort 升级 0.5.3（catalog 1.44.1）
 
-- 本机 desktop profile `dsh-better-reasoning-effort` `0.5.2` → `0.5.3`（npm 通道，v0.5.3 发布于 2026-10-13 18:04，npm 同步 18:10）。安装源经用户确认由 `github:HaoyueQin/dsh-better-reasoning-effort#v0.5.2` 换为 npm 钉版 `0.5.3`（与目录 install 字段、上游 README 首选通道一致）。流程沿用清洁法（桌面端运行中零 modules 重建）：备份至 `backups/plugin-update-20261014-031700/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.5.3`（发布约 9 小时），宿主 pnpm 11.7.0（`D:\deepseek harness\resources\runtime\pnpm`，经 node 24 直跑 pnpm.mjs）执行 `pnpm install --lockfile-only --registry=https://registry.npmjs.org`（93 条目通过供应链策略校验；锁文件条目由 github tarball 换为 npm `dsh-better-reasoning-effort@0.5.3` + integrity），npm 官方 tarball 经 sha512 与锁文件比对一致后解压替换 `node_modules\dsh-better-reasoning-effort`（预构建产物，无构建审批），旧 0.5.2 目录删除。实装 manifest/lockfile/node_modules 三处齐平 0.5.3；profile 顶层 `cordis.patch.yml` 无该插件相关条目，无需联动。升级后需重启 DSH 桌面端生效。
+- 本机 desktop profile `dsh-better-reasoning-effort` `0.5.2` → `0.5.3`（npm 通道，v0.5.3 发布于 2026-10-13 18:04，npm 同步 18:10）。安装源经用户确认由 `github:HaoyueQin/dsh-better-reasoning-effort#v0.5.2` 换为 npm 钉版 `0.5.3`（与目录 install 字段、上游 README 首选通道一致）。流程沿用清洁法（桌面端运行中零 modules 重建）：备份至 `backups/plugin-update-20261014-031700/`，`pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 豁免联合体追加 `0.5.3`（发布约 9 小时），宿主 pnpm 11.7.0（`<DSH 安装目录>\resources\runtime\pnpm`，经 node 24 直跑 pnpm.mjs）执行 `pnpm install --lockfile-only --registry=https://registry.npmjs.org`（93 条目通过供应链策略校验；锁文件条目由 github tarball 换为 npm `dsh-better-reasoning-effort@0.5.3` + integrity），npm 官方 tarball 经 sha512 与锁文件比对一致后解压替换 `node_modules\dsh-better-reasoning-effort`（预构建产物，无构建审批），旧 0.5.2 目录删除。实装 manifest/lockfile/node_modules 三处齐平 0.5.3；profile 顶层 `cordis.patch.yml` 无该插件相关条目，无需联动。升级后需重启 DSH 桌面端生效。
 - 上游 `v0.5.2...v0.5.3`（20 commits，官方 release 摘要）：
   - 目录模型路由改走官方 `modelOverrides` 存储读写：编辑落成一条模型覆盖项，而不再用 `models` 数组替换整个目录；目录中任一模型的首个覆盖项不再被当作 model-not-found 拒绝。
   - 请求头区域会报告默认档兜底的活动：检查过多少无档位调用、改写了多少、最近一次改写的模型，同一报告由 `/dsh-better-reasoning-effort/headers-config` 提供；移除请求头编辑器与兜底的提案未被采纳，二者保留。
@@ -298,7 +302,7 @@
 
 - 上轮按「目录=本机实装镜像」撤条后，用户指出还有装了没进的——实装差集补齐：desktop profile 9 项依赖 vs 目录 7 条，缺 `dsh-gateway-provider` 与 `@local/skills-manager`。
 - `dsh-gateway-provider` `1.1.1` 首录：仓库本已存在（自建 Fork `daha1216/dsh-gateway-provider`，保留上游 `Luck9Star` 提交史，1.1.1 = 上游 1.1.0 + /v1beta 发现正则修复 + 推理档后缀修复），desktop 实装为 GitHub SHA 钉 `0fcfe57`。入 🧠 模型与推理增强分区，install/update 走无钉 `github:daha1216/dsh-gateway-provider`（与 retrace/watcher 同款）；特殊说明区补 Fork 出处条。
-- `@local/skills-manager` `0.1.0` **首发开源**：原为桌面端会话自研的本地插件（`link:D:/dsh work/skills-manager`，`private:true`、无 git 历史——「没上传」的字面主），本轮按发布流程建仓推送 `github:daha1216/dsh-skills-manager`（main 单分支，初始提交 2790bfd）：package.json 摘 `private`、补 repository/homepage/bugs；README 头部补安装节；新增 MIT LICENSE（2026 daha1216，同 update-checker 款）与 .gitignore；源码零改动（发布前敏感扫描仅命中标准 URL 解析 base）。入 🛠️ 会话管理与效率工具分区；特殊说明区补「本地 link 开发态以本地代码优先」条（同原 font-customizer 惯例）。
+- `@local/skills-manager` `0.1.0` **首发开源**：原为桌面端会话自研的本地插件（`link:<本地工作区>/skills-manager`，`private:true`、无 git 历史——「没上传」的字面主），本轮按发布流程建仓推送 `github:daha1216/dsh-skills-manager`（main 单分支，初始提交 2790bfd）：package.json 摘 `private`、补 repository/homepage/bugs；README 头部补安装节；新增 MIT LICENSE（2026 daha1216，同 update-checker 款）与 .gitignore；源码零改动（发布前敏感扫描仅命中标准 URL 解析 base）。入 🛠️ 会话管理与效率工具分区；特殊说明区补「本地 link 开发态以本地代码优先」条（同原 font-customizer 惯例）。
 - 命名说明：包名保留 scoped `@local/skills-manager` 未改——插件 id 三处硬编码（package.json / index.js `export const name` / cordis.patch.yml），改名需停机窗口联动（profile 依赖键 + pnpm 重链接 + 重启），留待后续；scoped github 安装有 `@xueayi/dsh-opencode-go-usage` 先例可装。catalogVersion `1.42.0` → `1.42.1`（收录类 patch +0.0.1，先例 1.40.5/1.41.0），README 徽章两行同步。改后 `pwsh scripts/verify.ps1` 通过（9 条）。
 
 ## 2026-10-09 精简为本机实装集：撤 5 条未装插件（12→7，catalog 1.42.0）
@@ -352,7 +356,7 @@
 
 ## 2026-10-05 billion-context 升级 0.1.185（追平 npm latest）
 
-- 本机 desktop profile `billion-context` `0.1.184` → `0.1.185`（npm 通道）。又是目录外自更新开场：今晨 1.40.8 轮重建后，18:41 插件自更新（#2095 起 win32 自重启替换可脱离父进程存活）已把 node_modules 推到 0.1.185，manifest/lockfile 仍钉 `0.1.184`。本轮对齐只动清单不动模块：手改 package.json 钉版 + 宿主 pnpm 11.7.0（`D:\deepseek harness
+- 本机 desktop profile `billion-context` `0.1.184` → `0.1.185`（npm 通道）。又是目录外自更新开场：今晨 1.40.8 轮重建后，18:41 插件自更新（#2095 起 win32 自重启替换可脱离父进程存活）已把 node_modules 推到 0.1.185，manifest/lockfile 仍钉 `0.1.184`。本轮对齐只动清单不动模块：手改 package.json 钉版 + 宿主 pnpm 11.7.0（`<DSH 安装目录>
 esources
 untime\pnpm`）`pnpm install --lockfile-only` 重写锁文件（billion 三处条目 0.1.184→0.1.185、integrity 换新，diff 零越界），node_modules 未触碰——规避 1.40.8 轮 `pnpm add` 在桌面端运行中被锁删模块的坑。pnpm 自动并入 `minimumReleaseAgeExclude`（`billion-context@0.1.185`）。备份 `package.json.bak-bili-0105` / `pnpm-lock.yaml.bak-bili-0105`（profile 目录内）。
 - 上游 `v0.1.184...v0.1.185` 变更（摘自官方 release notes，约 30 项择要）：fix(#2095) win32 自重启替换脱离父进程存活；fix 宿主原生 agent 工具转发打 nativeCaller 标（#2072 后续）；feat(PR#2034) dsh 原生压缩开关 `allowDshCompaction`（web 可配）；feat(#2111) pi 原生模式 Codex Responses WebSocket 走 bili；fix Responses WS 背压暂停而非交换失败（PR#2093）；fix 插件 fork 快照 O(1) 稳态维护+惰性持久化（#2077）；cache-ledger 系列（出站 body 稳定性证明 #2131、key-switch 归因 PR#2150、Z3 机检稳定性定理 PR#2159）；fix 冲突台账 active/historical 分拆（#2102）；fix 更新临时路径唯一化终结 cacheDir 竞争（#2106）；fix 状态读取共享溯源感知基线（#2029）；fix 测量态统计被 buildSession 丢弃（#2129）。
