@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-23 dsh-client-auto-continue 0.16.0（catalog 1.54.0）
+
+- **`dsh-client-auto-continue` 0.15.0 → 0.16.0**（npm 通道，[HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue)，[v0.16.0](https://github.com/HsiangNianian/dsh-auto-continue/releases/tag/v0.16.0) 于 2026-10-23 04:28 UTC 发布）：
+  - **每会话独立继续模式**（#67/#68）：消息输入框旁新增会话级控制——Follow default（跟随 profile 默认）/ Off（停止自动续发并退出循环守卫）/ Recovery only（只恢复失败与静默回合）/ Autonomous loop（正常完成后也继续）；选择保存在宿主侧，重启后保留、跨标签页同步；全局「启用自动继续」与「默认会话模式」（初始默认 Recovery only）留在插件设置；切 Off 会取消排队中的宽限/冷却/循环守卫重试但不打断进行中回合，重新打开不会复活已取消的发送；
+  - **设置保存与迁移修复**（#64/#65）：新旧两套设置 API 并存的宿主上不再重复注册导致 `settings/conflict` 拒绝保存；profile 设置成为唯一属主，需要时从 `$DSH_HOME/settings-legacy.yaml` 一次性导入旧 auto-continue 段且不覆盖显式值；导入挂起或失败时自动恢复与循环守卫等待；YAML 诊断不再带出无关设置片段；
+  - **依赖更新**（#66）：DSH 开发包对齐 0.1.2-rc.1、Cordis 4.0.2、Schemastery 3.18.2；仓库新增 CHANGELOG.md，发布工作流从该文件生成 release body；
+  - **兼容性**：在 DSH 0.1.7-rc.2 / 0.2.0-rc.1 / 0.2.1-alpha.1 / 0.2.1-rc.2 上完成回归；上游注明 Windows 桌面端未直接测试、#64 待报告者确认。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-client-auto-continue` `0.15.0`→`0.16.0`（`install` 钉版同步），catalogVersion `1.53.0` → `1.54.0`，核对日期 `2026-10-23`（README 徽章同步）；`update` 维持上游原生写法 `dsh plugin --profile web add dsh-client-auto-continue@latest`。另：`verify.ps1` 的「已安装但目录缺失」排除规则从仅 `link:` 扩到 `file:` 相对路径（解析到 `~/.dsh/plugins` 私有 lane 的本机私有安装，无公开来源，不进公开目录）；绝对路径 `file:` 安装（dsh-pocket、dsh-watcher 等公开插件本地副本）仍参与对账。
+- 本机更新动作：desktop profile 原装 0.15.0（`dsh.profile.bundles` 已含，未改动）；本机无全局 `dsh` CLI，在 profile 目录用 DSH 自带 pnpm 11.28.5 执行等价命令 `add -E dsh-client-auto-continue@0.16.0 --registry=https://registry.npmjs.org`，`node_modules` 实装与 `package.json` 钉版均到 0.16.0（lockfile 供应链校验通过，pnpm 自动将 `dsh-client-auto-continue@0.16.0` 加入 `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude`）；改前 `package.json` + `pnpm-lock.yaml` 备份在 `backups/plugin-update-20261023-143039/`。按上游建议：更新前让进行中工作收尾，更新后完全重启 DSH 桌面端并刷新页面以加载新的会话控制；旧设置保留，合格 legacy 设置自动导入。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
+
 ## 2026-10-22 billion-context 0.1.204（catalog 1.53.0）
 
 - **`billion-context` 0.1.203 → 0.1.204**（npm 通道，[ranxianglei/billion-context](https://github.com/ranxianglei/billion-context)，[v0.1.204](https://github.com/ranxianglei/billion-context/releases/tag/v0.1.204) 于 2026-10-21 18:37 UTC 发布）：

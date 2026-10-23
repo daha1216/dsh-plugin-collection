@@ -55,9 +55,10 @@ if (Test-Path $profilePkg) {
   $deps = (Get-Content -Raw -LiteralPath $profilePkg | ConvertFrom-Json).dependencies
   $installedNames = @($deps.PSObject.Properties.Name)
   $catalogNames   = @($catalog.plugins | ForEach-Object { $_.name })
-  # link: 指向本地目录的插件是本机自研/调试安装，不对外发布，不要求进公开目录
-  $localLink = @($deps.PSObject.Properties | Where-Object { $_.Value -like 'link:*' } | ForEach-Object { $_.Name })
-  $missing = @($installedNames | Where-Object { $_ -notin $catalogNames -and $_ -notlike '@deepseek-ai/*' -and $_ -notin $localLink })
+  # link: 本地目录与 file: 相对路径（解析到 ~/.dsh/plugins 私有 lane）是本机自研/私有安装，
+  # 无公开来源不进目录；绝对路径的 file: 安装（公开插件的本地副本）仍参与对账
+  $localOnly = @($deps.PSObject.Properties | Where-Object { $_.Value -like 'link:*' -or $_.Value -like 'file:..*' } | ForEach-Object { $_.Name })
+  $missing = @($installedNames | Where-Object { $_ -notin $catalogNames -and $_ -notlike '@deepseek-ai/*' -and $_ -notin $localOnly })
   if ($missing.Count) { $errors += "已安装但目录缺失: $($missing -join ', ')" }
   $ghost = @($catalogNames | Where-Object { $_ -notin $installedNames })
   if ($ghost.Count) { $errors += "目录有但本机未装: $($ghost -join ', ')" }
