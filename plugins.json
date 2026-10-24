@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.56.2",
+  "catalogVersion": "1.56.3",
   "updatedAt": "2026-10-24",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -21,7 +21,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "description": "手机扫码同步电脑端 DSH，支持移动端操作",
       "source": "https://github.com/daha1216/dsh-pocket",
       "install": "github:daha1216/dsh-pocket",
@@ -120,10 +120,10 @@
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.75.0",
+      "version": "0.75.1",
       "description": "上下文洞察与管理：跨会话 Context Insights 页面、Context tab / 右侧上下文面板、Fleet 子 Agent 网络页与 /context 命令，查看上下文组成、用量与演变",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "dsh-context@0.75.0",
+      "install": "dsh-context@0.75.1",
       "update": "dsh plugin --profile web update dsh-context@latest"
     }
   ]

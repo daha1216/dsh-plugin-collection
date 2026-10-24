@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-24 dsh-pocket 3.0.1 / dsh-context 0.75.1（catalog 1.56.3）
+
+- **`dsh-pocket` 3.0.0 → 3.0.1**（自维护 Fork `github:daha1216/dsh-pocket`，已 push `main` `feea1f1..6b96092`，附注 tag `v3.0.1`）。两个针对「手机公网加载很慢、对话加载不出来」的修复：
+  - **cloudflared 传输协商**：spawn 参数从硬编码 `--protocol http2` 改为 `--protocol auto`。根因是 TUN/代理网络（如 Clash/Bettbox 劫持到 198.18.0.1）常拦 TCP 7844 而放行 UDP 7844，硬编码 http2 会反复 TLS 超时、注册不上边缘（公网 1033/530 错误），且传输被压到 51KB/s。auto 让 cloudflared 连接预检自选传输，实测 quic 秒注册；UDP 受限的网络仍可回退 http2。
+  - **`session/list` 响应瘦身**：会话列表一次返回全部会话的全部插件投影，1826 个会话实测 40.5MB（压缩后 7MB），隧道单次要 102–124s 且页面加载期被反复调用 7 次以上，会话树全程空转。代理层剥掉五个胖投影字段（`contextHeaders` 12MB、`retrace/forkmap` 8.7MB、`retrace/versions` 3.5MB、`watcherInsights` 2MB、`turnOutline` 6.6MB，合计约 33MB），保留 `contextTimeline` 等小字段，40.5MB → 6.05MB（br 后线上 0.54MB），实测单次 5.3s、会话树完整渲染。桌面 Electron 直连不经过该代理，桌面端零影响；解压或改写失败一律原样透传。
+  - **缓存键带请求体摘要**：瘦身结果的短 TTL 缓存原先只按「路径 + 编码族」做键，同一 TTL 内不同 payload 的列表请求（切换工作区、不同 cwd/cursor）会拿到第一次的响应体——不是「稍旧」，而是把 A 工作区的会话树渲染进 B 工作区且客户端不会自我纠正。现改为只对 `POST /api/session/list` 缓冲请求体（几百字节）并算 sha256 摘要并入缓存键，摘要拿不到（超过 1MB）时不读不写缓存，TTL 由 5s 收紧到 2s 缩小同名列表的陈旧窗口。
+  - 新增 `test/session-list-slim.test.js`（4 条：剥字段保留其余、不同请求体不串台、同请求体命中缓存、非 JSON 响应原样透传）；全量测试 254 项 / 252 通过 / 0 失败 / 2 跳过（Windows 跳过 POSIX-only）。部署树 86 个发行文件与源仓库哈希一致。
+- **`dsh-context` 0.75.0 → 0.75.1**（npm 通道，[v0.75.1](https://github.com/bowenliang123/dsh-context/releases/tag/v0.75.1) 发布于 2026-10-24 06:22 UTC，性能与内存专项）：Insights 页每次更新工作量降 75%（200 会话 32.4ms → 8.2ms，逐会话账本重证 7.5→3.7ms、行构建跳过无子会话的家族合并 14.0→4.2ms、渲染阶段按真实输入记忆化）；Insights 输入保持在一帧内（441 会话每键 0.9–3.4ms）；Context 标签页先绘制后收敛（#198，高度上限改到绘制后测量，打开时不再同步布局全部刚挂载的卡片）；Fleet/agent 成员卡每个成员线上数据少 666 倍（读 1,048 字节的 head-only 详情而非 698,062 字节全量）；宿主侧折叠更省（助手消息打包流一次解码而非三次，−20% 解码、300 消息端到端 −7%）；长日志的 DNA 模式不再预组装整份日志（1,500 步约 82ms → 绘制窗口约 0.4ms，delta 轴遍历 89.8→53.0ms 并记忆化）；**所有页面生命周期缓存都加了上界**（落地消息 128、header epoch 12、Fleet 账本每种 64、每会话详情库 64），此前这些 Map 会随浏览一直增长。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `3.0.0`→`3.0.1`、`dsh-context` `0.75.0`→`0.75.1`（install 钉版同步）；catalogVersion `1.56.2` → `1.56.3`，核对日期 `2026-10-24`，README 徽章同步。其余 11 条上游版本经 npm / GitHub API 核对无变化。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-10-24 本机更新 billion-context 0.1.206（catalog 1.56.2）
 
 - **`billion-context` 0.1.205 → 0.1.206**（npm 通道，[v0.1.206](https://github.com/ranxianglei/billion-context/releases/tag/v0.1.206) 发布于 2026-10-24 04:43 UTC）。上游变更（release 摘要）：修复控制面 system 消息被按普通消息折叠，并补位置合法性兜底（#4457、#4292 家族根修）；修复网关发送空数组 `tool_calls:[]` 时文本流被吞、客户端收到空流（#4466）；CI 引入 patch-train backport 机器人——backport 标签的修复自动合入基于 tag 的 bugfix-release train（#4467/#4468），配套 open patch train 改从 refs 推导（修 GITHUB_TOKEN 下变量 API 403，#4471/#4472）、PR 富回执（#4473）与 ship 时审计（#4474）；修掉 master 两个小红门 unused-exports + lock-sync（#4419）。
