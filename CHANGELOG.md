@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-24 dsh-update-checker 0.4.1（catalog 1.56.4）
+
+- **`dsh-update-checker` 0.4.0 → 0.4.1**（自维护，`github:daha1216/dsh-update-checker`，已 push `main` `539468a..16447a1`，附注 tag `v0.4.1`）。修一处实际漏报：`github:owner/repo` 这类**没有 `#ref`** 的安装，此前只要上游存在 tag 就一律判「跟踪分支」——已装版本明显落后也不提示（实测 dsh-retrace 装 0.4.55、上游已发 v0.4.56，界面只显示跟踪分支，既不算「有更新」也不进角标）。现在改为拿已装版本与最新 tag 排序：落后判「有更新」并带出版本区间，追平或领先判「已是最新」，只有已装版本号本身不可排序（如 `dev`、commit sha）时才保留「跟踪分支」。
+- 测试：integration 新增三个夹具场景（无 ref 落后 → update、无 ref 追平 → latest、版本号不可排序 → branch）并修正分支引用断言，断言 21→24；`npm test` 全绿（checker 38 / http 19 / integration 24 / md 23 / render 5 / lifecycle 5 / reminder 57 / scheduler 33）。
+- 顺带修正本目录 README 徽章：上一提交（`0cbc0cd`）只把 `plugins.json` 的 catalogVersion 提到 1.56.3，徽章仍停在 1.56.2，本次一并同步到 1.56.4。
+- 本机 `link:` 安装，需重启 DSH 桌面端生效。
+
 ## 2026-10-24 dsh-pocket 3.0.1 / dsh-context 0.75.1（catalog 1.56.3）
 
 - **`dsh-pocket` 3.0.0 → 3.0.1**（自维护 Fork `github:daha1216/dsh-pocket`，已 push `main` `feea1f1..6b96092`，附注 tag `v3.0.1`）。两个针对「手机公网加载很慢、对话加载不出来」的修复：
