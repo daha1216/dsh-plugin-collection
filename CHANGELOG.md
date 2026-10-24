@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-24 本机更新 billion-context 0.1.206（catalog 1.56.2）
+
+- **`billion-context` 0.1.205 → 0.1.206**（npm 通道，[v0.1.206](https://github.com/ranxianglei/billion-context/releases/tag/v0.1.206) 发布于 2026-10-24 04:43 UTC）。上游变更（release 摘要）：修复控制面 system 消息被按普通消息折叠，并补位置合法性兜底（#4457、#4292 家族根修）；修复网关发送空数组 `tool_calls:[]` 时文本流被吞、客户端收到空流（#4466）；CI 引入 patch-train backport 机器人——backport 标签的修复自动合入基于 tag 的 bugfix-release train（#4467/#4468），配套 open patch train 改从 refs 推导（修 GITHUB_TOKEN 下变量 API 403，#4471/#4472）、PR 富回执（#4473）与 ship 时审计（#4474）；修掉 master 两个小红门 unused-exports + lock-sync（#4419）。
+- 本机更新动作：原生 `bili update` 一步升级全局 npm 包并刷新 desktop profile 账本与 node_modules 副本；但 bili 对 `pnpm-lock.yaml` 只改写 importer 段（specifier/version），packages/snapshots 段仍钉 0.1.205（混合态），随后在 profile 目录用 DSH 自带 pnpm 11.28.5 执行 `install --lockfile-only --registry=https://registry.npmjs.org` 完成收敛：155 条目通过供应链策略校验，diff 仅 billion-context 三处（specifier/version、integrity 换新、snapshots 条目），零 0.1.205 残留；pnpm 自动将 `billion-context@0.1.206` 并入 `minimumReleaseAgeExclude` 联合体。改前 `package.json` + `pnpm-lock.yaml` 备份在 `backups/plugin-update-20261024-132441/`。实装全局 CLI / manifest / lockfile / node_modules 四处齐平 0.1.206。**重启 DSH 桌面端后加载新插件与代理**（新旧进程交接期间 bili 工具可能失败一次，#2082）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `billion-context` `0.1.205`→`0.1.206`（`install` 钉版同步），catalogVersion `1.56.1` → `1.56.2`，核对日期 `2026-10-24`（README 徽章同步）；`update` 维持上游原生写法 `bili update`。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（条目 13）。
+
 ## 2026-10-24 dsh-update-checker 0.3.5 → 0.4.0（catalog 1.56.1）
 
 - **`dsh-update-checker` 0.3.5 → 0.4.0**（自维护，[github:daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker)，已 push 到 `main`（`daa077b..539468a`，附注 tag `v0.4.0`，本仓库首个 tag））。两处变更：
