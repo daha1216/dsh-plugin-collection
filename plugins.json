@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.56.6",
+  "catalogVersion": "1.56.7",
   "updatedAt": "2026-10-25",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -39,10 +39,10 @@
     {
       "id": "billion-context",
       "name": "billion-context",
-      "version": "0.1.206",
+      "version": "0.1.208",
       "description": "动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，token 节省约 5 倍",
       "source": "https://github.com/ranxianglei/billion-context",
-      "install": "billion-context@0.1.206",
+      "install": "billion-context@0.1.208",
       "update": "bili update"
     },
     {
@@ -57,16 +57,16 @@
     {
       "id": "dsh-our-free-model",
       "name": "dsh-our-free-model",
-      "version": "2.5.9",
+      "version": "2.7.1",
       "description": "免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，另有十三个账号渠道、数据看板与本地网关",
       "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
-      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.9/dsh-our-free-model-2.5.9.tgz",
-      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.5.9/dsh-our-free-model-2.5.9.tgz"
+      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.7.1/dsh-our-free-model-2.7.1.tgz",
+      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.7.1/dsh-our-free-model-2.7.1.tgz"
     },
     {
       "id": "dsh-retrace",
       "name": "dsh-retrace",
-      "version": "0.4.56",
+      "version": "0.4.77",
       "description": "消息撤回、编辑重发与重新生成，同步回退修改过的文件",
       "source": "https://github.com/daha1216/dsh-retrace",
       "install": "github:daha1216/dsh-retrace",
@@ -75,7 +75,7 @@
     {
       "id": "dsh-watcher",
       "name": "dsh-watcher",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "description": "会话工作路径观测面板 · 跨会话模型耗时与费用统计",
       "source": "https://github.com/daha1216/dsh-watcher",
       "install": "github:daha1216/dsh-watcher",
@@ -84,7 +84,7 @@
     {
       "id": "dsh-update-checker",
       "name": "dsh-update-checker",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "description": "一键检查已装插件的上游更新（只检查不更新），展示更新内容",
       "source": "https://github.com/daha1216/dsh-update-checker",
       "install": "github:daha1216/dsh-update-checker",
@@ -93,7 +93,7 @@
     {
       "id": "skills-manager",
       "name": "@local/skills-manager",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "description": "在设置页新增「技能」管理页：列出 / 查看 / 新建 / 编辑 / 删除本地技能，切换模型调用与用户调用策略，一键打开技能目录",
       "source": "https://github.com/daha1216/dsh-skills-manager",
       "install": "github:daha1216/dsh-skills-manager",

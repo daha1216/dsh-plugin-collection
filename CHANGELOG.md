@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-10-25 快照刷新六个上游版本 + 补发两个 Release（catalog 1.56.7）
+
+- 本次只刷新目录快照，**未改动本机实装**；实装与快照的差异见文末「待办」。
+- **`dsh-watcher` 0.7.0 → 0.7.1**（自维护，`github:daha1216/dsh-watcher`）。tag `v0.7.1`（`5821d4c`）此前没有对应 GitHub Release，本次补建并设为 Latest（[v0.7.1](https://github.com/daha1216/dsh-watcher/releases/tag/v0.7.1)）。该版本是纯文档版本：`engines` 仍只有 node，`peerDependencies` 的 DSH 范围不变（`>=0.1.7-rc.1 <0.1.8 || ^0.2.0-rc.1`），两份 README 把运行时要求改写为「需要 0.2.x，在 0.2.1-rc.3 上核对通过」并写明 0.3.0 及以上会被插件管理器以 `incompatible-version` 拒绝。
+- **`@local/skills-manager` 0.3.2 → 0.3.3**（自维护）。tag `v0.3.3`（`1bdb764`）此前同样只有 tag 没有 Release，本次补建并设为 Latest（[v0.3.3](https://github.com/daha1216/dsh-skills-manager/releases/tag/v0.3.3)）。`package.json` 新增 `engines.dsh: ^0.2.0-rc.1`（DSH 0.2.0-rc.1 及以上、0.3.0 之前），范围外的运行时由插件管理器直接拒绝并报 `incompatible-version`，可用 `dsh plugin allow-version` 一次性豁免；两份 README 补了对应「兼容性」说明段。
+- **`dsh-retrace` 0.4.56 → 0.4.77**（上游 [v0.4.77](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.77)，2026-10-25 12:38 UTC）。
+- **`dsh-update-checker` 0.4.1 → 0.4.2**（自维护，[v0.4.2](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.4.2)，2026-10-25 13:04 UTC）。
+- **`billion-context` 0.1.206 → 0.1.208**（npm 通道，`install` 钉版同步为 `billion-context@0.1.208`；`update` 维持原生 `bili update`）。
+- **`dsh-our-free-model` 2.5.9 → 2.7.1**（上游 [v2.7.1](https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/tag/v2.7.1) 资产 `dsh-our-free-model-2.7.1.tgz`，`install` / `update` 两条命令里的 tgz 地址同步到 2.7.1）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表上述六条版本号、`billion-context` 的 `install` 钉版、`dsh-our-free-model` 的 `install`/`update` tgz 地址；catalogVersion `1.56.6` → `1.56.7`，核对日期 `2026-10-25`，README 徽章同步。
+- 核对：`gh api .../releases/latest` 与 `npm view billion-context version` 逐条确认上游最新版本；改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（13 条，README 两表与 `plugins.json` 对齐、实装插件名全覆盖；该脚本不比对实装版本号，版本落后项见下条待办）。
+- 待办（本次未动实装）：本机 `dsh-watcher` 仍是 0.7.0、`billion-context` 0.1.206、`dsh-our-free-model` 2.5.5，需要时再按各自原生命令升级并重启 DSH 桌面端。
+
 ## 2026-10-25 本机更新 dsh-context 0.76.0（catalog 1.56.6）
 
 - **`dsh-context` 0.75.0 → 0.76.0**（npm 通道，[v0.76.0](https://github.com/bowenliang123/dsh-context/releases/tag/v0.76.0) 发布于 2026-10-25 06:51 UTC）。上游变更：**Context Stats 卡片重做成四栏会话账本**——顶部是整场会话的 KPI 行（轮次 / 步骤 / skill 加载 / 回答），下面配按类型过滤的 Context Events 筛选器；左列 Input/Output 与 Command Executions，右列 Tool Calls 与 Fleet 成本名册，每个 chip 都可跳转（I/O 跳到浏览器分类与 File Activity，工具跳到对应 tool-result 行，命令程序跳到 Command Executions 并预置该程序）。**Command Executions 的程序排行改为全局且可点击**。命令文本改用 harness 自带的 shiki 高亮器着色。网关模型价格改经 canonical makers 解析；补一轮浅色模式层级梳理，并修掉 DNA 模式的性能问题。
