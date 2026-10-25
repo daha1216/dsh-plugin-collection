@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.56.4-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.56.5-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-13%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -46,7 +46,7 @@
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-pocket` | 3.0.1 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
+| `dsh-pocket` | 3.0.2 | 手机扫码同步电脑端 DSH，支持移动端操作 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
 
 ---
 
@@ -108,7 +108,7 @@ bash install.sh --all
 | 插件名称 | 更新命令（来自各插件 README） |
 |---|---|
 | `dsh-better-reasoning-effort` | `dsh plugin --profile web add dsh-better-reasoning-effort` |
-| `dsh-pocket` | `dsh plugin --profile web update dsh-pocket --latest -w` |
+| `dsh-pocket` | `dsh plugin --profile web add github:daha1216/dsh-pocket -w` |
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context` | `bili update` |
 | `dsh-mnemon` | `dsh plugin --profile web add dsh-mnemon` |
@@ -127,7 +127,7 @@ bash install.sh --all
 
 ### 1. 更新机制与命令规范
 - **重跑 `add` 即更新**：多数插件上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取该来源的最新版本。
-- **原生自更新命令**：`billion-context` 用 `bili update`（上游 README 的 Self-update 与命令行示例），`dsh-ops` 用 `npx --yes dsh-ops@latest install --profile web`，`anysearch-dsh`、`dsh-pocket`、`dsh-context` 用原生 `update` 动词（`dsh-context` 为 `dsh plugin --profile web update dsh-context@latest`）。
+- **原生自更新命令**：`billion-context` 用 `bili update`（上游 README 的 Self-update 与命令行示例），`dsh-ops` 用 `npx --yes dsh-ops@latest install --profile web`，`anysearch-dsh` 用原生 `update` 动词，`dsh-context` 用 `dsh plugin --profile web update dsh-context@latest`，`dsh-pocket` 自 3.0.2 起改为重跑 `add`（上游 README 已删掉 `update --latest` 的说法）。
 - **`billion-context` 更新须知**：
   - `bili update` 是全局 CLI 命令（`npm install -g billion-context`），它同时驱动 dsh profile 副本这条 lane；本机没有全局 `bili` 时，用 `dsh plugin --profile web add billion-context` 重装到最新版即可，效果相同。
   - 自动更新是**错峰**的（#3619）：发现新版本后要在 15 分钟–48 小时的随机窗口里抽一个时刻才安装（抽中的时刻会持久化，重启不重抽），所以「刚发布没马上升级」是正常现象；手动 `bili update` 绕过 hold 与错峰，但仍遵守 `blocked` / `pinned`，Web 面板会显示 hold/pinned 横幅。
@@ -147,7 +147,7 @@ bash install.sh --all
 ### 4. 特殊插件与自维护 Fork
 - **`dsh-pocket`**：
   - 本条目指向安全加固版 Fork（`github:daha1216/dsh-pocket`），非上游原仓库。
-  - 更新时必须保留 `-w` 参数（解决 pnpm workspace 根目录限制）；跨大版本升级时 `--latest` 必选。
+  - 更新方式为重跑同一条 `add` 命令（GitHub 地址不带 tag 时装默认分支最新提交），必须保留 `-w` 参数（解决 pnpm workspace 根目录限制）；要锁版本写成 `github:daha1216/dsh-pocket#vX.Y.Z`。
   - **3.0.0 起为破坏性变更**：移除随机域名（Quick Tunnel）公网，公网访问需要用户自行配置 Cloudflare 固定域名与 Tunnel Token（设置 → 手机访问 → 公网配置）；局域网扫码不受影响。2.x 升级后旧随机隧道的自动恢复标记会被安全清除。
 - **`dsh-retrace`**：
   - 上游原生命令为 npm 通道 `dsh plugin --profile web add dsh-retrace`。

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-25 dsh-pocket 3.0.2（catalog 1.56.5）
+
+- **`dsh-pocket` 3.0.1 → 3.0.2**（自维护 Fork `github:daha1216/dsh-pocket`）。tag `v3.0.2`（`4c42dbd`）原本已存在但**没有对应的 GitHub Release**，导致 Releases 页面仍把 v3.0.1 标为 Latest，而更新巡检器读 tag/分支 `package.json` 后提示 3.0.2——两边口径不一致。本次补建 Release 并设为 Latest，同时同步本目录。
+- 该版本无功能代码改动，共两个提交、4 个文件：① `.releaserc.cjs` 把 `@semantic-release/npm` 改为 `npmPublish: false`（fork 不拥有 npm 上的 `dsh-pocket` 包名，发版只做版本号、CHANGELOG 与 GitHub Release）；② `package.json` 新增 `engines.dsh: ^0.2.0-rc.1`，两份 README 把安装命令改为 `github:daha1216/dsh-pocket` 并说明 npm 同名包是上游 2.12.0。
+- **更新命令字段改写**：原为 `dsh plugin --profile web update dsh-pocket --latest -w`（按 npm 包名解析，实际会指向上游 2.12.0），现改为上游 README 的原生说法 `dsh plugin --profile web add github:daha1216/dsh-pocket -w`（重跑 `add` 即更新，锁版本用 `#vX.Y.Z`）。README 的「原生自更新命令」说明与 dsh-pocket 专项段落同步改写。
+
 ## 2026-10-24 dsh-update-checker 0.4.1（catalog 1.56.4）
 
 - **`dsh-update-checker` 0.4.0 → 0.4.1**（自维护，`github:daha1216/dsh-update-checker`，已 push `main` `539468a..16447a1`，附注 tag `v0.4.1`）。修一处实际漏报：`github:owner/repo` 这类**没有 `#ref`** 的安装，此前只要上游存在 tag 就一律判「跟踪分支」——已装版本明显落后也不提示（实测 dsh-retrace 装 0.4.55、上游已发 v0.4.56，界面只显示跟踪分支，既不算「有更新」也不进角标）。现在改为拿已装版本与最新 tag 排序：落后判「有更新」并带出版本区间，追平或领先判「已是最新」，只有已装版本号本身不可排序（如 `dev`、commit sha）时才保留「跟踪分支」。
