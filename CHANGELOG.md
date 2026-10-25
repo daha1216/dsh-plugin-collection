@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-25 dsh-update-checker 0.4.3（catalog 1.56.8）
+
+- **`dsh-update-checker` 0.4.2 → 0.4.3**（自维护，[github:daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker)，已 push `main` `6a3dc27..9ab55f9`，附注 tag `v0.4.3`，已建 GitHub Release）。三个「立即检查」按钮的可用性修复：
+  - 手动点击（弹层与设置页）带 `force: true`，跳过 90 秒新鲜窗口，连点也会真的重新扫描，不再静默复用缓存；
+  - 检查中显示已用秒数，结束后状态行提示「刚刚已检查」或「上次检查：x 分钟前」，失败与超时各有独立文案；
+  - `busy` 一定复位——原先 `reload` 抛错会让按钮永久卡在禁用态，现在异常路径也复位，并加 90 秒看门狗兜底。
+- 同批包含社区贡献（[@qiao-obs](https://github.com/qiao-obs)，PR #4）：`test/md.test.mjs` 去掉作者本机绝对路径，cordis 解析抽到 `test/cordis-path.mjs`（`DSH_CORDIS_PATH` → 模块解析 → 显式 SKIP 三级降级）。维护者补充：`@deepseek-ai/cordis` 加为 devDependency，否则全新克隆里 lifecycle 与 reminder-scheduler 两个套件会一直是 SKIP；新增 `test/reminder-panel.test.mjs`（16 项断言）。
+- 验证：`npm test` 九个套件全绿（checker 38 / http 19 / integration 24 / md 23 / render-harness / lifecycle 5 / reminder 57 / reminder-panel 16 / scheduler 33）。
+- 本机 `link:` 安装，需重启 DSH 桌面端生效。
+
 ## 2026-10-25 快照刷新六个上游版本 + 补发两个 Release（catalog 1.56.7）
 
 - 本次只刷新目录快照，**未改动本机实装**；实装与快照的差异见文末「待办」。
