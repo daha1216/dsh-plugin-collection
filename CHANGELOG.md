@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-25 本机更新 dsh-context 0.76.0（catalog 1.56.6）
+
+- **`dsh-context` 0.75.0 → 0.76.0**（npm 通道，[v0.76.0](https://github.com/bowenliang123/dsh-context/releases/tag/v0.76.0) 发布于 2026-10-25 06:51 UTC）。上游变更：**Context Stats 卡片重做成四栏会话账本**——顶部是整场会话的 KPI 行（轮次 / 步骤 / skill 加载 / 回答），下面配按类型过滤的 Context Events 筛选器；左列 Input/Output 与 Command Executions，右列 Tool Calls 与 Fleet 成本名册，每个 chip 都可跳转（I/O 跳到浏览器分类与 File Activity，工具跳到对应 tool-result 行，命令程序跳到 Command Executions 并预置该程序）。**Command Executions 的程序排行改为全局且可点击**。命令文本改用 harness 自带的 shiki 高亮器着色。网关模型价格改经 canonical makers 解析；补一轮浅色模式层级梳理，并修掉 DNA 模式的性能问题。
+- 本机更新动作：先用上游原生写法 `dsh plugin --profile desktop update dsh-context@latest` 升级，pnpm 11 的发布年龄策略（minimumReleaseAge，24 小时）把 `@latest` 解析到 0.75.1 而非当天刚发的 0.76.0；随后按显式钉版本 `add dsh-context@0.76.0` 一步到位，pnpm 自动把 `dsh-context@0.76.0` 写入 profile 的 `pnpm-workspace.yaml` → `minimumReleaseAgeExclude`（显式钉版是 pnpm 设计内的放行方式，不是绕过）。改前 `package.json` + `pnpm-lock.yaml` 备份在 `backups/plugin-update-dsh-context-20261025-191831/`。实装核对：profile `package.json` 与 `pnpm-lock.yaml` 均为 0.76.0、`0.75.1` 零残留，`node_modules/dsh-context` 版本 0.76.0 且 `lib/` 三个入口文件齐全，`engines.dsh` 要求 `>=0.2.0-rc.2 || >=0.2.1-rc.2`（本机 0.2.1-rc.3 满足）。**需重启 DSH 桌面端生效。**
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-context` `0.75.1`→`0.76.0`（`install` 钉版同步为 `dsh-context@0.76.0`），catalogVersion `1.56.5` → `1.56.6`，核对日期 `2026-10-25`，README 徽章同步；`update` 字段维持上游原生写法 `dsh plugin --profile web update dsh-context@latest`。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过（13 条，README 与实装一致）。
+
 ## 2026-10-25 dsh-pocket 3.0.2（catalog 1.56.5）
 
 - **`dsh-pocket` 3.0.1 → 3.0.2**（自维护 Fork `github:daha1216/dsh-pocket`）。tag `v3.0.2`（`4c42dbd`）原本已存在但**没有对应的 GitHub Release**，导致 Releases 页面仍把 v3.0.1 标为 Latest，而更新巡检器读 tag/分支 `package.json` 后提示 3.0.2——两边口径不一致。本次补建 Release 并设为 Latest，同时同步本目录。

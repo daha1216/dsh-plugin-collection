@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.56.5",
+  "catalogVersion": "1.56.6",
   "updatedAt": "2026-10-25",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -120,10 +120,10 @@
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.75.1",
+      "version": "0.76.0",
       "description": "上下文洞察与管理：跨会话 Context Insights 页面、Context tab / 右侧上下文面板、Fleet 子 Agent 网络页与 /context 命令，查看上下文组成、用量与演变",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "dsh-context@0.75.1",
+      "install": "dsh-context@0.76.0",
       "update": "dsh plugin --profile web update dsh-context@latest"
     }
   ]
