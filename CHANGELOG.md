@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-26 dsh-pocket 3.0.2 / dsh-context 0.77.0 更新 + 卸载 dsh-watcher（catalog 1.56.9）
+
+- **`dsh-pocket` 3.0.1 → 3.0.2**（自维护 Fork `github:daha1216/dsh-pocket`，[v3.0.2](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.2)）。本机依赖来源从本地副本 `file:C:/dsh/dsh-pocket-pure` 切换为 GitHub 通道——即上游 v3.0.2 README 规定的更新方式（重跑 `add github:daha1216/dsh-pocket`，npm 同名包是上游作者的 2.12.0，不可用）。该版本无功能代码改动：`package.json` 新增 `engines.dsh: ^0.2.0-rc.1`（本机 0.2.1-rc.3 满足）、README 安装命令改指 GitHub 通道、semantic-release 关闭 npm 发布步骤（`npmPublish: false`）。升级不需要调整任何配置；本地 `C:/dsh/dsh-pocket-pure` 副本保留未删。
+- **`dsh-context` 0.76.0 → 0.77.0**（npm 通道，[v0.77.0](https://github.com/bowenliang123/dsh-context/releases/tag/v0.77.0) 发布于 2026-10-25 16:50 UTC）。上游变更：**Fleet 页 Agent Comms 重建为自动频道驾驶舱**——流量直接读家族会话日志（手动扫描/刷新步骤取消），中继、邮箱投递与结算通知按对话对分组，点开消息内联展开完整记录（收件日志、结算报告、结构化结果、诊断尾部）；长会话切 Context tab 从 4.97s 降到 0.44s；关闭的 `/context` 弹层不再读会话详情（去掉每次聊天页加载 560KB–1MB 的空闲详情拉取）；Fleet 任务列表表头吸顶与任务卡高度上限修复。pnpm 11 的 minimumReleaseAge 仍把 `@latest` 解析压在 0.76.0，按 2026-10-25 同款做法在 profile `pnpm-workspace.yaml` 的 `dsh-context` 豁免行追加 `0.77.0` 后显式钉版安装（显式钉版是 pnpm 设计内的放行方式）。
+- **卸载 `dsh-watcher`**（应用户要求，本机曾装 0.7.0 本地源 `file:D:/dsh work/dsh-watcher`）。`pnpm remove dsh-watcher` 移除依赖并清出 node_modules，`dsh.profile.bundles` 数组同步移除该条；源码仓库 `D:/dsh work/dsh-watcher` 保留未动。目录条目与 README 两表同步删除。
+- **`billion-context` 0.1.206 → 0.1.208**（顺带）：profile manifest 钉着 `0.1.208` 而锁文件停在 0.1.206，本次 `pnpm add` 重解析后自动对齐，pnpm 并把 `billion-context@0.1.208` 追加进 minimumReleaseAgeExclude。catalog 1.56.7 条目里「billion-context 待升级」的待办就此清掉。
+- 操作记录：改前 `package.json` + `pnpm-lock.yaml` 备份在 `backups/plugin-update-20261026-032455/`；全程用 DSH 桌面端自带 pnpm 11.28.5（`resources/runtime/primary-runtime/dependencies/pnpm`）。实装核对：`node_modules/dsh-pocket` 3.0.2、`node_modules/dsh-context` 0.77.0、`node_modules/dsh-watcher` 已不存在，profile 依赖 14 项 / bundles 18 项，`engines.dsh` 要求均满足。**需重启 DSH 桌面端生效。**
+- 目录快照同步：`plugins.json` 与 `README.md` 删 `dsh-watcher` 条目、`dsh-context` 版本与 `install` 钉版改 0.77.0（`dsh-pocket` 目录快照已是 3.0.2 无需变），catalogVersion `1.56.8` → `1.56.9`，核对日期 `2026-10-26`，README 徽章同步（13 → 12）。改后跑 `pwsh scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-10-25 dsh-update-checker 0.4.3（catalog 1.56.8）
 
 - **`dsh-update-checker` 0.4.2 → 0.4.3**（自维护，[github:daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker)，已 push `main` `6a3dc27..9ab55f9`，附注 tag `v0.4.3`，已建 GitHub Release）。三个「立即检查」按钮的可用性修复：

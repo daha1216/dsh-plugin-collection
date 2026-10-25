@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.56.8",
-  "updatedAt": "2026-10-25",
+  "catalogVersion": "1.56.9",
+  "updatedAt": "2026-10-26",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -73,15 +73,6 @@
       "update": "dsh plugin --profile web add dsh-retrace"
     },
     {
-      "id": "dsh-watcher",
-      "name": "dsh-watcher",
-      "version": "0.7.1",
-      "description": "会话工作路径观测面板 · 跨会话模型耗时与费用统计",
-      "source": "https://github.com/daha1216/dsh-watcher",
-      "install": "github:daha1216/dsh-watcher",
-      "update": "dsh plugin --profile web add github:daha1216/dsh-watcher"
-    },
-    {
       "id": "dsh-update-checker",
       "name": "dsh-update-checker",
       "version": "0.4.3",
@@ -120,10 +111,10 @@
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.76.0",
+      "version": "0.77.0",
       "description": "上下文洞察与管理：跨会话 Context Insights 页面、Context tab / 右侧上下文面板、Fleet 子 Agent 网络页与 /context 命令，查看上下文组成、用量与演变",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "dsh-context@0.76.0",
+      "install": "dsh-context@0.77.0",
       "update": "dsh plugin --profile web update dsh-context@latest"
     }
   ]
