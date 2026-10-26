@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.56.13",
+  "catalogVersion": "1.56.14",
   "updatedAt": "2026-10-27",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -116,6 +116,15 @@
       "source": "https://github.com/bowenliang123/dsh-context",
       "install": "dsh-context@0.77.0",
       "update": "dsh plugin --profile web update dsh-context@latest"
+    },
+    {
+      "id": "dsh-desktop-notify-win",
+      "name": "dsh-desktop-notify-win",
+      "version": "0.4.0",
+      "description": "Windows 桌面通知：会话空闲、待审批、提问与出错时弹系统通知，带设置页、实时预览与预设",
+      "source": "https://github.com/xiaotie3088/dsh-desktop-notify-win",
+      "install": "github:xiaotie3088/dsh-desktop-notify-win",
+      "update": "dsh plugin --profile web add github:xiaotie3088/dsh-desktop-notify-win"
     }
   ]
 }

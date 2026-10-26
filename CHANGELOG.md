@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-27 目录新增 dsh-desktop-notify-win（Windows 桌面通知，catalog 1.56.14）
+
+- **新增 `dsh-desktop-notify-win` 0.4.0**（第三方，作者 xiaotie3088，`github:xiaotie3088/dsh-desktop-notify-win`）：会话空闲、待审批、提问与出错时弹 Windows 系统通知；沙箱提权、工具授权与插件管理提权同样会通知。自带设置页、实时预览与预设，中英双语 locale，客户端 `immediately` 注入设置页。
+- 底线对齐：此前 `scripts/verify.ps1` 一直报「已安装但目录缺失: dsh-desktop-notify-win」——本机装了但目录里没有，账不平。这次正式收进目录，条目数 12 → 13。
+- 版本取上游 `main` 的 `package.json`（该仓库没有打 tag），与当前安装版本一致，均为 `0.4.0`。
+- 目录快照同步：`plugins.json` 追加条目；`README.md` 目录表「界面体验与多端协同」加一行、更新命令表加一行、Plugins Count 徽章 `12` → `13`；catalogVersion `1.56.13` → `1.56.14`，核对日期 `2026-10-27`。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
+
 ## 2026-10-27 dsh-update-checker 0.7.1 侧栏入口不再挤掉同行插件（catalog 1.56.13）
 
 - **`dsh-update-checker` 0.6.0 → 0.7.1**（自维护仓库 `github:daha1216/dsh-update-checker`，[v0.7.1](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.7.1)）：侧栏底部是多个插件共用的 flex 行，本插件的提醒入口写死 `width: 100%` 且 `flex: none`——同一行只要还有别的入口（例如 dsh-purge 的状态点），空间就被全额占走，对方被压成几像素宽、基本看不见。改为 `flex: 1 1 0%; min-width: 0`：有空间就铺开，没空间就自己收，标题过长交给既有的省略号；折叠态（只剩图标那条 36px 轨道）显式 `flex: 0 0 36px`，宽度与改动前一致。
