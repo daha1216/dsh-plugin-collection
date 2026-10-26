@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-26 dsh-update-checker 0.6.0 一键更新改为新建对话只填不发（catalog 1.56.11）
+
+- **`dsh-update-checker` 0.5.0 → 0.6.0**（自维护仓库 `github:daha1216/dsh-update-checker`，[v0.6.0](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.6.0)）。行为变更：点「一键更新」不再把清单塞进当前会话并**直接发送**，而是**新建一个对话**、把清单填进它的输入框、**不发送**——发送时机交还用户。
+- 草稿填的是新会话的输入框，不污染正在进行的对话；新会话 composer 异步挂载，插件等它就绪再填（最长 10 秒），等待期间不会退而填到旧会话。降级链：新会话创建失败 → 填当前输入框；连输入框都没有 → 复制到剪贴板。
+- 实现：新增 `draftInNewSession`（订阅 `uiSession.adapter.current`，等主绑定切到新会话且 `inputActions` 就绪后 `setDraft`），移除原先的 `sendComposerText`（`setDraft` + `submit`）——批量路径现在没有任何地方能碰到 `submit`。
+- 测试：`test/batch-update.test.mjs` 重写为 43 项断言，新增「会新建会话」「草稿不落到旧会话」「新会话无 composer 时不乱填」「无 workspace 服务时回退当前输入框」「批量路径绝不调用 submit」「旧 API 已移除」等回归。九个套件全绿（checker 38 / http 19 / integration 24 / md 23 / render-harness 5 / lifecycle 5 / reminder 57 / reminder-panel 16 / batch-update 43 / scheduler 33）。
+- 目录快照同步：`plugins.json` 的 `dsh-update-checker` 版本 0.5.0 → 0.6.0、描述改为「可把更新清单填进新对话交给 AI 执行」，catalogVersion `1.56.10` → `1.56.11`，核对日期 2026-10-26，README 徽章与目录表同步（条目数仍 12）。客户端 bundle 由宿主按需读取，刷新页面即可生效，无需重启。
 ## 2026-10-26 dsh-update-checker 0.5.0 一键更新（catalog 1.56.10）
 
 - **`dsh-update-checker` 0.4.3 → 0.5.0**（自维护仓库 `github:daha1216/dsh-update-checker`，[v0.5.0](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.5.0)）。新增**一键更新**：检测到多个可更新插件时，侧边栏气泡底部与设置页头部出现「一键更新」按钮，点击后把整份待更新清单整理成一条提示词并**直接发送**给当前会话的 AI。
