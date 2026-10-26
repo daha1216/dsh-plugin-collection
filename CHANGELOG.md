@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-27 dsh-pocket 3.0.3（全面审查后的稳定性 / 供应链 / 移动端修复，catalog 1.56.12）
+
+- **`dsh-pocket` 3.0.2 → 3.0.3**（自维护仓库 `github:daha1216/dsh-pocket`，[v3.0.3](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.3)）：全量审查（架构 / 性能 / 稳定性 / 体验）后的修复版，改动 25 个文件、+1295/−124，测试从 254 增至 273（271 通过 / 0 失败 / 2 项平台跳过）。
+  - **稳定性**：服务层引入卸载门与代理世代号，`dispose()` 后在途的 `createProxy` 落地会自行关闭，不再留下插件卸载后仍在监听的端口；`startTunnel` 提前创建 `AbortController`，代理启动窗口内点「关闭公网」能真正取消；隧道 `onExit` 改为按对象身份比对，上一代 cloudflared 的迟到退出不再把刚起来的隧道从状态里抹掉；删除会话在 payload 改名或目录搬迁半途失败时逆序回滚，「删除失败」不再等于会话凭空消失。
+  - **供应链**：cloudflared 下载改为比对 GitHub Release 资产的 sha256 digest（当前 release 26/26 资产都带该字段），镜像投毒或中间人可被识别并丢弃；API 不可达时降级为尺寸校验但显式告警。
+  - **代理正确性**：WebSocket 心跳只在帧边界插入 Ping，控制帧不再落进大消息 payload 触发浏览器 1002 断开；206 分片响应不再套 `Content-Encoding`；带失效 cookie 走 `?token=` 时正确换发；`session/list` 瘦身缓存加条目与字节预算，缓存键去掉 rpcId 并在命中时回填当前 rpcId。
+  - **RPC / 持久化**：`fileRead` 相对路径按会话 `header.cwd` 解析（多工作区下不再读错项目），realpath 之后再判敏感路径与工作区边界；设置文件 rename 退路不再先删目标，PIN 写盘失败与恢复出厂不完整都会在设置页告警。
+  - **移动端**：`?dsh-layout=auto` 成为权威、不被残留 localStorage 覆盖；复制文件改用会话 provenance；`fileGuard` 在两个 await 后复查 active；设置页轮询丢弃乱序旧快照；捏合只拦放大、缩小永远放行；上游弹层补焦点约束与焦点归还。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表 `dsh-pocket` `3.0.2`→`3.0.3`；catalogVersion `1.56.11` → `1.56.12`，核对日期 `2026-10-27`，README 徽章同步；更新命令维持 3.0.2 起的重跑 `add` 写法（原生 `update` 与不带 spec 的 `add` 都会装回 npm 上的上游 2.x）。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
+
 ## 2026-10-26 dsh-update-checker 0.6.0 一键更新改为新建对话只填不发（catalog 1.56.11）
 
 - **`dsh-update-checker` 0.5.0 → 0.6.0**（自维护仓库 `github:daha1216/dsh-update-checker`，[v0.6.0](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.6.0)）。行为变更：点「一键更新」不再把清单塞进当前会话并**直接发送**，而是**新建一个对话**、把清单填进它的输入框、**不发送**——发送时机交还用户。
