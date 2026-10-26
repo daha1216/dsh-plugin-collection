@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-26 dsh-update-checker 0.5.0 一键更新（catalog 1.56.10）
+
+- **`dsh-update-checker` 0.4.3 → 0.5.0**（自维护仓库 `github:daha1216/dsh-update-checker`，[v0.5.0](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.5.0)）。新增**一键更新**：检测到多个可更新插件时，侧边栏气泡底部与设置页头部出现「一键更新」按钮，点击后把整份待更新清单整理成一条提示词并**直接发送**给当前会话的 AI。
+- 清单内容：每个插件的名称、已装 → 最新版本、安装来源 spec（`file:` / `link:` / `github:` / npm 版本范围）与 profile 名——安装来源是 AI 执行时必须的信息，npm/GitHub 通道要重新 add，本地检出则要去对应目录拉取。
+- 行为差异：设置页每行的「让 AI 更新」保持只填输入框不发送（用户保留发送权）；批量「一键更新」填好即发。降级链为：无 `submit` 通道 → 只填草稿并提示「按发送即可」；无打开会话 → 复制到剪贴板并提示。
+- 覆盖范围与角标提醒一致：`update`（npm / GitHub 安装）与 `local-behind`（本地安装但上游有新版）都算可更新。
+- 实现：新增 `buildBatchPrompt` 与 `sendComposerText`（复用宿主 `inputActions` 的 `setDraft` + `submit`）；`reminder.state` 载荷补 `profileDir`；新增 `test/batch-update.test.mjs`（39 断言）。九个套件全绿（checker 38 / http 19 / integration 24 / md 23 / render-harness 5 / lifecycle 5 / reminder 57 / reminder-panel 16 / batch-update 39 / scheduler 33）。
+- 目录快照同步：`plugins.json` 的 `dsh-update-checker` 版本 0.4.3 → 0.5.0、描述补「可把更新清单一次性交给 AI 执行」，catalogVersion `1.56.9` → `1.56.10`，核对日期 2026-10-26，README 徽章与目录表同步（条目数仍 12）。客户端 bundle 由宿主按需从磁盘读取，刷新页面即可生效，无需重启。
 ## 2026-10-26 dsh-pocket 3.0.2 / dsh-context 0.77.0 更新 + 卸载 dsh-watcher（catalog 1.56.9）
 
 - **`dsh-pocket` 3.0.1 → 3.0.2**（自维护 Fork `github:daha1216/dsh-pocket`，[v3.0.2](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.2)）。本机依赖来源从本地副本 `file:C:/dsh/dsh-pocket-pure` 切换为 GitHub 通道——即上游 v3.0.2 README 规定的更新方式（重跑 `add github:daha1216/dsh-pocket`，npm 同名包是上游作者的 2.12.0，不可用）。该版本无功能代码改动：`package.json` 新增 `engines.dsh: ^0.2.0-rc.1`（本机 0.2.1-rc.3 满足）、README 安装命令改指 GitHub 通道、semantic-release 关闭 npm 发布步骤（`npmPublish: false`）。升级不需要调整任何配置；本地 `C:/dsh/dsh-pocket-pure` 副本保留未删。

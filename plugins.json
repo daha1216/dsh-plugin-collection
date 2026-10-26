@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.56.9",
+  "catalogVersion": "1.56.10",
   "updatedAt": "2026-10-26",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -75,8 +75,8 @@
     {
       "id": "dsh-update-checker",
       "name": "dsh-update-checker",
-      "version": "0.4.3",
-      "description": "一键检查已装插件的上游更新（只检查不更新），展示更新内容",
+      "version": "0.5.0",
+      "description": "一键检查已装插件的上游更新（只检查不更新），可把更新清单一次性交给 AI 执行",
       "source": "https://github.com/daha1216/dsh-update-checker",
       "install": "github:daha1216/dsh-update-checker",
       "update": "dsh plugin --profile web add github:daha1216/dsh-update-checker"
