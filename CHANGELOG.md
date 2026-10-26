@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-27 dsh-update-checker 0.7.1 侧栏入口不再挤掉同行插件（catalog 1.56.13）
+
+- **`dsh-update-checker` 0.6.0 → 0.7.1**（自维护仓库 `github:daha1216/dsh-update-checker`，[v0.7.1](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.7.1)）：侧栏底部是多个插件共用的 flex 行，本插件的提醒入口写死 `width: 100%` 且 `flex: none`——同一行只要还有别的入口（例如 dsh-purge 的状态点），空间就被全额占走，对方被压成几像素宽、基本看不见。改为 `flex: 1 1 0%; min-width: 0`：有空间就铺开，没空间就自己收，标题过长交给既有的省略号；折叠态（只剩图标那条 36px 轨道）显式 `flex: 0 0 36px`，宽度与改动前一致。
+- 纯客户端 CSS，8 行 diff，后端、状态机、检查逻辑与存储格式均未改动；刷新页面即生效，不需要重启宿主。
+- **0.7.0 顺带进目录**：该版本此前只发了 Release、目录仍停在 0.6.0。内容是设置页改为「更新优先、设置收起」——后台提醒收成一行、插件行瘦身、安装来源从状态 Chips 拆成独立筛选、`local-behind` 行补上「让 AI 更新」按钮、健康状态从绿色改为中性色。
+- 测试：十个套件全绿（checker 38 / http 19 / integration 24 / md 23 / render-harness / lifecycle 5 / reminder 57 / reminder-panel 16 / batch-update 43 / scheduler 33）；英文 README 的测试矩阵补齐至与中文一致（原先缺 batch-update 与 reminder-panel，integration 与 reminder 的计数也是旧的）。
+- 目录快照同步：`plugins.json` 与 `README.md` 目录表的 `dsh-update-checker` `0.6.0` → `0.7.1`；catalogVersion `1.56.12` → `1.56.13`，核对日期 `2026-10-27`，README 徽章同步（条目数仍 12）。
+- 改后跑 `pwsh scripts/verify.ps1 -Profile desktop`。
+
 ## 2026-10-27 dsh-pocket 3.0.3（全面审查后的稳定性 / 供应链 / 移动端修复，catalog 1.56.12）
 
 - **`dsh-pocket` 3.0.2 → 3.0.3**（自维护仓库 `github:daha1216/dsh-pocket`，[v3.0.3](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.3)）：全量审查（架构 / 性能 / 稳定性 / 体验）后的修复版，改动 25 个文件、+1295/−124，测试从 254 增至 273（271 通过 / 0 失败 / 2 项平台跳过）。
