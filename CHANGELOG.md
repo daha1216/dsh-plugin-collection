@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-11-03 dsh-pocket 3.0.9（catalog 1.57.1）
+
+- **`dsh-pocket` 3.0.8 → 3.0.9**（[v3.0.9](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.9)）：同步上游移动端适配 dsh-web-mobile（v3.2.1 → main@2cf9061）并重打全部移植补丁。新能力：composer-clearance（横屏键盘挤压输入框实测修复，#245）、提问卡全屏回答、灯箱双指缩放（只缩图片）、抽屉一键设置齿轮（手机+平板档）、document-scroll-lock（壳不再被宿主 caret helper 顶飞）。修复：iOS PWA 冻结恢复后重连输入框消失的自愈看门狗；死锚批量修复并入 + rc.5 哈希重锚；sidebar-swipe 速度窗口物理化；panel-exit Android 返回键逐层退。全量 327 tests = 325 pass / 0 fail / 2 skip。
+
+## 2026-11-02 目录全量对齐与新增 dsh-computer-use-win（catalog 1.57.0）
+
+- **新增 `dsh-computer-use-win` 0.5.3**（第三方，作者 Yu-tao-Li，[Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win)）：
+  - 让 DSH 看懂并操作 Windows 桌面与网页：通过 MCP stdio 服务与 PowerShell 5.1 UIA 后端，支持 24 个原生桌面与后台浏览器工具（UI Automation 树遍历、坐标点击/拖拽、截图、OCR、键盘打字、按键发送与窗口聚焦/管理）。
+  - 网页操控优先在 DSH 内部后台浏览器中静默完成，不抢前台焦点也不影响鼠标键盘；操作桌面应用时带屏幕边缘提示与鼠标标签，并支持 Esc 全局安全中断热键。
+  - 收录后条目数 13 → 14。
+- **自维护组件版本追平**：
+  - **`dsh-pocket` 3.0.3 → 3.0.8**（[v3.0.8](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.8)）：全面安全/稳定性加固。更新修复 Windows 跨边界工作区同名二进制执行风险（固定 `cwd: homedir()`）；自重启日志提升为私有目录（0700/0600）；CLI 强化参数校验与拒绝静默压过密码；代理层增加每 IP WS 并发上限（32）与全局连接数限制（256）；`session/list` 瘦身内存上限收敛至 16MB 并限流并发，防止宿主 OOM。
+  - **`dsh-retrace` 0.4.77 → 0.4.81**（[v0.4.81](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.81)）：收敛并锁定已弃用的同步事件读取路径（`Session.eventAt()` / `sessionEvents()`），建立调用点单向递减门禁测试（`deprecated-event-readers.test.mjs`），断言禁止新包装器。
+  - **`dsh-update-checker` 0.7.1 → 0.7.3**（[v0.7.3](https://github.com/daha1216/dsh-update-checker/releases/tag/v0.7.3)）：点击「一键更新」原生接入宿主草稿机制，通过 `startSession(..., { prompt, whenDraftExists: 'replace' })` 在新建或复用空白会话后自动将更新清单预填进输入框（不自动发送），修复此前绑定轮询等待超时导致无反应的已知缺陷；修复多插件并存时侧栏 flex 挤压。
+  - **`@local/skills-manager` 0.3.3 → 0.3.4**（[v0.3.4](https://github.com/daha1216/dsh-skills-manager/releases/tag/v0.3.4)）：双根隔离、路径越界与 junction 逃逸拒绝、无损 frontmatter 读写（保留折叠标量/注释/CRLF/BOM）、主机连接鉴权与超长/保留名拦截。
+- **第三方组件版本同步**：
+  - **`billion-context` 0.1.208 → 0.1.211**（[v0.1.211](https://github.com/ranxianglei/billion-context/releases/tag/v0.1.211)）：默认开启 `<acp time="...">` 消息时间戳标签；内置针对陪伴型长会话的 prompt pack 与设置页 pack editor（`bili pack`）；优化长轮询下重复输出门禁误拦截、提升建议二次计算线性化、支持冻结信封恢复机制。
+  - **`dsh-mnemon` 0.5.34 → 0.5.38**（[v0.5.38](https://github.com/omdsh-dev/dsh-mnemon/releases/tag/v0.5.38)）：减少会话切换及隐藏面板的冗余记忆读取开销；工具守卫异常时跳过子 Agent 自动审查；增加持久化审查配额与冷却时间；修复 Windows 上 ByteRover npm CLI 启动。
+  - **`dsh-our-free-model` 2.7.1 → 2.8.0**（[v2.8.0](https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/tag/v2.8.0)）：免费道整形层对齐参考网关 v1.4.6，引擎一键跟进；跟进官方 Release 直链制品 `dsh-our-free-model-2.8.0.tgz`。
+  - **`dsh-ops` 0.4.1 → 0.4.4**（[v0.4.4](https://github.com/T-Auto/dsh-ops/releases/tag/v0.4.4)）：追平 npm latest 稳定版，修复 Linux 与 macOS 运行时的 npm 依赖打包和可执行权限。
+  - **`dsh-client-auto-continue` 0.17.0 → 0.17.1**（[v0.17.1](https://github.com/HsiangNianian/dsh-auto-continue/releases/tag/v0.17.1)）：修复移动端/窄视口（结合 dsh-pocket / DS-Bot）输入框排版挤压；稳定引入 `@240xu/dsh-message-ops` 维护轮次回滚兼容与模型变量缺失错误分类。
+  - **`dsh-context` 0.77.0 → 0.79.0**（[v0.79.0](https://github.com/bowenliang123/dsh-context/releases/tag/v0.79.0)）：Context Insights 总览页新增命令执行与工具调用统计卡片；时间线头部轻量化持久化（缓存缩减 69%，启动加速约 6%，RSS 降低约 21%）；修复 Firefox 日期选择器排版与图表刻度对齐。
+- **底线校验与脚本对齐**：
+  - `scripts/verify.ps1`：支持自动优选当前 profile（`desktop` 存在时优先，支持 `-Profile` 参数显式覆盖）；排除规则完善对 `dsh-purge` 等自托管内部补丁的识别；强制显式 `-Encoding utf8` 读取以兼容 Windows PowerShell 5.1。
+  - `scripts/fetch-upstream.ps1` / `scripts/fetch-releases.ps1`：全量对齐 14 个目录条目，内置 200ms 本地代理探测（127.0.0.1:7890）防网络超时。
+  - `install.ps1`：显式使用 `-Encoding utf8` 并保留 UTF-8 BOM，彻底解决 Windows PowerShell 5.1 解析 JSON 异常。
+  - `plugins.json`、`README.md`（两表、徽章、特注）、`CHANGELOG.md` 全部同步，catalogVersion `1.56.14` → `1.57.0`，updatedAt `2026-11-02`。
+
 ## 2026-10-27 目录新增 dsh-desktop-notify-win（Windows 桌面通知，catalog 1.56.14）
 
 - **新增 `dsh-desktop-notify-win` 0.4.0**（第三方，作者 xiaotie3088，`github:xiaotie3088/dsh-desktop-notify-win`）：会话空闲、待审批、提问与出错时弹 Windows 系统通知；沙箱提权、工具授权与插件管理提权同样会通知。自带设置页、实时预览与预设，中英双语 locale，客户端 `immediately` 注入设置页。

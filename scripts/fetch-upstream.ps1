@@ -1,13 +1,26 @@
-# Fetch upstream HEAD package.json version + README for the plugin catalog.
+﻿# Fetch upstream HEAD package.json version + README for the plugin catalog.
 # Usage: pwsh -File scripts/fetch-upstream.ps1
 $ErrorActionPreference = 'Continue'
 $root = Split-Path -Parent $PSScriptRoot
 $out  = Join-Path $root '.upstream'
 New-Item -ItemType Directory -Force -Path $out | Out-Null
 
+if (-not $env:https_proxy) {
+  try {
+    $tcp = New-Object System.Net.Sockets.TcpClient
+    $iar = $tcp.BeginConnect('127.0.0.1', 7890, $null, $null)
+    if ($iar.AsyncWaitHandle.WaitOne(200, $false)) {
+      $tcp.EndConnect($iar)
+      $env:https_proxy = 'http://127.0.0.1:7890'
+      $env:http_proxy  = 'http://127.0.0.1:7890'
+    }
+    $tcp.Close()
+  } catch { }
+}
+
 # id = repo path on GitHub (owner/repo), plus optional subpath inside the repo
 $repos = [ordered]@{
-  # 与 plugins.json 目录条目一一对应（2026-10-21 对齐 1.51.0 / 13 条）
+  # 与 plugins.json 目录条目一一对应（2026-11-02 对齐 1.57.0 / 14 条）
   # 注意：billion-context 权威发布渠道是 npm，仓库 HEAD 通常同步但可能滞后
   # dsh-ops 权威渠道是 npm（仓库 HEAD 可能已领先未发布版本）；dsh-our-free-model 权威渠道是 GitHub Release 的 tarball
   'dsh-better-reasoning-effort' = @{ repo = 'HaoyueQin/dsh-better-reasoning-effort'; path = '' }
@@ -17,12 +30,13 @@ $repos = [ordered]@{
   'dsh-mnemon'                  = @{ repo = 'omdsh-dev/dsh-mnemon';                     path = '' }
   'dsh-our-free-model'          = @{ repo = 'Ebony-Vinyl/dsh-our-free-model';           path = '' }
   'dsh-retrace'                 = @{ repo = 'daha1216/dsh-retrace';                    path = '' }
-  'dsh-watcher'                 = @{ repo = 'daha1216/dsh-watcher';                    path = '' }
   'dsh-update-checker'          = @{ repo = 'daha1216/dsh-update-checker';              path = '' }
-  'dsh-skills-manager'          = @{ repo = 'daha1216/dsh-skills-manager';              path = '' }
+  'skills-manager'              = @{ repo = 'daha1216/dsh-skills-manager';              path = '' }
   'dsh-ops'                     = @{ repo = 'T-Auto/dsh-ops';                          path = '' }
   'dsh-client-auto-continue'    = @{ repo = 'HsiangNianian/dsh-auto-continue';          path = '' }
   'dsh-context'                 = @{ repo = 'bowenliang123/dsh-context';                path = '' }
+  'dsh-desktop-notify-win'      = @{ repo = 'xiaotie3088/dsh-desktop-notify-win';      path = '' }
+  'dsh-computer-use-win'        = @{ repo = 'Yu-tao-Li/dsh-computer-use-win';          path = '' }
 }
 
 $rows = @()
@@ -33,13 +47,13 @@ foreach ($id in $repos.Keys) {
   foreach ($b in @('main','master')) {
     $p = if ($r.path) { "$($r.path)/package.json" } else { 'package.json' }
     $u = "https://raw.githubusercontent.com/$($r.repo)/$b/$p"
-    try { $pkg = Invoke-RestMethod -Uri $u -TimeoutSec 30 -ErrorAction Stop; $branch = $b; break } catch { }
+    try { $pkg = Invoke-RestMethod -Uri $u -TimeoutSec 15 -ErrorAction Stop; $branch = $b; break } catch { }
   }
   $readme = $null
   foreach ($b in @($branch,'main','master')) {
     foreach ($f in @('README.md','readme.md')) {
       try {
-        $readme = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$($r.repo)/$b/$f" -TimeoutSec 30 -UseBasicParsing -ErrorAction Stop
+        $readme = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$($r.repo)/$b/$f" -TimeoutSec 15 -UseBasicParsing -ErrorAction Stop
         $readme.Content | Set-Content -Path (Join-Path $out "$id.README.md") -Encoding utf8
         break
       } catch { }

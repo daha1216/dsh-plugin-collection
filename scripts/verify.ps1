@@ -1,11 +1,21 @@
-# Verify the plugin catalog: JSON shape, README table parity, installed-vs-catalog diff.
-# Usage: pwsh -File scripts/verify.ps1 [-Profile web]
-param([string]$Profile = 'web')
+﻿# Verify the plugin catalog: JSON shape, README table parity, installed-vs-catalog diff.
+# Usage: pwsh -File scripts/verify.ps1 [-Profile desktop|web]
+param([string]$Profile = '')
+
+if (-not $Profile) {
+  # 优先对账本机主要使用的 profile（desktop 优先，其次 web）
+  if (Test-Path (Join-Path $HOME ".dsh\profiles\desktop\package.json")) {
+    $Profile = 'desktop'
+  } else {
+    $Profile = 'web'
+  }
+}
+
 $ErrorActionPreference = 'Stop'
 
 $root    = Split-Path -Parent $PSScriptRoot
-$catalog = Get-Content -Raw -LiteralPath (Join-Path $root 'plugins.json') | ConvertFrom-Json
-$readme  = Get-Content -Raw -LiteralPath (Join-Path $root 'README.md')
+$catalog = Get-Content -Raw -Encoding utf8 -LiteralPath (Join-Path $root 'plugins.json') | ConvertFrom-Json
+$readme  = Get-Content -Raw -Encoding utf8 -LiteralPath (Join-Path $root 'README.md')
 $errors  = @()
 
 # --- JSON shape -------------------------------------------------------------
@@ -52,12 +62,18 @@ foreach ($p in $catalog.plugins) {
 # --- installed vs catalog ---------------------------------------------------
 $profilePkg = Join-Path $HOME ".dsh\profiles\$Profile\package.json"
 if (Test-Path $profilePkg) {
-  $deps = (Get-Content -Raw -LiteralPath $profilePkg | ConvertFrom-Json).dependencies
+  $deps = (Get-Content -Raw -Encoding utf8 -LiteralPath $profilePkg | ConvertFrom-Json).dependencies
   $installedNames = @($deps.PSObject.Properties.Name)
   $catalogNames   = @($catalog.plugins | ForEach-Object { $_.name })
   # link: 本地目录与 file: 相对路径（解析到 ~/.dsh/plugins 私有 lane）是本机自研/私有安装，
-  # 无公开来源不进目录；绝对路径的 file: 安装（公开插件的本地副本）仍参与对账
-  $localOnly = @($deps.PSObject.Properties | Where-Object { $_.Value -like 'link:*' -or $_.Value -like 'file:..*' } | ForEach-Object { $_.Name })
+  # 无公开来源不进目录；绝对路径的 file: 安装（公开插件的本地副本）仍参与对账；
+  # dsh-purge 系列属于宿主底层补丁/自托管控件，不作为通用扩展收录进公开目录
+  $localOnly = @($deps.PSObject.Properties | Where-Object { 
+    $_.Value -like 'link:*' -or 
+    $_.Value -like 'file:..*' -or 
+    $_.Value -like '*dsh-purge*' -or 
+    $_.Name -match '^dsh-purge'
+  } | ForEach-Object { $_.Name })
   $missing = @($installedNames | Where-Object { $_ -notin $catalogNames -and $_ -notlike '@deepseek-ai/*' -and $_ -notin $localOnly })
   if ($missing.Count) { $errors += "已安装但目录缺失: $($missing -join ', ')" }
   $ghost = @($catalogNames | Where-Object { $_ -notin $installedNames })
@@ -72,4 +88,4 @@ if ($errors.Count) {
   $errors | ForEach-Object { Write-Host "  - $_" -ForegroundColor Red }
   exit 1
 }
-Write-Host "校验通过：catalogVersion=$($catalog.catalogVersion) updatedAt=$($catalog.updatedAt) 条目=$($catalog.plugins.Count)，README 两表与实装一致。" -ForegroundColor Green
+Write-Host "校验通过：catalogVersion=$($catalog.catalogVersion) updatedAt=$($catalog.updatedAt) 条目=$($catalog.plugins.Count) (Profile: $Profile)，README 两表与实装一致。" -ForegroundColor Green

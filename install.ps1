@@ -8,7 +8,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $catalogPath = Join-Path $PSScriptRoot 'plugins.json'
-$catalog = Get-Content -Raw -LiteralPath $catalogPath | ConvertFrom-Json
+$catalog = Get-Content -Raw -Encoding utf8 -LiteralPath $catalogPath | ConvertFrom-Json
 
 if ($List -or (-not $All -and [string]::IsNullOrWhiteSpace($Plugin))) {
     $catalog.plugins | Format-Table id, name, version, description -AutoSize
