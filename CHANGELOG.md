@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 dsh-pocket 3.0.10（catalog 1.57.3）
+
+- **`dsh-pocket` 3.0.9 → 3.0.10**（[v3.0.10](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.10)）：吸收上游 v3.2.3（#260 批次）并修复上次同步漏网的 28 条提问卡死锚。修复：提问卡 28 条 `Mbwy4a_*` 精确哈希在 rc.5 宿主全部 0 命中（3.0.9 起适配静默失效）→ 改后缀锚 + `[data-question-key]` 作用域；可见带变量停稳两帧后写入并派发事件（键盘期整树重排/白屏）；session-focus-guard 观察窗口化（流式输出不再惊动全树观察）；question-fullscreen 双缓存 + 键盘收起后全屏卡回高 + 卡滚动/按钮贴底。新能力：提问卡整卡单滚动区 @patch（长问题不再压扁回答区）、统计行环带兜底（子代理 188px 空档）。构建：注释剥离挂进 build，bundle 635KB → 339KB（-47%）。全量 345 tests = 343 pass / 0 fail / 2 skip。
+
 ## 2026-11-05 dsh-retrace 0.4.82（catalog 1.57.2）
 
 - **`dsh-retrace` 0.4.81 → 0.4.82**（[v0.4.82](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.82)）：把请求级配置隔离与原始端点校验加固移植到 0.4.81 主线并发布。`x-retrace-config` 改为请求作用域（AsyncLocalStorage 隔离，缺失/非法回落 defaults，部分字段不再继承上一请求）；`prewrite` 收归 host-only，请求头无法关闭预写守卫；`snapshot` 缺 sessions 服务 → 503、会话不存在 → 404，先验证再读取；`fold` 端点拒绝 `null`/`''`/布尔/小数/负数/超安全整数（`Number()` 会把 `null` 折成 0）；`store-cli` 引入随机临时名 + `wx` 独占创建 + 失败清理 + rename 后父目录 fsync（目录同步失败报 `store-commit-uncertain`）；`ls-tree` 改 `-z` NUL 分隔；artifact 读取加 4 MiB 上限；客户端只在回显真正落到输入框后才恢复图片。全量审计：node --test 30/30、data 39/39、f-boundary 24/24、config-scope 15/15、fold-chain 42/42、store-cli 16/16、client 47/47。
