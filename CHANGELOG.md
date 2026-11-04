@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 dsh-retrace 0.4.82（catalog 1.57.2）
+
+- **`dsh-retrace` 0.4.81 → 0.4.82**（[v0.4.82](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.82)）：把请求级配置隔离与原始端点校验加固移植到 0.4.81 主线并发布。`x-retrace-config` 改为请求作用域（AsyncLocalStorage 隔离，缺失/非法回落 defaults，部分字段不再继承上一请求）；`prewrite` 收归 host-only，请求头无法关闭预写守卫；`snapshot` 缺 sessions 服务 → 503、会话不存在 → 404，先验证再读取；`fold` 端点拒绝 `null`/`''`/布尔/小数/负数/超安全整数（`Number()` 会把 `null` 折成 0）；`store-cli` 引入随机临时名 + `wx` 独占创建 + 失败清理 + rename 后父目录 fsync（目录同步失败报 `store-commit-uncertain`）；`ls-tree` 改 `-z` NUL 分隔；artifact 读取加 4 MiB 上限；客户端只在回显真正落到输入框后才恢复图片。全量审计：node --test 30/30、data 39/39、f-boundary 24/24、config-scope 15/15、fold-chain 42/42、store-cli 16/16、client 47/47。
+
 ## 2026-11-03 dsh-pocket 3.0.9（catalog 1.57.1）
 
 - **`dsh-pocket` 3.0.8 → 3.0.9**（[v3.0.9](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.9)）：同步上游移动端适配 dsh-web-mobile（v3.2.1 → main@2cf9061）并重打全部移植补丁。新能力：composer-clearance（横屏键盘挤压输入框实测修复，#245）、提问卡全屏回答、灯箱双指缩放（只缩图片）、抽屉一键设置齿轮（手机+平板档）、document-scroll-lock（壳不再被宿主 caret helper 顶飞）。修复：iOS PWA 冻结恢复后重连输入框消失的自愈看门狗；死锚批量修复并入 + rc.5 哈希重锚；sidebar-swipe 速度窗口物理化；panel-exit Android 返回键逐层退。全量 327 tests = 325 pass / 0 fail / 2 skip。

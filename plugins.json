@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.57.1",
-  "updatedAt": "2026-11-03",
+  "catalogVersion": "1.57.2",
+  "updatedAt": "2026-11-05",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -66,8 +66,8 @@
     {
       "id": "dsh-retrace",
       "name": "dsh-retrace",
-      "version": "0.4.81",
-      "description": "消息撤回、编辑重发与重新生成，同步回退修改过的文件，收敛并锁定已弃用同步事件读取路径",
+      "version": "0.4.82",
+      "description": "消息撤回、编辑重发与重新生成，同步回退修改过的文件；0.4.82 请求级配置隔离、fold 原始端点校验、快照 fail-closed 与存储原子写",
       "source": "https://github.com/daha1216/dsh-retrace",
       "install": "github:daha1216/dsh-retrace",
       "update": "dsh plugin --profile web add dsh-retrace"
