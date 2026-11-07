@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.59.0",
+  "catalogVersion": "1.59.1",
   "updatedAt": "2026-11-08",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -53,15 +53,6 @@
       "source": "https://github.com/omdsh-dev/dsh-mnemon",
       "install": "dsh-mnemon@0.5.42",
       "update": "dsh plugin --profile web add dsh-mnemon"
-    },
-    {
-      "id": "dsh-our-free-model",
-      "name": "dsh-our-free-model",
-      "version": "2.8.2",
-      "description": "免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，免费道整形层对齐参考网关，带数据看板与本地网关；2.8.2 扩展市场自动更新（默认关、2 小时观察窗）与迁移清单，渠道插件预列接入模型，紧急公告支持关闭倒计时",
-      "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
-      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.2/dsh-our-free-model-2.8.2.tgz",
-      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.2/dsh-our-free-model-2.8.2.tgz"
     },
     {
       "id": "dsh-retrace",

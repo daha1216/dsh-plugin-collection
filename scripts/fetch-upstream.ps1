@@ -20,15 +20,14 @@ if (-not $env:https_proxy) {
 
 # id = repo path on GitHub (owner/repo), plus optional subpath inside the repo
 $repos = [ordered]@{
-  # 与 plugins.json 目录条目一一对应（2026-11-02 对齐 1.57.0 / 14 条）
+  # 与 plugins.json 目录条目一一对应（2026-11-08 对齐 1.59.1 / 13 条）
   # 注意：billion-context 权威发布渠道是 npm，仓库 HEAD 通常同步但可能滞后
-  # dsh-ops 权威渠道是 npm（仓库 HEAD 可能已领先未发布版本）；dsh-our-free-model 权威渠道是 GitHub Release 的 tarball
+  # dsh-ops 权威渠道是 npm（仓库 HEAD 可能已领先未发布版本）
   'dsh-better-reasoning-effort' = @{ repo = 'HaoyueQin/dsh-better-reasoning-effort'; path = '' }
   'dsh-pocket'                  = @{ repo = 'daha1216/dsh-pocket';                      path = '' }
   'anysearch-dsh'               = @{ repo = 'anysearch-team/anysearch-dsh';            path = '' }
   'billion-context'             = @{ repo = 'ranxianglei/billion-context';             path = '' }
   'dsh-mnemon'                  = @{ repo = 'omdsh-dev/dsh-mnemon';                     path = '' }
-  'dsh-our-free-model'          = @{ repo = 'Ebony-Vinyl/dsh-our-free-model';           path = '' }
   'dsh-retrace'                 = @{ repo = 'daha1216/dsh-retrace';                    path = '' }
   'dsh-update-checker'          = @{ repo = 'daha1216/dsh-update-checker';              path = '' }
   'skills-manager'              = @{ repo = 'daha1216/dsh-skills-manager';              path = '' }

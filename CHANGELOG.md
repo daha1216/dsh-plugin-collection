@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-08 移除 dsh-our-free-model（catalog 1.59.1）
+
+- **`dsh-our-free-model` 从目录移除**：本机从未安装该插件（桌面 profile 走自有模型渠道），目录里长期只有一条用不上的条目，`verify.ps1` 每次都要靠豁免文件才通过。现整条删除，连带 README 目录表、更新命令表、避坑说明里的对应段落，以及 `scripts/fetch-releases.ps1` 与 `scripts/fetch-upstream.ps1` 的抓取映射；`.upstream` 里的 README 缓存一并清掉。
+- **校验脚本保留豁免机制**：`scripts/verify.ps1` 仍支持 `verify.ignore.json`（当前没有需要豁免的条目，文件随之删除），以后遇到「目录有、本机刻意不装」的情形按同样方式登记原因。
+- **同步范围**：plugins.json（14 → 13 条）、README.md 两表与避坑说明、两个抓取脚本、CHANGELOG.md；catalogVersion `1.59.0` → `1.59.1`，updatedAt 保持 `2026-11-08`。
 ## 2026-11-08 目录同步（catalog 1.59.0）
 
 - **`dsh-mnemon` 0.5.41 → 0.5.42**（[v0.5.42](https://github.com/omdsh-dev/dsh-mnemon/releases/tag/v0.5.42)）：模型可见的运行时快照历史改为有界，同时保留未变与可增量追加请求的前缀；到快照条数/字节预算或权限与可见事实需要立即清理时落检查点（#579，修 #573）。技能建议、草案、重写、回测与采纳绑定原始技能/工作区，可从审查证据恢复历史建议（#580，修 #574）；托管 Markdown 支持连索引一起删除，带索引/文件版本栅栏、ReadGrant 校验与索引写失败回滚。

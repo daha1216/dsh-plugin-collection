@@ -1,9 +1,0 @@
-{
-  "$comment": "本机刻意不安装的公开目录条目。verify.ps1 会跳过这些名字的差集核对，并在输出里注明原因。",
-  "notInstalled": [
-    {
-      "name": "dsh-our-free-model",
-      "reason": "本机未装该插件（桌面 profile 使用自有模型渠道），目录条目仍对外提供"
-    }
-  ]
-}

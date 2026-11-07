@@ -22,7 +22,6 @@
 | `dsh-better-reasoning-effort` | 0.5.4 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `billion-context` | 0.1.212 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍；0.1.212 恢复紧急发布通道并修正回退带来的功能损失，修严格思考车道残留推理与插件车道每轮重解析历史（#5403 OOM） | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
 | `dsh-mnemon` | 0.5.42 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算；0.5.42 运行时快照改为有界（不变内容仍可增量追加），技能建议/草案/重写/回测与原始技能绑定，托管文档可彻底删除并带回滚护栏 | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
-| `dsh-our-free-model` | 2.8.2 | 免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，免费道整形层对齐参考网关，带数据看板与本地网关；2.8.2 扩展市场自动更新（默认关、2 小时观察窗）与迁移清单，渠道插件预列接入模型，紧急公告支持关闭倒计时 | [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) |
 
 ### 📊 计量与状态监控
 
@@ -113,7 +112,6 @@ bash install.sh --all
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context` | `bili update` |
 | `dsh-mnemon` | `dsh plugin --profile web add dsh-mnemon` |
-| `dsh-our-free-model` | `dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.2/dsh-our-free-model-2.8.2.tgz` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
 | `@local/skills-manager` | `dsh plugin --profile web add github:daha1216/dsh-skills-manager` |
@@ -156,10 +154,6 @@ bash install.sh --all
   - 本机实装与本目录均跟随自建兼容 Fork `github:daha1216/dsh-retrace`。
 - **`@local/skills-manager`**：
   - 目录收录公开仓库 `github:daha1216/dsh-skills-manager`；本地若处于开发态（`link:`），以本地代码优先。
-- **`dsh-our-free-model`**：
-  - **不要用 `npm` 安装同名包**——npm 上那个由第三方打包，`index.js`、`client.js` 被改且多出 `src/channel-visibility.js`，拿不到上游的签名清单校验与应用内升级。
-  - 本目录固定指向官方 Release 的 tarball 直链（文件名带版本号，升级时同步改 URL），这是 README 认可的安装制品。
-  - 装完后把 `distribution` 设为 `managed`（bundle config 或插件 `settings.json`）：包管理器拥有字节时，应用内升级、公告 feed 与热重载会停用，模型功能保留。
 - **`dsh-ops`**：
   - npm 通道，原生更新命令 `npx --yes dsh-ops@latest install --profile <desktop|web|tui>`，按 profile 用官方 CLI 重装到最新版并同时对齐随包 bash 载荷（0.4.0 起 npm 只随包 bash，PowerShell 交给宿主管理）；官方 CLI 的 `add dsh-ops@latest` 是等价替代。
   - 桌面端必须用桌面应用自带的 CLI：默认探测 `%LOCALAPPDATA%\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd`，装在其它位置时加 `--dsh-cli "<安装目录>\resources\runtime\cli\bin\dsh.cmd"`（`<安装目录>` 替换成桌面端实际安装位置）。

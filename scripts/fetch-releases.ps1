@@ -28,7 +28,6 @@ if (-not $Repo -or $Repo.Count -eq 0) {
     'anysearch-team/anysearch-dsh',
     'ranxianglei/billion-context',
     'omdsh-dev/dsh-mnemon',
-    'Ebony-Vinyl/dsh-our-free-model',
     'daha1216/dsh-retrace',
     'daha1216/dsh-update-checker',
     'daha1216/dsh-skills-manager',
