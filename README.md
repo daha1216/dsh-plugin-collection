@@ -21,14 +21,14 @@
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.4 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
 | `billion-context` | 0.1.212 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍；0.1.212 恢复紧急发布通道并修正回退带来的功能损失，修严格思考车道残留推理与插件车道每轮重解析历史（#5403 OOM） | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
-| `dsh-mnemon` | 0.5.41 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算 | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
-| `dsh-our-free-model` | 2.8.0 | 免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，免费道整形层对齐参考网关，带数据看板与本地网关 | [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) |
+| `dsh-mnemon` | 0.5.42 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算；0.5.42 运行时快照改为有界（不变内容仍可增量追加），技能建议/草案/重写/回测与原始技能绑定，托管文档可彻底删除并带回滚护栏 | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
+| `dsh-our-free-model` | 2.8.2 | 免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，免费道整形层对齐参考网关，带数据看板与本地网关；2.8.2 扩展市场自动更新（默认关、2 小时观察窗）与迁移清单，渠道插件预列接入模型，紧急公告支持关闭倒计时 | [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) |
 
 ### 📊 计量与状态监控
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-context` | 0.82.1 | 上下文洞察与管理：0.82 新增日/西/法/葡多语言界面、Fleet 富文本工具栏与委派事件流，TTFT 对齐宿主首 token 锚点，会话列表载荷再减 67% | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
+| `dsh-context` | 0.82.2 | 上下文洞察与管理：0.82 新增日/西/法/葡多语言界面、Fleet 富文本工具栏与委派事件流，TTFT 对齐宿主首 token 锚点，会话列表载荷再减 67%；0.82.2 补德语/俄语界面与 README，待回答的问题卡片不再遮挡 Context/Fleet 面板 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
 
 ### 🛠️ 会话管理与效率工具
 
@@ -39,7 +39,7 @@
 | `dsh-update-checker` | 0.7.3 | 一键检查已装插件的上游更新，点「一键更新」原生创建对话并预填更新提示词，适配多插件紧凑弹性侧栏 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 | `@local/skills-manager` | 0.3.4 | 在设置页新增「技能」管理页：双根隔离、无损 frontmatter 读写、列出 / 查看 / 编辑 / 删除技能并切换调用策略 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
 | `dsh-ops` | 0.5.0 | Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.0 起 Windows 默认 shell 换成随包 Niubash v1.5.0 完整载荷、内置预设默认隐藏宿主 PowerShell，并大幅削减多会话装配开销 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
-| `dsh-client-auto-continue` | 0.17.3 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.17.2/0.17.3 修正第三方 UI 语言下回落中文的问题，并把窄视口紧凑布局兜底扩到 640px，修复 461–640px 区间输入框被挤压 | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
+| `dsh-client-auto-continue` | 0.17.4 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.17.2/0.17.3 修正第三方 UI 语言下回落中文的问题，并把窄视口紧凑布局兜底扩到 640px，修复 461–640px 区间输入框被挤压；0.17.4 修 MALFORMED_RESPONSE 被误判为永久失败（回显参数含 auth/quota 等词时），实时错误、启动扫描与归档扫描共用同一判定 | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
 | `dsh-computer-use-win` | 0.5.5 | 让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.5 修复 DSH 0.2.2 上浮窗设置无法保存与日志刷屏，长回复从开头显示，临时目录自动清理 | [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) |
 
 ### 🎨 界面体验与多端协同
@@ -113,7 +113,7 @@ bash install.sh --all
 | `@anysearch/anysearch-dsh` | `npx -y @deepseek-ai/dsh plugin --profile web update @anysearch/anysearch-dsh` |
 | `billion-context` | `bili update` |
 | `dsh-mnemon` | `dsh plugin --profile web add dsh-mnemon` |
-| `dsh-our-free-model` | `dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.0/dsh-our-free-model-2.8.0.tgz` |
+| `dsh-our-free-model` | `dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.2/dsh-our-free-model-2.8.2.tgz` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
 | `@local/skills-manager` | `dsh plugin --profile web add github:daha1216/dsh-skills-manager` |
@@ -179,6 +179,7 @@ bash install.sh --all
    - 验证 `plugins.json` 结构与格式；
    - 保证 README 目录表与更新命令表严格对应；
    - 保证仓库目录与当前环境 profile 实装插件完全对齐（差集为零）。
+   - 本机刻意不装的公开条目登记在 [`verify.ignore.json`](verify.ignore.json)，脚本跳过对应名字并在输出中注明原因。
 3. **版本日志**：每次目录更新与插件升级记录统一沉淀在 [`CHANGELOG.md`](CHANGELOG.md)。
 
 ---

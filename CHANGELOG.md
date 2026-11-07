@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-08 目录同步（catalog 1.59.0）
+
+- **`dsh-mnemon` 0.5.41 → 0.5.42**（[v0.5.42](https://github.com/omdsh-dev/dsh-mnemon/releases/tag/v0.5.42)）：模型可见的运行时快照历史改为有界，同时保留未变与可增量追加请求的前缀；到快照条数/字节预算或权限与可见事实需要立即清理时落检查点（#579，修 #573）。技能建议、草案、重写、回测与采纳绑定原始技能/工作区，可从审查证据恢复历史建议（#580，修 #574）；托管 Markdown 支持连索引一起删除，带索引/文件版本栅栏、ReadGrant 校验与索引写失败回滚。
+- **`dsh-client-auto-continue` 0.17.3 → 0.17.4**（[v0.17.4](https://github.com/HsiangNianian/dsh-auto-continue/releases/tag/v0.17.4)）：修 #75——`MALFORMED_RESPONSE` 回显的工具参数里含 `auth`、`permission`、`api_key`、`quota exceeded` 等词时会被当成永久失败；分类器现在先识别该错误码，显式 401/403 仍按内置规则拦截。实时错误、启动扫描与归档会话扫描共用同一修复。
+- **`dsh-context` 0.82.1 → 0.82.2**（[v0.82.2](https://github.com/bowenliang123/dsh-context/releases/tag/v0.82.2)）：新增德语与俄语界面（键位与占位符对齐英文，可随宿主语言包切换）及对应 README；待回答的问题卡片不再遮挡 Context/Fleet 面板。
+- **`dsh-our-free-model` 2.8.0 → 2.8.2**（[v2.8.2](https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/tag/v2.8.2)）：扩展市场支持自动更新（默认关闭，新版本需沉淀 2 小时观察窗，停用扩展永不自动启用，全程审计）与迁移清单导出/重装；渠道插件详情直接列出接入模型；索引来源徽标与最近操作流水；`urgent` 公告可配关闭倒计时。
+- **对账结论**：`dsh-better-reasoning-effort` 0.5.4、`billion-context` 0.1.212、`dsh-ops` 0.5.0、`dsh-computer-use-win` 0.5.5、`@anysearch/anysearch-dsh` 0.1.8、`dsh-pocket` 3.0.10、`dsh-retrace` 0.4.83、`dsh-update-checker` 0.7.3、`skills-manager` 0.3.4、`dsh-desktop-notify-win` 0.4.0 均为最新（后五个按默认分支 package.json 核对，均无未发布改动）。`dsh-ops` 的 npm `latest` 标签仍停在 0.4.4，0.5.0 已发布但未提升标签，安装串按精确版本固定。
+- **校验脚本**：`scripts/verify.ps1` 支持 `verify.ignore.json`——本机刻意不装的公开条目（当前仅 `dsh-our-free-model`）登记原因后跳过差集核对并打印说明；其余「目录有但本机未装」「已装但目录缺失」仍然报错。
+- **同步范围**：plugins.json、README.md 目录表、CHANGELOG.md 一并更新，catalogVersion `1.58.1` → `1.59.0`，updatedAt 保持 `2026-11-08`。
 ## 2026-11-08 dsh-retrace 0.4.83（catalog 1.58.1）
 
 - **`dsh-retrace` 0.4.82 → 0.4.83**（[v0.4.83](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.83)）：撤回预检透传宿主的消息投影注册表。写前校验用 `Session.fromRestore` 回放整段事件日志，但只传 5 个参数，`projections` 落到默认空数组；`image/offload`（图片卸载，插件自有消息变更）没有内置解释器，回放即抛 `session event "image/offload" requires a message projection`，导致该会话里每次撤回都失败。现传入 `ctx.sessions.messageProjections`（与 `SessionStore.prepare` 自己用的一致），回落到会话自带集合、再回落空数组；宿主确实没注册时预检仍 fail-closed。新增 5 例回归；全套：node --test 35/35、data 39/39、host-surface 3/3、phase1 10/10、f-boundary 24/24、config-scope 15/15、fold-chain 42/42、store-cli 16/16、contracts 11 项、client 47/47。

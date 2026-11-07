@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.58.1",
+  "catalogVersion": "1.59.0",
   "updatedAt": "2026-11-08",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -48,20 +48,20 @@
     {
       "id": "dsh-mnemon",
       "name": "dsh-mnemon",
-      "version": "0.5.41",
-      "description": "可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算",
+      "version": "0.5.42",
+      "description": "可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算；0.5.42 运行时快照改为有界（不变内容仍可增量追加），技能建议/草案/重写/回测与原始技能绑定，托管文档可彻底删除并带回滚护栏",
       "source": "https://github.com/omdsh-dev/dsh-mnemon",
-      "install": "dsh-mnemon@0.5.41",
+      "install": "dsh-mnemon@0.5.42",
       "update": "dsh plugin --profile web add dsh-mnemon"
     },
     {
       "id": "dsh-our-free-model",
       "name": "dsh-our-free-model",
-      "version": "2.8.0",
-      "description": "免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，免费道整形层对齐参考网关，带数据看板与本地网关",
+      "version": "2.8.2",
+      "description": "免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，免费道整形层对齐参考网关，带数据看板与本地网关；2.8.2 扩展市场自动更新（默认关、2 小时观察窗）与迁移清单，渠道插件预列接入模型，紧急公告支持关闭倒计时",
       "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
-      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.0/dsh-our-free-model-2.8.0.tgz",
-      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.0/dsh-our-free-model-2.8.0.tgz"
+      "install": "https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.2/dsh-our-free-model-2.8.2.tgz",
+      "update": "dsh plugin --profile web add https://github.com/Ebony-Vinyl/dsh-our-free-model/releases/download/v2.8.2/dsh-our-free-model-2.8.2.tgz"
     },
     {
       "id": "dsh-retrace",
@@ -102,19 +102,19 @@
     {
       "id": "dsh-client-auto-continue",
       "name": "dsh-client-auto-continue",
-      "version": "0.17.3",
-      "description": "请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.17.2/0.17.3 修正第三方 UI 语言下回落中文的问题，并把窄视口紧凑布局兜底扩到 640px，修复 461–640px 区间输入框被挤压",
+      "version": "0.17.4",
+      "description": "请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.17.2/0.17.3 修正第三方 UI 语言下回落中文的问题，并把窄视口紧凑布局兜底扩到 640px，修复 461–640px 区间输入框被挤压；0.17.4 修 MALFORMED_RESPONSE 被误判为永久失败（回显参数含 auth/quota 等词时），实时错误、启动扫描与归档扫描共用同一判定",
       "source": "https://github.com/HsiangNianian/dsh-auto-continue",
-      "install": "dsh-client-auto-continue@0.17.3",
+      "install": "dsh-client-auto-continue@0.17.4",
       "update": "dsh plugin --profile web add dsh-client-auto-continue@latest"
     },
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.82.1",
-      "description": "上下文洞察与管理：0.82 新增日/西/法/葡多语言界面、Fleet 富文本工具栏与委派事件流，TTFT 对齐宿主首 token 锚点，会话列表载荷再减 67%",
+      "version": "0.82.2",
+      "description": "上下文洞察与管理：0.82 新增日/西/法/葡多语言界面、Fleet 富文本工具栏与委派事件流，TTFT 对齐宿主首 token 锚点，会话列表载荷再减 67%；0.82.2 补德语/俄语界面与 README，待回答的问题卡片不再遮挡 Context/Fleet 面板",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "dsh-context@0.82.1",
+      "install": "dsh-context@0.82.2",
       "update": "dsh plugin --profile web update dsh-context@latest"
     },
     {

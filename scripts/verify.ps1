@@ -76,7 +76,17 @@ if (Test-Path $profilePkg) {
   } | ForEach-Object { $_.Name })
   $missing = @($installedNames | Where-Object { $_ -notin $catalogNames -and $_ -notlike '@deepseek-ai/*' -and $_ -notin $localOnly })
   if ($missing.Count) { $errors += "已安装但目录缺失: $($missing -join ', ')" }
-  $ghost = @($catalogNames | Where-Object { $_ -notin $installedNames })
+  # 本机刻意不装的公开插件在 verify.ignore.json 登记（换机、试用、与宿主冲突等），不算差集错误
+  $ignorePath = Join-Path $root 'verify.ignore.json'
+  $ignored = @{}
+  if (Test-Path $ignorePath) {
+    $ign = Get-Content -Raw -Encoding utf8 -LiteralPath $ignorePath | ConvertFrom-Json
+    foreach ($e in @($ign.notInstalled)) { if ($e.name) { $ignored[$e.name] = $e.reason } }
+  }
+  $ghostAll = @($catalogNames | Where-Object { $_ -notin $installedNames })
+  $ghost = @($ghostAll | Where-Object { -not $ignored.ContainsKey($_) })
+  $skipped = @($ghostAll | Where-Object { $ignored.ContainsKey($_) })
+  foreach ($name in $skipped) { Write-Host "跳过（本机刻意未装）: $name — $($ignored[$name])" -ForegroundColor DarkGray }
   if ($ghost.Count) { $errors += "目录有但本机未装: $($ghost -join ', ')" }
 } else {
   Write-Warning "找不到 profile package.json: $profilePkg（跳过差集核对）"
