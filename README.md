@@ -20,27 +20,27 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.4 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `billion-context` | 0.1.211 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
-| `dsh-mnemon` | 0.5.38 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期 | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
+| `billion-context` | 0.1.212 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍；0.1.212 恢复紧急发布通道并修正回退带来的功能损失，修严格思考车道残留推理与插件车道每轮重解析历史（#5403 OOM） | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `dsh-mnemon` | 0.5.41 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算 | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
 | `dsh-our-free-model` | 2.8.0 | 免费模型接入：无需登录或 API Key 即可用 DeepSeek V4.1 Flash、Kimi K3 等前沿模型，免费道整形层对齐参考网关，带数据看板与本地网关 | [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) |
 
 ### 📊 计量与状态监控
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-context` | 0.79.0 | 上下文洞察与管理：新增命令执行与工具调用统计卡片，时间线头部轻量化持久化（缓存缩减 69%），优化会话链路与用量看板 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
+| `dsh-context` | 0.82.1 | 上下文洞察与管理：0.82 新增日/西/法/葡多语言界面、Fleet 富文本工具栏与委派事件流，TTFT 对齐宿主首 token 锚点，会话列表载荷再减 67% | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
 
 ### 🛠️ 会话管理与效率工具
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-retrace` | 0.4.82 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件；0.4.82 请求级配置隔离、fold 原始端点校验、快照 fail-closed 与存储原子写 | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
+| `dsh-retrace` | 0.4.83 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件；0.4.83 撤回预检透传宿主消息投影（修复含 image/offload 的会话无法撤回） | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@anysearch/anysearch-dsh` | 0.1.8 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 | `dsh-update-checker` | 0.7.3 | 一键检查已装插件的上游更新，点「一键更新」原生创建对话并预填更新提示词，适配多插件紧凑弹性侧栏 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 | `@local/skills-manager` | 0.3.4 | 在设置页新增「技能」管理页：双根隔离、无损 frontmatter 读写、列出 / 查看 / 编辑 / 删除技能并切换调用策略 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
-| `dsh-ops` | 0.4.4 | Rust 原生文件工具集（读 / 搜索 / 修改 / 文档读取 / 工具发现）与随包 MSYS bash，跨平台运行权限修复，替换反复失败的原生 shell 调用 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
-| `dsh-client-auto-continue` | 0.17.1 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示，修复移动端输入框排版及回滚/变量异常兼容 | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
-| `dsh-computer-use-win` | 0.5.3 | 让 DSH 看懂并操作 Windows 桌面与网页：24 个原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理 | [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) |
+| `dsh-ops` | 0.5.0 | Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.0 起 Windows 默认 shell 换成随包 Niubash v1.5.0 完整载荷、内置预设默认隐藏宿主 PowerShell，并大幅削减多会话装配开销 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
+| `dsh-client-auto-continue` | 0.17.3 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.17.2/0.17.3 修正第三方 UI 语言下回落中文的问题，并把窄视口紧凑布局兜底扩到 640px，修复 461–640px 区间输入框被挤压 | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
+| `dsh-computer-use-win` | 0.5.5 | 让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.5 修复 DSH 0.2.2 上浮窗设置无法保存与日志刷屏，长回复从开头显示，临时目录自动清理 | [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) |
 
 ### 🎨 界面体验与多端协同
 

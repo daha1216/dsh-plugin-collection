@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-11-08 dsh-retrace 0.4.83（catalog 1.58.1）
+
+- **`dsh-retrace` 0.4.82 → 0.4.83**（[v0.4.83](https://github.com/daha1216/dsh-retrace/releases/tag/v0.4.83)）：撤回预检透传宿主的消息投影注册表。写前校验用 `Session.fromRestore` 回放整段事件日志，但只传 5 个参数，`projections` 落到默认空数组；`image/offload`（图片卸载，插件自有消息变更）没有内置解释器，回放即抛 `session event "image/offload" requires a message projection`，导致该会话里每次撤回都失败。现传入 `ctx.sessions.messageProjections`（与 `SessionStore.prepare` 自己用的一致），回落到会话自带集合、再回落空数组；宿主确实没注册时预检仍 fail-closed。新增 5 例回归；全套：node --test 35/35、data 39/39、host-surface 3/3、phase1 10/10、f-boundary 24/24、config-scope 15/15、fold-chain 42/42、store-cli 16/16、contracts 11 项、client 47/47。
+- **同步范围**：plugins.json、README.md 目录表、CHANGELOG.md 一并更新，catalogVersion `1.58.0` → `1.58.1`，updatedAt `2026-11-06` → `2026-11-08`；其余条目版本未变。
+## 2026-11-06 目录版本全量对齐（catalog 1.58.0）
+
+- **`billion-context` 0.1.211 → 0.1.212**（[v0.1.212](https://github.com/ranxianglei/billion-context/releases/tag/v0.1.212)）：恢复紧急发布通道（raw_publish / skip_ci_gate）并修掉回退带回来的四处功能损失；严格思考车道回收滞留推理残渣（上下文增长泄漏，#5522/#5535）；插件车道不再每轮全文重解析重发历史，水位快路径只解析新增尾巴（#5403 OOM 生产者）；压缩后把 compress 调用对挪到自己的折叠点（默认关闭的实验开关）。
+- **`dsh-mnemon` 0.5.38 → 0.5.41**（[v0.5.41](https://github.com/omdsh-dev/dsh-mnemon/releases/tag/v0.5.41)）：0.5.40 支持同轮新建档案立即更新、澄清会话/子代理档案工作区归属、技能列表与编辑器独立滚动；0.5.41 适配未修改 DSH 源码里被移除的 Agent 接口（保留官方 0.2.2-rc.1 路径），允许新消息按当前权限继续已完成的记忆任务，草案可配 32,768 / 65,536 token 预算并对截断内容拒绝保存，清理已删除技能的失效建议入口。Starter 0.5.41 + Skills 0.5.8。
+- **`dsh-ops` 0.4.4 → 0.5.0**（[v0.5.0](https://github.com/T-Auto/dsh-ops/releases/tag/v0.5.0)）：0.5 线只支持 DSH 0.2.2-rc.1 起的 0.2.2 发行线。Windows 默认 shell 改为随包官方 Niubash v1.5.0 完整载荷（缺载荷不再隐式回退环境 Bash），新增设置页「Bash 执行器」卡片与 `bash-runtime niubash` / `bash-runtime git --path`；内置极简/标准/PTC/创造预设默认隐藏宿主 PowerShell；未点名 `tools/change` 只重探一个代表会话、provider 扫描改读一次视图、展示撤回每请求最多重建一次（修空闲吃满单核），多会话宿主启动与刷新大幅提速；新增可选下载守卫、WSL 只读文件路由、`ladder` 完整性标签与 job 等待提示。
+- **`dsh-client-auto-continue` 0.17.1 → 0.17.3**（[v0.17.3](https://github.com/HsiangNianian/dsh-auto-continue/releases/tag/v0.17.3)）：0.17.2 修正第三方 UI 语言（如俄语）下回落中文的问题，`zh`/`zh-*` 用中文、其余与未设置用英文；0.17.3 把窄视口紧凑布局的兜底从 460px 扩到 640px，补上 #72 报告的 461–640px 空档（584px 实测控件 194px → 77px、输入框 230px → 347px）。
+- **`dsh-context` 0.79.0 → 0.82.1**（[v0.82.1](https://github.com/bowenliang123/dsh-context/releases/tag/v0.82.1)）：0.81.2 会话列表载荷再减 67%（1,086 会话 3.17 MB → 1.05 MB）、首帧绘图快 180ms 以上；0.82.0 Fleet 消息与任务报告带富文本工具栏（Markdown/原文切换、查找、复制），点击跳转平滑落点，TTFT 对齐宿主首 token 锚点；0.82.1 新增日语/西语/法语/葡语界面与 npm 多语言元数据，委派边进入 Event Inspection（含普通 Task 子代理），修复任务筛选下的协作车道与 Windows 路径展示。
+- **`dsh-computer-use-win` 0.5.3 → 0.5.5**（[v0.5.5](https://github.com/Yu-tao-Li/dsh-computer-use-win/releases/tag/v0.5.5)）：修复 DSH 0.2.2 上浮窗设置存不下来、日志每 250ms 刷错的问题（新旧配置结构都能保存，失败退避重试）；批量最后一步引起页面跳转不再判失败并给出 `afterLastStep`；任务结束后超 1200 字回复从开头显示；每次启动的 `dsh-wcu-control-*` 临时目录退出即删。
+- **同步范围**：plugins.json、README.md 两表、CHANGELOG.md 一并更新，catalogVersion `1.57.3` → `1.58.0`，updatedAt `2026-11-05` → `2026-11-06`；未变版本条目（dsh-pocket 3.0.10、dsh-retrace 0.4.82、dsh-update-checker 0.7.3、@local/skills-manager 0.3.4、anysearch-dsh 0.1.8、dsh-better-reasoning-effort 0.5.4、dsh-our-free-model 2.8.0、dsh-desktop-notify-win 0.4.0）保持原样。
+
 ## 2026-11-05 dsh-pocket 3.0.10（catalog 1.57.3）
 
 - **`dsh-pocket` 3.0.9 → 3.0.10**（[v3.0.10](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.10)）：吸收上游 v3.2.3（#260 批次）并修复上次同步漏网的 28 条提问卡死锚。修复：提问卡 28 条 `Mbwy4a_*` 精确哈希在 rc.5 宿主全部 0 命中（3.0.9 起适配静默失效）→ 改后缀锚 + `[data-question-key]` 作用域；可见带变量停稳两帧后写入并派发事件（键盘期整树重排/白屏）；session-focus-guard 观察窗口化（流式输出不再惊动全树观察）；question-fullscreen 双缓存 + 键盘收起后全屏卡回高 + 卡滚动/按钮贴底。新能力：提问卡整卡单滚动区 @patch（长问题不再压扁回答区）、统计行环带兜底（子代理 188px 空档）。构建：注释剥离挂进 build，bundle 635KB → 339KB（-47%）。全量 345 tests = 343 pass / 0 fail / 2 skip。
