@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.59.1",
-  "updatedAt": "2026-11-08",
+  "catalogVersion": "1.59.2",
+  "updatedAt": "2026-11-09",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -21,7 +21,7 @@
     {
       "id": "dsh-pocket",
       "name": "dsh-pocket",
-      "version": "3.0.10",
+      "version": "3.0.11",
       "description": "手机扫码同步电脑端 DSH，支持移动端操作；具备完整会话与工具代理、安全限流及 Cloudflare Named Tunnel 支持",
       "source": "https://github.com/daha1216/dsh-pocket",
       "install": "github:daha1216/dsh-pocket",

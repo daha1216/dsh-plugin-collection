@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-09 dsh-pocket 3.0.11（catalog 1.59.2）
+
+- **`dsh-pocket` 3.0.10 → 3.0.11**（[v3.0.11](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.11)）：修宿主 0.2.2-rc.1 上手机端整页空白——宿主给 frame 子元素加了显式 grid 放置（会话列 `1/2`、右栏 `1/3`、新增整宽 `bottomRow`），而移动壳只把宽度留在第 1 轨、第 1 轨又因侧栏改绝对定位而空，会话列拿到 0px，整页什么都不画；改按 `:has([data-conversation-region])` 语义占满第 1 轨，侧栏列从 `> :first-child` 改为 `[class*="_sidebarCol"]`（宿主把自带抽屉遮罩插成了第 0 个子元素）。同批吸收上游 v3.3.5 两项：谱系 chip 触摸 shim 补吞 `pointerout`/`pointerleave`（宿主把关闭定时器搬到 `onPointerLeave`，卡片 150ms 内自闭）；插件页补 `assets/icon.png`（256×256 RGBA）、`locale/{zh,en}.json` 双语 `meta`，package.json 加 `icon`、`exports` 的 `./locale/*.json` 与 `files` 的 `assets`/`locale`。
+- **校验脚本**：`scripts/verify.ps1 -Profile desktop` 通过。
+- **同步范围**：plugins.json、README.md 目录表、CHANGELOG.md 一并更新，catalogVersion `1.59.1` → `1.59.2`，updatedAt `2026-11-09`。
 ## 2026-11-08 移除 dsh-our-free-model（catalog 1.59.1）
 
 - **`dsh-our-free-model` 从目录移除**：本机从未安装该插件（桌面 profile 走自有模型渠道），目录里长期只有一条用不上的条目，`verify.ps1` 每次都要靠豁免文件才通过。现整条删除，连带 README 目录表、更新命令表、避坑说明里的对应段落，以及 `scripts/fetch-releases.ps1` 与 `scripts/fetch-upstream.ps1` 的抓取映射；`.upstream` 里的 README 缓存一并清掉。
