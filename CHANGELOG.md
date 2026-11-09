@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-09 dsh-pocket 3.0.12（catalog 1.59.3）
+
+- **`dsh-pocket` 3.0.11 → 3.0.12**（[v3.0.12](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.12)）：修三项手机端故障。①页签文字互相压住——宿主给每个页签 `margin-left/right: -10px` 做贴边，相邻页签盒重叠 4px、整组越出容器左缘 10px，「对话」「轨迹」「上下文」读成一串；页签负 margin 归零 + 容器 `gap: 6px`，实测页签 x 由 6/28/50 变 16/48/80、盒间由 −4px 变 +6px。②滑开侧栏又自动收回——#275 允许任意位置起手后，「arm 已打开、抬手位移不足 open 阈值」成常规路径，`endStroke()` 的 `armedOpen` 分支只在 `verdict === 'open'` 时保持；改为方向判据，arm 后仍是开方向且位移 ≥ `OPEN_FOLLOW_ARM_PX` 即保持。③宿主静默断线不自愈——close 回调不执行时 socket 已死但 `readyState` 仍是 1，页面停在断线态；新增链路看门狗，前台连续 12 秒判定 down 就主动 `connection.reconnect()`，退避 6/12/24/60 秒递进且不封顶。
+- **校验脚本**：`scripts/verify.ps1 -Profile desktop` 通过。
+- **同步范围**：plugins.json、README.md 目录表、CHANGELOG.md 一并更新，catalogVersion `1.59.2` → `1.59.3`，updatedAt `2026-11-09`。
+
 ## 2026-11-09 dsh-pocket 3.0.11（catalog 1.59.2）
 
 - **`dsh-pocket` 3.0.10 → 3.0.11**（[v3.0.11](https://github.com/daha1216/dsh-pocket/releases/tag/v3.0.11)）：修宿主 0.2.2-rc.1 上手机端整页空白——宿主给 frame 子元素加了显式 grid 放置（会话列 `1/2`、右栏 `1/3`、新增整宽 `bottomRow`），而移动壳只把宽度留在第 1 轨、第 1 轨又因侧栏改绝对定位而空，会话列拿到 0px，整页什么都不画；改按 `:has([data-conversation-region])` 语义占满第 1 轨，侧栏列从 `> :first-child` 改为 `[class*="_sidebarCol"]`（宿主把自带抽屉遮罩插成了第 0 个子元素）。同批吸收上游 v3.3.5 两项：谱系 chip 触摸 shim 补吞 `pointerout`/`pointerleave`（宿主把关闭定时器搬到 `onPointerLeave`，卡片 150ms 内自闭）；插件页补 `assets/icon.png`（256×256 RGBA）、`locale/{zh,en}.json` 双语 `meta`，package.json 加 `icon`、`exports` 的 `./locale/*.json` 与 `files` 的 `assets`/`locale`。
