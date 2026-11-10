@@ -1,4 +1,4 @@
-﻿# Fetch upstream release notes for the catalog's drifted plugins.
+# Fetch upstream release notes for the catalog's drifted plugins.
 # Usage: pwsh -File scripts/fetch-releases.ps1 [-Repo owner/repo]...
 param([string[]]$Repo)
 $ErrorActionPreference = 'Continue'
@@ -30,9 +30,7 @@ if (-not $Repo -or $Repo.Count -eq 0) {
     'omdsh-dev/dsh-mnemon',
     'daha1216/dsh-retrace',
     'daha1216/dsh-update-checker',
-    'daha1216/dsh-skills-manager',
     'aa2246740/dsh-skillhub',
-    'T-Auto/dsh-ops',
     'HsiangNianian/dsh-auto-continue',
     'bowenliang123/dsh-context',
     'xiaotie3088/dsh-desktop-notify-win',

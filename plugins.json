@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.59.4",
+  "catalogVersion": "1.59.5",
   "updatedAt": "2026-11-10",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -73,15 +73,6 @@
       "update": "dsh plugin --profile web add github:daha1216/dsh-update-checker"
     },
     {
-      "id": "skills-manager",
-      "name": "@local/skills-manager",
-      "version": "0.3.4",
-      "description": "在设置页新增「技能」管理页：双根隔离、无损 frontmatter 读写、列出 / 查看 / 编辑 / 删除技能并切换调用策略",
-      "source": "https://github.com/daha1216/dsh-skills-manager",
-      "install": "github:daha1216/dsh-skills-manager",
-      "update": "dsh plugin --profile web add github:daha1216/dsh-skills-manager"
-    },
-    {
       "id": "dsh-skillhub",
       "name": "@aa2246740/dsh-skillhub",
       "version": "1.0.9",
@@ -89,15 +80,6 @@
       "source": "https://github.com/aa2246740/dsh-skillhub",
       "install": "@aa2246740/dsh-skillhub@1.0.9",
       "update": "dsh plugin --profile web add @aa2246740/dsh-skillhub"
-    },
-    {
-      "id": "dsh-ops",
-      "name": "dsh-ops",
-      "version": "0.5.2",
-      "description": "Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.1/0.5.2 新增磁盘归属与缓存诊断及显式回收命令、跨平台索引与 ops_grep 声明查找，Niubash 执行树改硬链接 + 只读封印并修并发调用硬链接计数误报、设置页 Git Bash 执行路径保存与离线缓存回收",
-      "source": "https://github.com/T-Auto/dsh-ops",
-      "install": "dsh-ops@0.5.2",
-      "update": "npx --yes dsh-ops@latest install --profile web"
     },
     {
       "id": "dsh-client-auto-continue",

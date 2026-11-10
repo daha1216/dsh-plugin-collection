@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.59.4-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-14%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.59.5-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-12%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -36,9 +36,7 @@
 | `dsh-retrace` | 0.4.83 | 消息撤回、编辑重发与重新生成，同步回退修改过的文件；0.4.83 撤回预检透传宿主消息投影（修复含 image/offload 的会话无法撤回） | [daha1216/dsh-retrace](https://github.com/daha1216/dsh-retrace) |
 | `@anysearch/anysearch-dsh` | 0.1.8 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 | `dsh-update-checker` | 0.7.3 | 一键检查已装插件的上游更新，点「一键更新」原生创建对话并预填更新提示词，适配多插件紧凑弹性侧栏 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
-| `@local/skills-manager` | 0.3.4 | 在设置页新增「技能」管理页：双根隔离、无损 frontmatter 读写、列出 / 查看 / 编辑 / 删除技能并切换调用策略 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
 | `@aa2246740/dsh-skillhub` | 1.0.9 | 本地技能与 MCP 服务的统一开关面板：自动扫描 ~/.agents/skills 与 $DSH_HOME/skills 及运行中的 MCP 服务，提供全局 / 本项目 / 本对话三层开关与向下传导，纯可见性控制，不改动任何磁盘技能文件 | [aa2246740/dsh-skillhub](https://github.com/aa2246740/dsh-skillhub) |
-| `dsh-ops` | 0.5.2 | Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.1/0.5.2 新增磁盘归属与缓存诊断及显式回收命令、跨平台索引与 ops_grep 声明查找，Niubash 执行树改硬链接 + 只读封印并修并发调用硬链接计数误报、设置页 Git Bash 执行路径保存与离线缓存回收 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
 | `dsh-client-auto-continue` | 0.18.0 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.18.0 断网先做在线探测再重试（离线按 15 秒复查、不消耗连续重试预算，pauseWhenOffline 默认开启），新增自主循环轮次上限 loopMaxIterations，重启后可唤醒被中断的子代理/团队会话、重新武装宿主卸下的 goal 并可选恢复手动暂停的 goal | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
 | `dsh-computer-use-win` | 0.5.6 | 让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.6 修 DSH 0.1.5 上装插件后所有会话「加载更早」失效（每轮多个开始事件），OCR 小字先放大再识别（9–20px 逐字错误率约减半）并可指定识别语言，浮窗跟随 DSH 界面语言 | [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) |
 
@@ -115,9 +113,7 @@ bash install.sh --all
 | `dsh-mnemon` | `dsh plugin --profile web add dsh-mnemon` |
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
-| `@local/skills-manager` | `dsh plugin --profile web add github:daha1216/dsh-skills-manager` |
 | `@aa2246740/dsh-skillhub` | `dsh plugin --profile web add @aa2246740/dsh-skillhub` |
-| `dsh-ops` | `npx --yes dsh-ops@latest install --profile web` |
 | `dsh-client-auto-continue` | `dsh plugin --profile web add dsh-client-auto-continue@latest` |
 | `dsh-context` | `dsh plugin --profile web update dsh-context@latest` |
 | `dsh-desktop-notify-win` | `dsh plugin --profile web add github:xiaotie3088/dsh-desktop-notify-win` |
@@ -129,7 +125,7 @@ bash install.sh --all
 
 ### 1. 更新机制与命令规范
 - **重跑 `add` 即更新**：多数插件上游 README 未设立独立的 update 命令，重新执行其 `add` 命令即可拉取该来源的最新版本。
-- **原生自更新命令**：`billion-context` 用 `bili update`（上游 README 的 Self-update 与命令行示例），`dsh-ops` 用 `npx --yes dsh-ops@latest install --profile web`，`anysearch-dsh` 用原生 `update` 动词，`dsh-context` 用 `dsh plugin --profile web update dsh-context@latest`，`dsh-pocket` 自 3.0.2 起改为重跑 `add`（上游 README 已删掉 `update --latest` 的说法）。
+- **原生自更新命令**：`billion-context` 用 `bili update`（上游 README 的 Self-update 与命令行示例），`anysearch-dsh` 用原生 `update` 动词，`dsh-context` 用 `dsh plugin --profile web update dsh-context@latest`，`dsh-pocket` 自 3.0.2 起改为重跑 `add`（上游 README 已删掉 `update --latest` 的说法）。
 - **`billion-context` 更新须知**：
   - `bili update` 是全局 CLI 命令（`npm install -g billion-context`），它同时驱动 dsh profile 副本这条 lane；本机没有全局 `bili` 时，用 `dsh plugin --profile web add billion-context` 重装到最新版即可，效果相同。
   - 自动更新是**错峰**的（#3619）：发现新版本后要在 15 分钟–48 小时的随机窗口里抽一个时刻才安装（抽中的时刻会持久化，重启不重抽），所以「刚发布没马上升级」是正常现象；手动 `bili update` 绕过 hold 与错峰，但仍遵守 `blocked` / `pinned`，Web 面板会显示 hold/pinned 横幅。
@@ -154,16 +150,10 @@ bash install.sh --all
 - **`dsh-retrace`**：
   - 上游原生命令为 npm 通道 `dsh plugin --profile web add dsh-retrace`。
   - 本机实装与本目录均跟随自建兼容 Fork `github:daha1216/dsh-retrace`。
-- **`@local/skills-manager`**：
-  - 目录收录公开仓库 `github:daha1216/dsh-skills-manager`；本地若处于开发态（`link:`），以本地代码优先。
 - **`@aa2246740/dsh-skillhub`**：
   - npm 与 GitHub 同包名，装时不要设 npm 别名（别名会导致前端注册名对不上，表现为「装了但设置里没有 skill&mcp 入口」）；升级同样重跑 `add` 到最新版。
   - 版本与宿主强绑定：DSH `0.2.0-rc.x` 需插件 `1.0.4` 及以上，`0.1.7-rc.x` 只能装 `1.0.2`，`0.1.5` 只能装 `1.0.1`；版本不匹配宿主会在启动时整条拒绝该插件。
   - 开关状态存于 `$DSH_HOME/skillhub/`，开关只控制模型可见性，不增删改磁盘上的技能文件。
-- **`dsh-ops`**：
-  - npm 通道，原生更新命令 `npx --yes dsh-ops@latest install --profile <desktop|web|tui>`，按 profile 用官方 CLI 重装到最新版并同时对齐随包 bash 载荷（0.4.0 起 npm 只随包 bash，PowerShell 交给宿主管理）；官方 CLI 的 `add dsh-ops@latest` 是等价替代。
-  - 桌面端必须用桌面应用自带的 CLI：默认探测 `%LOCALAPPDATA%\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd`，装在其它位置时加 `--dsh-cli "<安装目录>\resources\runtime\cli\bin\dsh.cmd"`（`<安装目录>` 替换成桌面端实际安装位置）。
-  - 装/升时务必显式指定官方源 `--registry=https://registry.npmjs.org`：其 `@dsh-ops/bash-win32-x64` optionalDependency 在 npmmirror 上可能缺版本，pnpm 重解析会报 `ERR_PNPM_NO_MATCHING_VERSION`。
 - **`dsh-computer-use-win`**：
   - Windows 原生桌面自动化插件（`Yu-tao-Li/dsh-computer-use-win`），通过 MCP stdio 桥接与 PowerShell 5.1 UIA 后端操作真实桌面应用与后台网页。
   - 安装或更新后必须在托盘菜单右键彻底「退出」DSH Desktop 再重新打开（仅关窗口无效）；默认提供 Esc 全局安全中断热键。
@@ -179,7 +169,7 @@ bash install.sh --all
    - 验证 `plugins.json` 结构与格式；
    - 保证 README 目录表与更新命令表严格对应；
    - 保证仓库目录与当前环境 profile 实装插件完全对齐（差集为零）。
-   - 本机刻意不装的公开条目登记在 [`verify.ignore.json`](verify.ignore.json)，脚本跳过对应名字并在输出中注明原因。
+   - 如遇「目录有、本机刻意不装」的临时情形（换机、试用、与宿主冲突），可在仓库根目录新建 `verify.ignore.json` 登记名字与原因，脚本会跳过对应条目并在输出中注明；当前目录 12 条均为本机实装，无需该文件。
 3. **版本日志**：每次目录更新与插件升级记录统一沉淀在 [`CHANGELOG.md`](CHANGELOG.md)。
 
 ---

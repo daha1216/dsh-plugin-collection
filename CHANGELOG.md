@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-10 移除本机未实装条目（catalog 1.59.5）
+
+- **目录改为只收本机实装**：按用户要求把 desktop profile 里没有实装的两条从目录条目中删除，条目数 14 → 12——`@local/skills-manager` 0.3.4（技能管理已由 `@aa2246740/dsh-skillhub` 接手）与 `dsh-ops` 0.5.2（重建后的 profile 未装）。两条的 `plugins.json` 条目、README 目录表行、更新命令表行、「更新机制与命令规范」里的原生自更新提及、以及「特殊插件与自维护 Fork」下的整段避坑说明一并移除。
+- **`verify.ignore.json` 删除**：上一版（1.59.4）用它登记这两条「本机刻意未装」以放行差集核对；条目删除后没有需要豁免的对象，文件随之删除。`scripts/verify.ps1` 的豁免机制保留（文件缺失即视为无豁免），README 维护机制段落改为说明「需要时手动创建」，并注明当前 12 条均为本机实装。
+- **抓取脚本收窄**：`scripts/fetch-upstream.ps1` 的 `$repos` 映射与 `scripts/fetch-releases.ps1` 的默认 `$Repo` 数组删去 `daha1216/dsh-skills-manager` 与 `T-Auto/dsh-ops`，注释里的对齐版本改为 1.59.5 / 12 条。
+- **README 徽章**：`catalog-v1.59.4` / `plugins-14 curated` → `catalog-v1.59.5` / `plugins-12 curated`。
+- **校验**：`scripts/verify.ps1 -Profile desktop` 通过（12 条，两表与实装差集为零）。
+- **同步范围**：plugins.json、README.md 两表 + 徽章 + 避坑说明 + 维护机制、两个抓取脚本、verify.ignore.json（删除）、CHANGELOG.md；catalogVersion `1.59.4` → `1.59.5`，updatedAt 保持 `2026-11-10`。
+
 ## 2026-11-10 目录全量对齐与新增 dsh-skillhub（catalog 1.59.4）
 
 - **新增 `@aa2246740/dsh-skillhub` 1.0.9**（第三方，作者 aa2246740，[aa2246740/dsh-skillhub](https://github.com/aa2246740/dsh-skillhub)，[v1.0.9](https://github.com/aa2246740/dsh-skillhub/releases/tag/v1.0.9)）：本机 desktop profile 于 2026-11-10 已启用，补录进目录（13 → 14 条）。自动扫描 `~/.agents/skills` 与 `$DSH_HOME/skills` 上已有的技能及运行中的 MCP 工具服务，提供全局 / 本项目 / 本对话三层独立开关与向下传导，纯可见性控制，不改动或删除任何磁盘文件；npm 与 GitHub 同包名（装时不得设 npm 别名），版本与宿主强绑定——`0.2.0-rc.x` 需 1.0.4 及以上、`0.1.7-rc.x` 只能装 1.0.2、`0.1.5` 只能装 1.0.1。
