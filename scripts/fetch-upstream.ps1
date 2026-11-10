@@ -20,7 +20,7 @@ if (-not $env:https_proxy) {
 
 # id = repo path on GitHub (owner/repo), plus optional subpath inside the repo
 $repos = [ordered]@{
-  # 与 plugins.json 目录条目一一对应（2026-11-08 对齐 1.59.1 / 13 条）
+  # 与 plugins.json 目录条目一一对应（2026-11-10 对齐 1.59.5 / 14 条）
   # 注意：billion-context 权威发布渠道是 npm，仓库 HEAD 通常同步但可能滞后
   # dsh-ops 权威渠道是 npm（仓库 HEAD 可能已领先未发布版本）
   'dsh-better-reasoning-effort' = @{ repo = 'HaoyueQin/dsh-better-reasoning-effort'; path = '' }
@@ -31,6 +31,7 @@ $repos = [ordered]@{
   'dsh-retrace'                 = @{ repo = 'daha1216/dsh-retrace';                    path = '' }
   'dsh-update-checker'          = @{ repo = 'daha1216/dsh-update-checker';              path = '' }
   'skills-manager'              = @{ repo = 'daha1216/dsh-skills-manager';              path = '' }
+  'dsh-skillhub'                = @{ repo = 'aa2246740/dsh-skillhub';                  path = '' }
   'dsh-ops'                     = @{ repo = 'T-Auto/dsh-ops';                          path = '' }
   'dsh-client-auto-continue'    = @{ repo = 'HsiangNianian/dsh-auto-continue';          path = '' }
   'dsh-context'                 = @{ repo = 'bowenliang123/dsh-context';                path = '' }

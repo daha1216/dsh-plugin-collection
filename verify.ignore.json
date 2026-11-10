@@ -1,0 +1,12 @@
+{
+  "notInstalled": [
+    {
+      "name": "@local/skills-manager",
+      "reason": "desktop profile 于 2026-11-10 重建后技能管理由 @aa2246740/dsh-skillhub 接手，本机未装；目录保留公开仓库条目"
+    },
+    {
+      "name": "dsh-ops",
+      "reason": "desktop profile 于 2026-11-10 重建后未安装（原用于替换宿主 shell），目录条目保留待恢复"
+    }
+  ]
+}

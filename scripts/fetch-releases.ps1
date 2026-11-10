@@ -31,6 +31,7 @@ if (-not $Repo -or $Repo.Count -eq 0) {
     'daha1216/dsh-retrace',
     'daha1216/dsh-update-checker',
     'daha1216/dsh-skills-manager',
+    'aa2246740/dsh-skillhub',
     'T-Auto/dsh-ops',
     'HsiangNianian/dsh-auto-continue',
     'bowenliang123/dsh-context',

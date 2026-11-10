@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.59.3",
-  "updatedAt": "2026-11-09",
+  "catalogVersion": "1.59.4",
+  "updatedAt": "2026-11-10",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
     "profile": "web",
@@ -39,19 +39,19 @@
     {
       "id": "billion-context",
       "name": "billion-context",
-      "version": "0.1.212",
-      "description": "动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍；0.1.212 恢复紧急发布通道并修正回退带来的功能损失，修严格思考车道残留推理与插件车道每轮重解析历史（#5403 OOM）",
+      "version": "0.1.213",
+      "description": "动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍；0.1.213 撤回自相矛盾的计费标记改回拆分口径，工具可达性观测读取 Responses 的 additional_tools 前言，上游未签名时重放未签名思考，新增 bili kiro 启动通道与统一公告面，超大直连模型请求直接拒绝",
       "source": "https://github.com/ranxianglei/billion-context",
-      "install": "billion-context@0.1.212",
+      "install": "billion-context@0.1.213",
       "update": "bili update"
     },
     {
       "id": "dsh-mnemon",
       "name": "dsh-mnemon",
-      "version": "0.5.42",
-      "description": "可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算；0.5.42 运行时快照改为有界（不变内容仍可增量追加），技能建议/草案/重写/回测与原始技能绑定，托管文档可彻底删除并带回滚护栏",
+      "version": "0.5.43",
+      "description": "可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.43 技能草案/回测中断或超时回到可恢复状态，Runtime 记忆可手动固定并建有界配额，新增默认关闭的技能自动采纳与子 Agent Runtime 继承，Native 召回按语义相似度重排，Windows 下 pnpm/nvm 全局 CLI 发现不再依赖 Desktop PATH",
       "source": "https://github.com/omdsh-dev/dsh-mnemon",
-      "install": "dsh-mnemon@0.5.42",
+      "install": "dsh-mnemon@0.5.43",
       "update": "dsh plugin --profile web add dsh-mnemon"
     },
     {
@@ -82,30 +82,39 @@
       "update": "dsh plugin --profile web add github:daha1216/dsh-skills-manager"
     },
     {
+      "id": "dsh-skillhub",
+      "name": "@aa2246740/dsh-skillhub",
+      "version": "1.0.9",
+      "description": "本地技能与 MCP 服务的统一开关面板：自动扫描 ~/.agents/skills 与 $DSH_HOME/skills 及运行中的 MCP 服务，提供全局 / 本项目 / 本对话三层开关与向下传导，纯可见性控制，不改动任何磁盘技能文件",
+      "source": "https://github.com/aa2246740/dsh-skillhub",
+      "install": "@aa2246740/dsh-skillhub@1.0.9",
+      "update": "dsh plugin --profile web add @aa2246740/dsh-skillhub"
+    },
+    {
       "id": "dsh-ops",
       "name": "dsh-ops",
-      "version": "0.5.0",
-      "description": "Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.0 起 Windows 默认 shell 换成随包 Niubash v1.5.0 完整载荷、内置预设默认隐藏宿主 PowerShell，并大幅削减多会话装配开销",
+      "version": "0.5.2",
+      "description": "Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.1/0.5.2 新增磁盘归属与缓存诊断及显式回收命令、跨平台索引与 ops_grep 声明查找，Niubash 执行树改硬链接 + 只读封印并修并发调用硬链接计数误报、设置页 Git Bash 执行路径保存与离线缓存回收",
       "source": "https://github.com/T-Auto/dsh-ops",
-      "install": "dsh-ops@0.5.0",
+      "install": "dsh-ops@0.5.2",
       "update": "npx --yes dsh-ops@latest install --profile web"
     },
     {
       "id": "dsh-client-auto-continue",
       "name": "dsh-client-auto-continue",
-      "version": "0.17.4",
-      "description": "请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.17.2/0.17.3 修正第三方 UI 语言下回落中文的问题，并把窄视口紧凑布局兜底扩到 640px，修复 461–640px 区间输入框被挤压；0.17.4 修 MALFORMED_RESPONSE 被误判为永久失败（回显参数含 auth/quota 等词时），实时错误、启动扫描与归档扫描共用同一判定",
+      "version": "0.18.0",
+      "description": "请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.18.0 断网先做在线探测再重试（离线按 15 秒复查、不消耗连续重试预算，pauseWhenOffline 默认开启），新增自主循环轮次上限 loopMaxIterations，重启后可唤醒被中断的子代理/团队会话、重新武装宿主卸下的 goal 并可选恢复手动暂停的 goal",
       "source": "https://github.com/HsiangNianian/dsh-auto-continue",
-      "install": "dsh-client-auto-continue@0.17.4",
+      "install": "dsh-client-auto-continue@0.18.0",
       "update": "dsh plugin --profile web add dsh-client-auto-continue@latest"
     },
     {
       "id": "dsh-context",
       "name": "dsh-context",
-      "version": "0.82.2",
-      "description": "上下文洞察与管理：0.82 新增日/西/法/葡多语言界面、Fleet 富文本工具栏与委派事件流，TTFT 对齐宿主首 token 锚点，会话列表载荷再减 67%；0.82.2 补德语/俄语界面与 README，待回答的问题卡片不再遮挡 Context/Fleet 面板",
+      "version": "0.83.1",
+      "description": "上下文洞察与管理：0.83 把仪表盘改为宿主侧按需分片（1,158 会话约 27 KB、同内容轮询约 62 B），列表统一有界窗口化并给客户端缓存加 TTL 与作用域键；0.83.1 修 Windows 首次打开 Insights 触发渲染看门狗、Today 统计不随本地日界翻新、旧作用域迟到回包覆盖新数据与 PTC 预置下技能/工具卡为空",
       "source": "https://github.com/bowenliang123/dsh-context",
-      "install": "dsh-context@0.82.2",
+      "install": "dsh-context@0.83.1",
       "update": "dsh plugin --profile web update dsh-context@latest"
     },
     {
@@ -120,10 +129,10 @@
     {
       "id": "dsh-computer-use-win",
       "name": "dsh-computer-use-win",
-      "version": "0.5.5",
-      "description": "让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.5 修复 DSH 0.2.2 上浮窗设置无法保存与日志刷屏，长回复从开头显示，临时目录自动清理",
+      "version": "0.5.6",
+      "description": "让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.6 修 DSH 0.1.5 上装插件后所有会话「加载更早」失效（每轮多个开始事件），OCR 小字先放大再识别（9–20px 逐字错误率约减半）并可指定识别语言，浮窗跟随 DSH 界面语言",
       "source": "https://github.com/Yu-tao-Li/dsh-computer-use-win",
-      "install": "dsh-computer-use-win@0.5.5",
+      "install": "dsh-computer-use-win@0.5.6",
       "update": "dsh plugin --profile web add dsh-computer-use-win"
     }
   ]

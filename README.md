@@ -2,7 +2,7 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.57.1-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.59.4-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-14%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
@@ -20,14 +20,14 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-better-reasoning-effort` | 0.5.4 | 在官方 Models 页内嵌配置第三方模型的推理强度（Effort）、输入模态、请求头与端点兼容项 | [HaoyueQin/dsh-better-reasoning-effort](https://github.com/HaoyueQin/dsh-better-reasoning-effort) |
-| `billion-context` | 0.1.212 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍；0.1.212 恢复紧急发布通道并修正回退带来的功能损失，修严格思考车道残留推理与插件车道每轮重解析历史（#5403 OOM） | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
-| `dsh-mnemon` | 0.5.42 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.40/0.5.41 支持同轮新建档案立即更新、适配 DSH 0.2.2-rc.1 与移除的 Agent 接口，技能草案可配 32K/64K token 预算；0.5.42 运行时快照改为有界（不变内容仍可增量追加），技能建议/草案/重写/回测与原始技能绑定，托管文档可彻底删除并带回滚护栏 | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
+| `billion-context` | 0.1.213 | 动态压缩长会话上下文：小窗口跑数十亿 token 超长会话，支持消息时间戳、陪伴型 Prompt Pack 与冻结恢复，token 节省约 5 倍；0.1.213 撤回自相矛盾的计费标记改回拆分口径，工具可达性观测读取 Responses 的 additional_tools 前言，上游未签名时重放未签名思考，新增 bili kiro 启动通道与统一公告面，超大直连模型请求直接拒绝 | [ranxianglei/billion-context](https://github.com/ranxianglei/billion-context) |
+| `dsh-mnemon` | 0.5.43 | 可组合的视图化记忆系统：可插拔记忆源与策略，开箱即用分层记忆（Memory Spaces / Providers），优化会话切换读取开销与审查生命周期；0.5.43 技能草案/回测中断或超时回到可恢复状态，Runtime 记忆可手动固定并建有界配额，新增默认关闭的技能自动采纳与子 Agent Runtime 继承，Native 召回按语义相似度重排，Windows 下 pnpm/nvm 全局 CLI 发现不再依赖 Desktop PATH | [omdsh-dev/dsh-mnemon](https://github.com/omdsh-dev/dsh-mnemon) |
 
 ### 📊 计量与状态监控
 
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
-| `dsh-context` | 0.82.2 | 上下文洞察与管理：0.82 新增日/西/法/葡多语言界面、Fleet 富文本工具栏与委派事件流，TTFT 对齐宿主首 token 锚点，会话列表载荷再减 67%；0.82.2 补德语/俄语界面与 README，待回答的问题卡片不再遮挡 Context/Fleet 面板 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
+| `dsh-context` | 0.83.1 | 上下文洞察与管理：0.83 把仪表盘改为宿主侧按需分片（1,158 会话约 27 KB、同内容轮询约 62 B），列表统一有界窗口化并给客户端缓存加 TTL 与作用域键；0.83.1 修 Windows 首次打开 Insights 触发渲染看门狗、Today 统计不随本地日界翻新、旧作用域迟到回包覆盖新数据与 PTC 预置下技能/工具卡为空 | [bowenliang123/dsh-context](https://github.com/bowenliang123/dsh-context) |
 
 ### 🛠️ 会话管理与效率工具
 
@@ -37,9 +37,10 @@
 | `@anysearch/anysearch-dsh` | 0.1.8 | 为 Agent 提供网页实时搜索与正文抓取能力 | [anysearch-team/anysearch-dsh](https://github.com/anysearch-team/anysearch-dsh) |
 | `dsh-update-checker` | 0.7.3 | 一键检查已装插件的上游更新，点「一键更新」原生创建对话并预填更新提示词，适配多插件紧凑弹性侧栏 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 | `@local/skills-manager` | 0.3.4 | 在设置页新增「技能」管理页：双根隔离、无损 frontmatter 读写、列出 / 查看 / 编辑 / 删除技能并切换调用策略 | [daha1216/dsh-skills-manager](https://github.com/daha1216/dsh-skills-manager) |
-| `dsh-ops` | 0.5.0 | Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.0 起 Windows 默认 shell 换成随包 Niubash v1.5.0 完整载荷、内置预设默认隐藏宿主 PowerShell，并大幅削减多会话装配开销 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
-| `dsh-client-auto-continue` | 0.17.4 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.17.2/0.17.3 修正第三方 UI 语言下回落中文的问题，并把窄视口紧凑布局兜底扩到 640px，修复 461–640px 区间输入框被挤压；0.17.4 修 MALFORMED_RESPONSE 被误判为永久失败（回显参数含 auth/quota 等词时），实时错误、启动扫描与归档扫描共用同一判定 | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
-| `dsh-computer-use-win` | 0.5.5 | 让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.5 修复 DSH 0.2.2 上浮窗设置无法保存与日志刷屏，长回复从开头显示，临时目录自动清理 | [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) |
+| `@aa2246740/dsh-skillhub` | 1.0.9 | 本地技能与 MCP 服务的统一开关面板：自动扫描 ~/.agents/skills 与 $DSH_HOME/skills 及运行中的 MCP 服务，提供全局 / 本项目 / 本对话三层开关与向下传导，纯可见性控制，不改动任何磁盘技能文件 | [aa2246740/dsh-skillhub](https://github.com/aa2246740/dsh-skillhub) |
+| `dsh-ops` | 0.5.2 | Rust 原生文件工具集（读、搜索、修改、文档读取、工具发现）与随包官方 Niubash bash，替换反复失败的原生 shell 调用；0.5.1/0.5.2 新增磁盘归属与缓存诊断及显式回收命令、跨平台索引与 ops_grep 声明查找，Niubash 执行树改硬链接 + 只读封印并修并发调用硬链接计数误报、设置页 Git Bash 执行路径保存与离线缓存回收 | [T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops) |
+| `dsh-client-auto-continue` | 0.18.0 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.18.0 断网先做在线探测再重试（离线按 15 秒复查、不消耗连续重试预算，pauseWhenOffline 默认开启），新增自主循环轮次上限 loopMaxIterations，重启后可唤醒被中断的子代理/团队会话、重新武装宿主卸下的 goal 并可选恢复手动暂停的 goal | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
+| `dsh-computer-use-win` | 0.5.6 | 让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.6 修 DSH 0.1.5 上装插件后所有会话「加载更早」失效（每轮多个开始事件），OCR 小字先放大再识别（9–20px 逐字错误率约减半）并可指定识别语言，浮窗跟随 DSH 界面语言 | [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) |
 
 ### 🎨 界面体验与多端协同
 
@@ -115,6 +116,7 @@ bash install.sh --all
 | `dsh-retrace` | `dsh plugin --profile web add dsh-retrace` |
 | `dsh-update-checker` | `dsh plugin --profile web add github:daha1216/dsh-update-checker` |
 | `@local/skills-manager` | `dsh plugin --profile web add github:daha1216/dsh-skills-manager` |
+| `@aa2246740/dsh-skillhub` | `dsh plugin --profile web add @aa2246740/dsh-skillhub` |
 | `dsh-ops` | `npx --yes dsh-ops@latest install --profile web` |
 | `dsh-client-auto-continue` | `dsh plugin --profile web add dsh-client-auto-continue@latest` |
 | `dsh-context` | `dsh plugin --profile web update dsh-context@latest` |
@@ -154,6 +156,10 @@ bash install.sh --all
   - 本机实装与本目录均跟随自建兼容 Fork `github:daha1216/dsh-retrace`。
 - **`@local/skills-manager`**：
   - 目录收录公开仓库 `github:daha1216/dsh-skills-manager`；本地若处于开发态（`link:`），以本地代码优先。
+- **`@aa2246740/dsh-skillhub`**：
+  - npm 与 GitHub 同包名，装时不要设 npm 别名（别名会导致前端注册名对不上，表现为「装了但设置里没有 skill&mcp 入口」）；升级同样重跑 `add` 到最新版。
+  - 版本与宿主强绑定：DSH `0.2.0-rc.x` 需插件 `1.0.4` 及以上，`0.1.7-rc.x` 只能装 `1.0.2`，`0.1.5` 只能装 `1.0.1`；版本不匹配宿主会在启动时整条拒绝该插件。
+  - 开关状态存于 `$DSH_HOME/skillhub/`，开关只控制模型可见性，不增删改磁盘上的技能文件。
 - **`dsh-ops`**：
   - npm 通道，原生更新命令 `npx --yes dsh-ops@latest install --profile <desktop|web|tui>`，按 profile 用官方 CLI 重装到最新版并同时对齐随包 bash 载荷（0.4.0 起 npm 只随包 bash，PowerShell 交给宿主管理）；官方 CLI 的 `add dsh-ops@latest` 是等价替代。
   - 桌面端必须用桌面应用自带的 CLI：默认探测 `%LOCALAPPDATA%\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd`，装在其它位置时加 `--dsh-cli "<安装目录>\resources\runtime\cli\bin\dsh.cmd"`（`<安装目录>` 替换成桌面端实际安装位置）。
