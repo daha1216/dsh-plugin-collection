@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-10 新增 dsh-deep-ptc-mode（catalog 1.59.6）
+
+- **新增 `dsh-deep-ptc-mode` 1.8.7**（第三方，作者 lishize20040802-rgb，[lishize20040802-rgb/dsh-deep-ptc-mode](https://github.com/lishize20040802-rgb/dsh-deep-ptc-mode)，[v1.8.7](https://github.com/lishize20040802-rgb/dsh-deep-ptc-mode/releases/tag/v1.8.7)）：本机 desktop profile 已实装（npm 通道 `dsh-deep-ptc-mode@1.8.7`），补录进目录（12 → 13 条，归入「会话管理与效率工具」）。深度 PTC 是 Agent 预设而非工具包：从宿主发布的官方 PTC 声明现场派生预设并原样继承官方行，只替换 persona、执行组、可达性守卫与 job / 提问包装，官方升级后无需发版即可继承新工具；用提示词 + 代码解决「闷头干活不汇报、有歧义先猜不问、执行中休眠失联、计划不可见」——每次 `run_code` 前先说明意图、前台等待超 30 秒自动转后台且不杀命令、用户插话约 2 秒内命令转后台、前台超 5 秒的 sleep 直接拒绝、job 完成自动唤醒；另有按需加载 + 故障隔离的外部插件工具目录（`dsh-ops` 专测，交出它接受的 `ptc` 基座 id）、Skill 上下文卡片（每轮列出仍在上下文中的 Skill 并逐个滑动开关，1.8.5 起）、WSL / PowerShell / Bash / Zsh 执行环境切换（1.8.7 支持 Windows 原生 Bash 路径）、侧栏子代理与后台任务卡片，以及只在深度 PTC 会话生效的界面精修（1.8.7 起可在侧栏关闭）。要求 Node `>=24`、DSH `>=0.2.2-rc.1`。
+- **对账结论**：已有 12 条上游均无新版本——npm 通道查 registry `dist-tags.latest`（`dsh-better-reasoning-effort` 0.5.4、`billion-context` 0.1.213、`dsh-mnemon` 0.5.43、`dsh-context` 0.83.1、`dsh-computer-use-win` 0.5.6、`@anysearch/anysearch-dsh` 0.1.8、`@aa2246740/dsh-skillhub` 1.0.9、`dsh-client-auto-continue` 0.18.0）与 GitHub 通道查最新 Release + 默认分支（`dsh-pocket` v3.0.12、`dsh-retrace` v0.4.83、`dsh-update-checker` v0.7.3、`dsh-desktop-notify-win` 0.4.0，该仓库无 Release，按 tag / 默认分支 HEAD 核对）均与本机 `node_modules` 实装一致。
+- **未收录项**：profile 里另有 `dsh-composer-draft-restore`（`link:` 本地开发目录）与 `dsh-purge-community`（`file:` 私有 tgz），属本机私有 lane，按目录约定不进公开条目。
+- **抓取脚本**：`scripts/fetch-upstream.ps1` 与 `scripts/fetch-releases.ps1` 补入 `lishize20040802-rgb/dsh-deep-ptc-mode`，注释里的对齐版本改为 1.59.6 / 13 条。
+- **README**：目录表与更新命令表各加一行，避坑区新增 `dsh-deep-ptc-mode` 四条（版本下限与模式隔离、装后重启与设置入口、界面特效与外部主题 / `dsh-refined-ui` 并存、与 `dsh-ops` 的基座 id 适配）；徽章改为 `catalog-v1.59.6` / `13 curated`。
+- **校验**：`scripts/verify.ps1 -Profile desktop` 通过（13 条，两表与实装差集为零）。
+- **同步范围**：plugins.json、README.md 两表 + 徽章 + 避坑说明、两个抓取脚本、CHANGELOG.md；catalogVersion `1.59.5` → `1.59.6`，updatedAt 保持 `2026-11-10`。
+
 ## 2026-11-10 移除本机未实装条目（catalog 1.59.5）
 
 - **目录改为只收本机实装**：按用户要求把 desktop profile 里没有实装的两条从目录条目中删除，条目数 14 → 12——`@local/skills-manager` 0.3.4（技能管理已由 `@aa2246740/dsh-skillhub` 接手）与 `dsh-ops` 0.5.2（重建后的 profile 未装）。两条的 `plugins.json` 条目、README 目录表行、更新命令表行、「更新机制与命令规范」里的原生自更新提及、以及「特殊插件与自维护 Fork」下的整段避坑说明一并移除。

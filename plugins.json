@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/daha1216/dsh-plugin-collection/main/plugins.schema.json",
-  "catalogVersion": "1.59.5",
+  "catalogVersion": "1.59.6",
   "updatedAt": "2026-11-10",
   "install": {
     "command": "npx --yes -p @deepseek-ai/dsh dsh plugin --profile web add",
@@ -80,6 +80,15 @@
       "source": "https://github.com/aa2246740/dsh-skillhub",
       "install": "@aa2246740/dsh-skillhub@1.0.9",
       "update": "dsh plugin --profile web add @aa2246740/dsh-skillhub"
+    },
+    {
+      "id": "dsh-deep-ptc-mode",
+      "name": "dsh-deep-ptc-mode",
+      "version": "1.8.7",
+      "description": "深度 PTC 模式 Agent 预设：从宿主发布的官方 PTC 声明现场派生并原样继承官方行，把「先汇报、有歧义先问、执行中不休眠、计划分档可见、可随时插话」写进提示词与代码（前台等待超 30 秒自动转后台、用户插话约 2 秒让出、job 完成自动唤醒）；按需加载外部插件工具并隔离故障（dsh-ops 专测）、Skill 上下文卡片、可切 WSL / PowerShell / Bash / Zsh 执行环境，侧栏集成子代理与后台任务；1.8.7 增界面特效开关并支持 Windows 原生 Bash 路径，要求 Node >=24、DSH >=0.2.2-rc.1",
+      "source": "https://github.com/lishize20040802-rgb/dsh-deep-ptc-mode",
+      "install": "dsh-deep-ptc-mode@1.8.7",
+      "update": "dsh plugin --profile web add dsh-deep-ptc-mode"
     },
     {
       "id": "dsh-client-auto-continue",

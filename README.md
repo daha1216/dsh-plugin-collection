@@ -2,8 +2,8 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.59.5-blue.svg)](plugins.json)
-[![Plugins Count](https://img.shields.io/badge/plugins-12%20curated-brightgreen.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.59.6-blue.svg)](plugins.json)
+[![Plugins Count](https://img.shields.io/badge/plugins-13%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
@@ -38,6 +38,7 @@
 | `dsh-update-checker` | 0.7.3 | 一键检查已装插件的上游更新，点「一键更新」原生创建对话并预填更新提示词，适配多插件紧凑弹性侧栏 | [daha1216/dsh-update-checker](https://github.com/daha1216/dsh-update-checker) |
 | `@aa2246740/dsh-skillhub` | 1.0.9 | 本地技能与 MCP 服务的统一开关面板：自动扫描 ~/.agents/skills 与 $DSH_HOME/skills 及运行中的 MCP 服务，提供全局 / 本项目 / 本对话三层开关与向下传导，纯可见性控制，不改动任何磁盘技能文件 | [aa2246740/dsh-skillhub](https://github.com/aa2246740/dsh-skillhub) |
 | `dsh-client-auto-continue` | 0.18.0 | 请求因网络等非人为原因中断时，自动发送本地化的「继续」提示；0.18.0 断网先做在线探测再重试（离线按 15 秒复查、不消耗连续重试预算，pauseWhenOffline 默认开启），新增自主循环轮次上限 loopMaxIterations，重启后可唤醒被中断的子代理/团队会话、重新武装宿主卸下的 goal 并可选恢复手动暂停的 goal | [HsiangNianian/dsh-auto-continue](https://github.com/HsiangNianian/dsh-auto-continue) |
+| `dsh-deep-ptc-mode` | 1.8.7 | 深度 PTC 模式 Agent 预设：从宿主发布的官方 PTC 声明现场派生并原样继承官方行，把「先汇报、有歧义先问、执行中不休眠、计划分档可见、可随时插话」写进提示词与代码（前台等待超 30 秒自动转后台、用户插话约 2 秒让出、job 完成自动唤醒）；按需加载外部插件工具并隔离故障（dsh-ops 专测）、Skill 上下文卡片、可切 WSL / PowerShell / Bash / Zsh 执行环境，侧栏集成子代理与后台任务；1.8.7 增界面特效开关并支持 Windows 原生 Bash 路径，要求 Node >=24、DSH >=0.2.2-rc.1 | [lishize20040802-rgb/dsh-deep-ptc-mode](https://github.com/lishize20040802-rgb/dsh-deep-ptc-mode) |
 | `dsh-computer-use-win` | 0.5.6 | 让 DSH 看懂并操作 Windows 桌面与网页：原生桌面/浏览器工具，支持 UI 自动化树、OCR、截图、按键输入与窗口管理；0.5.6 修 DSH 0.1.5 上装插件后所有会话「加载更早」失效（每轮多个开始事件），OCR 小字先放大再识别（9–20px 逐字错误率约减半）并可指定识别语言，浮窗跟随 DSH 界面语言 | [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) |
 
 ### 🎨 界面体验与多端协同
@@ -117,6 +118,7 @@ bash install.sh --all
 | `dsh-client-auto-continue` | `dsh plugin --profile web add dsh-client-auto-continue@latest` |
 | `dsh-context` | `dsh plugin --profile web update dsh-context@latest` |
 | `dsh-desktop-notify-win` | `dsh plugin --profile web add github:xiaotie3088/dsh-desktop-notify-win` |
+| `dsh-deep-ptc-mode` | `dsh plugin --profile web add dsh-deep-ptc-mode` |
 | `dsh-computer-use-win` | `dsh plugin --profile web add dsh-computer-use-win` |
 
 ---
@@ -154,6 +156,11 @@ bash install.sh --all
   - npm 与 GitHub 同包名，装时不要设 npm 别名（别名会导致前端注册名对不上，表现为「装了但设置里没有 skill&mcp 入口」）；升级同样重跑 `add` 到最新版。
   - 版本与宿主强绑定：DSH `0.2.0-rc.x` 需插件 `1.0.4` 及以上，`0.1.7-rc.x` 只能装 `1.0.2`，`0.1.5` 只能装 `1.0.1`；版本不匹配宿主会在启动时整条拒绝该插件。
   - 开关状态存于 `$DSH_HOME/skillhub/`，开关只控制模型可见性，不增删改磁盘上的技能文件。
+- **`dsh-deep-ptc-mode`**：
+  - 要求 Node `>=24`、DSH `>=0.2.2-rc.1`（`0.2.1-rc.5` 会被安装器按插件清单拒绝）；所有运行期功能只服务 `deep-ptc` 会话，其他模式只多出一个插件设置页，安装也不会把别的任务的默认模式改成深度 PTC。
+  - 装完重启宿主，在「设置 → 插件 → 深度 PTC」选执行环境并保存，再新建任务时于模式选择器里选「深度PTC模式」（设置持久化在 profile 的 Cordis patch，界面保存会处理版本冲突与原子写入）。
+  - 自带界面精修只在当前显示深度 PTC 会话时生效；与外部主题 / UI 插件或独立的 `dsh-refined-ui` 同时在用时，建议在侧栏关掉「界面特效」（1.8.7 起有开关，选择记在本机）。
+  - 与 `dsh-ops` 有专门适配：门控只认 `minimal/standard/ptc/cordis` 的工具，深度 PTC 交出 `ptc` 基座 id，宿主内部仍保持精确 `deep-ptc`，因此不需要改造 `dsh-ops`；未归属工具不隔离，官方工具永不禁用。
 - **`dsh-computer-use-win`**：
   - Windows 原生桌面自动化插件（`Yu-tao-Li/dsh-computer-use-win`），通过 MCP stdio 桥接与 PowerShell 5.1 UIA 后端操作真实桌面应用与后台网页。
   - 安装或更新后必须在托盘菜单右键彻底「退出」DSH Desktop 再重新打开（仅关窗口无效）；默认提供 Esc 全局安全中断热键。
