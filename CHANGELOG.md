@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-11 dsh-desktop-notify-win 改指定制版 Fork（catalog 1.59.7）
+
+- **`dsh-desktop-notify-win` 来源改为定制版 Fork**（[daha1216/dsh-desktop-notify-win](https://github.com/daha1216/dsh-desktop-notify-win)，基于上游 [xiaotie3088/dsh-desktop-notify-win](https://github.com/xiaotie3088/dsh-desktop-notify-win) 0.4.0）：该 Fork 已把本机 BUILD 19 定制版覆盖上传（提交 `b6d6d0e`：三套版式 bar / card / dsh、8 套预设、分层窗口手绘 + DPI 感知、整体缩放 50%–150%），并把 README 的两种安装方式与 `package.json` 的 `homepage` / `repository` / `bugs` 指向 Fork（提交 `b2d0b9e`），上游出处链接与作者署名保留。`plugins.json` 的 `source` / `install` / `update` 与 README 目录表、更新命令表一并改为 `daha1216/dsh-desktop-notify-win`。
+- **抓取脚本同步**：`scripts/fetch-upstream.ps1` 的仓库映射与 `scripts/fetch-releases.ps1` 的默认仓库列表改指该 Fork（Fork 无 Release 时脚本会回落到提交列表）。
+- **避坑说明**：README「特殊插件与自维护 Fork」补充该条目——本条目指向定制版 Fork，更新为重跑 `dsh plugin --profile web add github:daha1216/dsh-desktop-notify-win`，GitHub 地址不带 tag 时取默认分支最新提交。
+- **版本**：catalogVersion `1.59.6` → `1.59.7`，updatedAt `2026-11-10` → `2026-11-11`，README 徽章同步 `catalog-v1.59.7`；条目数保持 13。
+- **校验**：`scripts/verify.ps1 -Profile desktop` 通过。
+
 ## 2026-11-10 新增 dsh-deep-ptc-mode（catalog 1.59.6）
 
 - **新增 `dsh-deep-ptc-mode` 1.8.7**（第三方，作者 lishize20040802-rgb，[lishize20040802-rgb/dsh-deep-ptc-mode](https://github.com/lishize20040802-rgb/dsh-deep-ptc-mode)，[v1.8.7](https://github.com/lishize20040802-rgb/dsh-deep-ptc-mode/releases/tag/v1.8.7)）：本机 desktop profile 已实装（npm 通道 `dsh-deep-ptc-mode@1.8.7`），补录进目录（12 → 13 条，归入「会话管理与效率工具」）。深度 PTC 是 Agent 预设而非工具包：从宿主发布的官方 PTC 声明现场派生预设并原样继承官方行，只替换 persona、执行组、可达性守卫与 job / 提问包装，官方升级后无需发版即可继承新工具；用提示词 + 代码解决「闷头干活不汇报、有歧义先猜不问、执行中休眠失联、计划不可见」——每次 `run_code` 前先说明意图、前台等待超 30 秒自动转后台且不杀命令、用户插话约 2 秒内命令转后台、前台超 5 秒的 sleep 直接拒绝、job 完成自动唤醒；另有按需加载 + 故障隔离的外部插件工具目录（`dsh-ops` 专测，交出它接受的 `ptc` 基座 id）、Skill 上下文卡片（每轮列出仍在上下文中的 Skill 并逐个滑动开关，1.8.5 起）、WSL / PowerShell / Bash / Zsh 执行环境切换（1.8.7 支持 Windows 原生 Bash 路径）、侧栏子代理与后台任务卡片，以及只在深度 PTC 会话生效的界面精修（1.8.7 起可在侧栏关闭）。要求 Node `>=24`、DSH `>=0.2.2-rc.1`。

@@ -34,7 +34,7 @@ if (-not $Repo -or $Repo.Count -eq 0) {
     'lishize20040802-rgb/dsh-deep-ptc-mode',
     'HsiangNianian/dsh-auto-continue',
     'bowenliang123/dsh-context',
-    'xiaotie3088/dsh-desktop-notify-win',
+    'daha1216/dsh-desktop-notify-win',
     'Yu-tao-Li/dsh-computer-use-win'
   )
 }

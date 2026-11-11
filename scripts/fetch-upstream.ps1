@@ -33,7 +33,7 @@ $repos = [ordered]@{
   'dsh-deep-ptc-mode'           = @{ repo = 'lishize20040802-rgb/dsh-deep-ptc-mode';     path = '' }
   'dsh-client-auto-continue'    = @{ repo = 'HsiangNianian/dsh-auto-continue';          path = '' }
   'dsh-context'                 = @{ repo = 'bowenliang123/dsh-context';                path = '' }
-  'dsh-desktop-notify-win'      = @{ repo = 'xiaotie3088/dsh-desktop-notify-win';      path = '' }
+  'dsh-desktop-notify-win'      = @{ repo = 'daha1216/dsh-desktop-notify-win';         path = '' }
   'dsh-computer-use-win'        = @{ repo = 'Yu-tao-Li/dsh-computer-use-win';          path = '' }
 }
 

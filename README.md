@@ -2,12 +2,12 @@
 
 > DeepSeek Harness（DSH）第三方插件精选目录与原生更新命令索引。
 
-[![Catalog Version](https://img.shields.io/badge/catalog-v1.59.6-blue.svg)](plugins.json)
+[![Catalog Version](https://img.shields.io/badge/catalog-v1.59.7-blue.svg)](plugins.json)
 [![Plugins Count](https://img.shields.io/badge/plugins-13%20curated-brightgreen.svg)](plugins.json)
 [![Target Profile](https://img.shields.io/badge/profile-web-orange.svg)](#)
 [![Single Source of Truth](https://img.shields.io/badge/SSOT-plugins.json-blueviolet.svg)](plugins.json)
 
-本仓库**只维护插件索引、安装入口与原生更新命令，不复制或重新发布任何插件源码**。每个条目均严格指向插件作者原仓库或官方发布的 npm 构建包。收录标准聚焦于日常真实使用，只收能切实提升 DSH 体验与效率的插件。
+本仓库**只维护插件索引、安装入口与原生更新命令，不复制或重新发布任何插件源码**。每个条目均严格指向插件作者原仓库、官方发布的 npm 构建包，或本仓库在「特殊插件与自维护 Fork」里注明的自维护 Fork。收录标准聚焦于日常真实使用，只收能切实提升 DSH 体验与效率的插件。
 
 ---
 
@@ -46,7 +46,7 @@
 | 插件名称 | 版本 | 用途 | 来源 |
 |---|---:|---|---|
 | `dsh-pocket` | 3.0.12 | 手机扫码同步电脑端 DSH，支持移动端操作；具备完整会话与工具代理、安全限流及 Cloudflare Named Tunnel 支持 | [daha1216/dsh-pocket](https://github.com/daha1216/dsh-pocket) |
-| `dsh-desktop-notify-win` | 0.4.0 | Windows 桌面通知：会话空闲、待审批、提问与出错时弹系统通知，带设置页、实时预览与预设 | [xiaotie3088/dsh-desktop-notify-win](https://github.com/xiaotie3088/dsh-desktop-notify-win) |
+| `dsh-desktop-notify-win` | 0.4.0 | Windows 桌面通知：会话空闲、待审批、提问与出错时弹系统通知，带设置页、实时预览与预设 | [daha1216/dsh-desktop-notify-win](https://github.com/daha1216/dsh-desktop-notify-win) |
 
 ---
 
@@ -117,7 +117,7 @@ bash install.sh --all
 | `@aa2246740/dsh-skillhub` | `dsh plugin --profile web add @aa2246740/dsh-skillhub` |
 | `dsh-client-auto-continue` | `dsh plugin --profile web add dsh-client-auto-continue@latest` |
 | `dsh-context` | `dsh plugin --profile web update dsh-context@latest` |
-| `dsh-desktop-notify-win` | `dsh plugin --profile web add github:xiaotie3088/dsh-desktop-notify-win` |
+| `dsh-desktop-notify-win` | `dsh plugin --profile web add github:daha1216/dsh-desktop-notify-win` |
 | `dsh-deep-ptc-mode` | `dsh plugin --profile web add dsh-deep-ptc-mode` |
 | `dsh-computer-use-win` | `dsh plugin --profile web add dsh-computer-use-win` |
 
@@ -152,6 +152,9 @@ bash install.sh --all
 - **`dsh-retrace`**：
   - 上游原生命令为 npm 通道 `dsh plugin --profile web add dsh-retrace`。
   - 本机实装与本目录均跟随自建兼容 Fork `github:daha1216/dsh-retrace`。
+- **`dsh-desktop-notify-win`**：
+  - 本条目指向本机定制版 Fork（`github:daha1216/dsh-desktop-notify-win`，基于上游 `xiaotie3088/dsh-desktop-notify-win` 0.4.0），非上游原仓库。
+  - 定制内容：三套版式（条状 / 卡片 / DSH 原生）、8 套预设、分层窗口手绘 + DPI 感知、整体缩放 50%–150%；更新为重跑 `dsh plugin --profile web add github:daha1216/dsh-desktop-notify-win`（GitHub 地址不带 tag 时取默认分支最新提交）。
 - **`@aa2246740/dsh-skillhub`**：
   - npm 与 GitHub 同包名，装时不要设 npm 别名（别名会导致前端注册名对不上，表现为「装了但设置里没有 skill&mcp 入口」）；升级同样重跑 `add` 到最新版。
   - 版本与宿主强绑定：DSH `0.2.0-rc.x` 需插件 `1.0.4` 及以上，`0.1.7-rc.x` 只能装 `1.0.2`，`0.1.5` 只能装 `1.0.1`；版本不匹配宿主会在启动时整条拒绝该插件。
