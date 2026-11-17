@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-17 dsh-pocket 3.1.0（catalog 1.59.8）
+
+- **`dsh-pocket` 3.0.12 → 3.1.0**（[v3.1.0](https://github.com/daha1216/dsh-pocket/releases/tag/v3.1.0)）：这一版把终局评审的 Phase 0 与 Phase 1 全部做完，并补上手机端轻量视图与使用探针。①**轻量视图**（新，设置 → 手机访问 → 「轻量视图」里有地址）：代理直出四个静态文件的独立页面，不加载宿主界面（宿主页带 225 个 `style[data-plugin]`、约 1.1 MB CSS），只看会话、发消息、批审批，数据走宿主自己的 `/api`、审批走远程事件通道，可加到主屏幕；直出前代理先用 `GET /?token=…` 替浏览器换宿主 cookie，首屏不二次跳转、token 不留在地址栏。②**使用探针**（新，默认关）：`node scripts/probe-report.mjs --days 7` 出手机端使用周报（页面停留、点击密度、断线恢复耗时、锚点失效 Top），数据只写本机 `$DSH_HOME/dsh-pocket/probe.jsonl`（8 MB 轮转、每分钟 ≤60 包、不联网、不含消息内容），设置页可关可清。③**修左上角抽屉开关看不见**：宿主给标题簇挂 `mask-image` 做右端渐隐，mask 盒只覆盖簇自身，插件把开关钉在 header 左缘 8px 处——整颗落在盒外被擦成透明（`display`/`visibility`/`opacity` 全正常，`elementFromPoint` 取不到），手机档关掉该 mask 后恢复，顺带修好文件夹按钮右缘被咬淡。④**修断线重连风暴**：看门狗在宿主自报断线时立刻 `reconnect()`，与宿主退避重连抢跑——实测 3 轮「断网 4 秒 / 恢复 7 秒」建了 9 条 WebSocket、页面每轮重建；改为只对「快照说 up 但两次探活都失败」强制重连，宿主自报断线等 15 秒才补一次，冷启动首次连上前不算断线，横幅加 1200ms 宽限。⑤**修轻量视图列表拖死弱网**：宿主 `session/list` 无分页参数（本机 2856 个会话一次 16.7 MiB、2.2–4.2 秒），改为缓存先渲染 + 请求单飞 + ≥400 会话降到 30 秒轮询，页面资源按 mtime 失效。⑥**内部**：`client/mobile/upstream/` 变成 vendor 快照 + 三条变换 + 40 个补丁的生成物（`npm run upstream:check|apply|regen|bump`，`PORTING.md` 重写）、`lib/proxy.mjs` 2454 行拆成 13 个模块、`client/index.jsx` 1253 行拆出 `client/settings/` 五个文件、4 个键盘守卫合成焦点域管理器且抽屉 Escape 收归面板栈、170 个锚点进契约测试。
+- **校验脚本**：`scripts/verify.ps1 -Profile desktop` 通过。
+- **同步范围**：plugins.json、README.md 目录表与徽章、CHANGELOG.md；catalogVersion `1.59.7` → `1.59.8`，updatedAt `2026-11-11` → `2026-11-17`，条目数保持 13。
 ## 2026-11-11 dsh-desktop-notify-win 改指定制版 Fork（catalog 1.59.7）
 
 - **`dsh-desktop-notify-win` 来源改为定制版 Fork**（[daha1216/dsh-desktop-notify-win](https://github.com/daha1216/dsh-desktop-notify-win)，基于上游 [xiaotie3088/dsh-desktop-notify-win](https://github.com/xiaotie3088/dsh-desktop-notify-win) 0.4.0）：该 Fork 已把本机 BUILD 19 定制版覆盖上传（提交 `b6d6d0e`：三套版式 bar / card / dsh、8 套预设、分层窗口手绘 + DPI 感知、整体缩放 50%–150%），并把 README 的两种安装方式与 `package.json` 的 `homepage` / `repository` / `bugs` 指向 Fork（提交 `b2d0b9e`），上游出处链接与作者署名保留。`plugins.json` 的 `source` / `install` / `update` 与 README 目录表、更新命令表一并改为 `daha1216/dsh-desktop-notify-win`。
